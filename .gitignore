@@ -1,0 +1,12 @@
+# Local business data and generated print jobs; never commit customer artwork.
+/local-data/
+
+# Credentials and machine-specific environment values.
+.env
+.env.*
+!.env.example
+
+# Operating-system metadata.
+.DS_Store
+Thumbs.db
+Desktop.ini
