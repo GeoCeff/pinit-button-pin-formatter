@@ -1,5 +1,5 @@
-export const DOCK_BASE = 48
-export const DOCK_GAP = 16
+export const DOCK_BASE = 40
+export const DOCK_GAP = 12
 const MAX_SCALE = 1.35
 const SPREAD = 54
 

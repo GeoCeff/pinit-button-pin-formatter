@@ -5,22 +5,20 @@ primary_target: "src/ui/App.tsx"
 related_targets: ["src/ui/Workspace.tsx","src/ui/Settings.tsx","src/ui/styles.css","src/components/ui/mac-style-floating-dock.tsx"]
 ---
 
-# PinIt block workbench
+# PinIt professional editor refinement
 
-Mode: Operate. Offline Windows Electron/React editor. This replacement is explicitly requested by the user: change layout/structure and follow the inspiration's actual blocks, palette and style; integrate the pasted dock directly in code. This replaces the earlier loose-reference interpretation. No Figma work.
+Mode: Operate. Offline Windows Electron/React editor. User rejected the previous block workbench as still not good and explicitly selected **Clean professional editor with playful block accents**. This latest answer supersedes the earlier literal/decorative block density. Direct to code, no Figma. Existing product truth, source images, independent physical dimensions, portable projects, center guides and exports remain.
 
-## Direction contract
+THESIS: Make artwork the working surface. Reclaim vertical space from repeated chrome and group tools around the task.
 
-THESIS: A pin-making workbench assembled from interlocking colored blocks. Remove the old library/editor/inspector three-column dashboard.
+OWN-WORLD: Preserve locally bundled Geist, cool white #f1f7f9, the cyan/sky reference palette, and a few precise molded studs. Professional neutral canvas, white controls/panels, dark blue active tools, restrained 7–14px radii. Studs belong to the brand symbol and a cropped outer canvas corner, not floating inside the customer's artwork.
 
-OWN-WORLD: Reference cyan #4ba6c2, sky #93d0e3, accent #69c5e2, cool white #f1f7f9 and near-black #050809. Geist, substantial typography, joined rectangular modules, rounded outer corners, and precise embossed circular studs. Material geometry is explicitly pinned by the user.
+STORY: Project commands → artwork and quick Safe/Face/Fill controls → exact adjustments when needed → simultaneous sheet verification → export. Artwork selection is a compact tray shared with the supplied four-tool dock.
 
-STORY: Import artwork, select it from a horizontal shelf, position it in the large editor, disclose exact adjustments when needed, set up sheets in a dedicated view, inspect the persistent paper preview, then export.
+FIRST VIEWPORT: 60–64px project bar; flexible editor and 300–332px preview, both occupied. A single 56px artwork header groups thumbnail, name, geometry and adjustments; fit modes on roomy desktop. The artwork tray and dock share a 76–80px row, recovering canvas height. Target cut-circle ≥300px at native minimum1080×720, versus ~192px in the rejected capture. Toast success messages do not consume working height. Errors remain in flow. Empty state is one central import composition with real pin rings.
 
-FIRST VIEWPORT: Joined project blocks across the top. A dominant editing stage at left; tall white print preview at right. The artwork shelf runs below the editor. The supplied floating dock sits in its own reserved bottom bay and switches Artwork, Sheet and Library views or opens export. The empty editor pairs a two-line heading with the actual pin geometry. Sheet setup replaces the editing region with a modular form workspace.
-
-FORM: Reference-led block workbench. Surface seed:7e89320490c7d9c4; Python variation seed291 chose editorial split / Geist. User instructions supersede the earlier visual world and generic restrained-app decoration rules. The supplied component is adapted to real editor actions, keyboard operation, reduced motion and transient-ref pointer updates. Code-led; no comp or Figma approval is claimed. Marketing marquees, scroll pinning and scrubbing are adapted to task feedback, because the working editor keeps a fixed viewport.
+FORM: Retained historical surface provenance seed:7e89320490c7d9c4; this refinement preserves that reference and requires no new direction roll. Existing-world layout and usability refinement, code-led. No new concept tournament/comp approval claimed. gpt-taste Python seed83 selected Artistic Asymmetry/Geist; seeded marketing patterns are adapted to the actual operating task (thumbnail heading, artwork carousel, disclosed adjustments, persistent navigation). Emil governs frequent/keyboard interactions; instant keyboard actions, ref-based dock motion, reduced-motion and fine-pointer gates. Dock base40/gap12 retains Gaussian max1.35/spread54/160ms motion.
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
 
-Keep actual source images, print dimensions, portable storage, export failure handling, quantities, drag/resize/center behavior, keyboard alternatives and validation. Verify desktop1500x960, native minimum1080x720, and defensive390px fallback. All QA artwork is synthetic. Git branch codex/block-studio-revamp; finish with a local commit.
+Verify desktop1500×960, native minimum1080×720, defensive390px fallback, empty/loaded/long/error/library/Sheet/adjustment/export/hover/focus/alignment states. Use rejected-block-desktop.png and rejected-block-compact.png as anti-reference, not authority. Preserve keyboard dock, source originals, numeric gesture alternatives, physical geometry and failed/canceled export cleanup. No new shipping raster is introduced.

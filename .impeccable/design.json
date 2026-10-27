@@ -1,1180 +1,669 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-27T06:50:12.339Z",
+  "generatedAt": "2026-10-27T11:01:50.636Z",
   "title": "Design System: PinIt",
   "extensions": {
     "colorMeta": {
       "ink": {
         "role": "neutral",
-        "displayName": "Near-black ink",
-        "purpose": "Primary working text.",
+        "displayName": "Working ink",
+        "canonical": "#142b36",
         "tonalRamp": [
-          "oklch(15% 0.0070 216.8)",
-          "oklch(26.4% 0.0070 216.8)",
-          "oklch(37.9% 0.0070 216.8)",
-          "oklch(49.3% 0.0070 216.8)",
-          "oklch(60.7% 0.0070 216.8)",
-          "oklch(72.1% 0.0070 216.8)",
-          "oklch(83.6% 0.0070 216.8)",
-          "oklch(95% 0.0070 216.8)"
+          "oklch(0.15 0.03542 230.65)",
+          "oklch(0.26 0.03542 230.65)",
+          "oklch(0.38 0.03542 230.65)",
+          "oklch(0.49 0.03542 230.65)",
+          "oklch(0.61 0.03542 230.65)",
+          "oklch(0.72 0.03542 230.65)",
+          "oklch(0.84 0.03542 230.65)",
+          "oklch(0.95 0.03542 230.65)"
         ]
       },
       "muted": {
         "role": "neutral",
-        "displayName": "Blue-gray secondary ink",
-        "purpose": "Hints and supporting labels.",
+        "displayName": "Blue-gray supporting ink",
+        "canonical": "#526c79",
         "tonalRamp": [
-          "oklch(15% 0.0465 225.4)",
-          "oklch(26.4% 0.0465 225.4)",
-          "oklch(37.9% 0.0465 225.4)",
-          "oklch(49.3% 0.0465 225.4)",
-          "oklch(60.7% 0.0465 225.4)",
-          "oklch(72.1% 0.0465 225.4)",
-          "oklch(83.6% 0.0465 225.4)",
-          "oklch(95% 0.0465 225.4)"
+          "oklch(0.15 0.03686 229.97)",
+          "oklch(0.26 0.03686 229.97)",
+          "oklch(0.38 0.03686 229.97)",
+          "oklch(0.49 0.03686 229.97)",
+          "oklch(0.61 0.03686 229.97)",
+          "oklch(0.72 0.03686 229.97)",
+          "oklch(0.84 0.03686 229.97)",
+          "oklch(0.95 0.03686 229.97)"
         ]
       },
       "workspace": {
         "role": "neutral",
-        "displayName": "Cool white workspace",
-        "purpose": "Application surround, selected artwork and dialog ground.",
+        "displayName": "Cool workspace",
+        "canonical": "#f1f7f9",
         "tonalRamp": [
-          "oklch(15% 0.0069 219.6)",
-          "oklch(26.4% 0.0069 219.6)",
-          "oklch(37.9% 0.0069 219.6)",
-          "oklch(49.3% 0.0069 219.6)",
-          "oklch(60.7% 0.0069 219.6)",
-          "oklch(72.1% 0.0069 219.6)",
-          "oklch(83.6% 0.0069 219.6)",
-          "oklch(95% 0.0069 219.6)"
+          "oklch(0.15 0.00693 219.56)",
+          "oklch(0.26 0.00693 219.56)",
+          "oklch(0.38 0.00693 219.56)",
+          "oklch(0.49 0.00693 219.56)",
+          "oklch(0.61 0.00693 219.56)",
+          "oklch(0.72 0.00693 219.56)",
+          "oklch(0.84 0.00693 219.56)",
+          "oklch(0.95 0.00693 219.56)"
         ]
       },
       "surface": {
         "role": "neutral",
-        "displayName": "White work surface",
-        "purpose": "Project/preview, controls, paper and guide halos.",
+        "displayName": "White surface",
+        "canonical": "#ffffff",
         "tonalRamp": [
-          "oklch(15% 0.0000 0.0)",
-          "oklch(26.4% 0.0000 0.0)",
-          "oklch(37.9% 0.0000 0.0)",
-          "oklch(49.3% 0.0000 0.0)",
-          "oklch(60.7% 0.0000 0.0)",
-          "oklch(72.1% 0.0000 0.0)",
-          "oklch(83.6% 0.0000 0.0)",
-          "oklch(95% 0.0000 0.0)"
+          "oklch(0.15 0.00000 89.88)",
+          "oklch(0.26 0.00000 89.88)",
+          "oklch(0.38 0.00000 89.88)",
+          "oklch(0.49 0.00000 89.88)",
+          "oklch(0.61 0.00000 89.88)",
+          "oklch(0.72 0.00000 89.88)",
+          "oklch(0.84 0.00000 89.88)",
+          "oklch(0.95 0.00000 89.88)"
+        ]
+      },
+      "canvas": {
+        "role": "neutral",
+        "displayName": "Neutral canvas",
+        "canonical": "#edf3f6",
+        "tonalRamp": [
+          "oklch(0.15 0.00758 228.85)",
+          "oklch(0.26 0.00758 228.85)",
+          "oklch(0.38 0.00758 228.85)",
+          "oklch(0.49 0.00758 228.85)",
+          "oklch(0.61 0.00758 228.85)",
+          "oklch(0.72 0.00758 228.85)",
+          "oklch(0.84 0.00758 228.85)",
+          "oklch(0.95 0.00758 228.85)"
         ]
       },
       "accent": {
         "role": "primary",
-        "displayName": "Molded cyan",
-        "purpose": "Brand block, artwork shelf and stud blocks.",
+        "displayName": "Reference cyan",
+        "canonical": "#4ba6c2",
         "tonalRamp": [
-          "oklch(15% 0.0951 221.1)",
-          "oklch(26.4% 0.0951 221.1)",
-          "oklch(37.9% 0.0951 221.1)",
-          "oklch(49.3% 0.0951 221.1)",
-          "oklch(60.7% 0.0951 221.1)",
-          "oklch(72.1% 0.0951 221.1)",
-          "oklch(83.6% 0.0951 221.1)",
-          "oklch(95% 0.0951 221.1)"
+          "oklch(0.15 0.09507 221.10)",
+          "oklch(0.26 0.09507 221.10)",
+          "oklch(0.38 0.09507 221.10)",
+          "oklch(0.49 0.09507 221.10)",
+          "oklch(0.61 0.09507 221.10)",
+          "oklch(0.72 0.09507 221.10)",
+          "oklch(0.84 0.09507 221.10)",
+          "oklch(0.95 0.09507 221.10)"
         ]
       },
       "secondary": {
         "role": "primary",
-        "displayName": "Sky block",
-        "purpose": "Editing region, view headings and artwork cards.",
+        "displayName": "Reference sky",
+        "canonical": "#93d0e3",
         "tonalRamp": [
-          "oklch(15% 0.0676 219.2)",
-          "oklch(26.4% 0.0676 219.2)",
-          "oklch(37.9% 0.0676 219.2)",
-          "oklch(49.3% 0.0676 219.2)",
-          "oklch(60.7% 0.0676 219.2)",
-          "oklch(72.1% 0.0676 219.2)",
-          "oklch(83.6% 0.0676 219.2)",
-          "oklch(95% 0.0676 219.2)"
+          "oklch(0.15 0.06758 219.22)",
+          "oklch(0.26 0.06758 219.22)",
+          "oklch(0.38 0.06758 219.22)",
+          "oklch(0.49 0.06758 219.22)",
+          "oklch(0.61 0.06758 219.22)",
+          "oklch(0.72 0.06758 219.22)",
+          "oklch(0.84 0.06758 219.22)",
+          "oklch(0.95 0.06758 219.22)"
         ]
       },
       "bright": {
         "role": "primary",
         "displayName": "Bright sky",
-        "purpose": "Selected dock tile, text selection and secondary studs.",
+        "canonical": "#69c5e2",
         "tonalRamp": [
-          "oklch(15% 0.0967 220.8)",
-          "oklch(26.4% 0.0967 220.8)",
-          "oklch(37.9% 0.0967 220.8)",
-          "oklch(49.3% 0.0967 220.8)",
-          "oklch(60.7% 0.0967 220.8)",
-          "oklch(72.1% 0.0967 220.8)",
-          "oklch(83.6% 0.0967 220.8)",
-          "oklch(95% 0.0967 220.8)"
-        ]
-      },
-      "lemon": {
-        "role": "secondary",
-        "displayName": "Print lemon",
-        "purpose": "Passive Print at 100% chip.",
-        "tonalRamp": [
-          "oklch(15% 0.1342 94.3)",
-          "oklch(26.4% 0.1342 94.3)",
-          "oklch(37.9% 0.1342 94.3)",
-          "oklch(49.3% 0.1342 94.3)",
-          "oklch(60.7% 0.1342 94.3)",
-          "oklch(72.1% 0.1342 94.3)",
-          "oklch(83.6% 0.1342 94.3)",
-          "oklch(95% 0.1342 94.3)"
-        ]
+          "oklch(0.15 0.09674 220.83)",
+          "oklch(0.26 0.09674 220.83)",
+          "oklch(0.38 0.09674 220.83)",
+          "oklch(0.49 0.09674 220.83)",
+          "oklch(0.61 0.09674 220.83)",
+          "oklch(0.72 0.09674 220.83)",
+          "oklch(0.84 0.09674 220.83)",
+          "oklch(0.95 0.09674 220.83)"
+        ],
+        "purpose": "Retained reference palette; not the selected dock fill."
       },
       "panel": {
         "role": "neutral",
-        "displayName": "Pale cyan panel",
-        "purpose": "Adjustment drawer, settings panels and ordinary hover.",
+        "displayName": "Pale panel",
+        "canonical": "#e7f3f7",
         "tonalRamp": [
-          "oklch(15% 0.0246 215.9)",
-          "oklch(26.4% 0.0246 215.9)",
-          "oklch(37.9% 0.0246 215.9)",
-          "oklch(49.3% 0.0246 215.9)",
-          "oklch(60.7% 0.0246 215.9)",
-          "oklch(72.1% 0.0246 215.9)",
-          "oklch(83.6% 0.0246 215.9)",
-          "oklch(95% 0.0246 215.9)"
+          "oklch(0.15 0.01384 219.62)",
+          "oklch(0.26 0.01384 219.62)",
+          "oklch(0.38 0.01384 219.62)",
+          "oklch(0.49 0.01384 219.62)",
+          "oklch(0.61 0.01384 219.62)",
+          "oklch(0.72 0.01384 219.62)",
+          "oklch(0.84 0.01384 219.62)",
+          "oklch(0.95 0.01384 219.62)"
         ]
       },
       "paper-well": {
         "role": "neutral",
         "displayName": "Paper well",
-        "purpose": "Recess surrounding preview paper.",
+        "canonical": "#eaf0f3",
         "tonalRamp": [
-          "oklch(15% 0.0104 219.6)",
-          "oklch(26.4% 0.0104 219.6)",
-          "oklch(37.9% 0.0104 219.6)",
-          "oklch(49.3% 0.0104 219.6)",
-          "oklch(60.7% 0.0104 219.6)",
-          "oklch(72.1% 0.0104 219.6)",
-          "oklch(83.6% 0.0104 219.6)",
-          "oklch(95% 0.0104 219.6)"
+          "oklch(0.15 0.00759 228.85)",
+          "oklch(0.26 0.00759 228.85)",
+          "oklch(0.38 0.00759 228.85)",
+          "oklch(0.49 0.00759 228.85)",
+          "oklch(0.61 0.00759 228.85)",
+          "oklch(0.72 0.00759 228.85)",
+          "oklch(0.84 0.00759 228.85)",
+          "oklch(0.95 0.00759 228.85)"
         ]
       },
       "action": {
         "role": "primary",
         "displayName": "Deep action blue",
-        "purpose": "Primary/export fill, links, checkbox accent and selected outlines.",
+        "canonical": "#075672",
         "tonalRamp": [
-          "oklch(15% 0.0816 229.6)",
-          "oklch(26.4% 0.0816 229.6)",
-          "oklch(37.9% 0.0816 229.6)",
-          "oklch(49.3% 0.0816 229.6)",
-          "oklch(60.7% 0.0816 229.6)",
-          "oklch(72.1% 0.0816 229.6)",
-          "oklch(83.6% 0.0816 229.6)",
-          "oklch(95% 0.0816 229.6)"
-        ]
-      },
-      "accent-ink": {
-        "role": "primary",
-        "displayName": "Accent ink",
-        "purpose": "Source alias of action retained for integration.",
-        "tonalRamp": [
-          "oklch(15% 0.0816 229.6)",
-          "oklch(26.4% 0.0816 229.6)",
-          "oklch(37.9% 0.0816 229.6)",
-          "oklch(49.3% 0.0816 229.6)",
-          "oklch(60.7% 0.0816 229.6)",
-          "oklch(72.1% 0.0816 229.6)",
-          "oklch(83.6% 0.0816 229.6)",
-          "oklch(95% 0.0816 229.6)"
+          "oklch(0.15 0.08164 229.61)",
+          "oklch(0.26 0.08164 229.61)",
+          "oklch(0.38 0.08164 229.61)",
+          "oklch(0.49 0.08164 229.61)",
+          "oklch(0.61 0.08164 229.61)",
+          "oklch(0.72 0.08164 229.61)",
+          "oklch(0.84 0.08164 229.61)",
+          "oklch(0.95 0.08164 229.61)"
         ]
       },
       "focus": {
         "role": "primary",
         "displayName": "Focus blue",
-        "purpose": "Visible keyboard focus and color-field focus-within.",
+        "canonical": "#064c68",
         "tonalRamp": [
-          "oklch(15% 0.0777 232.5)",
-          "oklch(26.4% 0.0777 232.5)",
-          "oklch(37.9% 0.0777 232.5)",
-          "oklch(49.3% 0.0777 232.5)",
-          "oklch(60.7% 0.0777 232.5)",
-          "oklch(72.1% 0.0777 232.5)",
-          "oklch(83.6% 0.0777 232.5)",
-          "oklch(95% 0.0777 232.5)"
+          "oklch(0.15 0.07770 232.47)",
+          "oklch(0.26 0.07770 232.47)",
+          "oklch(0.38 0.07770 232.47)",
+          "oklch(0.49 0.07770 232.47)",
+          "oklch(0.61 0.07770 232.47)",
+          "oklch(0.72 0.07770 232.47)",
+          "oklch(0.84 0.07770 232.47)",
+          "oklch(0.95 0.07770 232.47)"
         ]
       },
       "control-line": {
         "role": "neutral",
         "displayName": "Control stroke",
-        "purpose": "Field/button boundaries and local scrollbars.",
+        "canonical": "#78929f",
         "tonalRamp": [
-          "oklch(15% 0.0449 222.2)",
-          "oklch(26.4% 0.0449 222.2)",
-          "oklch(37.9% 0.0449 222.2)",
-          "oklch(49.3% 0.0449 222.2)",
-          "oklch(60.7% 0.0449 222.2)",
-          "oklch(72.1% 0.0449 222.2)",
-          "oklch(83.6% 0.0449 222.2)",
-          "oklch(95% 0.0449 222.2)"
+          "oklch(0.15 0.03530 229.61)",
+          "oklch(0.26 0.03530 229.61)",
+          "oklch(0.38 0.03530 229.61)",
+          "oklch(0.49 0.03530 229.61)",
+          "oklch(0.61 0.03530 229.61)",
+          "oklch(0.72 0.03530 229.61)",
+          "oklch(0.84 0.03530 229.61)",
+          "oklch(0.95 0.03530 229.61)"
         ]
       },
       "line": {
         "role": "neutral",
-        "displayName": "Module divider",
-        "purpose": "Settings and summary separators.",
+        "displayName": "Divider",
+        "canonical": "#d7e2e7",
         "tonalRamp": [
-          "oklch(15% 0.0321 222.1)",
-          "oklch(26.4% 0.0321 222.1)",
-          "oklch(37.9% 0.0321 222.1)",
-          "oklch(49.3% 0.0321 222.1)",
-          "oklch(60.7% 0.0321 222.1)",
-          "oklch(72.1% 0.0321 222.1)",
-          "oklch(83.6% 0.0321 222.1)",
-          "oklch(95% 0.0321 222.1)"
+          "oklch(0.15 0.01368 226.57)",
+          "oklch(0.26 0.01368 226.57)",
+          "oklch(0.38 0.01368 226.57)",
+          "oklch(0.49 0.01368 226.57)",
+          "oklch(0.61 0.01368 226.57)",
+          "oklch(0.72 0.01368 226.57)",
+          "oklch(0.84 0.01368 226.57)",
+          "oklch(0.95 0.01368 226.57)"
         ]
       },
       "danger": {
-        "role": "feedback",
-        "displayName": "Error red",
-        "purpose": "Destructive actions, invalid fields and error text.",
+        "role": "neutral",
+        "displayName": "Danger",
+        "canonical": "#a12a29",
         "tonalRamp": [
-          "oklch(15% 0.1556 25.8)",
-          "oklch(26.4% 0.1556 25.8)",
-          "oklch(37.9% 0.1556 25.8)",
-          "oklch(49.3% 0.1556 25.8)",
-          "oklch(60.7% 0.1556 25.8)",
-          "oklch(72.1% 0.1556 25.8)",
-          "oklch(83.6% 0.1556 25.8)",
-          "oklch(95% 0.1556 25.8)"
-        ]
-      },
-      "danger-soft": {
-        "role": "feedback",
-        "displayName": "Error wash",
-        "purpose": "Errors, source-missing state and remove-button hover.",
-        "tonalRamp": [
-          "oklch(15% 0.0172 35.3)",
-          "oklch(26.4% 0.0172 35.3)",
-          "oklch(37.9% 0.0172 35.3)",
-          "oklch(49.3% 0.0172 35.3)",
-          "oklch(60.7% 0.0172 35.3)",
-          "oklch(72.1% 0.0172 35.3)",
-          "oklch(83.6% 0.0172 35.3)",
-          "oklch(95% 0.0172 35.3)"
+          "oklch(0.15 0.15565 25.82)",
+          "oklch(0.26 0.15565 25.82)",
+          "oklch(0.38 0.15565 25.82)",
+          "oklch(0.49 0.15565 25.82)",
+          "oklch(0.61 0.15565 25.82)",
+          "oklch(0.72 0.15565 25.82)",
+          "oklch(0.84 0.15565 25.82)",
+          "oklch(0.95 0.15565 25.82)"
         ]
       },
       "danger-hover": {
-        "role": "feedback",
-        "displayName": "Destructive hover red",
-        "purpose": "Fine-pointer destructive hover fill and stroke.",
+        "role": "neutral",
+        "displayName": "Danger Hover",
+        "canonical": "#852221",
         "tonalRamp": [
-          "oklch(15% 0.1344 25.8)",
-          "oklch(26.4% 0.1344 25.8)",
-          "oklch(37.9% 0.1344 25.8)",
-          "oklch(49.3% 0.1344 25.8)",
-          "oklch(60.7% 0.1344 25.8)",
-          "oklch(72.1% 0.1344 25.8)",
-          "oklch(83.6% 0.1344 25.8)",
-          "oklch(95% 0.1344 25.8)"
+          "oklch(0.15 0.13437 25.78)",
+          "oklch(0.26 0.13437 25.78)",
+          "oklch(0.38 0.13437 25.78)",
+          "oklch(0.49 0.13437 25.78)",
+          "oklch(0.61 0.13437 25.78)",
+          "oklch(0.72 0.13437 25.78)",
+          "oklch(0.84 0.13437 25.78)",
+          "oklch(0.95 0.13437 25.78)"
+        ]
+      },
+      "danger-soft": {
+        "role": "neutral",
+        "displayName": "Danger Soft",
+        "canonical": "#fff0ec",
+        "tonalRamp": [
+          "oklch(0.15 0.01716 35.34)",
+          "oklch(0.26 0.01716 35.34)",
+          "oklch(0.38 0.01716 35.34)",
+          "oklch(0.49 0.01716 35.34)",
+          "oklch(0.61 0.01716 35.34)",
+          "oklch(0.72 0.01716 35.34)",
+          "oklch(0.84 0.01716 35.34)",
+          "oklch(0.95 0.01716 35.34)"
         ]
       },
       "success": {
-        "role": "feedback",
-        "displayName": "Success green",
-        "purpose": "Completed operation notices.",
-        "tonalRamp": [
-          "oklch(15% 0.0889 154.4)",
-          "oklch(26.4% 0.0889 154.4)",
-          "oklch(37.9% 0.0889 154.4)",
-          "oklch(49.3% 0.0889 154.4)",
-          "oklch(60.7% 0.0889 154.4)",
-          "oklch(72.1% 0.0889 154.4)",
-          "oklch(83.6% 0.0889 154.4)",
-          "oklch(95% 0.0889 154.4)"
-        ]
-      },
-      "success-soft": {
-        "role": "feedback",
-        "displayName": "Success wash",
-        "purpose": "Completed operation notice ground.",
-        "tonalRamp": [
-          "oklch(15% 0.0157 154.5)",
-          "oklch(26.4% 0.0157 154.5)",
-          "oklch(37.9% 0.0157 154.5)",
-          "oklch(49.3% 0.0157 154.5)",
-          "oklch(60.7% 0.0157 154.5)",
-          "oklch(72.1% 0.0157 154.5)",
-          "oklch(83.6% 0.0157 154.5)",
-          "oklch(95% 0.0157 154.5)"
-        ]
-      },
-      "disabled-ink": {
         "role": "neutral",
-        "displayName": "Disabled control ink",
-        "purpose": "Disabled ordinary buttons.",
+        "displayName": "Success",
+        "canonical": "#22613c",
         "tonalRamp": [
-          "oklch(15% 0.0319 225.1)",
-          "oklch(26.4% 0.0319 225.1)",
-          "oklch(37.9% 0.0319 225.1)",
-          "oklch(49.3% 0.0319 225.1)",
-          "oklch(60.7% 0.0319 225.1)",
-          "oklch(72.1% 0.0319 225.1)",
-          "oklch(83.6% 0.0319 225.1)",
-          "oklch(95% 0.0319 225.1)"
-        ]
-      },
-      "disabled-line": {
-        "role": "neutral",
-        "displayName": "Disabled control stroke",
-        "purpose": "Disabled ordinary buttons.",
-        "tonalRamp": [
-          "oklch(15% 0.0254 222.6)",
-          "oklch(26.4% 0.0254 222.6)",
-          "oklch(37.9% 0.0254 222.6)",
-          "oklch(49.3% 0.0254 222.6)",
-          "oklch(60.7% 0.0254 222.6)",
-          "oklch(72.1% 0.0254 222.6)",
-          "oklch(83.6% 0.0254 222.6)",
-          "oklch(95% 0.0254 222.6)"
-        ]
-      },
-      "disabled-surface": {
-        "role": "neutral",
-        "displayName": "Disabled control surface",
-        "purpose": "Disabled ordinary buttons.",
-        "tonalRamp": [
-          "oklch(15% 0.0155 222.7)",
-          "oklch(26.4% 0.0155 222.7)",
-          "oklch(37.9% 0.0155 222.7)",
-          "oklch(49.3% 0.0155 222.7)",
-          "oklch(60.7% 0.0155 222.7)",
-          "oklch(72.1% 0.0155 222.7)",
-          "oklch(83.6% 0.0155 222.7)",
-          "oklch(95% 0.0155 222.7)"
-        ]
-      },
-      "unsaved": {
-        "role": "feedback",
-        "displayName": "Unsaved amber",
-        "purpose": "Dot beside Unsaved changes.",
-        "tonalRamp": [
-          "oklch(15% 0.1134 62.1)",
-          "oklch(26.4% 0.1134 62.1)",
-          "oklch(37.9% 0.1134 62.1)",
-          "oklch(49.3% 0.1134 62.1)",
-          "oklch(60.7% 0.1134 62.1)",
-          "oklch(72.1% 0.1134 62.1)",
-          "oklch(83.6% 0.1134 62.1)",
-          "oklch(95% 0.1134 62.1)"
-        ]
-      },
-      "export-disabled-ink": {
-        "role": "neutral",
-        "displayName": "Disabled export ink",
-        "purpose": "Disabled header export module.",
-        "tonalRamp": [
-          "oklch(15% 0.0507 225.8)",
-          "oklch(26.4% 0.0507 225.8)",
-          "oklch(37.9% 0.0507 225.8)",
-          "oklch(49.3% 0.0507 225.8)",
-          "oklch(60.7% 0.0507 225.8)",
-          "oklch(72.1% 0.0507 225.8)",
-          "oklch(83.6% 0.0507 225.8)",
-          "oklch(95% 0.0507 225.8)"
-        ]
-      },
-      "export-disabled-surface": {
-        "role": "neutral",
-        "displayName": "Disabled export block",
-        "purpose": "Disabled header export module.",
-        "tonalRamp": [
-          "oklch(15% 0.0322 219.1)",
-          "oklch(26.4% 0.0322 219.1)",
-          "oklch(37.9% 0.0322 219.1)",
-          "oklch(49.3% 0.0322 219.1)",
-          "oklch(60.7% 0.0322 219.1)",
-          "oklch(72.1% 0.0322 219.1)",
-          "oklch(83.6% 0.0322 219.1)",
-          "oklch(95% 0.0322 219.1)"
-        ]
-      },
-      "intro-ink": {
-        "role": "neutral",
-        "displayName": "Intro blue ink",
-        "purpose": "Empty-editor supporting copy.",
-        "tonalRamp": [
-          "oklch(15% 0.0539 228.7)",
-          "oklch(26.4% 0.0539 228.7)",
-          "oklch(37.9% 0.0539 228.7)",
-          "oklch(49.3% 0.0539 228.7)",
-          "oklch(60.7% 0.0539 228.7)",
-          "oklch(72.1% 0.0539 228.7)",
-          "oklch(83.6% 0.0539 228.7)",
-          "oklch(95% 0.0539 228.7)"
-        ]
-      },
-      "empty-face-guide": {
-        "role": "feedback",
-        "displayName": "Empty face amber",
-        "purpose": "Dashed face ring in empty geometry.",
-        "tonalRamp": [
-          "oklch(15% 0.0994 66.8)",
-          "oklch(26.4% 0.0994 66.8)",
-          "oklch(37.9% 0.0994 66.8)",
-          "oklch(49.3% 0.0994 66.8)",
-          "oklch(60.7% 0.0994 66.8)",
-          "oklch(72.1% 0.0994 66.8)",
-          "oklch(83.6% 0.0994 66.8)",
-          "oklch(95% 0.0994 66.8)"
-        ]
-      },
-      "library-ink": {
-        "role": "neutral",
-        "displayName": "Shelf blue ink",
-        "purpose": "Import guidance and empty shelf copy.",
-        "tonalRamp": [
-          "oklch(15% 0.0541 226.4)",
-          "oklch(26.4% 0.0541 226.4)",
-          "oklch(37.9% 0.0541 226.4)",
-          "oklch(49.3% 0.0541 226.4)",
-          "oklch(60.7% 0.0541 226.4)",
-          "oklch(72.1% 0.0541 226.4)",
-          "oklch(83.6% 0.0541 226.4)",
-          "oklch(95% 0.0541 226.4)"
-        ]
-      },
-      "settings-paper": {
-        "role": "neutral",
-        "displayName": "Paper-settings wash",
-        "purpose": "Paper and margins module.",
-        "tonalRamp": [
-          "oklch(15% 0.0113 217.5)",
-          "oklch(26.4% 0.0113 217.5)",
-          "oklch(37.9% 0.0113 217.5)",
-          "oklch(49.3% 0.0113 217.5)",
-          "oklch(60.7% 0.0113 217.5)",
-          "oklch(72.1% 0.0113 217.5)",
-          "oklch(83.6% 0.0113 217.5)",
-          "oklch(95% 0.0113 217.5)"
-        ]
-      },
-      "settings-arrangement": {
-        "role": "neutral",
-        "displayName": "Arrangement sky",
-        "purpose": "Arrangement settings module.",
-        "tonalRamp": [
-          "oklch(15% 0.0395 218.7)",
-          "oklch(26.4% 0.0395 218.7)",
-          "oklch(37.9% 0.0395 218.7)",
-          "oklch(49.3% 0.0395 218.7)",
-          "oklch(60.7% 0.0395 218.7)",
-          "oklch(72.1% 0.0395 218.7)",
-          "oklch(83.6% 0.0395 218.7)",
-          "oklch(95% 0.0395 218.7)"
-        ]
-      },
-      "quality-warning": {
-        "role": "feedback",
-        "displayName": "Quality amber",
-        "purpose": "Below-200-PPI warning and explanation.",
-        "tonalRamp": [
-          "oklch(15% 0.0923 60.8)",
-          "oklch(26.4% 0.0923 60.8)",
-          "oklch(37.9% 0.0923 60.8)",
-          "oklch(49.3% 0.0923 60.8)",
-          "oklch(60.7% 0.0923 60.8)",
-          "oklch(72.1% 0.0923 60.8)",
-          "oklch(83.6% 0.0923 60.8)",
-          "oklch(95% 0.0923 60.8)"
-        ]
-      },
-      "dock-ground": {
-        "role": "primary",
-        "displayName": "Dock deep blue",
-        "purpose": "Floating dock shell.",
-        "tonalRamp": [
-          "oklch(15% 0.0595 231.2)",
-          "oklch(26.4% 0.0595 231.2)",
-          "oklch(37.9% 0.0595 231.2)",
-          "oklch(49.3% 0.0595 231.2)",
-          "oklch(60.7% 0.0595 231.2)",
-          "oklch(72.1% 0.0595 231.2)",
-          "oklch(83.6% 0.0595 231.2)",
-          "oklch(95% 0.0595 231.2)"
-        ]
-      },
-      "dock-tile": {
-        "role": "primary",
-        "displayName": "Dock tile blue",
-        "purpose": "Unselected dock tiles.",
-        "tonalRamp": [
-          "oklch(15% 0.0733 225.6)",
-          "oklch(26.4% 0.0733 225.6)",
-          "oklch(37.9% 0.0733 225.6)",
-          "oklch(49.3% 0.0733 225.6)",
-          "oklch(60.7% 0.0733 225.6)",
-          "oklch(72.1% 0.0733 225.6)",
-          "oklch(83.6% 0.0733 225.6)",
-          "oklch(95% 0.0733 225.6)"
-        ]
-      },
-      "dock-label": {
-        "role": "neutral",
-        "displayName": "Dock label frost",
-        "purpose": "Unselected dock labels.",
-        "tonalRamp": [
-          "oklch(15% 0.0267 220.7)",
-          "oklch(26.4% 0.0267 220.7)",
-          "oklch(37.9% 0.0267 220.7)",
-          "oklch(49.3% 0.0267 220.7)",
-          "oklch(60.7% 0.0267 220.7)",
-          "oklch(72.1% 0.0267 220.7)",
-          "oklch(83.6% 0.0267 220.7)",
-          "oklch(95% 0.0267 220.7)"
-        ]
-      },
-      "dock-disabled": {
-        "role": "neutral",
-        "displayName": "Dock disabled ink",
-        "purpose": "Disabled dock foreground, with group opacity 0.5.",
-        "tonalRamp": [
-          "oklch(15% 0.0396 224.5)",
-          "oklch(26.4% 0.0396 224.5)",
-          "oklch(37.9% 0.0396 224.5)",
-          "oklch(49.3% 0.0396 224.5)",
-          "oklch(60.7% 0.0396 224.5)",
-          "oklch(72.1% 0.0396 224.5)",
-          "oklch(83.6% 0.0396 224.5)",
-          "oklch(95% 0.0396 224.5)"
+          "oklch(0.15 0.08890 154.41)",
+          "oklch(0.26 0.08890 154.41)",
+          "oklch(0.38 0.08890 154.41)",
+          "oklch(0.49 0.08890 154.41)",
+          "oklch(0.61 0.08890 154.41)",
+          "oklch(0.72 0.08890 154.41)",
+          "oklch(0.84 0.08890 154.41)",
+          "oklch(0.95 0.08890 154.41)"
         ]
       },
       "action-hover": {
         "role": "primary",
-        "displayName": "Action hover blue",
-        "purpose": "Fine-pointer primary/export hover.",
+        "displayName": "Action Hover",
+        "canonical": "#06465e",
         "tonalRamp": [
-          "oklch(15% 0.0711 230.4)",
-          "oklch(26.4% 0.0711 230.4)",
-          "oklch(37.9% 0.0711 230.4)",
-          "oklch(49.3% 0.0711 230.4)",
-          "oklch(60.7% 0.0711 230.4)",
-          "oklch(72.1% 0.0711 230.4)",
-          "oklch(83.6% 0.0711 230.4)",
-          "oklch(95% 0.0711 230.4)"
+          "oklch(0.15 0.07106 230.39)",
+          "oklch(0.26 0.07106 230.39)",
+          "oklch(0.38 0.07106 230.39)",
+          "oklch(0.49 0.07106 230.39)",
+          "oklch(0.61 0.07106 230.39)",
+          "oklch(0.72 0.07106 230.39)",
+          "oklch(0.84 0.07106 230.39)",
+          "oklch(0.95 0.07106 230.39)"
         ]
       },
-      "scrim": {
+      "canvas-dot": {
         "role": "neutral",
-        "displayName": "Dialog scrim",
-        "purpose": "Blocking modal overlay.",
+        "displayName": "Canvas dot",
+        "canonical": "#ccdbe2",
         "tonalRamp": [
-          "oklch(15% 0.0271 232.7)",
-          "oklch(26.4% 0.0271 232.7)",
-          "oklch(37.9% 0.0271 232.7)",
-          "oklch(49.3% 0.0271 232.7)",
-          "oklch(60.7% 0.0271 232.7)",
-          "oklch(72.1% 0.0271 232.7)",
-          "oklch(83.6% 0.0271 232.7)",
-          "oklch(95% 0.0271 232.7)"
+          "oklch(0.15 0.01885 227.31)",
+          "oklch(0.26 0.01885 227.31)",
+          "oklch(0.38 0.01885 227.31)",
+          "oklch(0.49 0.01885 227.31)",
+          "oklch(0.61 0.01885 227.31)",
+          "oklch(0.72 0.01885 227.31)",
+          "oklch(0.84 0.01885 227.31)",
+          "oklch(0.95 0.01885 227.31)"
         ]
       },
-      "quiet-hover": {
+      "disabled-ink": {
         "role": "neutral",
-        "displayName": "Quiet hover wash",
-        "purpose": "Quiet/text action hover.",
+        "displayName": "Disabled Ink",
+        "canonical": "#6b808b",
         "tonalRamp": [
-          "oklch(15% 0.0000 0.0)",
-          "oklch(26.4% 0.0000 0.0)",
-          "oklch(37.9% 0.0000 0.0)",
-          "oklch(49.3% 0.0000 0.0)",
-          "oklch(60.7% 0.0000 0.0)",
-          "oklch(72.1% 0.0000 0.0)",
-          "oklch(83.6% 0.0000 0.0)",
-          "oklch(95% 0.0000 0.0)"
+          "oklch(0.15 0.02971 230.74)",
+          "oklch(0.26 0.02971 230.74)",
+          "oklch(0.38 0.02971 230.74)",
+          "oklch(0.49 0.02971 230.74)",
+          "oklch(0.61 0.02971 230.74)",
+          "oklch(0.72 0.02971 230.74)",
+          "oklch(0.84 0.02971 230.74)",
+          "oklch(0.95 0.02971 230.74)"
         ]
       },
-      "stud-highlight": {
-        "role": "material",
-        "displayName": "Stud light",
-        "purpose": "145-degree stud highlight.",
+      "disabled-surface": {
+        "role": "neutral",
+        "displayName": "Disabled Surface",
+        "canonical": "#edf2f5",
         "tonalRamp": [
-          "oklch(15% 0.0000 0.0)",
-          "oklch(26.4% 0.0000 0.0)",
-          "oklch(37.9% 0.0000 0.0)",
-          "oklch(49.3% 0.0000 0.0)",
-          "oklch(60.7% 0.0000 0.0)",
-          "oklch(72.1% 0.0000 0.0)",
-          "oklch(83.6% 0.0000 0.0)",
-          "oklch(95% 0.0000 0.0)"
+          "oklch(0.15 0.00670 233.64)",
+          "oklch(0.26 0.00670 233.64)",
+          "oklch(0.38 0.00670 233.64)",
+          "oklch(0.49 0.00670 233.64)",
+          "oklch(0.61 0.00670 233.64)",
+          "oklch(0.72 0.00670 233.64)",
+          "oklch(0.84 0.00670 233.64)",
+          "oklch(0.95 0.00670 233.64)"
         ]
       },
-      "stud-clear": {
-        "role": "material",
-        "displayName": "Stud fade",
-        "purpose": "Gradient end at 55%.",
+      "unsaved": {
+        "role": "neutral",
+        "displayName": "Unsaved",
+        "canonical": "#9b5c17",
         "tonalRamp": [
-          "oklch(15% 0.0000 0.0)",
-          "oklch(26.4% 0.0000 0.0)",
-          "oklch(37.9% 0.0000 0.0)",
-          "oklch(49.3% 0.0000 0.0)",
-          "oklch(60.7% 0.0000 0.0)",
-          "oklch(72.1% 0.0000 0.0)",
-          "oklch(83.6% 0.0000 0.0)",
-          "oklch(95% 0.0000 0.0)"
+          "oklch(0.15 0.11339 62.11)",
+          "oklch(0.26 0.11339 62.11)",
+          "oklch(0.38 0.11339 62.11)",
+          "oklch(0.49 0.11339 62.11)",
+          "oklch(0.61 0.11339 62.11)",
+          "oklch(0.72 0.11339 62.11)",
+          "oklch(0.84 0.11339 62.11)",
+          "oklch(0.95 0.11339 62.11)"
         ]
       },
-      "stud-shadow": {
-        "role": "material",
-        "displayName": "Stud cast shade",
-        "purpose": "Cast edge below studs.",
+      "quality-warning": {
+        "role": "neutral",
+        "displayName": "Quality Warning",
+        "canonical": "#794715",
         "tonalRamp": [
-          "oklch(15% 0.0623 229.6)",
-          "oklch(26.4% 0.0623 229.6)",
-          "oklch(37.9% 0.0623 229.6)",
-          "oklch(49.3% 0.0623 229.6)",
-          "oklch(60.7% 0.0623 229.6)",
-          "oklch(72.1% 0.0623 229.6)",
-          "oklch(83.6% 0.0623 229.6)",
-          "oklch(95% 0.0623 229.6)"
-        ]
-      },
-      "stud-inset-light": {
-        "role": "material",
-        "displayName": "Stud inset light",
-        "purpose": "Upper inset edge.",
-        "tonalRamp": [
-          "oklch(15% 0.0000 0.0)",
-          "oklch(26.4% 0.0000 0.0)",
-          "oklch(37.9% 0.0000 0.0)",
-          "oklch(49.3% 0.0000 0.0)",
-          "oklch(60.7% 0.0000 0.0)",
-          "oklch(72.1% 0.0000 0.0)",
-          "oklch(83.6% 0.0000 0.0)",
-          "oklch(95% 0.0000 0.0)"
-        ]
-      },
-      "stud-inset-dark": {
-        "role": "material",
-        "displayName": "Stud inset shade",
-        "purpose": "Lower inset edge.",
-        "tonalRamp": [
-          "oklch(15% 0.0623 229.6)",
-          "oklch(26.4% 0.0623 229.6)",
-          "oklch(37.9% 0.0623 229.6)",
-          "oklch(49.3% 0.0623 229.6)",
-          "oklch(60.7% 0.0623 229.6)",
-          "oklch(72.1% 0.0623 229.6)",
-          "oklch(83.6% 0.0623 229.6)",
-          "oklch(95% 0.0623 229.6)"
-        ]
-      },
-      "brick-shadow": {
-        "role": "material",
-        "displayName": "Brick shadow",
-        "purpose": "Canvas stud block shadow.",
-        "tonalRamp": [
-          "oklch(15% 0.0623 229.6)",
-          "oklch(26.4% 0.0623 229.6)",
-          "oklch(37.9% 0.0623 229.6)",
-          "oklch(49.3% 0.0623 229.6)",
-          "oklch(60.7% 0.0623 229.6)",
-          "oklch(72.1% 0.0623 229.6)",
-          "oklch(83.6% 0.0623 229.6)",
-          "oklch(95% 0.0623 229.6)"
-        ]
-      },
-      "empty-pin-shadow": {
-        "role": "material",
-        "displayName": "Empty pin shadow",
-        "purpose": "Empty circular pin lift.",
-        "tonalRamp": [
-          "oklch(15% 0.0702 229.1)",
-          "oklch(26.4% 0.0702 229.1)",
-          "oklch(37.9% 0.0702 229.1)",
-          "oklch(49.3% 0.0702 229.1)",
-          "oklch(60.7% 0.0702 229.1)",
-          "oklch(72.1% 0.0702 229.1)",
-          "oklch(83.6% 0.0702 229.1)",
-          "oklch(95% 0.0702 229.1)"
-        ]
-      },
-      "paper-shadow": {
-        "role": "material",
-        "displayName": "Paper shadow",
-        "purpose": "White preview paper separation.",
-        "tonalRamp": [
-          "oklch(15% 0.0526 230.0)",
-          "oklch(26.4% 0.0526 230.0)",
-          "oklch(37.9% 0.0526 230.0)",
-          "oklch(49.3% 0.0526 230.0)",
-          "oklch(60.7% 0.0526 230.0)",
-          "oklch(72.1% 0.0526 230.0)",
-          "oklch(83.6% 0.0526 230.0)",
-          "oklch(95% 0.0526 230.0)"
-        ]
-      },
-      "dock-shadow": {
-        "role": "material",
-        "displayName": "Dock shadow",
-        "purpose": "Floating dock lift.",
-        "tonalRamp": [
-          "oklch(15% 0.0608 232.9)",
-          "oklch(26.4% 0.0608 232.9)",
-          "oklch(37.9% 0.0608 232.9)",
-          "oklch(49.3% 0.0608 232.9)",
-          "oklch(60.7% 0.0608 232.9)",
-          "oklch(72.1% 0.0608 232.9)",
-          "oklch(83.6% 0.0608 232.9)",
-          "oklch(95% 0.0608 232.9)"
-        ]
-      },
-      "dock-tile-light": {
-        "role": "material",
-        "displayName": "Dock tile light",
-        "purpose": "Inset dock tile edge.",
-        "tonalRamp": [
-          "oklch(15% 0.0000 0.0)",
-          "oklch(26.4% 0.0000 0.0)",
-          "oklch(37.9% 0.0000 0.0)",
-          "oklch(49.3% 0.0000 0.0)",
-          "oklch(60.7% 0.0000 0.0)",
-          "oklch(72.1% 0.0000 0.0)",
-          "oklch(83.6% 0.0000 0.0)",
-          "oklch(95% 0.0000 0.0)"
-        ]
-      },
-      "dock-tile-shadow": {
-        "role": "material",
-        "displayName": "Dock tile shade",
-        "purpose": "Dock tile cast shade.",
-        "tonalRamp": [
-          "oklch(15% 0.0000 0.0)",
-          "oklch(26.4% 0.0000 0.0)",
-          "oklch(37.9% 0.0000 0.0)",
-          "oklch(49.3% 0.0000 0.0)",
-          "oklch(60.7% 0.0000 0.0)",
-          "oklch(72.1% 0.0000 0.0)",
-          "oklch(83.6% 0.0000 0.0)",
-          "oklch(95% 0.0000 0.0)"
-        ]
-      },
-      "dialog-shadow": {
-        "role": "material",
-        "displayName": "Dialog shadow",
-        "purpose": "Blocking modal lift.",
-        "tonalRamp": [
-          "oklch(15% 0.0536 233.3)",
-          "oklch(26.4% 0.0536 233.3)",
-          "oklch(37.9% 0.0536 233.3)",
-          "oklch(49.3% 0.0536 233.3)",
-          "oklch(60.7% 0.0536 233.3)",
-          "oklch(72.1% 0.0536 233.3)",
-          "oklch(83.6% 0.0536 233.3)",
-          "oklch(95% 0.0536 233.3)"
-        ]
-      },
-      "progress-shadow": {
-        "role": "material",
-        "displayName": "Progress shadow",
-        "purpose": "Export progress lift.",
-        "tonalRamp": [
-          "oklch(15% 0.0626 229.2)",
-          "oklch(26.4% 0.0626 229.2)",
-          "oklch(37.9% 0.0626 229.2)",
-          "oklch(49.3% 0.0626 229.2)",
-          "oklch(60.7% 0.0626 229.2)",
-          "oklch(72.1% 0.0626 229.2)",
-          "oklch(83.6% 0.0626 229.2)",
-          "oklch(95% 0.0626 229.2)"
+          "oklch(0.15 0.09229 60.79)",
+          "oklch(0.26 0.09229 60.79)",
+          "oklch(0.38 0.09229 60.79)",
+          "oklch(0.49 0.09229 60.79)",
+          "oklch(0.61 0.09229 60.79)",
+          "oklch(0.72 0.09229 60.79)",
+          "oklch(0.84 0.09229 60.79)",
+          "oklch(0.95 0.09229 60.79)"
         ]
       },
       "alignment-guide": {
-        "role": "feedback",
-        "displayName": "Alignment blue",
-        "purpose": "Transformer, snap lines and center dot.",
+        "role": "neutral",
+        "displayName": "Alignment Guide",
+        "canonical": "#0d6f91",
         "tonalRamp": [
-          "oklch(15% 0.0965 228.9)",
-          "oklch(26.4% 0.0965 228.9)",
-          "oklch(37.9% 0.0965 228.9)",
-          "oklch(49.3% 0.0965 228.9)",
-          "oklch(60.7% 0.0965 228.9)",
-          "oklch(72.1% 0.0965 228.9)",
-          "oklch(83.6% 0.0965 228.9)",
-          "oklch(95% 0.0965 228.9)"
+          "oklch(0.15 0.09648 228.94)",
+          "oklch(0.26 0.09648 228.94)",
+          "oklch(0.38 0.09648 228.94)",
+          "oklch(0.49 0.09648 228.94)",
+          "oklch(0.61 0.09648 228.94)",
+          "oklch(0.72 0.09648 228.94)",
+          "oklch(0.84 0.09648 228.94)",
+          "oklch(0.95 0.09648 228.94)"
         ]
       },
       "editor-guide": {
-        "role": "feedback",
-        "displayName": "Cut and safe blue",
-        "purpose": "Editor cut and safe rings.",
+        "role": "neutral",
+        "displayName": "Editor Guide",
+        "canonical": "#28566d",
         "tonalRamp": [
-          "oklch(15% 0.0630 232.6)",
-          "oklch(26.4% 0.0630 232.6)",
-          "oklch(37.9% 0.0630 232.6)",
-          "oklch(49.3% 0.0630 232.6)",
-          "oklch(60.7% 0.0630 232.6)",
-          "oklch(72.1% 0.0630 232.6)",
-          "oklch(83.6% 0.0630 232.6)",
-          "oklch(95% 0.0630 232.6)"
+          "oklch(0.15 0.06302 232.57)",
+          "oklch(0.26 0.06302 232.57)",
+          "oklch(0.38 0.06302 232.57)",
+          "oklch(0.49 0.06302 232.57)",
+          "oklch(0.61 0.06302 232.57)",
+          "oklch(0.72 0.06302 232.57)",
+          "oklch(0.84 0.06302 232.57)",
+          "oklch(0.95 0.06302 232.57)"
         ]
       },
       "face-guide": {
-        "role": "feedback",
-        "displayName": "Editor face amber",
-        "purpose": "Editor face/fold dashed ring.",
+        "role": "neutral",
+        "displayName": "Face Guide",
+        "canonical": "#966117",
         "tonalRamp": [
-          "oklch(15% 0.1081 69.3)",
-          "oklch(26.4% 0.1081 69.3)",
-          "oklch(37.9% 0.1081 69.3)",
-          "oklch(49.3% 0.1081 69.3)",
-          "oklch(60.7% 0.1081 69.3)",
-          "oklch(72.1% 0.1081 69.3)",
-          "oklch(83.6% 0.1081 69.3)",
-          "oklch(95% 0.1081 69.3)"
+          "oklch(0.15 0.10814 69.26)",
+          "oklch(0.26 0.10814 69.26)",
+          "oklch(0.38 0.10814 69.26)",
+          "oklch(0.49 0.10814 69.26)",
+          "oklch(0.61 0.10814 69.26)",
+          "oklch(0.72 0.10814 69.26)",
+          "oklch(0.84 0.10814 69.26)",
+          "oklch(0.95 0.10814 69.26)"
         ]
       },
       "missing-preview": {
         "role": "neutral",
-        "displayName": "Missing preview placeholder",
-        "purpose": "Neutral circle for unavailable source.",
+        "displayName": "Missing Preview",
+        "canonical": "#e8e3da",
         "tonalRamp": [
-          "oklch(15% 0.0133 82.4)",
-          "oklch(26.4% 0.0133 82.4)",
-          "oklch(37.9% 0.0133 82.4)",
-          "oklch(49.3% 0.0133 82.4)",
-          "oklch(60.7% 0.0133 82.4)",
-          "oklch(72.1% 0.0133 82.4)",
-          "oklch(83.6% 0.0133 82.4)",
-          "oklch(95% 0.0133 82.4)"
+          "oklch(0.15 0.01325 82.40)",
+          "oklch(0.26 0.01325 82.40)",
+          "oklch(0.38 0.01325 82.40)",
+          "oklch(0.49 0.01325 82.40)",
+          "oklch(0.61 0.01325 82.40)",
+          "oklch(0.72 0.01325 82.40)",
+          "oklch(0.84 0.01325 82.40)",
+          "oklch(0.95 0.01325 82.40)"
         ]
       },
       "printed-guide": {
         "role": "neutral",
-        "displayName": "Printed guide ink",
-        "purpose": "Independent optional output guides.",
+        "displayName": "Printed Guide",
+        "canonical": "#333333",
         "tonalRamp": [
-          "oklch(15% 0.0000 0.0)",
-          "oklch(26.4% 0.0000 0.0)",
-          "oklch(37.9% 0.0000 0.0)",
-          "oklch(49.3% 0.0000 0.0)",
-          "oklch(60.7% 0.0000 0.0)",
-          "oklch(72.1% 0.0000 0.0)",
-          "oklch(83.6% 0.0000 0.0)",
-          "oklch(95% 0.0000 0.0)"
+          "oklch(0.15 0.00000 89.88)",
+          "oklch(0.26 0.00000 89.88)",
+          "oklch(0.38 0.00000 89.88)",
+          "oklch(0.49 0.00000 89.88)",
+          "oklch(0.61 0.00000 89.88)",
+          "oklch(0.72 0.00000 89.88)",
+          "oklch(0.84 0.00000 89.88)",
+          "oklch(0.95 0.00000 89.88)"
+        ]
+      },
+      "scrim": {
+        "role": "neutral",
+        "displayName": "Scrim",
+        "canonical": "rgb(5 20 28 / 35%)",
+        "tonalRamp": [
+          "oklch(0.15 0.02711 232.69)",
+          "oklch(0.26 0.02711 232.69)",
+          "oklch(0.38 0.02711 232.69)",
+          "oklch(0.49 0.02711 232.69)",
+          "oklch(0.61 0.02711 232.69)",
+          "oklch(0.72 0.02711 232.69)",
+          "oklch(0.84 0.02711 232.69)",
+          "oklch(0.95 0.02711 232.69)"
         ]
       },
       "transparent": {
         "role": "neutral",
         "displayName": "Transparent",
-        "purpose": "Quiet controls, inactive card stroke and dock button.",
-        "tonalRamp": [
-          "oklch(15% 0.0000 0.0)",
-          "oklch(26.4% 0.0000 0.0)",
-          "oklch(37.9% 0.0000 0.0)",
-          "oklch(49.3% 0.0000 0.0)",
-          "oklch(60.7% 0.0000 0.0)",
-          "oklch(72.1% 0.0000 0.0)",
-          "oklch(83.6% 0.0000 0.0)",
-          "oklch(95% 0.0000 0.0)"
-        ]
+        "canonical": "transparent"
       }
     },
     "typographyMeta": {
       "body": {
         "displayName": "Body",
-        "purpose": "Implemented body role; responsive variants apply only at their documented breakpoint."
+        "purpose": "Implemented body role; exact values live in DESIGN.md frontmatter."
       },
       "paragraph": {
         "displayName": "Paragraph",
-        "purpose": "Implemented paragraph role; responsive variants apply only at their documented breakpoint."
-      },
-      "display": {
-        "displayName": "Display",
-        "purpose": "Implemented display role; responsive variants apply only at their documented breakpoint."
-      },
-      "display-compact": {
-        "displayName": "Display Compact",
-        "purpose": "Implemented display compact role; responsive variants apply only at their documented breakpoint."
-      },
-      "display-narrow": {
-        "displayName": "Display Narrow",
-        "purpose": "Implemented display narrow role; responsive variants apply only at their documented breakpoint."
+        "purpose": "Implemented paragraph role; exact values live in DESIGN.md frontmatter."
       },
       "brand": {
         "displayName": "Brand",
-        "purpose": "Implemented brand role; responsive variants apply only at their documented breakpoint."
-      },
-      "brand-compact": {
-        "displayName": "Brand Compact",
-        "purpose": "Implemented brand compact role; responsive variants apply only at their documented breakpoint."
+        "purpose": "Implemented brand role; exact values live in DESIGN.md frontmatter."
       },
       "brand-narrow": {
         "displayName": "Brand Narrow",
-        "purpose": "Implemented brand narrow role; responsive variants apply only at their documented breakpoint."
+        "purpose": "Implemented variant at max-width 600px."
+      },
+      "empty-title": {
+        "displayName": "Empty Title",
+        "purpose": "Implemented empty title role; exact values live in DESIGN.md frontmatter."
+      },
+      "empty-title-narrow": {
+        "displayName": "Empty Title Narrow",
+        "purpose": "Implemented variant at max-width 600px."
       },
       "headline": {
         "displayName": "Headline",
-        "purpose": "Implemented headline role; responsive variants apply only at their documented breakpoint."
-      },
-      "headline-compact": {
-        "displayName": "Headline Compact",
-        "purpose": "Implemented headline compact role; responsive variants apply only at their documented breakpoint."
+        "purpose": "Implemented headline role; exact values live in DESIGN.md frontmatter."
       },
       "headline-narrow": {
         "displayName": "Headline Narrow",
-        "purpose": "Implemented headline narrow role; responsive variants apply only at their documented breakpoint."
-      },
-      "mode-title": {
-        "displayName": "Mode Title",
-        "purpose": "Implemented mode title role; responsive variants apply only at their documented breakpoint."
-      },
-      "mode-title-compact": {
-        "displayName": "Mode Title Compact",
-        "purpose": "Implemented mode title compact role; responsive variants apply only at their documented breakpoint."
-      },
-      "mode-title-narrow": {
-        "displayName": "Mode Title Narrow",
-        "purpose": "Implemented mode title narrow role; responsive variants apply only at their documented breakpoint."
+        "purpose": "Implemented variant at max-width 600px."
       },
       "section-title": {
         "displayName": "Section Title",
-        "purpose": "Implemented section title role; responsive variants apply only at their documented breakpoint."
-      },
-      "section-title-narrow": {
-        "displayName": "Section Title Narrow",
-        "purpose": "Implemented section title narrow role; responsive variants apply only at their documented breakpoint."
-      },
-      "preview-title": {
-        "displayName": "Preview Title",
-        "purpose": "Implemented preview title role; responsive variants apply only at their documented breakpoint."
-      },
-      "preview-title-compact": {
-        "displayName": "Preview Title Compact",
-        "purpose": "Implemented preview title compact role; responsive variants apply only at their documented breakpoint."
-      },
-      "preview-title-narrow": {
-        "displayName": "Preview Title Narrow",
-        "purpose": "Implemented preview title narrow role; responsive variants apply only at their documented breakpoint."
-      },
-      "subsection-title": {
-        "displayName": "Subsection Title",
-        "purpose": "Implemented subsection title role; responsive variants apply only at their documented breakpoint."
-      },
-      "adjustment-title": {
-        "displayName": "Adjustment Title",
-        "purpose": "Implemented adjustment title role; responsive variants apply only at their documented breakpoint."
-      },
-      "adjustment-title-compact": {
-        "displayName": "Adjustment Title Compact",
-        "purpose": "Implemented adjustment title compact role; responsive variants apply only at their documented breakpoint."
-      },
-      "minor-title": {
-        "displayName": "Minor Title",
-        "purpose": "Implemented minor title role; responsive variants apply only at their documented breakpoint."
-      },
-      "project-name": {
-        "displayName": "Project Name",
-        "purpose": "Implemented project name role; responsive variants apply only at their documented breakpoint."
-      },
-      "project-name-narrow": {
-        "displayName": "Project Name Narrow",
-        "purpose": "Implemented project name narrow role; responsive variants apply only at their documented breakpoint."
-      },
-      "intro": {
-        "displayName": "Intro",
-        "purpose": "Implemented intro role; responsive variants apply only at their documented breakpoint."
-      },
-      "intro-compact": {
-        "displayName": "Intro Compact",
-        "purpose": "Implemented intro compact role; responsive variants apply only at their documented breakpoint."
-      },
-      "mode-copy": {
-        "displayName": "Mode Copy",
-        "purpose": "Implemented mode copy role; responsive variants apply only at their documented breakpoint."
-      },
-      "mode-copy-narrow": {
-        "displayName": "Mode Copy Narrow",
-        "purpose": "Implemented mode copy narrow role; responsive variants apply only at their documented breakpoint."
-      },
-      "button": {
-        "displayName": "Button",
-        "purpose": "Implemented button role; responsive variants apply only at their documented breakpoint."
-      },
-      "text-button": {
-        "displayName": "Text Button",
-        "purpose": "Implemented text button role; responsive variants apply only at their documented breakpoint."
-      },
-      "file-button-narrow": {
-        "displayName": "File Button Narrow",
-        "purpose": "Implemented file button narrow role; responsive variants apply only at their documented breakpoint."
-      },
-      "export-button": {
-        "displayName": "Export Button",
-        "purpose": "Implemented export button role; responsive variants apply only at their documented breakpoint."
-      },
-      "export-button-compact": {
-        "displayName": "Export Button Compact",
-        "purpose": "Implemented export button compact role; responsive variants apply only at their documented breakpoint."
-      },
-      "field": {
-        "displayName": "Field",
-        "purpose": "Implemented field role; responsive variants apply only at their documented breakpoint."
-      },
-      "field-label": {
-        "displayName": "Field Label",
-        "purpose": "Implemented field label role; responsive variants apply only at their documented breakpoint."
-      },
-      "field-error": {
-        "displayName": "Field Error",
-        "purpose": "Implemented field error role; responsive variants apply only at their documented breakpoint."
-      },
-      "hint": {
-        "displayName": "Hint",
-        "purpose": "Implemented hint role; responsive variants apply only at their documented breakpoint."
-      },
-      "small-copy": {
-        "displayName": "Small Copy",
-        "purpose": "Implemented small copy role; responsive variants apply only at their documented breakpoint."
-      },
-      "check": {
-        "displayName": "Check",
-        "purpose": "Implemented check role; responsive variants apply only at their documented breakpoint."
+        "purpose": "Implemented section title role; exact values live in DESIGN.md frontmatter."
       },
       "artwork-title": {
         "displayName": "Artwork Title",
-        "purpose": "Implemented artwork title role; responsive variants apply only at their documented breakpoint."
+        "purpose": "Implemented artwork title role; exact values live in DESIGN.md frontmatter."
+      },
+      "artwork-title-narrow": {
+        "displayName": "Artwork Title Narrow",
+        "purpose": "Implemented variant at max-width 600px."
+      },
+      "subsection-title": {
+        "displayName": "Subsection Title",
+        "purpose": "Implemented subsection title role; exact values live in DESIGN.md frontmatter."
+      },
+      "project-name": {
+        "displayName": "Project Name",
+        "purpose": "Implemented project name role; exact values live in DESIGN.md frontmatter."
+      },
+      "button": {
+        "displayName": "Button",
+        "purpose": "Implemented button role; exact values live in DESIGN.md frontmatter."
+      },
+      "field": {
+        "displayName": "Field",
+        "purpose": "Implemented field role; exact values live in DESIGN.md frontmatter."
+      },
+      "artwork-field": {
+        "displayName": "Artwork Field",
+        "purpose": "Implemented artwork field role; exact values live in DESIGN.md frontmatter."
+      },
+      "field-label": {
+        "displayName": "Field Label",
+        "purpose": "Implemented field label role; exact values live in DESIGN.md frontmatter."
+      },
+      "field-error": {
+        "displayName": "Field Error",
+        "purpose": "Implemented field error role; exact values live in DESIGN.md frontmatter."
+      },
+      "hint": {
+        "displayName": "Hint",
+        "purpose": "Implemented hint role; exact values live in DESIGN.md frontmatter."
+      },
+      "empty-copy": {
+        "displayName": "Empty Copy",
+        "purpose": "Implemented empty copy role; exact values live in DESIGN.md frontmatter."
+      },
+      "small-copy": {
+        "displayName": "Small Copy",
+        "purpose": "Implemented small copy role; exact values live in DESIGN.md frontmatter."
+      },
+      "check": {
+        "displayName": "Check",
+        "purpose": "Implemented check role; exact values live in DESIGN.md frontmatter."
+      },
+      "tray-title": {
+        "displayName": "Tray Title",
+        "purpose": "Implemented tray title role; exact values live in DESIGN.md frontmatter."
       },
       "library-title": {
         "displayName": "Library Title",
-        "purpose": "Implemented library title role; responsive variants apply only at their documented breakpoint."
+        "purpose": "Implemented library title role; exact values live in DESIGN.md frontmatter."
       },
       "summary": {
         "displayName": "Summary",
-        "purpose": "Implemented summary role; responsive variants apply only at their documented breakpoint."
-      },
-      "summary-compact": {
-        "displayName": "Summary Compact",
-        "purpose": "Implemented summary compact role; responsive variants apply only at their documented breakpoint."
-      },
-      "summary-meta": {
-        "displayName": "Summary Meta",
-        "purpose": "Implemented summary meta role; responsive variants apply only at their documented breakpoint."
+        "purpose": "Implemented summary role; exact values live in DESIGN.md frontmatter."
       },
       "dock-label": {
         "displayName": "Dock Label",
-        "purpose": "Implemented dock label role; responsive variants apply only at their documented breakpoint."
+        "purpose": "Implemented dock label role; exact values live in DESIGN.md frontmatter."
+      },
+      "metadata": {
+        "displayName": "Metadata",
+        "purpose": "Implemented metadata role; exact values live in DESIGN.md frontmatter."
+      },
+      "annotation-narrow": {
+        "displayName": "Annotation Narrow",
+        "purpose": "Source/narrow annotations only; not general body/control text."
       },
       "message": {
         "displayName": "Message",
-        "purpose": "Implemented message role; responsive variants apply only at their documented breakpoint."
+        "purpose": "Implemented message role; exact values live in DESIGN.md frontmatter."
       },
       "dialog-title": {
         "displayName": "Dialog Title",
-        "purpose": "Implemented dialog title role; responsive variants apply only at their documented breakpoint."
+        "purpose": "Implemented dialog title role; exact values live in DESIGN.md frontmatter."
       },
       "dialog-title-narrow": {
         "displayName": "Dialog Title Narrow",
-        "purpose": "Implemented dialog title narrow role; responsive variants apply only at their documented breakpoint."
-      },
-      "empty-placement": {
-        "displayName": "Empty Placement",
-        "purpose": "Implemented empty placement role; responsive variants apply only at their documented breakpoint."
-      },
-      "utility": {
-        "displayName": "Utility",
-        "purpose": "Implemented utility role; responsive variants apply only at their documented breakpoint."
-      },
-      "utility-small": {
-        "displayName": "Utility Small",
-        "purpose": "Implemented utility small role; responsive variants apply only at their documented breakpoint."
-      },
-      "utility-micro": {
-        "displayName": "Utility Micro",
-        "purpose": "Implemented utility micro role; responsive variants apply only at their documented breakpoint."
-      },
-      "utility-narrow": {
-        "displayName": "Utility Narrow",
-        "purpose": "Implemented utility narrow role; responsive variants apply only at their documented breakpoint."
+        "purpose": "Implemented variant at max-width 600px."
       }
     },
     "shadows": [
       {
         "name": "molded-stud",
-        "value": "2px 4px 7px rgb(4 58 78 / 21%), inset 1px 2px 1px rgb(255 255 255 / 45%), inset -1px -2px 2px rgb(4 58 78 / 20%)",
-        "purpose": "Pinned molded circular studs only."
+        "value": "1px 2px 3px rgb(4 58 78 / 22%), inset 1px 1px 1px rgb(255 255 255 / 45%)",
+        "purpose": "Only the bounded studs."
       },
       {
-        "name": "canvas-brick",
-        "value": "0 5px 12px rgb(4 58 78 / 12%)",
-        "purpose": "Decorative blocks behind editor."
-      },
-      {
-        "name": "empty-pin",
-        "value": "0 9px 18px rgb(7 71 94 / 10%)",
-        "purpose": "Empty pin geometry."
+        "name": "selected-fit",
+        "value": "0 1px 3px rgb(4 44 62 / 12%)",
+        "purpose": "Selected roomy-desktop fit choice."
       },
       {
         "name": "print-paper",
-        "value": "0 5px 14px rgb(20 59 76 / 9%)",
-        "purpose": "White preview sheet."
+        "value": "0 3px 10px rgb(20 59 76 / 10%)",
+        "purpose": "Paper in its preview recess."
       },
       {
-        "name": "floating-dock",
-        "value": "0 8px 18px rgb(8 56 77 / 15%)",
-        "purpose": "Dock shell."
-      },
-      {
-        "name": "dock-tile",
-        "value": "inset 0 1px 1px rgb(255 255 255 / 30%), 0 3px 6px rgb(0 0 0 / 12%)",
-        "purpose": "Dock tile material."
+        "name": "success-notice",
+        "value": "0 5px 24px rgb(4 44 62 / 16%)",
+        "purpose": "Transient success feedback."
       },
       {
         "name": "dialog",
-        "value": "0 20px 60px rgb(4 44 62 / 25%)",
-        "purpose": "Blocking modal."
+        "value": "0 16px 48px rgb(4 44 62 / 20%)",
+        "purpose": "Modal separation over 35% scrim."
       },
       {
         "name": "export-progress",
-        "value": "0 10px 36px rgb(7 61 81 / 20%)",
-        "purpose": "Cancelable export progress."
+        "value": "0 6px 24px rgb(7 61 81 / 16%)",
+        "purpose": "Cancelable operation overlay."
       }
     ],
     "motion": [
       {
         "name": "ease-out",
         "value": "cubic-bezier(.23,1,.32,1)",
-        "purpose": "Ordinary button press response."
+        "purpose": "Ordinary pointer press."
       },
       {
         "name": "button-press",
-        "value": "transform 120ms; translateY(2px)",
-        "purpose": "Pointer press only; focus-visible prevents motion."
+        "value": "transform 120ms var(--ease-out); scale(.97)",
+        "purpose": "Except keyboard focus; selection/dock do not scale."
       },
       {
         "name": "button-color",
         "value": "background-color 150ms ease",
-        "purpose": "Fine-pointer hover feedback."
+        "purpose": "Fine-pointer feedback."
       },
       {
-        "name": "dock-magnify",
-        "value": "x, scaleX, scaleY; 160ms power3.out; max 1.35; Gaussian spread 54",
-        "purpose": "Fine mouse pointer only; neighbor displacement uses base 48px / gap 16px."
+        "name": "dock-transform",
+        "value": "160ms power3.out",
+        "purpose": "Ref-held GSAP quickTo setters for explicit x/scaleX/scaleY."
       },
       {
-        "name": "dock-reset",
-        "value": "0ms",
-        "purpose": "Focus, keyboard navigation, reduced motion and coarse pointers reset transforms immediately."
+        "name": "dock-layout",
+        "value": "base 40px; gap 12px; maximum 1.35; Gaussian spread 54",
+        "purpose": "Stable slots with neighbor displacement."
       },
       {
-        "name": "reduced-motion",
-        "value": "transition-duration:0ms; animation-duration:0ms; scroll-behavior:auto",
-        "purpose": "Global preference override plus imperative dock reset."
+        "name": "success-dismiss",
+        "value": "3500ms",
+        "purpose": "Success notice timer or close action."
+      },
+      {
+        "name": "motion-gates",
+        "value": "(hover:hover) and (pointer:fine); (prefers-reduced-motion:reduce)",
+        "purpose": "Mouse-only magnification; keyboard/focus/coarse/reduced motion reset instantly."
       }
     ],
     "breakpoints": [
       {
-        "name": "dense",
+        "name": "compact",
         "value": "1250px"
       },
       {
-        "name": "flow-stack",
-        "value": "950px"
+        "name": "stacked",
+        "value": "850px"
       },
       {
         "name": "narrow",
@@ -1182,23 +671,53 @@
       }
     ],
     "material": {
-      "studGradient": "linear-gradient(145deg,rgba(255,255,255,.34),rgba(255,255,255,0) 55%),currentColor",
-      "exceptions": [
-        "Molded studs",
-        "Canvas stud blocks",
-        "Empty-editor pin",
-        "Physical preview paper",
-        "Floating dock and tiles",
-        "Dialogs",
-        "Export progress"
+      "studGradient": "linear-gradient(145deg,rgba(255,255,255,.4),rgba(255,255,255,0) 60%),currentColor",
+      "canvasTexture": "radial-gradient(#ccdbe2 .7px,transparent .7px); background-size:20px 20px",
+      "canvasCorner": {
+        "width": "84px",
+        "height": "24px",
+        "radius": "8px 0 0 0",
+        "padding": "6px 8px",
+        "opacity": 0.6,
+        "pointerEvents": "none"
+      },
+      "placements": [
+        "Clipped brand symbol: eight source studs, 2×2 visible motif.",
+        "Clipped bottom-right outer canvas corner."
       ],
-      "paletteScope": "UI and guide literals only. Source artwork, native icon and QA/reference rasters are excluded. Tonal ramps are generated panel metadata, not additional implemented UI tokens."
+      "raster": "No shipping raster added or modified by this refinement."
     },
     "accessibility": {
-      "focus": "3px solid focus, offset 3px; dock: 2px bright, offset 5px",
-      "dock": "View buttons expose aria-pressed; Export is an action. Arrow/Home/End move focus; native Enter/Space activate.",
-      "modal": "Capture prior focus, focus first enabled control, trap Tab, Escape close, restore prior focus.",
-      "feedback": "Associated invalid messages; role=alert for errors and role=status for success/progress. Last valid preview remains visible."
+      "focus": "3px solid var(--focus); outline-offset:3px",
+      "dockFocus": "2px solid var(--focus); outline-offset:4px",
+      "modal": "Capture prior focus, first-enabled focus, Tab trap, Escape close, focus restoration.",
+      "success": "role=status; full title; two-line visual clamp; 3500ms dismissal.",
+      "error": "role=alert; in-flow wrapped text and recovery controls.",
+      "numeric": "Associated labels/errors, aria-invalid, tabular figures; existing five-decimal display normalization.",
+      "coarsePointer": "Generic controls/check labels use 44px minimum; more-specific dimensions remain as implemented."
+    },
+    "layout": {
+      "desktop": {
+        "rows": "64px auto minmax(0,1fr) 80px 24px",
+        "inset": "12px 16px 0",
+        "headerColumns": "142px minmax(0,1fr) 150px",
+        "workspaceColumns": "minmax(0,1fr) 332px",
+        "gap": "12px",
+        "drawer": "260px"
+      },
+      "compact": {
+        "rows": "60px auto minmax(0,1fr) 76px 24px",
+        "inset": "10px 12px 0",
+        "headerColumns": "124px minmax(0,1fr) 140px",
+        "workspaceColumns": "minmax(0,1fr) 300px",
+        "gap": "10px",
+        "drawer": "244px"
+      },
+      "editorHeader": "56px minimum",
+      "stageMaximum": "760px",
+      "nativeMinimum": "1080×720",
+      "stackedOrder": "header status dock workspace footer",
+      "library": "One mounted location: compact tray in Artwork or expanded main region in Library; actual design/copy totals below Sheet and Library."
     },
     "source": {
       "authority": [
@@ -1209,26 +728,66 @@
         "src/ui/Editor.tsx",
         "src/ui/Settings.tsx",
         "src/ui/controls.tsx",
-        "src/ui/BlockStuds.tsx",
-        "src/ui/Icon.tsx",
-        "src/components/ui/mac-style-floating-dock.tsx",
-        "src/components/ui/dock-layout.ts",
         "src/ui/SheetPreview.tsx",
-        "src/render/canvas.ts"
+        "src/ui/BlockStuds.tsx",
+        "src/components/ui/dock-layout.ts",
+        "src/components/ui/mac-style-floating-dock.tsx"
       ],
-      "approvedSystemReplacement": true,
-      "compAuthority": "Code-led; no approved comp or Figma artifact.",
-      "font": "Locally bundled Geist 100–900 under PinIt Sans; old Nunito files are not referenced or bundled.",
-      "validation": ".impeccable/review/block-validation.md"
+      "contract": ".impeccable/pro-editor-refinement-brief.md",
+      "canonicalSurface": ".impeccable/surfaces/src-ui-app-tsx.md",
+      "productTruth": [
+        "PRODUCT.md",
+        "README.md"
+      ],
+      "validation": ".impeccable/review/pro-editor-validation.md",
+      "evidence": "local-data/pro-editor-evidence-1793098199971/validation.json",
+      "cutCircleEvidence": {
+        "desktop": 531.58,
+        "nativeMinimum": 327.19,
+        "desktopTestMinimum": 300,
+        "unit": "CSS px"
+      },
+      "supersedes": "Rejected broad colored block workbench, former type proportions/radii and decorative stud density.",
+      "workflow": "Approved code-led existing-world refinement; no new concept seed or approved visual comp."
+    },
+    "detectorDisposition": {
+      "report": ".impeccable/review/pro-editor-detector.json",
+      "advisories": 17,
+      "nonAdvisory": 0,
+      "rerun": false,
+      "changes": [
+        {
+          "kind": "color",
+          "count": 1,
+          "value": "#ccdbe2",
+          "disposition": "Intentional quiet canvas-dot color; colors.canvas-dot."
+        },
+        {
+          "kind": "font-size",
+          "count": 2,
+          "value": "21px",
+          "disposition": "Intentional narrow mode/dialog titles; headline-narrow and dialog-title-narrow."
+        },
+        {
+          "kind": "radius",
+          "count": 14,
+          "values": [
+            "5px",
+            "7px",
+            "14px"
+          ],
+          "disposition": "Intentional thumbnails/fit controls, controls and panels; rounded.thumbnail/control/panel."
+        }
+      ]
     },
     "notCanonized": [
       {
-        "issue": "Unused brand/preview micro-label selectors.",
-        "reason": "No rendered component uses these selectors; excluded from reusable type guidance."
+        "issue": "9px source/narrow annotations.",
+        "reason": "Recorded as secondary annotations, not general body/control text."
       },
       {
-        "issue": "9px missing-thumbnail annotation.",
-        "reason": "Source-specific operational annotation; not a general text style."
+        "issue": "Physical printer calibration and clean-machine installation remain external.",
+        "reason": "Product acceptance checks, not visual system claims."
       }
     ]
   },
@@ -1237,126 +796,127 @@
       "name": "Default button",
       "kind": "button",
       "refersTo": "button-default",
-      "description": "Ordinary white working control.",
-      "html": "<button class=\"ds-default\">Save</button>",
-      "css": ".ds-default{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:38px;padding:8px 12px;border:1px solid var(--control-line,#608491);border-radius:8px;color:var(--ink,#050809);background:var(--surface,#ffffff);font-family:'PinIt Sans', 'Segoe UI', sans-serif;font-size:13px;font-weight:650;line-height:20px;cursor:pointer;transition:transform 120ms cubic-bezier(.23,1,.32,1),background-color 150ms ease;}@media(hover:hover) and (pointer:fine){.ds-default:hover:not(:disabled){background:var(--panel,#d9eff5)}}.ds-default:focus-visible{outline:3px solid var(--focus,#064c68);outline-offset:3px}.ds-default:active:not(:disabled):not(:focus-visible){transform:translateY(2px)}.ds-default:disabled{cursor:not-allowed;color:#627a84;border-color:#b5cad2;background:#dae7ec}@media(pointer:coarse){.ds-default{min-height:44px}}@media(prefers-reduced-motion:reduce){.ds-default{transition-duration:0ms}}"
+      "description": "Implemented default button; source dimensions, pointer feedback and keyboard focus.",
+      "html": "<button class=\"ds-button\">Save</button>",
+      "css": ".ds-button { display:inline-flex; align-items:center; justify-content:center; gap:7px; min-height:36px; padding:7px 11px; border:1px solid var(--line,#d7e2e7); border-radius:7px; color:var(--ink,#142b36); background:var(--surface,#ffffff); font-size:12px; font-weight:600; line-height:20px; cursor:pointer; transition:transform 120ms var(--ease-out,cubic-bezier(.23,1,.32,1)),background-color 150ms ease }\n.ds-button:active:not(:disabled):not(:focus-visible) { transform:scale(.97) }\n.ds-button:disabled { cursor:not-allowed; color:#6b808b; border-color:var(--line,#d7e2e7); background:#edf2f5 }.ds-button{font-family:'PinIt Sans','Segoe UI',sans-serif}.ds-button:focus-visible{outline:3px solid var(--focus,#064c68);outline-offset:3px}@media(hover:hover) and (pointer:fine){.ds-button:hover:not(:disabled) { background:var(--panel,#e7f3f7) }}@media(prefers-reduced-motion:reduce){.ds-button{transition-duration:0ms!important}}"
     },
     {
       "name": "Primary button",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "Deep blue action with white text.",
-      "html": "<button class=\"ds-primary\">Import first design</button>",
-      "css": ".ds-primary{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:38px;padding:8px 12px;border:1px solid var(--control-line,#608491);border-radius:8px;color:var(--ink,#050809);background:var(--surface,#ffffff);font-family:'PinIt Sans', 'Segoe UI', sans-serif;font-size:13px;font-weight:650;line-height:20px;cursor:pointer;transition:transform 120ms cubic-bezier(.23,1,.32,1),background-color 150ms ease;min-height:44px;padding-inline:18px;color:white;background:var(--action,#075672);border-color:var(--action,#075672)}@media(hover:hover) and (pointer:fine){.ds-primary:hover:not(:disabled){background:#06465e}}.ds-primary:focus-visible{outline:3px solid var(--focus,#064c68);outline-offset:3px}.ds-primary:active:not(:disabled):not(:focus-visible){transform:translateY(2px)}.ds-primary:disabled{cursor:not-allowed;color:#627a84;border-color:#b5cad2;background:#dae7ec}@media(pointer:coarse){.ds-primary{min-height:44px}}@media(prefers-reduced-motion:reduce){.ds-primary{transition-duration:0ms}}"
+      "description": "Implemented primary button; source dimensions, pointer feedback and keyboard focus.",
+      "html": "<button class=\"ds-button ds-primary\">Import first design</button>",
+      "css": ".ds-button { display:inline-flex; align-items:center; justify-content:center; gap:7px; min-height:36px; padding:7px 11px; border:1px solid var(--line,#d7e2e7); border-radius:7px; color:var(--ink,#142b36); background:var(--surface,#ffffff); font-size:12px; font-weight:600; line-height:20px; cursor:pointer; transition:transform 120ms var(--ease-out,cubic-bezier(.23,1,.32,1)),background-color 150ms ease }\n.ds-button:active:not(:disabled):not(:focus-visible) { transform:scale(.97) }\n.ds-button:disabled { cursor:not-allowed; color:#6b808b; border-color:var(--line,#d7e2e7); background:#edf2f5 }.ds-button{font-family:'PinIt Sans','Segoe UI',sans-serif}.ds-button:focus-visible{outline:3px solid var(--focus,#064c68);outline-offset:3px}@media(hover:hover) and (pointer:fine){.ds-button:hover:not(:disabled) { background:var(--panel,#e7f3f7) }}@media(prefers-reduced-motion:reduce){.ds-button{transition-duration:0ms!important}}.ds-primary { color:white; background:var(--action,#075672); border-color:var(--action,#075672); min-height:40px; padding-inline:16px }@media(hover:hover) and (pointer:fine){.ds-primary:hover:not(:disabled),.ds-export-block:hover:not(:disabled) { background:#06465e }}"
     },
     {
       "name": "Quiet button",
       "kind": "button",
       "refersTo": "button-quiet",
-      "description": "Low-emphasis project action.",
-      "html": "<button class=\"ds-quiet\">Open</button>",
-      "css": ".ds-quiet{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:38px;padding:8px 12px;border:1px solid var(--control-line,#608491);border-radius:8px;color:var(--ink,#050809);background:var(--surface,#ffffff);font-family:'PinIt Sans', 'Segoe UI', sans-serif;font-size:13px;font-weight:650;line-height:20px;cursor:pointer;transition:transform 120ms cubic-bezier(.23,1,.32,1),background-color 150ms ease;border-color:transparent;background:transparent}@media(hover:hover) and (pointer:fine){.ds-quiet:hover:not(:disabled){background:rgb(255 255 255 / 35%)}}.ds-quiet:focus-visible{outline:3px solid var(--focus,#064c68);outline-offset:3px}.ds-quiet:active:not(:disabled):not(:focus-visible){transform:translateY(2px)}.ds-quiet:disabled{cursor:not-allowed;color:#627a84;border-color:#b5cad2;background:#dae7ec}@media(pointer:coarse){.ds-quiet{min-height:44px}}@media(prefers-reduced-motion:reduce){.ds-quiet{transition-duration:0ms}}"
+      "description": "Implemented quiet button; source dimensions, pointer feedback and keyboard focus.",
+      "html": "<button class=\"ds-button ds-quiet-button\">Open</button>",
+      "css": ".ds-button { display:inline-flex; align-items:center; justify-content:center; gap:7px; min-height:36px; padding:7px 11px; border:1px solid var(--line,#d7e2e7); border-radius:7px; color:var(--ink,#142b36); background:var(--surface,#ffffff); font-size:12px; font-weight:600; line-height:20px; cursor:pointer; transition:transform 120ms var(--ease-out,cubic-bezier(.23,1,.32,1)),background-color 150ms ease }\n.ds-button:active:not(:disabled):not(:focus-visible) { transform:scale(.97) }\n.ds-button:disabled { cursor:not-allowed; color:#6b808b; border-color:var(--line,#d7e2e7); background:#edf2f5 }.ds-button{font-family:'PinIt Sans','Segoe UI',sans-serif}.ds-button:focus-visible{outline:3px solid var(--focus,#064c68);outline-offset:3px}@media(hover:hover) and (pointer:fine){.ds-button:hover:not(:disabled) { background:var(--panel,#e7f3f7) }}@media(prefers-reduced-motion:reduce){.ds-button{transition-duration:0ms!important}}.ds-quiet-button,.ds-text-button { border-color:transparent; background:transparent }@media(hover:hover) and (pointer:fine){.ds-quiet-button:hover:not(:disabled),.ds-text-button:hover:not(:disabled) { background:var(--panel,#e7f3f7) }}"
     },
     {
       "name": "Text action",
       "kind": "button",
       "refersTo": "button-text",
-      "description": "Compact action beside persistent alignment feedback.",
-      "html": "<button class=\"ds-text\">Center artwork</button>",
-      "css": ".ds-text{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:38px;padding:8px 12px;border:1px solid var(--control-line,#608491);border-radius:8px;color:var(--ink,#050809);background:var(--surface,#ffffff);font-family:'PinIt Sans', 'Segoe UI', sans-serif;font-size:13px;font-weight:650;line-height:20px;cursor:pointer;transition:transform 120ms cubic-bezier(.23,1,.32,1),background-color 150ms ease;padding:3px 4px;min-height:28px;border-color:transparent;background:transparent;color:var(--action,#075672);font-size:12px}@media(hover:hover) and (pointer:fine){.ds-text:hover:not(:disabled){background:rgb(255 255 255 / 35%)}}.ds-text:focus-visible{outline:3px solid var(--focus,#064c68);outline-offset:3px}.ds-text:active:not(:disabled):not(:focus-visible){transform:translateY(2px)}.ds-text:disabled{cursor:not-allowed;color:#627a84;border-color:#b5cad2;background:#dae7ec}@media(pointer:coarse){.ds-text{min-height:44px}}@media(prefers-reduced-motion:reduce){.ds-text{transition-duration:0ms}}"
+      "description": "Implemented text action; source dimensions, pointer feedback and keyboard focus.",
+      "html": "<button class=\"ds-button ds-text-button\">Reset fit</button>",
+      "css": ".ds-button { display:inline-flex; align-items:center; justify-content:center; gap:7px; min-height:36px; padding:7px 11px; border:1px solid var(--line,#d7e2e7); border-radius:7px; color:var(--ink,#142b36); background:var(--surface,#ffffff); font-size:12px; font-weight:600; line-height:20px; cursor:pointer; transition:transform 120ms var(--ease-out,cubic-bezier(.23,1,.32,1)),background-color 150ms ease }\n.ds-button:active:not(:disabled):not(:focus-visible) { transform:scale(.97) }\n.ds-button:disabled { cursor:not-allowed; color:#6b808b; border-color:var(--line,#d7e2e7); background:#edf2f5 }.ds-button{font-family:'PinIt Sans','Segoe UI',sans-serif}.ds-button:focus-visible{outline:3px solid var(--focus,#064c68);outline-offset:3px}@media(hover:hover) and (pointer:fine){.ds-button:hover:not(:disabled) { background:var(--panel,#e7f3f7) }}@media(prefers-reduced-motion:reduce){.ds-button{transition-duration:0ms!important}}.ds-quiet-button,.ds-text-button { border-color:transparent; background:transparent }\n.ds-text-button { padding:2px 5px; min-height:28px; color:var(--action,#075672); font-size:12px }@media(hover:hover) and (pointer:fine){.ds-quiet-button:hover:not(:disabled),.ds-text-button:hover:not(:disabled) { background:var(--panel,#e7f3f7) }}"
     },
     {
       "name": "Destructive button",
       "kind": "button",
       "refersTo": "button-danger",
-      "description": "White-on-red removal confirmation; hover stays dark red.",
-      "html": "<button class=\"ds-danger\">Remove artwork</button>",
-      "css": ".ds-danger{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:38px;padding:8px 12px;border:1px solid var(--control-line,#608491);border-radius:8px;color:var(--ink,#050809);background:var(--surface,#ffffff);font-family:'PinIt Sans', 'Segoe UI', sans-serif;font-size:13px;font-weight:650;line-height:20px;cursor:pointer;transition:transform 120ms cubic-bezier(.23,1,.32,1),background-color 150ms ease;color:white;background:var(--danger,#a12a29);border-color:var(--danger,#a12a29)}@media(hover:hover) and (pointer:fine){.ds-danger:hover:not(:disabled){background:#852221;border-color:#852221}}.ds-danger:focus-visible{outline:3px solid var(--focus,#064c68);outline-offset:3px}.ds-danger:active:not(:disabled):not(:focus-visible){transform:translateY(2px)}.ds-danger:disabled{cursor:not-allowed;color:#627a84;border-color:#b5cad2;background:#dae7ec}@media(pointer:coarse){.ds-danger{min-height:44px}}@media(prefers-reduced-motion:reduce){.ds-danger{transition-duration:0ms}}"
+      "description": "Implemented destructive button; source dimensions, pointer feedback and keyboard focus.",
+      "html": "<button class=\"ds-button ds-danger\">Remove artwork</button>",
+      "css": ".ds-button { display:inline-flex; align-items:center; justify-content:center; gap:7px; min-height:36px; padding:7px 11px; border:1px solid var(--line,#d7e2e7); border-radius:7px; color:var(--ink,#142b36); background:var(--surface,#ffffff); font-size:12px; font-weight:600; line-height:20px; cursor:pointer; transition:transform 120ms var(--ease-out,cubic-bezier(.23,1,.32,1)),background-color 150ms ease }\n.ds-button:active:not(:disabled):not(:focus-visible) { transform:scale(.97) }\n.ds-button:disabled { cursor:not-allowed; color:#6b808b; border-color:var(--line,#d7e2e7); background:#edf2f5 }.ds-button{font-family:'PinIt Sans','Segoe UI',sans-serif}.ds-button:focus-visible{outline:3px solid var(--focus,#064c68);outline-offset:3px}@media(hover:hover) and (pointer:fine){.ds-button:hover:not(:disabled) { background:var(--panel,#e7f3f7) }}@media(prefers-reduced-motion:reduce){.ds-button{transition-duration:0ms!important}}.ds-danger { color:white; background:var(--danger,#a12a29); border-color:var(--danger,#a12a29) }@media(hover:hover) and (pointer:fine){.ds-danger:hover:not(:disabled) { background:var(--danger-hover,#852221); border-color:var(--danger-hover,#852221) }}"
     },
     {
       "name": "Numeric field",
       "kind": "input",
       "refersTo": "field",
-      "description": "Associated native field with explicit physical unit.",
-      "html": "<label class=\"ds-field\"><span>Cut diameter</span><span class=\"ds-unit\"><input type=\"number\" value=\"53\" step=\"0.5\" min=\"0.1\" aria-label=\"Cut diameter\"><small>mm</small></span></label>",
-      "css": ".ds-field{display:flex;flex-direction:column;gap:6px;max-width:220px;color:var(--muted,#355866);font-family:'PinIt Sans', 'Segoe UI', sans-serif;font-size:12px;line-height:17px}.ds-field>span:first-child{font-weight:550}.ds-unit{display:block;position:relative}.ds-unit input{width:100%;min-width:0;min-height:38px;padding:8px 34px 8px 10px;border:1px solid var(--control-line,#608491);border-radius:8px;color:var(--ink,#050809);background:var(--surface,#ffffff);font-family:'PinIt Sans', 'Segoe UI', sans-serif;font-size:13px;line-height:20px;font-variant-numeric:tabular-nums;caret-color:var(--action,#075672)}.ds-unit input:focus-visible{outline:3px solid var(--focus,#064c68);outline-offset:3px}.ds-unit input[aria-invalid=true]{border-color:var(--danger,#a12a29)}.ds-unit small{position:absolute;right:10px;top:50%;transform:translateY(-50%);font-size:10px;pointer-events:none}@media(pointer:coarse){.ds-unit input{min-height:44px}}"
+      "description": "Native exact value with associated label and right-aligned unit. Existing numeric precision is preserved.",
+      "html": "<label class=\"ds-field\"><span>Artwork width</span><span class=\"ds-input-unit\"><input class=\"ds-input\" aria-label=\"Artwork width\" type=\"number\" value=\"53\" step=\"0.5\"/><small>mm</small></span></label>",
+      "css": ".ds-field { display:flex; flex-direction:column; min-width:0; gap:5px; color:var(--muted,#526c79); font-size:12px; line-height:17px }\n.ds-field>span:first-child { font-weight:500 }\n.ds-input,.ds-select { width:100%; min-width:0; min-height:36px; padding:7px 10px; background:var(--surface,#ffffff); border:1px solid var(--control-line,#78929f); border-radius:7px; color:var(--ink,#142b36); font-size:13px; line-height:20px; caret-color:var(--action,#075672) }\n.ds-input[type=number] { font-variant-numeric:tabular-nums }\n.ds-input[aria-invalid=true] { border-color:var(--danger,#a12a29) }\n.ds-input-unit { display:block; position:relative; min-width:0 }\n.ds-input-unit .ds-input { padding-right:34px }\n.ds-input-unit .ds-input::-webkit-inner-spin-button { appearance:none; margin:0 }\n.ds-input-unit>small { position:absolute; top:50%; right:10px; transform:translateY(-50%); font-size:10px; pointer-events:none }.ds-field,.ds-input{font-family:'PinIt Sans','Segoe UI',sans-serif}.ds-input:focus-visible{outline:3px solid var(--focus,#064c68);outline-offset:3px}"
     },
     {
       "name": "Print-scale chip",
       "kind": "chip",
       "refersTo": "print-chip",
-      "description": "Passive scale reminder beside sheet dimensions.",
-      "html": "<span class=\"ds-print-chip\">Print at 100%</span>",
-      "css": ".ds-print-chip{display:inline-block;padding:4px 7px;border-radius:4px;color:var(--ink,#050809);background:var(--lemon,#f3d566);font-family:'PinIt Sans', 'Segoe UI', sans-serif;font-size:11px;font-weight:650}"
+      "description": "Passive reminder beside the actual paper dimensions.",
+      "html": "<div class=\"ds-preview-paper-label\"><span>210 × 297 mm</span><span>Print at 100%</span></div>",
+      "css": ".ds-preview-paper-label { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:6px; margin-top:12px; font-size:11px; color:var(--muted,#526c79) }\n.ds-preview-paper-label>span:last-child { padding:3px 6px; color:var(--action,#075672); background:var(--panel,#e7f3f7); border-radius:4px; font-size:10px; font-weight:600 }.ds-preview-paper-label{font-family:'PinIt Sans','Segoe UI',sans-serif}"
     },
     {
       "name": "Selected artwork card",
       "kind": "card",
-      "refersTo": "artwork-card-selected",
-      "description": "Selected shelf card with circular artwork placeholder and quantity.",
-      "html": "<div class=\"ds-card\"><button class=\"ds-select\" aria-pressed=\"true\"><span class=\"ds-thumb\" aria-hidden=\"true\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm-1 13 5-5 5 5 3-3 5 5M16 7h.01\"/></svg></span><span class=\"ds-card-copy\"><strong>Garden artwork</strong><small>24 copies</small></span></button></div>",
-      "css": ".ds-card{display:flex;min-width:190px;max-width:240px;padding:10px;border:1px solid var(--action,#075672);border-radius:12px;background:var(--workspace,#f1f7f9);font-family:'PinIt Sans', 'Segoe UI', sans-serif}.ds-select{display:flex;align-items:center;gap:10px;min-height:52px;min-width:0;padding:0;border:0;background:transparent;color:var(--ink,#050809);text-align:left;cursor:pointer}.ds-select:hover{background:transparent}.ds-select:focus-visible{outline:3px solid var(--focus,#064c68);outline-offset:3px}.ds-select:active{transform:none}.ds-thumb{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:white;color:var(--action,#075672);flex:none}.ds-card-copy{display:flex;flex-direction:column;gap:3px;min-width:0}.ds-card-copy strong{max-width:116px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px;font-weight:750;line-height:17px}.ds-card-copy small{font-size:11px;color:var(--muted,#355866)}"
+      "refersTo": "artwork-card",
+      "description": "Selected tray card with the real missing-source treatment; no fabricated sample imagery.",
+      "html": "<div class=\"ds-design-row ds-selected\"><button class=\"ds-button ds-design-select\" aria-pressed=\"true\"><span class=\"ds-missing-thumb\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm-1 13 5-5 5 5 3-3 5 5M16 7h.01\"/></svg><small>Missing</small></span><span class=\"ds-design-copy\"><strong title=\"Customer artwork\">Customer artwork</strong><small>18 copies</small></span></button></div>",
+      "css": ".ds-button { display:inline-flex; align-items:center; justify-content:center; gap:7px; min-height:36px; padding:7px 11px; border:1px solid var(--line,#d7e2e7); border-radius:7px; color:var(--ink,#142b36); background:var(--surface,#ffffff); font-size:12px; font-weight:600; line-height:20px; cursor:pointer; transition:transform 120ms var(--ease-out,cubic-bezier(.23,1,.32,1)),background-color 150ms ease }\n.ds-button:active:not(:disabled):not(:focus-visible) { transform:scale(.97) }\n.ds-button:disabled { cursor:not-allowed; color:#6b808b; border-color:var(--line,#d7e2e7); background:#edf2f5 }.ds-button{font-family:'PinIt Sans','Segoe UI',sans-serif}.ds-button:focus-visible{outline:3px solid var(--focus,#064c68);outline-offset:3px}@media(hover:hover) and (pointer:fine){.ds-button:hover:not(:disabled) { background:var(--panel,#e7f3f7) }}@media(prefers-reduced-motion:reduce){.ds-button{transition-duration:0ms!important}}.ds-design-row { display:flex; align-items:center; flex:none; min-width:186px; max-width:226px; gap:4px; padding:6px 8px; border:1px solid var(--line,#d7e2e7); border-radius:8px; background:white }\n.ds-design-row.ds-selected { background:var(--panel,#e7f3f7); border-color:var(--accent,#4ba6c2) }\n.ds-design-select { display:flex; justify-content:flex-start; gap:8px; padding:0; min-width:0; min-height:40px; border:0; background:transparent; text-align:left; flex:1 }\n.ds-design-select:active:not(:disabled) { transform:none }\n.ds-design-select img,.ds-missing-thumb { display:grid; place-items:center; flex:none; width:36px; height:36px; object-fit:cover; border-radius:5px; background:white }\n.ds-missing-thumb { color:var(--danger,#a12a29); background:var(--danger-soft,#fff0ec); font-size:10px }\n.ds-missing-thumb small { font-size:9px }\n.ds-design-copy { display:flex; flex-direction:column; gap:1px; min-width:0 }\n.ds-design-copy strong { font-size:11px; line-height:17px; font-weight:600; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; max-width:116px }\n.ds-design-copy small { color:var(--muted,#526c79); font-size:10px }.ds-design-row{font-family:'PinIt Sans','Segoe UI',sans-serif}@media(hover:hover) and (pointer:fine){.ds-design-select:hover:not(:disabled),.ds-dock-button:hover:not(:disabled) { background:transparent }}"
     },
     {
-      "name": "Molded studs",
+      "name": "Cropped stud brand symbol",
       "kind": "custom",
-      "description": "User-pinned CSS material: eight studs on a flat colored block.",
-      "html": "<div class=\"ds-brick\" aria-hidden=\"true\"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>",
-      "css": ".ds-brick{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;width:164px;padding:12px;color:var(--accent,#4ba6c2);background:currentColor;border-radius:10px;box-shadow:0 5px 12px rgb(4 58 78 / 12%)}.ds-brick>i{display:block;aspect-ratio:1;border-radius:50%;background:linear-gradient(145deg,rgba(255,255,255,.34),rgba(255,255,255,0) 55%),currentColor;box-shadow:2px 4px 7px rgb(4 58 78 / 21%),inset 1px 2px 1px rgb(255 255 255 / 45%),inset -1px -2px 2px rgb(4 58 78 / 20%)}"
+      "refersTo": "brand-symbol",
+      "description": "Actual eight-stud source clipped by the brand symbol, yielding the visible 2×2 motif.",
+      "html": "<span class=\"ds-brand-symbol\" aria-hidden=\"true\"><span class=\"ds-block-studs\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></span>",
+      "css": ".ds-brand-symbol { display:block; width:34px; height:34px; overflow:hidden; padding:5px; background:var(--accent,#4ba6c2); border-radius:8px; flex:none }\n.ds-block-studs { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; color:var(--accent,#4ba6c2) }\n.ds-block-studs>span { display:block; aspect-ratio:1; border-radius:50%; background:linear-gradient(145deg,rgba(255,255,255,.4),rgba(255,255,255,0) 60%),currentColor; box-shadow:1px 2px 3px rgb(4 58 78 / 22%),inset 1px 1px 1px rgb(255 255 255 / 45%) }\n.ds-brand-symbol .ds-block-studs { grid-template-columns:repeat(2,1fr); gap:4px }.ds-brand-symbol{box-sizing:border-box}"
     },
     {
       "name": "Floating tool dock",
       "kind": "nav",
       "refersTo": "dock",
-      "description": "Resting dock with actual view/action semantics. App owns GSAP magnification; snippet needs no framework.",
-      "html": "<nav class=\"ds-dock\" aria-label=\"Studio tools\"><ul><li><button class=\"ds-dock-button ds-selected\" aria-label=\"Artwork\" aria-pressed=\"true\"><span class=\"ds-tile\" aria-hidden=\"true\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm-1 13 5-5 5 5 3-3 5 5M16 7h.01\"/></svg></span><span class=\"ds-dock-label\">Artwork</span></button></li><li><button class=\"ds-dock-button\" aria-label=\"Sheet\" aria-pressed=\"false\"><span class=\"ds-tile\" aria-hidden=\"true\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m12 3 10 5-10 5L2 8l10-5ZM2 12l10 5 10-5M2 16l10 5 10-5\"/></svg></span><span class=\"ds-dock-label\">Sheet</span></button></li><li><button class=\"ds-dock-button\" aria-label=\"Library\" aria-pressed=\"false\"><span class=\"ds-tile\" aria-hidden=\"true\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 7V5a1 1 0 0 1 1-1h5l2 3h9a1 1 0 0 1 1 1v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z\"/></svg></span><span class=\"ds-dock-label\">Library</span></button></li><li><button class=\"ds-dock-button\" aria-label=\"Export\"><span class=\"ds-tile\" aria-hidden=\"true\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 3v12m-4-4 4 4 4-4M4 16v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4\"/></svg></span><span class=\"ds-dock-label\">Export</span></button></li></ul></nav>",
-      "css": ".ds-dock{display:inline-block;padding:9px 18px 6px;border-radius:22px;background:#103e52;box-shadow:0 8px 18px rgb(8 56 77 / 15%);font-family:'PinIt Sans', 'Segoe UI', sans-serif}.ds-dock ul{display:flex;align-items:flex-end;gap:16px;list-style:none;margin:0;padding:0}.ds-dock li{height:70px;width:48px;flex:none}.ds-dock-button{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:7px;width:48px;height:70px;padding:0;border:0;border-radius:8px;background:transparent;color:white;cursor:pointer}.ds-dock-button:hover,.ds-dock-button:active{background:transparent;transform:none}.ds-tile{display:grid;place-items:center;width:48px;height:48px;flex:none;border-radius:12px;background:#28677e;color:white;transform-origin:center bottom;box-shadow:inset 0 1px 1px rgb(255 255 255 / 30%),0 3px 6px rgb(0 0 0 / 12%)}.ds-selected .ds-tile{background:var(--bright,#69c5e2);color:var(--ink,#050809)}.ds-dock-label{font-size:12px;font-weight:650;line-height:14px;color:#d0e7ef}.ds-selected .ds-dock-label{color:white}.ds-dock-button:focus-visible{outline:2px solid var(--bright,#69c5e2);outline-offset:5px}.ds-dock-button:disabled{opacity:.5;color:#93b3c0;cursor:not-allowed}@media(max-width:1250px){.ds-dock{padding-block:6px 3px}.ds-dock li,.ds-dock-button{height:66px}}"
+      "description": "Resting four-tool dock. Production GSAP behavior and keyboard navigation are recorded in extensions, not simulated by this static CSS example.",
+      "html": "<nav class=\"ds-floating-dock\" aria-label=\"Studio tools\"><ul><li class=\"ds-dock-slot\"><button class=\"ds-dock-button ds-dock-selected\" aria-label=\"Artwork\" aria-pressed=\"true\"><span class=\"ds-dock-tile\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm-1 13 5-5 5 5 3-3 5 5M16 7h.01\"/></svg></span><span class=\"ds-dock-label\">Artwork</span></button></li><li class=\"ds-dock-slot\"><button class=\"ds-dock-button \" aria-label=\"Sheet\" aria-pressed=\"false\"><span class=\"ds-dock-tile\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m12 3 10 5-10 5L2 8l10-5ZM2 12l10 5 10-5M2 16l10 5 10-5\"/></svg></span><span class=\"ds-dock-label\">Sheet</span></button></li><li class=\"ds-dock-slot\"><button class=\"ds-dock-button \" aria-label=\"Library\" aria-pressed=\"false\"><span class=\"ds-dock-tile\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M3 7V5a1 1 0 0 1 1-1h5l2 3h9a1 1 0 0 1 1 1v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z\"/></svg></span><span class=\"ds-dock-label\">Library</span></button></li><li class=\"ds-dock-slot\"><button class=\"ds-dock-button \" aria-label=\"Export\"><span class=\"ds-dock-tile\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 3v12m-4-4 4 4 4-4M4 16v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4\"/></svg></span><span class=\"ds-dock-label\">Export</span></button></li></ul></nav>",
+      "css": ".ds-floating-dock { position:relative; padding:8px 20px 4px; border-radius:14px; background:white; border:1px solid var(--line,#d7e2e7) }\n.ds-floating-dock ul { list-style:none; margin:0; padding:0 }\n.ds-dock-slot { position:relative; height:56px; flex:none }\n.ds-dock-button { display:flex; flex-direction:column; justify-content:flex-start; width:40px; height:56px; min-height:0; padding:0; gap:4px; border:0; border-radius:7px; color:var(--ink,#142b36); background:transparent; transition:none }\n.ds-dock-button:active:not(:disabled) { transform:none }\n.ds-dock-tile { display:grid; place-items:center; width:40px; height:36px; flex:none; border-radius:8px; background:var(--workspace,#f1f7f9); color:var(--muted,#526c79); transform-origin:center bottom; will-change:transform }\n.ds-dock-tile svg { width:21px; height:21px }\n.ds-dock-selected .ds-dock-tile { background:var(--action,#075672); color:white }\n.ds-dock-selected .ds-dock-label { color:var(--action,#075672); font-weight:650 }\n.ds-dock-label { font-size:10px; line-height:14px; font-weight:500; color:var(--muted,#526c79) }\n.ds-dock-button:disabled { border:0; background:transparent; opacity:.5 }\n.ds-dock-button:focus-visible { outline:2px solid var(--focus,#064c68); outline-offset:4px }.ds-floating-dock{display:inline-block;font-family:'PinIt Sans','Segoe UI',sans-serif}.ds-floating-dock ul{display:flex;align-items:flex-end;gap:12px}.ds-dock-slot{width:40px}.ds-dock-button{align-items:center;font-family:inherit}@media(hover:hover) and (pointer:fine){.ds-design-select:hover:not(:disabled),.ds-dock-button:hover:not(:disabled) { background:transparent }}"
     }
   ],
   "narrative": {
-    "northStar": "The Studded Block Workbench",
-    "overview": "PinIt is a pin-making workbench assembled from connected cyan and sky blocks. Substantial Geist typography, near-black ink, rounded external corners and molded circular studs translate the actual inspiration into a practical offline Windows editor. The user explicitly approved this visual and structural replacement; it supersedes the earlier Nunito, loose-reference and three-column system.\n\nFlat joined modules carry the work, while CSS lighting gives the pinned stud geometry its material identity. White paper remains distinct from the colored editing ground. The supplied Mac-style dock is a functional tool switcher with visible labels, reserved space and motion that yields immediately to keyboard focus, coarse pointers and reduced-motion preference. The shipped code is the authority; no approved visual comp or Figma artifact is claimed.",
+    "northStar": "Clean professional editor with playful block accents",
+    "overview": "PinIt gives customer artwork most of the working area. Cool neutral canvas, white panels and compact Geist typography support repeated positioning and print preparation. Dark blue marks working actions and selected tools; the cyan and sky reference colors remain small identity accents.\n\nMolded studs appear in the cropped brand symbol and one outer canvas corner. This explicitly selected refinement supersedes the rejected broad colored block workbench and its decorative stud density. The implemented source is the authority; this is a code-led refinement with no approved visual comp or new concept seed claimed.",
     "keyCharacteristics": [
-      "Connected rectangular cyan/sky modules with rounded external corners.",
-      "Locally bundled Geist under the PinIt Sans alias; strong task headings and compact utility text.",
-      "CSS molded studs and a dark floating dock as the deliberate material signatures.",
-      "Large artwork stage, horizontal artwork shelf, disclosed exact adjustments and persistent white sheet preview.",
-      "Independent physical geometry, numeric alternatives, visible keyboard states and local operational feedback."
+      "Quiet dotted artwork canvas, white controls and a simultaneous white sheet preview.",
+      "Locally bundled Geist, compact task headings and precise numeric fields.",
+      "Restrained cyan/sky accents, dark blue active tools and two bounded stud placements.",
+      "Shared artwork-tray and dock row, disclosed exact adjustments and persistent tool labels.",
+      "Independent print geometry, numeric gesture alternatives and local operational feedback."
     ],
     "rules": [
       {
         "name": "The Working Color Rule",
-        "body": "Use molded cyan and sky for the joined work modules, deep action blue with white text for primary/export actions, near-black for working text, and lemon for the passive print-scale reminder.",
+        "body": "Keep canvas and panels neutral, working actions dark blue, and the reference cyan/sky palette as restrained identity and selection accents.",
         "section": "colors"
       },
       {
         "name": "The One Typeface Rule",
-        "body": "Use the locally bundled Geist variable face through PinIt Sans. Keep substantial headings and compact operational copy in the same family; the old Nunito files are neither referenced nor bundled.",
+        "body": "Use the locally bundled Geist variable face through PinIt Sans for headings, controls and operational text.",
         "section": "typography"
       },
       {
-        "name": "The Molded Material Rule",
-        "body": "Keep the connected work modules flat. Lighting gradients and inset shadows belong to the pinned circular studs; cast lift belongs to their blocks, the empty pin, white paper, dock, dialogs and export progress.",
+        "name": "The Quiet Surface Rule",
+        "body": "Keep ordinary panels, controls, cards and dock flat; reserve modeled lighting for the bounded studs and cast lift for selected fit, paper and operational overlays.",
         "section": "elevation"
       }
     ],
     "dos": [
-      "**Do** use the shipped Geist family, actual palette and connected block corner assignments.",
-      "**Do** preserve the persistent sheet preview while changing Artwork, Sheet or Library views.",
-      "**Do** expose exact numeric adjustments beside the canvas on desktop and above it in the narrow fallback.",
-      "**Do** pair color feedback with text, visible focus, associated invalid-field explanations and useful disabled states.",
-      "**Do** preserve independent face/cut dimensions and keep editor alignment overlays outside exported artwork.",
-      "**Do** keep the four dock labels and native button semantics, focus navigation, reduced-motion handling and reserved bay.",
-      "**Do** draw studs with CSS geometry and light; preserve source artwork as local user content."
+      "Do use locally bundled Geist, the implemented neutral palette and restrained cyan/sky accents.",
+      "Do preserve the large artwork stage, shared tray/dock row and persistent sheet preview.",
+      "Do retain exact numeric controls, meaningful labels, tabular figures and aligned paired fields.",
+      "Do pair operational color with text, visible focus, associated validation and recovery controls.",
+      "Do preserve independent face/cut dimensions and exclude editing overlays from exports.",
+      "Do keep dock labels, keyboard navigation, reduced-motion behavior and fine-pointer gates.",
+      "Do keep the molded stud motif in the brand symbol and clipped outer canvas corner."
     ],
     "donts": [
-      "**Don't** restore the obsolete Nunito, generic three-column or loose-reference rules as preservation requirements.",
-      "**Don't** turn every module into a detached card, round internal joined edges or spread the stud gradient treatment to ordinary controls.",
-      "**Don't** use customer artwork, inspiration rasters, synthetic review artwork or native-icon colors as design tokens.",
-      "**Don't** print transformer handles, snap lines or center dots, or change physical dimensions to fit a screen or sheet.",
-      "**Don't** let dock magnification move keyboard controls, run for coarse pointers or reduced motion, or cover editing content.",
-      "**Don't** treat the defensive narrow-browser stack as native mobile support; Windows remains the supported desktop target.",
-      "**Don't** reuse the 9px missing-thumbnail annotation as a general text size or canonize unused micro-label selectors into new UI."
+      "Don't restore the rejected broad colored block workbench or decorative stud density as preservation requirements.",
+      "Don't place decorative blocks over customer artwork or spread molded lighting to ordinary controls.",
+      "Don't use customer pixels, review imagery or native-icon colors as UI design tokens.",
+      "Don't change physical measurements to fit the viewport or round stored values for visual alignment.",
+      "Don't let dock magnification move keyboard controls, run for coarse pointers/reduced motion or cover editing work.",
+      "Don't treat the defensive narrow-browser layout as a new native mobile product claim.",
+      "Don't reuse 9px source/narrow annotations as general body or control text."
     ]
   }
 }

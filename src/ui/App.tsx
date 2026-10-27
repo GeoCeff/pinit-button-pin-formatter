@@ -56,6 +56,7 @@ export function App() {
   const pickColor=useCallback((fill:string)=>{updateDesign({fill});setPicking(false)},[updateDesign])
   const selectDesign=useCallback((id:string)=>{setSelectedId(id);setWorkspaceView('artwork')},[])
   useEffect(()=>window.desktop.setDirty(dirty),[dirty])
+  useEffect(()=>{if(!notice)return;const timer=setTimeout(()=>setNotice(''),3500);return()=>clearTimeout(timer)},[notice])
   useEffect(()=>{window.desktop.presets().then(p=>setPresets([initialPreset,...p])).catch(e=>setError(e.message));window.desktop.runtimeStatus().then(s=>setCmyk(s.cmyk)).catch(e=>setError(e.message));return window.desktop.onProgress(setProgress)},[])
   useEffect(()=>{setPage(0)},[plan?.sheets.length])
   useEffect(()=>{setPicking(false)},[design?.id])
@@ -102,6 +103,7 @@ export function App() {
   const invalid=valid[0]??(!result.ok?result.error:'')
   const circles=spec?.project.settings.circles??project.settings.circles
   const setOutput=(output:Project['settings']['output'])=>updateSettings({...project.settings,output})
+  const artworkLibrary=<ArtworkLibrary designs={project.designs} selectedId={design?.id} sources={sources} total={total} disabled={ioBusy||exporting} onImport={()=>void importArtwork()} onSelect={selectDesign} onRemove={item=>void removeDesign(item)}/>
   const dockItems:DockItem[]=[
     {id:'artwork',label:'Artwork',kind:'view',icon:<Icon name="image" size={24}/>},
     {id:'sheet',label:'Sheet',kind:'view',icon:<Icon name="stack" size={24}/>},
@@ -111,7 +113,7 @@ export function App() {
   return <div className="app">
     <a className="skip-link" href="#artwork-workspace">Skip to artwork workspace</a>
     <header className="topbar">
-      <div className="brand" aria-label="PinIt"><strong>PinIt<span>.</span></strong><BlockStuds/></div>
+      <div className="brand" aria-label="PinIt"><span className="brand-symbol" aria-hidden="true"><BlockStuds/></span><strong>PinIt<span>.</span></strong></div>
       <div className="project-block"><div className="project-name"><input name="project-name" aria-label="Project name" autoComplete="off" spellCheck={false} maxLength={200} value={project.name} onChange={event=>dispatch({type:'name',name:event.target.value})}/><span><i className={dirty?'unsaved-dot':'saved-dot'}/>{ioBusy?'Working with local files…':dirty?'Unsaved changes':location?'Saved on this computer':'Local project'}</span></div>
         <div className="actions file-actions">
           <button className="quiet-button" disabled={ioBusy||exporting} onClick={()=>void createProject()}><Icon name="plus" size={16}/>New</button>
@@ -124,40 +126,38 @@ export function App() {
     </header>
     <div className="status-area">
       {error?<div className="message error" role="alert"><span>{error}</span><button className="text-button" onClick={()=>setError('')} aria-label="Dismiss error">Dismiss</button></div>:null}
-      {notice?<div className="message notice" role="status"><Icon name="check" size={16}/><span>{notice}</span><button className="icon-button" onClick={()=>setNotice('')} aria-label="Dismiss notification"><Icon name="close" size={15}/></button></div>:null}
+      {notice?<div className="message notice" role="status"><Icon name="check" size={16}/><span title={notice}>{notice}</span><button className="icon-button" onClick={()=>setNotice('')} aria-label="Dismiss notification"><Icon name="close" size={15}/></button></div>:null}
       {invalid?<div className="message error" role="alert"><span>{invalid} Last valid preview is retained.</span><button className="text-button" onClick={()=>setWorkspaceView('sheet')}>Review settings</button></div>:null}
     </div>
-    <div className="dock-bay"><div className="dock-note"><span className="small-stud"/><span>Little pieces.<br/><strong>Big possibilities.</strong></span></div><MacFloatingDock items={dockItems} active={workspaceView} onSelect={id=>{if(id==='export')setExportOpen(true);else setWorkspaceView(id)}}/><div className="dock-help"><Icon name="shield" size={16}/><span>Made here.<br/><strong>Saved here.</strong></span></div></div>
+    <div className="dock-bay"><div className="tray-slot">{workspaceView==='artwork'?<div className="artwork-shelf">{artworkLibrary}</div>:<div className="tray-summary"><Icon name="image" size={20}/><strong>{project.designs.length} {project.designs.length===1?'design':'designs'}</strong><span>{total.toLocaleString()} {total===1?'copy':'copies'} in this project</span></div>}</div><div className="dock-slot-panel"><MacFloatingDock items={dockItems} active={workspaceView} onSelect={id=>{if(id==='export')setExportOpen(true);else setWorkspaceView(id)}}/></div></div>
     <main className="workspace" id="artwork-workspace" tabIndex={-1} data-view={workspaceView}>
       <div className="studio-zone">
         <section className="editor-panel" aria-label="Artwork editor" hidden={workspaceView!=='artwork'}>
-          <header className="studio-heading"><div>{design?<h1 title={design.name}>{design.name}</h1>:<h2>Let’s make a pin.</h2>}<span>{circles.inner} mm face / {circles.outer} mm cut</span></div>
-            {design?<button className="adjust-toggle" aria-expanded={adjustmentsOpen} aria-controls="artwork-adjustments" onClick={()=>setAdjustmentsOpen(value=>!value)}><Icon name="eye" size={16}/>{adjustmentsOpen?'Hide adjustments':'Adjust artwork'}</button>:<span className="offline-note"><Icon name="shield" size={16}/>Offline & yours</span>}
+          <header className="studio-heading"><div className="design-heading">{design&&sources[design.assetId]?<img className="heading-thumbnail" src={sources[design.assetId]} alt=""/>:<Icon name="image" size={22}/>}<div>{design?<h1 title={design.name}>{design.name}</h1>:<h2>Artwork</h2>}<span>{circles.inner} mm face / {circles.outer} mm cut</span></div></div>
+            {design?<div className="studio-actions"><div className="fit-modes" role="group" aria-label="Artwork fit"><button aria-label="Fit within safe circle" aria-pressed={design.fit==='safe'} disabled={!!invalid} onClick={()=>fit('safe')}>Safe</button><button aria-label="Fit within face circle" aria-pressed={design.fit==='contain'} disabled={!!invalid} onClick={()=>fit('contain')}>Face</button><button aria-label="Fill face circle" aria-pressed={design.fit==='fill'} disabled={!!invalid} onClick={()=>fit('fill')}>Fill</button></div><button className="adjust-toggle" aria-expanded={adjustmentsOpen} aria-controls="artwork-adjustments" onClick={()=>setAdjustmentsOpen(value=>!value)}><Icon name="eye" size={16}/>{adjustmentsOpen?'Hide adjustments':'Adjust artwork'}</button></div>:<span className="offline-note"><Icon name="shield" size={16}/>Offline workspace</span>}
           </header>
           <div className="editor-layout" data-adjustments={adjustmentsOpen&&!!design}>
             <aside id="artwork-adjustments" className="adjustment-drawer" hidden={!adjustmentsOpen||!design} aria-label="Artwork adjustments">
               {design&&asset?<ArtworkControls design={design} asset={asset} onChange={updateDesign} onFit={fit} onRelink={()=>void relink()} picking={picking} onTogglePick={()=>setPicking(previous=>!previous)} sourceReady={!!images[design.assetId]} ioBusy={ioBusy}/>:null}
             </aside>
             <div className="stage-surface">
-              {design?<div className="canvas-bricks" aria-hidden="true"><BlockStuds className="brick-wide"/><BlockStuds className="brick-tall"/></div>:null}
+              <div className="canvas-corner" aria-hidden="true"><BlockStuds/></div>
               {design&&asset&&safeDesign&&spec?<><Editor key={design.id+'-'+asset.id} design={valid.length||!result.ok?safeDesign:design} asset={asset} image={images[design.assetId]} circles={spec.project.settings.circles} onChange={updateDesign} guideVisibility={guides} picking={picking} onPick={pickColor}/>{!sources[design.assetId]?<div className="missing-message">Source missing. <button className="text-button" onClick={()=>void relink()}>Relink artwork</button></div>:!images[design.assetId]?<p className="artwork-loading" role="status">Loading artwork…</p>:null}</>:<div className="empty-editor">
-                <div className="empty-copy"><h1 className="max-w-5xl">Make something<br/>worth pinning.</h1><p>Bring your artwork.<br/>We’ll take care of the sheet.</p><button className="primary" disabled={ioBusy} onClick={()=>void importArtwork()}><Icon name="plus" size={18}/>Import first design</button><span>PNG / JPG · your originals stay untouched</span></div>
-                <div className="empty-pin"><BlockStuds/><div className="empty-cut"><div className="empty-face" style={{width:(circles.inner/circles.outer*100)+'%'}}/><div className="empty-safe" style={{width:((circles.inner-2*circles.safeInset)/circles.outer*100)+'%'}}/><div className="empty-placement"><Icon name="image" size={38}/><span>Your artwork<br/>goes here</span></div></div></div>
+                <div className="empty-copy"><div className="empty-pin" aria-hidden="true"><div className="empty-cut"><div className="empty-face" style={{width:(circles.inner/circles.outer*100)+'%'}}/><div className="empty-safe" style={{width:((circles.inner-2*circles.safeInset)/circles.outer*100)+'%'}}/><Icon name="image" size={28}/></div></div><h1 className="max-w-5xl">Add your artwork.</h1><p>Bring a PNG or JPG. Position it once,<br/>then let PinIt prepare the sheet.</p><button className="primary" disabled={ioBusy} onClick={()=>void importArtwork()}><Icon name="plus" size={18}/>Import first design</button><span>Your original image stays untouched.</span></div>
               </div>}
             </div>
           </div>
           <footer className="editor-footer"><div className="guide-legend"><span>Guides</span><Check label="Cut" checked={guides.outer} onChange={value=>setGuides({...guides,outer:value})}/><Check label="Face" checked={guides.inner} onChange={value=>setGuides({...guides,inner:value})}/><Check label="Safe" checked={guides.safe} onChange={value=>setGuides({...guides,safe:value})}/></div><p>{picking?'Click an artwork pixel to sample its color.':design?'Drag to move · corners to resize · Alt to skip snapping':'Start with artwork or set up your sheet below.'}</p></footer>
         </section>
-        <section className="sheet-workspace" aria-label="Sheet setup" hidden={workspaceView!=='sheet'}><header className="mode-heading"><div><h1>Build your sheet.</h1><p>Exact dimensions. Every copy in its place.</p></div><BlockStuds/></header><Settings key={project.id} settings={project.settings} onChange={updateSettings} presets={presets} onSavePreset={savePreset}/></section>
-        <header className="library-mode-heading" hidden={workspaceView!=='library'}><div><h1>Your creative pieces.</h1><p>Select a design to bring it back to the editor.</p></div><BlockStuds/></header>
-        <div className="artwork-shelf" data-expanded={workspaceView==='library'} hidden={workspaceView==='sheet'}><ArtworkLibrary designs={project.designs} selectedId={design?.id} sources={sources} total={total} disabled={ioBusy||exporting} onImport={()=>void importArtwork()} onSelect={selectDesign} onRemove={item=>void removeDesign(item)}/></div>
+        <section className="sheet-workspace" aria-label="Sheet setup" hidden={workspaceView!=='sheet'}><header className="mode-heading"><div><h1>Sheet setup</h1><p>Dimensions, paper and arrangement.</p></div><Icon name="stack" size={26}/></header><Settings key={project.id} settings={project.settings} onChange={updateSettings} presets={presets} onSavePreset={savePreset}/></section>
+        {workspaceView==='library'?<><header className="library-mode-heading"><div><h1>Your artwork</h1><p>Select a design to edit its position and copies.</p></div><span className="item-count">{project.designs.length}</span></header><div className="artwork-shelf" data-expanded="true">{artworkLibrary}</div></>:null}
       </div>
       <section className="preview-panel" aria-label="Sheet preview">
-        <header className="preview-heading"><h2>Sheet preview.</h2><Icon name="stack" size={26}/></header>
+        <header className="preview-heading"><h2>Sheet preview</h2><Icon name="stack" size={20}/></header>
         <div className="preview-paper-label"><span>{plan?plan.width+' × '+plan.height+' mm':'No layout'}</span><span>Print at 100%</span></div>
         <div className="paper-stage">{spec?<SheetPreview spec={spec} page={page} images={images}/>:<p>Correct the settings to preview sheets.</p>}</div>
         <div className="page-nav"><button className="icon-button" aria-label="Previous sheet" disabled={!plan||page===0} onClick={()=>setPage(previous=>previous-1)}><Icon name="left" size={18}/></button><span>{plan?.sheets.length?'Sheet '+(page+1)+' of '+plan.sheets.length:'Your sheet starts here'}</span><button className="icon-button" aria-label="Next sheet" disabled={!plan||page>=plan.sheets.length-1} onClick={()=>setPage(previous=>previous+1)}><Icon name="right" size={18}/></button></div>
-        <footer className="layout-summary"><div><strong>{total.toLocaleString()} copies</strong><span>{plan?.sheets.length??0} sheets · {plan?.arrangement??'No layout'}</span></div><div><strong>{plan?.capacity??0} per sheet</strong><span>{((circles.outer-circles.inner)/2).toLocaleString(undefined,{maximumFractionDigits:2})} mm radial wrap</span></div></footer>
+        <footer className="layout-summary"><div><strong>{total.toLocaleString()}</strong><span>{total===1?'copy':'copies'} to print</span></div><div><strong>{plan?.capacity??0}</strong><span>per sheet</span></div></footer><p className="packing-detail">{plan?.sheets.length??0} {plan?.sheets.length===1?'sheet':'sheets'} · {plan?.arrangement??'No layout'}<span>{((circles.outer-circles.inner)/2).toLocaleString(undefined,{maximumFractionDigits:2})} mm radial wrap</span></p>
       </section>
     </main>
     <footer className="app-footer"><span title={location}>{location||'Your artwork stays on this computer.'}</span><span>All measurements in millimetres · PinIt</span></footer>
