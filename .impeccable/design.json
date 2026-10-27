@@ -1,0 +1,1172 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-27T04:42:54.054Z",
+  "title": "Design System: PinIt",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Primary",
+        "tonalRamp": [
+          "oklch(15% 0.0951 221.1)",
+          "oklch(27% 0.0951 221.1)",
+          "oklch(38% 0.0951 221.1)",
+          "oklch(49% 0.0951 221.1)",
+          "oklch(61% 0.0951 221.1)",
+          "oklch(72% 0.0951 221.1)",
+          "oklch(84% 0.0951 221.1)",
+          "oklch(95% 0.0951 221.1)"
+        ]
+      },
+      "primary-hover": {
+        "role": "primary",
+        "displayName": "Primary Hover",
+        "tonalRamp": [
+          "oklch(15% 0.0945 221.7)",
+          "oklch(27% 0.0945 221.7)",
+          "oklch(38% 0.0945 221.7)",
+          "oklch(49% 0.0945 221.7)",
+          "oklch(61% 0.0945 221.7)",
+          "oklch(72% 0.0945 221.7)",
+          "oklch(84% 0.0945 221.7)",
+          "oklch(95% 0.0945 221.7)"
+        ]
+      },
+      "accent-soft": {
+        "role": "primary",
+        "displayName": "Accent Soft",
+        "tonalRamp": [
+          "oklch(15% 0.0275 219.8)",
+          "oklch(27% 0.0275 219.8)",
+          "oklch(38% 0.0275 219.8)",
+          "oklch(49% 0.0275 219.8)",
+          "oklch(61% 0.0275 219.8)",
+          "oklch(72% 0.0275 219.8)",
+          "oklch(84% 0.0275 219.8)",
+          "oklch(95% 0.0275 219.8)"
+        ]
+      },
+      "accent-ink": {
+        "role": "primary",
+        "displayName": "Accent Ink",
+        "tonalRamp": [
+          "oklch(15% 0.0743 225.8)",
+          "oklch(27% 0.0743 225.8)",
+          "oklch(38% 0.0743 225.8)",
+          "oklch(49% 0.0743 225.8)",
+          "oklch(61% 0.0743 225.8)",
+          "oklch(72% 0.0743 225.8)",
+          "oklch(84% 0.0743 225.8)",
+          "oklch(95% 0.0743 225.8)"
+        ]
+      },
+      "primary-border": {
+        "role": "primary",
+        "displayName": "Primary Border",
+        "tonalRamp": [
+          "oklch(15% 0.0909 225.0)",
+          "oklch(27% 0.0909 225.0)",
+          "oklch(38% 0.0909 225.0)",
+          "oklch(49% 0.0909 225.0)",
+          "oklch(61% 0.0909 225.0)",
+          "oklch(72% 0.0909 225.0)",
+          "oklch(84% 0.0909 225.0)",
+          "oklch(95% 0.0909 225.0)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "tonalRamp": [
+          "oklch(15% 0.0070 216.8)",
+          "oklch(27% 0.0070 216.8)",
+          "oklch(38% 0.0070 216.8)",
+          "oklch(49% 0.0070 216.8)",
+          "oklch(61% 0.0070 216.8)",
+          "oklch(72% 0.0070 216.8)",
+          "oklch(84% 0.0070 216.8)",
+          "oklch(95% 0.0070 216.8)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted",
+        "tonalRamp": [
+          "oklch(15% 0.0318 233.3)",
+          "oklch(27% 0.0318 233.3)",
+          "oklch(38% 0.0318 233.3)",
+          "oklch(49% 0.0318 233.3)",
+          "oklch(61% 0.0318 233.3)",
+          "oklch(72% 0.0318 233.3)",
+          "oklch(84% 0.0318 233.3)",
+          "oklch(95% 0.0318 233.3)"
+        ]
+      },
+      "workspace": {
+        "role": "neutral",
+        "displayName": "Workspace",
+        "tonalRamp": [
+          "oklch(15% 0.0069 219.6)",
+          "oklch(27% 0.0069 219.6)",
+          "oklch(38% 0.0069 219.6)",
+          "oklch(49% 0.0069 219.6)",
+          "oklch(61% 0.0069 219.6)",
+          "oklch(72% 0.0069 219.6)",
+          "oklch(84% 0.0069 219.6)",
+          "oklch(95% 0.0069 219.6)"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Surface",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.9)",
+          "oklch(27% 0.0000 89.9)",
+          "oklch(38% 0.0000 89.9)",
+          "oklch(49% 0.0000 89.9)",
+          "oklch(61% 0.0000 89.9)",
+          "oklch(72% 0.0000 89.9)",
+          "oklch(84% 0.0000 89.9)",
+          "oklch(95% 0.0000 89.9)"
+        ]
+      },
+      "panel": {
+        "role": "neutral",
+        "displayName": "Panel",
+        "tonalRamp": [
+          "oklch(15% 0.0154 222.7)",
+          "oklch(27% 0.0154 222.7)",
+          "oklch(38% 0.0154 222.7)",
+          "oklch(49% 0.0154 222.7)",
+          "oklch(61% 0.0154 222.7)",
+          "oklch(72% 0.0154 222.7)",
+          "oklch(84% 0.0154 222.7)",
+          "oklch(95% 0.0154 222.7)"
+        ]
+      },
+      "paper-well": {
+        "role": "neutral",
+        "displayName": "Paper Well",
+        "tonalRamp": [
+          "oklch(15% 0.0076 228.9)",
+          "oklch(27% 0.0076 228.9)",
+          "oklch(38% 0.0076 228.9)",
+          "oklch(49% 0.0076 228.9)",
+          "oklch(61% 0.0076 228.9)",
+          "oklch(72% 0.0076 228.9)",
+          "oklch(84% 0.0076 228.9)",
+          "oklch(95% 0.0076 228.9)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Line",
+        "tonalRamp": [
+          "oklch(15% 0.0188 227.3)",
+          "oklch(27% 0.0188 227.3)",
+          "oklch(38% 0.0188 227.3)",
+          "oklch(49% 0.0188 227.3)",
+          "oklch(61% 0.0188 227.3)",
+          "oklch(72% 0.0188 227.3)",
+          "oklch(84% 0.0188 227.3)",
+          "oklch(95% 0.0188 227.3)"
+        ]
+      },
+      "control-line": {
+        "role": "neutral",
+        "displayName": "Control Line",
+        "tonalRamp": [
+          "oklch(15% 0.0336 228.5)",
+          "oklch(27% 0.0336 228.5)",
+          "oklch(38% 0.0336 228.5)",
+          "oklch(49% 0.0336 228.5)",
+          "oklch(61% 0.0336 228.5)",
+          "oklch(72% 0.0336 228.5)",
+          "oklch(84% 0.0336 228.5)",
+          "oklch(95% 0.0336 228.5)"
+        ]
+      },
+      "focus": {
+        "role": "primary",
+        "displayName": "Focus",
+        "tonalRamp": [
+          "oklch(15% 0.0916 227.6)",
+          "oklch(27% 0.0916 227.6)",
+          "oklch(38% 0.0916 227.6)",
+          "oklch(49% 0.0916 227.6)",
+          "oklch(61% 0.0916 227.6)",
+          "oklch(72% 0.0916 227.6)",
+          "oklch(84% 0.0916 227.6)",
+          "oklch(95% 0.0916 227.6)"
+        ]
+      },
+      "disabled-text": {
+        "role": "neutral",
+        "displayName": "Disabled Text",
+        "tonalRamp": [
+          "oklch(15% 0.0280 233.4)",
+          "oklch(27% 0.0280 233.4)",
+          "oklch(38% 0.0280 233.4)",
+          "oklch(49% 0.0280 233.4)",
+          "oklch(61% 0.0280 233.4)",
+          "oklch(72% 0.0280 233.4)",
+          "oklch(84% 0.0280 233.4)",
+          "oklch(95% 0.0280 233.4)"
+        ]
+      },
+      "disabled-surface": {
+        "role": "neutral",
+        "displayName": "Disabled Surface",
+        "tonalRamp": [
+          "oklch(15% 0.0076 228.9)",
+          "oklch(27% 0.0076 228.9)",
+          "oklch(38% 0.0076 228.9)",
+          "oklch(49% 0.0076 228.9)",
+          "oklch(61% 0.0076 228.9)",
+          "oklch(72% 0.0076 228.9)",
+          "oklch(84% 0.0076 228.9)",
+          "oklch(95% 0.0076 228.9)"
+        ]
+      },
+      "disabled-border": {
+        "role": "neutral",
+        "displayName": "Disabled Border",
+        "tonalRamp": [
+          "oklch(15% 0.0173 225.2)",
+          "oklch(27% 0.0173 225.2)",
+          "oklch(38% 0.0173 225.2)",
+          "oklch(49% 0.0173 225.2)",
+          "oklch(61% 0.0173 225.2)",
+          "oklch(72% 0.0173 225.2)",
+          "oklch(84% 0.0173 225.2)",
+          "oklch(95% 0.0173 225.2)"
+        ]
+      },
+      "primary-disabled-text": {
+        "role": "neutral",
+        "displayName": "Primary Disabled Text",
+        "tonalRamp": [
+          "oklch(15% 0.0360 227.9)",
+          "oklch(27% 0.0360 227.9)",
+          "oklch(38% 0.0360 227.9)",
+          "oklch(49% 0.0360 227.9)",
+          "oklch(61% 0.0360 227.9)",
+          "oklch(72% 0.0360 227.9)",
+          "oklch(84% 0.0360 227.9)",
+          "oklch(95% 0.0360 227.9)"
+        ]
+      },
+      "primary-disabled-surface": {
+        "role": "neutral",
+        "displayName": "Primary Disabled Surface",
+        "tonalRamp": [
+          "oklch(15% 0.0225 221.8)",
+          "oklch(27% 0.0225 221.8)",
+          "oklch(38% 0.0225 221.8)",
+          "oklch(49% 0.0225 221.8)",
+          "oklch(61% 0.0225 221.8)",
+          "oklch(72% 0.0225 221.8)",
+          "oklch(84% 0.0225 221.8)",
+          "oklch(95% 0.0225 221.8)"
+        ]
+      },
+      "primary-disabled-border": {
+        "role": "neutral",
+        "displayName": "Primary Disabled Border",
+        "tonalRamp": [
+          "oklch(15% 0.0314 223.0)",
+          "oklch(27% 0.0314 223.0)",
+          "oklch(38% 0.0314 223.0)",
+          "oklch(49% 0.0314 223.0)",
+          "oklch(61% 0.0314 223.0)",
+          "oklch(72% 0.0314 223.0)",
+          "oklch(84% 0.0314 223.0)",
+          "oklch(95% 0.0314 223.0)"
+        ]
+      },
+      "text-disabled": {
+        "role": "neutral",
+        "displayName": "Text Disabled",
+        "tonalRamp": [
+          "oklch(15% 0.0362 229.8)",
+          "oklch(27% 0.0362 229.8)",
+          "oklch(38% 0.0362 229.8)",
+          "oklch(49% 0.0362 229.8)",
+          "oklch(61% 0.0362 229.8)",
+          "oklch(72% 0.0362 229.8)",
+          "oklch(84% 0.0362 229.8)",
+          "oklch(95% 0.0362 229.8)"
+        ]
+      },
+      "selected-border": {
+        "role": "primary",
+        "displayName": "Selected Border",
+        "tonalRamp": [
+          "oklch(15% 0.0604 221.4)",
+          "oklch(27% 0.0604 221.4)",
+          "oklch(38% 0.0604 221.4)",
+          "oklch(49% 0.0604 221.4)",
+          "oklch(61% 0.0604 221.4)",
+          "oklch(72% 0.0604 221.4)",
+          "oklch(84% 0.0604 221.4)",
+          "oklch(95% 0.0604 221.4)"
+        ]
+      },
+      "row-hover": {
+        "role": "primary",
+        "displayName": "Row Hover",
+        "tonalRamp": [
+          "oklch(15% 0.0120 223.5)",
+          "oklch(27% 0.0120 223.5)",
+          "oklch(38% 0.0120 223.5)",
+          "oklch(49% 0.0120 223.5)",
+          "oklch(61% 0.0120 223.5)",
+          "oklch(72% 0.0120 223.5)",
+          "oklch(84% 0.0120 223.5)",
+          "oklch(95% 0.0120 223.5)"
+        ]
+      },
+      "scrollbar": {
+        "role": "neutral",
+        "displayName": "Scrollbar",
+        "tonalRamp": [
+          "oklch(15% 0.0425 222.5)",
+          "oklch(27% 0.0425 222.5)",
+          "oklch(38% 0.0425 222.5)",
+          "oklch(49% 0.0425 222.5)",
+          "oklch(61% 0.0425 222.5)",
+          "oklch(72% 0.0425 222.5)",
+          "oklch(84% 0.0425 222.5)",
+          "oklch(95% 0.0425 222.5)"
+        ]
+      },
+      "tab-tray": {
+        "role": "primary",
+        "displayName": "Tab Tray",
+        "tonalRamp": [
+          "oklch(15% 0.0170 225.2)",
+          "oklch(27% 0.0170 225.2)",
+          "oklch(38% 0.0170 225.2)",
+          "oklch(49% 0.0170 225.2)",
+          "oklch(61% 0.0170 225.2)",
+          "oklch(72% 0.0170 225.2)",
+          "oklch(84% 0.0170 225.2)",
+          "oklch(95% 0.0170 225.2)"
+        ]
+      },
+      "selected-tab-border": {
+        "role": "primary",
+        "displayName": "Selected Tab Border",
+        "tonalRamp": [
+          "oklch(15% 0.0348 228.5)",
+          "oklch(27% 0.0348 228.5)",
+          "oklch(38% 0.0348 228.5)",
+          "oklch(49% 0.0348 228.5)",
+          "oklch(61% 0.0348 228.5)",
+          "oklch(72% 0.0348 228.5)",
+          "oklch(84% 0.0348 228.5)",
+          "oklch(95% 0.0348 228.5)"
+        ]
+      },
+      "danger": {
+        "role": "functional",
+        "displayName": "Danger",
+        "tonalRamp": [
+          "oklch(15% 0.1556 25.8)",
+          "oklch(27% 0.1556 25.8)",
+          "oklch(38% 0.1556 25.8)",
+          "oklch(49% 0.1556 25.8)",
+          "oklch(61% 0.1556 25.8)",
+          "oklch(72% 0.1556 25.8)",
+          "oklch(84% 0.1556 25.8)",
+          "oklch(95% 0.1556 25.8)"
+        ]
+      },
+      "danger-hover": {
+        "role": "functional",
+        "displayName": "Danger Hover",
+        "tonalRamp": [
+          "oklch(15% 0.1354 26.0)",
+          "oklch(27% 0.1354 26.0)",
+          "oklch(38% 0.1354 26.0)",
+          "oklch(49% 0.1354 26.0)",
+          "oklch(61% 0.1354 26.0)",
+          "oklch(72% 0.1354 26.0)",
+          "oklch(84% 0.1354 26.0)",
+          "oklch(95% 0.1354 26.0)"
+        ]
+      },
+      "danger-soft": {
+        "role": "functional",
+        "displayName": "Danger Soft",
+        "tonalRamp": [
+          "oklch(15% 0.0172 35.3)",
+          "oklch(27% 0.0172 35.3)",
+          "oklch(38% 0.0172 35.3)",
+          "oklch(49% 0.0172 35.3)",
+          "oklch(61% 0.0172 35.3)",
+          "oklch(72% 0.0172 35.3)",
+          "oklch(84% 0.0172 35.3)",
+          "oklch(95% 0.0172 35.3)"
+        ]
+      },
+      "success": {
+        "role": "functional",
+        "displayName": "Success",
+        "tonalRamp": [
+          "oklch(15% 0.0889 154.4)",
+          "oklch(27% 0.0889 154.4)",
+          "oklch(38% 0.0889 154.4)",
+          "oklch(49% 0.0889 154.4)",
+          "oklch(61% 0.0889 154.4)",
+          "oklch(72% 0.0889 154.4)",
+          "oklch(84% 0.0889 154.4)",
+          "oklch(95% 0.0889 154.4)"
+        ]
+      },
+      "success-soft": {
+        "role": "functional",
+        "displayName": "Success Soft",
+        "tonalRamp": [
+          "oklch(15% 0.0157 154.5)",
+          "oklch(27% 0.0157 154.5)",
+          "oklch(38% 0.0157 154.5)",
+          "oklch(49% 0.0157 154.5)",
+          "oklch(61% 0.0157 154.5)",
+          "oklch(72% 0.0157 154.5)",
+          "oklch(84% 0.0157 154.5)",
+          "oklch(95% 0.0157 154.5)"
+        ]
+      },
+      "quality-warning": {
+        "role": "functional",
+        "displayName": "Quality Warning",
+        "tonalRamp": [
+          "oklch(15% 0.0847 75.7)",
+          "oklch(27% 0.0847 75.7)",
+          "oklch(38% 0.0847 75.7)",
+          "oklch(49% 0.0847 75.7)",
+          "oklch(61% 0.0847 75.7)",
+          "oklch(72% 0.0847 75.7)",
+          "oklch(84% 0.0847 75.7)",
+          "oklch(95% 0.0847 75.7)"
+        ]
+      },
+      "quality-warning-soft": {
+        "role": "functional",
+        "displayName": "Quality Warning Soft",
+        "tonalRamp": [
+          "oklch(15% 0.0336 86.3)",
+          "oklch(27% 0.0336 86.3)",
+          "oklch(38% 0.0336 86.3)",
+          "oklch(49% 0.0336 86.3)",
+          "oklch(61% 0.0336 86.3)",
+          "oklch(72% 0.0336 86.3)",
+          "oklch(84% 0.0336 86.3)",
+          "oklch(95% 0.0336 86.3)"
+        ]
+      },
+      "cut-guide": {
+        "role": "functional",
+        "displayName": "Cut Guide",
+        "tonalRamp": [
+          "oklch(15% 0.0630 232.6)",
+          "oklch(27% 0.0630 232.6)",
+          "oklch(38% 0.0630 232.6)",
+          "oklch(49% 0.0630 232.6)",
+          "oklch(61% 0.0630 232.6)",
+          "oklch(72% 0.0630 232.6)",
+          "oklch(84% 0.0630 232.6)",
+          "oklch(95% 0.0630 232.6)"
+        ]
+      },
+      "face-guide": {
+        "role": "functional",
+        "displayName": "Face Guide",
+        "tonalRamp": [
+          "oklch(15% 0.1081 69.3)",
+          "oklch(27% 0.1081 69.3)",
+          "oklch(38% 0.1081 69.3)",
+          "oklch(49% 0.1081 69.3)",
+          "oklch(61% 0.1081 69.3)",
+          "oklch(72% 0.1081 69.3)",
+          "oklch(84% 0.1081 69.3)",
+          "oklch(95% 0.1081 69.3)"
+        ]
+      },
+      "alignment-guide": {
+        "role": "functional",
+        "displayName": "Alignment Guide",
+        "tonalRamp": [
+          "oklch(15% 0.0965 228.9)",
+          "oklch(27% 0.0965 228.9)",
+          "oklch(38% 0.0965 228.9)",
+          "oklch(49% 0.0965 228.9)",
+          "oklch(61% 0.0965 228.9)",
+          "oklch(72% 0.0965 228.9)",
+          "oklch(84% 0.0965 228.9)",
+          "oklch(95% 0.0965 228.9)"
+        ]
+      },
+      "empty-guide": {
+        "role": "functional",
+        "displayName": "Empty Guide",
+        "tonalRamp": [
+          "oklch(15% 0.0725 226.4)",
+          "oklch(27% 0.0725 226.4)",
+          "oklch(38% 0.0725 226.4)",
+          "oklch(49% 0.0725 226.4)",
+          "oklch(61% 0.0725 226.4)",
+          "oklch(72% 0.0725 226.4)",
+          "oklch(84% 0.0725 226.4)",
+          "oklch(95% 0.0725 226.4)"
+        ]
+      },
+      "empty-face-guide": {
+        "role": "functional",
+        "displayName": "Empty Face Guide",
+        "tonalRamp": [
+          "oklch(15% 0.0985 75.2)",
+          "oklch(27% 0.0985 75.2)",
+          "oklch(38% 0.0985 75.2)",
+          "oklch(49% 0.0985 75.2)",
+          "oklch(61% 0.0985 75.2)",
+          "oklch(72% 0.0985 75.2)",
+          "oklch(84% 0.0985 75.2)",
+          "oklch(95% 0.0985 75.2)"
+        ]
+      },
+      "empty-circle": {
+        "role": "functional",
+        "displayName": "Empty Circle",
+        "tonalRamp": [
+          "oklch(15% 0.0079 216.6)",
+          "oklch(27% 0.0079 216.6)",
+          "oklch(38% 0.0079 216.6)",
+          "oklch(49% 0.0079 216.6)",
+          "oklch(61% 0.0079 216.6)",
+          "oklch(72% 0.0079 216.6)",
+          "oklch(84% 0.0079 216.6)",
+          "oklch(95% 0.0079 216.6)"
+        ]
+      },
+      "missing-source-preview": {
+        "role": "functional",
+        "displayName": "Missing Source Preview",
+        "tonalRamp": [
+          "oklch(15% 0.0133 82.4)",
+          "oklch(27% 0.0133 82.4)",
+          "oklch(38% 0.0133 82.4)",
+          "oklch(49% 0.0133 82.4)",
+          "oklch(61% 0.0133 82.4)",
+          "oklch(72% 0.0133 82.4)",
+          "oklch(84% 0.0133 82.4)",
+          "oklch(95% 0.0133 82.4)"
+        ]
+      },
+      "printed-guide": {
+        "role": "functional",
+        "displayName": "Printed Guide",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.9)",
+          "oklch(27% 0.0000 89.9)",
+          "oklch(38% 0.0000 89.9)",
+          "oklch(49% 0.0000 89.9)",
+          "oklch(61% 0.0000 89.9)",
+          "oklch(72% 0.0000 89.9)",
+          "oklch(84% 0.0000 89.9)",
+          "oklch(95% 0.0000 89.9)"
+        ]
+      },
+      "scrim": {
+        "role": "neutral",
+        "displayName": "Scrim",
+        "tonalRamp": [
+          "oklch(15% 0.0070 216.8)",
+          "oklch(27% 0.0070 216.8)",
+          "oklch(38% 0.0070 216.8)",
+          "oklch(49% 0.0070 216.8)",
+          "oklch(61% 0.0070 216.8)",
+          "oklch(72% 0.0070 216.8)",
+          "oklch(84% 0.0070 216.8)",
+          "oklch(95% 0.0070 216.8)"
+        ]
+      },
+      "paper-shadow-color": {
+        "role": "neutral",
+        "displayName": "Paper Shadow Color",
+        "tonalRamp": [
+          "oklch(15% 0.0455 233.4)",
+          "oklch(27% 0.0455 233.4)",
+          "oklch(38% 0.0455 233.4)",
+          "oklch(49% 0.0455 233.4)",
+          "oklch(61% 0.0455 233.4)",
+          "oklch(72% 0.0455 233.4)",
+          "oklch(84% 0.0455 233.4)",
+          "oklch(95% 0.0455 233.4)"
+        ]
+      },
+      "floating-shadow-color": {
+        "role": "neutral",
+        "displayName": "Floating Shadow Color",
+        "tonalRamp": [
+          "oklch(15% 0.0504 233.5)",
+          "oklch(27% 0.0504 233.5)",
+          "oklch(38% 0.0504 233.5)",
+          "oklch(49% 0.0504 233.5)",
+          "oklch(61% 0.0504 233.5)",
+          "oklch(72% 0.0504 233.5)",
+          "oklch(84% 0.0504 233.5)",
+          "oklch(95% 0.0504 233.5)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "body": {
+        "displayName": "Body",
+        "purpose": "Root size and paragraph text; paragraph line-height is 1.5."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Selected artwork or empty task title at desktop widths above 1250px."
+      },
+      "headline-compact": {
+        "displayName": "Headline Compact",
+        "purpose": "Task title at 1250px and below."
+      },
+      "brand": {
+        "displayName": "Brand",
+        "purpose": "PinIt wordmark; narrow override is 24px with the same line-height and tracking."
+      },
+      "section-title": {
+        "displayName": "Section Title",
+        "purpose": "Panel and inspector h2, and export-progress title."
+      },
+      "subsection-title": {
+        "displayName": "Subsection Title",
+        "purpose": "Artwork/settings h3; native settings summaries use 22px line-height."
+      },
+      "minor-title": {
+        "displayName": "Minor Title",
+        "purpose": "Settings h4."
+      },
+      "button": {
+        "displayName": "Button",
+        "purpose": "Base button text."
+      },
+      "primary-button": {
+        "displayName": "Primary Button",
+        "purpose": "Cyan filled action text."
+      },
+      "field": {
+        "displayName": "Field",
+        "purpose": "Inputs and selects."
+      },
+      "field-label": {
+        "displayName": "Field Label",
+        "purpose": "Labels above fields; associated errors retain the size/line-height at normal weight."
+      },
+      "hint": {
+        "displayName": "Hint",
+        "purpose": "Supporting help, statuses and text actions; text actions use weight 700."
+      },
+      "caption": {
+        "displayName": "Caption",
+        "purpose": "Footer, brand descriptor, paper labels and compact annotations; line-height is context-dependent."
+      },
+      "artwork-name": {
+        "displayName": "Artwork Name",
+        "purpose": "Wrapping name in the artwork library."
+      },
+      "dialog-title": {
+        "displayName": "Dialog Title",
+        "purpose": "Export and confirmation modal headings."
+      },
+      "empty-inspector-title": {
+        "displayName": "Empty Inspector Title",
+        "purpose": "Artwork inspector before import."
+      },
+      "empty-library-title": {
+        "displayName": "Empty Library Title",
+        "purpose": "First-import library heading."
+      },
+      "capacity": {
+        "displayName": "Capacity",
+        "purpose": "Computed capacity per sheet; tabular figures."
+      },
+      "run-total": {
+        "displayName": "Run Total",
+        "purpose": "Total copies in the run; tabular figures."
+      },
+      "pin-summary": {
+        "displayName": "Pin Summary",
+        "purpose": "Empty inspector's independent face/cut values; tabular figures."
+      }
+    },
+    "tonalRampPolicy": "Eight OKLCH lightness steps synthesized for swatch exploration only, using each implemented color's hue/chroma. Alpha-color ramps show the underlying RGB hue. These are not additional normative UI tokens.",
+    "fonts": [
+      {
+        "name": "PinIt Sans",
+        "source": "src/ui/fonts/NunitoSans.ttf",
+        "upstreamFamily": "Nunito Sans",
+        "style": "normal",
+        "weight": "200 1000",
+        "display": "swap",
+        "fallbacks": [
+          "Segoe UI",
+          "sans-serif"
+        ],
+        "preload": "index.html",
+        "license": "src/ui/fonts/OFL.txt; THIRD_PARTY_NOTICES.md"
+      }
+    ],
+    "shadows": [
+      {
+        "name": "paper",
+        "value": "0 3px 14px rgb(33 63 79 / 9%)",
+        "purpose": "White sheet inside its cool well."
+      },
+      {
+        "name": "dialog",
+        "value": "0 18px 56px rgb(9 45 62 / 18%)",
+        "purpose": "Modal surface above the dimmed workspace."
+      },
+      {
+        "name": "export-progress",
+        "value": "0 10px 40px rgb(9 45 62 / 18%)",
+        "purpose": "Floating export/cancel status."
+      }
+    ],
+    "motion": [
+      {
+        "name": "button-color",
+        "value": "background-color 160ms ease-out, border-color 160ms ease-out",
+        "purpose": "Enabled button hover feedback."
+      },
+      {
+        "name": "button-press",
+        "value": "transform 120ms ease-out",
+        "purpose": "Enabled press translates down 1px; artwork selection suppresses translation."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "transition-duration: 0ms !important; animation-duration: 0ms !important",
+        "purpose": "Applies to all elements and before/after pseudo-elements under prefers-reduced-motion: reduce."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "wide",
+        "value": "1700px",
+        "query": "(min-width: 1700px)",
+        "purpose": "228px / 308px side columns; 24px workspace gaps/padding and panel padding."
+      },
+      {
+        "name": "compact",
+        "value": "1250px",
+        "query": "(max-width: 1250px)",
+        "purpose": "172px / 252px side columns, 12px workspace gaps, 14px panels, 16px inspector padding."
+      },
+      {
+        "name": "defensive-tablet",
+        "value": "980px",
+        "query": "(max-width: 980px)",
+        "purpose": "Document scroll; inspector below two-column work area; max 680px inspector panel."
+      },
+      {
+        "name": "defensive-narrow",
+        "value": "650px",
+        "query": "(max-width: 650px)",
+        "purpose": "Single-column canvas stack; horizontal artwork list; document inspector scroll; compact dialog/progress."
+      }
+    ],
+    "accessibility": [
+      {
+        "name": "focus",
+        "value": "outline: 2px solid var(--focus); outline-offset: 3px",
+        "purpose": "Keyboard focus for controls and color field focus-within."
+      },
+      {
+        "name": "coarse-pointer",
+        "value": "(pointer: coarse)",
+        "purpose": "Base buttons, inputs, selects and checkbox labels min-height 44px; icon buttons width/min-height 44px."
+      },
+      {
+        "name": "tabs",
+        "value": "ArrowLeft / ArrowRight / Home / End",
+        "purpose": "Roving tabIndex; arrow navigation wraps and activates; selected tab owns tabpanel association."
+      },
+      {
+        "name": "modal",
+        "value": "focus containment; Escape dismiss; return focus",
+        "purpose": "Dialog and confirmation controls; Keep editing is initial confirmation focus."
+      },
+      {
+        "name": "validation",
+        "value": "aria-invalid and aria-describedby",
+        "purpose": "Numeric fields expose associated inline errors in addition to border color."
+      },
+      {
+        "name": "status",
+        "value": "role=status; aria-live=polite",
+        "purpose": "Persistent alignment text and export progress; errors use role=alert."
+      }
+    ],
+    "layout": {
+      "nativeWindow": {
+        "initial": "1500px × 960px",
+        "minimum": "1080px × 720px",
+        "source": "electron/main.ts"
+      },
+      "renderer": {
+        "minimumWidth": "320px",
+        "height": "100dvh",
+        "minimumHeight": "600px",
+        "gridRows": "auto auto minmax(0, 1fr) auto",
+        "overflow": "hidden"
+      },
+      "toolbar": {
+        "minimumHeight": "74px",
+        "padding": "12px 24px",
+        "gap": "24px",
+        "position": "normal grid row"
+      },
+      "workspace": {
+        "columns": "208px minmax(0, 1fr) 288px",
+        "gap": "16px",
+        "padding": "4px 16px 12px"
+      },
+      "canvasPanels": {
+        "columns": "minmax(0, 1.4fr) minmax(0, 1fr)",
+        "gap": "16px",
+        "padding": "20px",
+        "compactColumns": "minmax(0, 1.35fr) minmax(0, 1fr)"
+      },
+      "localScroll": {
+        "library": "overflow: auto; min-height: 0",
+        "inspector": "overflow: auto; overscroll-behavior: contain; min-height: 0",
+        "status": "max-height: 118px; overflow-y: auto",
+        "dialog": "max-height: calc(100dvh - 48px); overflow-y: auto; overscroll-behavior: contain"
+      },
+      "inspector": {
+        "padding": "20px",
+        "compactPadding": "16px",
+        "twoColumnGap": "12px",
+        "labelGap": "7px",
+        "sectionGap": "24px",
+        "tabStripPadding": "8px",
+        "tabGap": "4px"
+      },
+      "narrow": {
+        "libraryRowWidth": "180px",
+        "editorMinimumHeight": "480px",
+        "previewMinimumHeight": "560px",
+        "paperStageHeight": "380px",
+        "paperStageMinimumHeight": "330px",
+        "sheetMaximumHeight": "348px",
+        "inspectorOverflow": "visible"
+      },
+      "dialog": {
+        "width": "min(520px, 100%)",
+        "padding": "28px",
+        "narrowPadding": "20px",
+        "scrimPadding": "24px",
+        "narrowScrimPadding": "12px"
+      },
+      "exportProgress": {
+        "right": "24px",
+        "bottom": "46px",
+        "width": "min(500px, calc(100% - 48px))",
+        "padding": "20px",
+        "gap": "20px",
+        "narrowRight": "12px",
+        "narrowBottom": "12px",
+        "narrowWidth": "calc(100% - 24px)",
+        "narrowPadding": "16px",
+        "narrowGap": "12px"
+      },
+      "zIndex": {
+        "exportProgress": 30,
+        "scrim": 50,
+        "skipLink": 60
+      }
+    },
+    "borders": {
+      "base": "1px solid var(--control-line)",
+      "selectedArtwork": "1px solid #80b4c6",
+      "selectedTab": "1px solid #a2bdca",
+      "brandRings": "1.6px solid var(--accent-ink)"
+    },
+    "icons": {
+      "source": "src/ui/Icon.tsx",
+      "viewBox": "0 0 24 24",
+      "fill": "none",
+      "stroke": "currentColor",
+      "strokeWidth": 1.7,
+      "strokeLinecap": "round",
+      "strokeLinejoin": "round",
+      "defaultRenderedSize": "18px",
+      "accessibility": "aria-hidden=true; focusable=false"
+    },
+    "directManipulation": {
+      "stage": "max(120px, min(560px, availableWidth - 8px, availableHeight - 8px))",
+      "scale": "stageSize / (cutDiameter × 1.34)",
+      "clip": "cut circle",
+      "snapTolerance": "6 screen pixels per axis",
+      "bypass": "Alt while dragging",
+      "numericOffsets": "No snapping imposed on numeric edits",
+      "status": [
+        "Centered",
+        "Centered horizontally",
+        "Centered vertically",
+        "Off center"
+      ],
+      "centeredText": "color: var(--accent-ink); font-weight: 800",
+      "centerAction": "Sets x/y to 0; preserves mmPerPixel and rotation; disabled if already fully centered, image unavailable or picking",
+      "resize": "Four corner anchors; keepRatio; centeredScaling; no flipping or rotation handle; numeric rotation remains available",
+      "handles": {
+        "size": "10 screen pixels",
+        "radius": "2px",
+        "strokeWidth": "1.5px",
+        "fill": "#ffffff",
+        "stroke": "#0d6f91"
+      },
+      "transformer": {
+        "stroke": "#0d6f91",
+        "strokeWidth": "1px",
+        "atRest": "Visible when image is selected and eyedropper is off"
+      },
+      "gestureGuides": {
+        "stroke": "#0d6f91",
+        "width": "1 screen pixel",
+        "whiteUnderStroke": "3 screen pixels",
+        "underStrokeOpacity": 0.85,
+        "centerDotRadius": "3 screen pixels",
+        "centerDotWhiteStroke": "1 screen pixel",
+        "visible": "Only while dragging or resizing, on each aligned axis"
+      },
+      "eyedropper": "Crosshair; hides transformer; disables drag/center; sample caption; skips transparent/outside pixels",
+      "export": "Selection handles, alignment guides/dot/status are absent from exported output"
+    },
+    "physicalGuides": {
+      "editor": {
+        "cut": {
+          "token": "cut-guide",
+          "widthMm": 0.25
+        },
+        "face": {
+          "token": "face-guide",
+          "widthMm": 0.18,
+          "dashMm": [
+            1,
+            0.7
+          ]
+        },
+        "safe": {
+          "token": "cut-guide",
+          "widthMm": 0.15,
+          "dashMm": [
+            0.4,
+            0.6
+          ]
+        }
+      },
+      "emptyEditor": {
+        "cut": {
+          "token": "empty-guide",
+          "widthPx": 1,
+          "pattern": "solid"
+        },
+        "face": {
+          "token": "empty-face-guide",
+          "widthPx": 1,
+          "pattern": "dashed"
+        },
+        "safe": {
+          "token": "empty-guide",
+          "widthPx": 1,
+          "pattern": "dotted"
+        }
+      },
+      "sheetAndExport": {
+        "token": "printed-guide",
+        "widthMm": 0.12,
+        "cutPattern": "solid",
+        "faceAndSafeDashMm": [
+          0.8,
+          0.6
+        ]
+      },
+      "visibility": "Editor guide checkboxes and output-guide checkboxes are independent. Sheet preview uses the output-guide values.",
+      "geometry": "Independent face and cut diameters; safe radius = face/2 - safeInset. 44mm / 53mm is an editable initial example."
+    },
+    "states": {
+      "invalid": "Preserve last valid preview; alert and associated field error; Review settings selects Sheet; saving/export disabled",
+      "sourceMissing": "Retain design edits, quantity and transforms; show Missing thumbnail and relink action; sheet placeholder remains #e8e3da",
+      "sourceLoading": "Loading artwork status in the editor",
+      "lowQuality": "Below 200 PPI: amber warning note; export remains allowed",
+      "removal": "Confirmation alert dialog; Keep editing default focus; Escape cancels",
+      "export": "PDF RGB or ICC CMYK, PNG/JPG RGB; progress and cancellation; no RGB fallback after failed CMYK; new destination folder preserves existing exports"
+    },
+    "evidence": {
+      "artifacts": [
+        "src/ui/styles.css",
+        "src/ui/type.css",
+        "src/ui/App.tsx",
+        "src/ui/Workspace.tsx",
+        "src/ui/InspectorTabs.tsx",
+        "src/ui/controls.tsx",
+        "src/ui/Settings.tsx",
+        "src/ui/Editor.tsx",
+        "src/ui/SheetPreview.tsx",
+        "src/ui/Icon.tsx",
+        "src/ui/ExportOptions.tsx",
+        "src/core/alignment.ts",
+        "src/render/canvas.ts",
+        "index.html",
+        "electron/main.ts"
+      ],
+      "product": [
+        "PRODUCT.md",
+        "README.md"
+      ],
+      "direction": ".impeccable/surfaces/src-ui-app-tsx.md",
+      "directVisualChecks": [
+        ".impeccable/review/desktop.png",
+        ".impeccable/review/compact-sheet.png",
+        ".impeccable/review/alignment-one-axis.png",
+        ".impeccable/review/invalid-cut.png"
+      ],
+      "verification": ".impeccable/review/revamp-validation.md",
+      "detector": "Ran once before this correction; 76 old-system advisories, zero non-advisories; not rerun",
+      "imagery": "Reference JPGs do not ship; review artwork is synthetic; existing native app-icon pixels are unchanged"
+    },
+    "notCanonized": "No new material UI defect was identified in the finish review. The retained warm missing-source placeholder applies only to that renderer state; synthetic artwork colors and unchanged native-icon pixels are not future UI palette guidance."
+  },
+  "components": [
+    {
+      "name": "Bordered button",
+      "kind": "button",
+      "refersTo": "button",
+      "description": "Save, import and other bordered actions; includes enabled, disabled, hover, focus and press treatments.",
+      "html": "<button class=\"ds-button\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M5 3h12l4 4v13a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5a2 2 0 0 1 2-2Zm2 0v6h10V3M7 21v-8h10v8\"/></svg>Save</button>",
+      "css": ".ds-button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:38px;padding:8px 12px;border:1px solid var(--control-line,#79929e);border-radius:var(--control-radius,8px);background:var(--surface,#ffffff);color:var(--ink,#050809);font-family:'PinIt Sans','Segoe UI',sans-serif;font-size:13px;font-weight:700;line-height:20px;cursor:pointer;transition:background-color 160ms ease-out,border-color 160ms ease-out,transform 120ms ease-out;} .ds-button:hover:not(:disabled){border-color:var(--accent-ink,#14586f);background:var(--accent-soft,#d5edf5);} .ds-button:active:not(:disabled){transform:translateY(1px)} .ds-button:focus-visible{outline:2px solid var(--focus,#136d8c);outline-offset:3px} .ds-button:disabled{cursor:not-allowed;color:#697c87;background:#eaf0f3;border-color:#cbd9df;} @media(pointer:coarse){.ds-button{min-height:44px}} @media(prefers-reduced-motion:reduce){.ds-button{transition-duration:0ms}}"
+    },
+    {
+      "name": "Primary button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Cyan action with dark ink; toolbar uses 16px horizontal padding before compact overrides.",
+      "html": "<button class=\"ds-primary\"><svg width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M12 3v12m-4-4 4 4 4-4M4 16v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4\"/></svg>Export sheets</button>",
+      "css": ".ds-primary{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:38px;padding:8px 12px;border:1px solid var(--control-line,#79929e);border-radius:var(--control-radius,8px);background:var(--surface,#ffffff);color:var(--ink,#050809);font-family:'PinIt Sans','Segoe UI',sans-serif;font-size:13px;font-weight:700;line-height:20px;cursor:pointer;transition:background-color 160ms ease-out,border-color 160ms ease-out,transform 120ms ease-out;background:var(--accent,#4ba6c2);border-color:#237a97;font-size:14px;} .ds-primary:hover:not(:disabled){border-color:var(--accent-ink,#14586f);background:var(--accent-soft,#d5edf5);background:var(--accent-hover,#3d98b4);} .ds-primary:active:not(:disabled){transform:translateY(1px)} .ds-primary:focus-visible{outline:2px solid var(--focus,#136d8c);outline-offset:3px} .ds-primary:disabled{cursor:not-allowed;color:#697c87;background:#eaf0f3;border-color:#cbd9df;color:#526c78;background:#cfe2e9;border-color:#aec8d2;} @media(pointer:coarse){.ds-primary{min-height:44px}} @media(prefers-reduced-motion:reduce){.ds-primary{transition-duration:0ms}}"
+    },
+    {
+      "name": "Quiet button",
+      "kind": "button",
+      "refersTo": "button-quiet",
+      "description": "Low-emphasis file action with transparent rest state.",
+      "html": "<button class=\"ds-quiet\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M3 7V5a1 1 0 0 1 1-1h5l2 3h9a1 1 0 0 1 1 1v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z\"/></svg>Open</button>",
+      "css": ".ds-quiet{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:38px;padding:8px 12px;border:1px solid var(--control-line,#79929e);border-radius:var(--control-radius,8px);background:var(--surface,#ffffff);color:var(--ink,#050809);font-family:'PinIt Sans','Segoe UI',sans-serif;font-size:13px;font-weight:700;line-height:20px;cursor:pointer;transition:background-color 160ms ease-out,border-color 160ms ease-out,transform 120ms ease-out;background:transparent;border-color:transparent;box-shadow:none;} .ds-quiet:hover:not(:disabled){border-color:var(--accent-ink,#14586f);background:var(--accent-soft,#d5edf5);border-color:transparent;} .ds-quiet:active:not(:disabled){transform:translateY(1px)} .ds-quiet:focus-visible{outline:2px solid var(--focus,#136d8c);outline-offset:3px} .ds-quiet:disabled{cursor:not-allowed;color:#697c87;background:#eaf0f3;border-color:#cbd9df;} @media(pointer:coarse){.ds-quiet{min-height:44px}} @media(prefers-reduced-motion:reduce){.ds-quiet{transition-duration:0ms}}"
+    },
+    {
+      "name": "Text button",
+      "kind": "button",
+      "refersTo": "button-text",
+      "description": "Compact deep-cyan inline action, without an underline.",
+      "html": "<button class=\"ds-text\">Center artwork</button>",
+      "css": ".ds-text{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:38px;padding:8px 12px;border:1px solid var(--control-line,#79929e);border-radius:var(--control-radius,8px);background:var(--surface,#ffffff);color:var(--ink,#050809);font-family:'PinIt Sans','Segoe UI',sans-serif;font-size:13px;font-weight:700;line-height:20px;cursor:pointer;transition:background-color 160ms ease-out,border-color 160ms ease-out,transform 120ms ease-out;min-height:28px;padding:2px 4px;color:var(--accent-ink,#14586f);background:transparent;border-color:transparent;font-size:12px;box-shadow:none;} .ds-text:hover:not(:disabled){border-color:var(--accent-ink,#14586f);background:var(--accent-soft,#d5edf5);border-color:transparent;} .ds-text:active:not(:disabled){transform:translateY(1px)} .ds-text:focus-visible{outline:2px solid var(--focus,#136d8c);outline-offset:3px} .ds-text:disabled{cursor:not-allowed;color:#697c87;background:#eaf0f3;border-color:#cbd9df;color:#617b88;background:transparent;border-color:transparent;} @media(prefers-reduced-motion:reduce){.ds-text{transition-duration:0ms}}"
+    },
+    {
+      "name": "Danger button",
+      "kind": "button",
+      "refersTo": "button-danger",
+      "description": "Destructive confirmation in the removal/unsaved dialog.",
+      "html": "<button class=\"ds-danger\">Remove artwork</button>",
+      "css": ".ds-danger{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:38px;padding:8px 12px;border:1px solid var(--control-line,#79929e);border-radius:var(--control-radius,8px);background:var(--surface,#ffffff);color:var(--ink,#050809);font-family:'PinIt Sans','Segoe UI',sans-serif;font-size:13px;font-weight:700;line-height:20px;cursor:pointer;transition:background-color 160ms ease-out,border-color 160ms ease-out,transform 120ms ease-out;color:#ffffff;background:var(--danger,#a12a29);border-color:var(--danger,#a12a29);} .ds-danger:hover:not(:disabled){border-color:var(--accent-ink,#14586f);background:var(--accent-soft,#d5edf5);color:#ffffff;background:#84201f;border-color:#84201f;} .ds-danger:active:not(:disabled){transform:translateY(1px)} .ds-danger:focus-visible{outline:2px solid var(--focus,#136d8c);outline-offset:3px} .ds-danger:disabled{cursor:not-allowed;color:#697c87;background:#eaf0f3;border-color:#cbd9df;} @media(pointer:coarse){.ds-danger{min-height:44px}} @media(prefers-reduced-motion:reduce){.ds-danger{transition-duration:0ms}}"
+    },
+    {
+      "name": "Numeric field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Physical value with a trailing unit and associated validation copy; snippet shows a valid value.",
+      "html": "<label class=\"ds-field\"><span>Cut diameter</span><span class=\"ds-unit\"><input aria-label=\"Cut diameter\" type=\"number\" value=\"53\" step=\"0.5\" min=\"0.1\"/><small>mm</small></span><small class=\"ds-error\" hidden>Cut must be at least the face diameter.</small></label>",
+      "css": ".ds-field{display:flex;flex-direction:column;gap:7px;color:var(--muted,#4f6470);font-family:'PinIt Sans','Segoe UI',sans-serif;font-size:12px;line-height:17px}.ds-field>span:first-child{font-weight:600}.ds-unit{position:relative;display:block;min-width:0}.ds-unit input{width:100%;min-width:0;min-height:38px;padding:8px 34px 8px 10px;color:var(--ink,#050809);background:var(--surface,#ffffff);border:1px solid var(--control-line,#79929e);border-radius:var(--control-radius,8px);font-family:'PinIt Sans','Segoe UI',sans-serif;font-size:13px;line-height:20px;font-variant-numeric:tabular-nums;caret-color:var(--accent-ink,#14586f)}.ds-unit input:hover:not(:disabled){border-color:var(--accent-ink,#14586f)}.ds-unit input:focus-visible{outline:2px solid var(--focus,#136d8c);outline-offset:3px}.ds-unit input:disabled{color:var(--muted,#4f6470);background:var(--paper-well,#edf3f6)}.ds-unit input[aria-invalid=true]{border-color:var(--danger,#a12a29)}.ds-unit input::-webkit-inner-spin-button{appearance:none;margin:0}.ds-unit>small{position:absolute;top:50%;right:10px;transform:translateY(-50%);font-size:11px;line-height:16px;pointer-events:none}.ds-error{color:var(--danger,#a12a29);font-size:12px;line-height:17px}.ds-error[hidden]{display:none}@media(pointer:coarse){.ds-unit input{min-height:44px}}"
+    },
+    {
+      "name": "Inspector tabs",
+      "kind": "nav",
+      "refersTo": "inspector-tab-selected",
+      "description": "Static visual states of the two-tab inspector; the React component supplies arrow/Home/End activation and roving Tab focus.",
+      "html": "<div class=\"ds-tabs\" role=\"tablist\" aria-label=\"Inspector sections\"><button role=\"tab\" aria-selected=\"true\">Artwork</button><button role=\"tab\" aria-selected=\"false\" tabindex=\"-1\">Sheet</button></div>",
+      "css": ".ds-tabs{display:flex;gap:4px;padding:8px;background:#e0eef4;border-radius:16px 16px 0 0}.ds-tabs>button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:38px;padding:8px 12px;border:1px solid var(--control-line,#79929e);border-radius:var(--control-radius,8px);background:var(--surface,#ffffff);color:var(--ink,#050809);font-family:'PinIt Sans','Segoe UI',sans-serif;font-size:13px;font-weight:700;line-height:20px;cursor:pointer;transition:background-color 160ms ease-out,border-color 160ms ease-out,transform 120ms ease-out;flex:1;color:var(--accent-ink,#14586f);background:transparent;border-color:transparent;font-weight:800}.ds-tabs>button[aria-selected=true]{color:var(--ink,#050809);background:var(--surface,#ffffff);border-color:#a2bdca}.ds-tabs>button:hover{background:var(--accent-soft,#d5edf5);border-color:var(--accent-ink,#14586f)}.ds-tabs>button[aria-selected=true]:hover{background:var(--surface,#ffffff);border-color:#a2bdca}.ds-tabs>button:active{transform:translateY(1px)}.ds-tabs>button:focus-visible{outline:2px solid var(--focus,#136d8c);outline-offset:3px}@media(prefers-reduced-motion:reduce){.ds-tabs>button{transition-duration:0ms}}"
+    },
+    {
+      "name": "Artwork count",
+      "kind": "chip",
+      "refersTo": "count",
+      "description": "Passive count beside Your artwork; no independent interaction.",
+      "html": "<span class=\"ds-count\">2</span>",
+      "css": ".ds-count{display:inline-grid;place-items:center;min-width:24px;height:24px;padding:0 6px;color:var(--accent-ink,#14586f);background:var(--accent-soft,#d5edf5);border-radius:7px;font-family:'PinIt Sans','Segoe UI',sans-serif;font-size:12px;font-weight:800}"
+    },
+    {
+      "name": "Editor tray",
+      "kind": "card",
+      "refersTo": "editor-panel",
+      "description": "Flat pale-blue work surface; the white preview tray shares the same padding and 16px shape.",
+      "html": "<section class=\"ds-tray\"><div class=\"ds-heading\"><h2>Artwork editor</h2><span>53 mm cut</span></div><p class=\"ds-tray-caption\">Drag to position · pull a corner to resize · Alt for free placement</p></section>",
+      "css": ".ds-tray{display:flex;flex-direction:column;min-width:0;padding:20px;border-radius:var(--radius,16px);background:var(--panel,#e5f2f7);color:var(--ink,#050809);font-family:'PinIt Sans','Segoe UI',sans-serif;}.ds-heading{display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:24px}.ds-heading h2{margin:0;font-size:15px;font-weight:800;line-height:22px}.ds-heading>span{color:var(--muted,#4f6470);font-size:12px;white-space:nowrap}.ds-tray-caption{margin:8px 0 0;color:var(--muted,#4f6470);font-size:12px;line-height:18px;text-align:center}@media(max-width:1250px){.ds-tray{padding:14px}.ds-tray-caption{font-size:11px;line-height:17px}}@media(min-width:1700px){.ds-tray{padding:24px}}"
+    },
+    {
+      "name": "Alignment status and action",
+      "kind": "custom",
+      "refersTo": "button-text",
+      "description": "Persistent centered-state text plus the action; the blue/white canvas lines occur only during manipulation.",
+      "html": "<div class=\"ds-alignment\"><span role=\"status\" aria-live=\"polite\" class=\"ds-alignment-status\">Centered horizontally</span><button class=\"ds-center\">Center artwork</button></div>",
+      "css": ".ds-center{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:38px;padding:8px 12px;border:1px solid var(--control-line,#79929e);border-radius:var(--control-radius,8px);background:var(--surface,#ffffff);color:var(--ink,#050809);font-family:'PinIt Sans','Segoe UI',sans-serif;font-size:13px;font-weight:700;line-height:20px;cursor:pointer;transition:background-color 160ms ease-out,border-color 160ms ease-out,transform 120ms ease-out;min-height:28px;padding:2px 4px;color:var(--accent-ink,#14586f);background:transparent;border-color:transparent;font-size:12px;} .ds-center:hover:not(:disabled){border-color:var(--accent-ink,#14586f);background:var(--accent-soft,#d5edf5);border-color:transparent;} .ds-center:active:not(:disabled){transform:translateY(1px)} .ds-center:focus-visible{outline:2px solid var(--focus,#136d8c);outline-offset:3px} .ds-center:disabled{cursor:not-allowed;color:#697c87;background:#eaf0f3;border-color:#cbd9df;color:#617b88;background:transparent;border-color:transparent;} @media(prefers-reduced-motion:reduce){.ds-center{transition-duration:0ms}}.ds-alignment{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:42px;font-family:'PinIt Sans','Segoe UI',sans-serif;}.ds-alignment-status{color:var(--muted,#4f6470);font-size:12px}.ds-alignment-status.ds-centered{color:var(--accent-ink,#14586f);font-weight:800}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Modular Maker Studio",
+    "overview": "PinIt is a modular maker studio for preparing original PNG/JPEG artwork and physically sized button-pin sheets in an offline Windows Electron workspace. Cool white and cyan trays surround the actual work: a circular artwork editor beside a live sheet preview. Rounded forms, strong dark labels and a friendly workhorse sans keep dense production settings approachable.\n\nThe workflow is import, position and fit, set exact copies and independent face/cut dimensions, inspect packed sheets, then export locally. The visual system follows the shipped React/CSS renderer and the approved loose direction from inspiration/. Those reference JPGs are not product assets. No customer artwork is bundled; the review captures use synthetic QA images.",
+    "keyCharacteristics": [
+      "Cool cyan action and selection feedback with dark text.",
+      "Rounded, flat trays; physical artwork and white paper remain the main material.",
+      "Bundled Nunito Sans, compact labels and tabular numbers.",
+      "Three desktop regions with local scrolling and keyboard-operated inspector tabs.",
+      "Direct manipulation plus numeric alternatives; editing overlays stay outside exported artwork."
+    ],
+    "rules": [
+      {
+        "name": "The Cyan Hierarchy Rule",
+        "body": "Use cyan fill for the primary action and pale cyan for selection; keep dark ink on the filled cyan action. Deep cyan carries secondary actions, checkbox accents and active feedback.",
+        "section": "colors"
+      },
+      {
+        "name": "The Working Scale Rule",
+        "body": "Use the observed 11–15px utility scale and 20–26px task/count scale. Numeric controls, page counts, run totals and physical summaries use tabular figures; do not invent a display-face hierarchy.",
+        "section": "typography"
+      },
+      {
+        "name": "The Material Depth Rule",
+        "body": "Keep workspace trays flat. Reserve shadows for the white print sheet, dialogs and floating export progress.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** use the bundled PinIt Sans/Nunito Sans family, implemented palette and 8px control / 16px panel corners.",
+      "**Do** preserve the independent face, cut and safe-inset dimensions; the default 44mm face / 53mm cut is an editable example, not a fixed proportion.",
+      "**Do** pair invalid color with an associated explanation, retain visible focus and provide numeric alternatives to gestures.",
+      "**Do** preserve the last valid preview when geometry becomes invalid and direct the operator to Sheet settings.",
+      "**Do** distinguish editor cut/face/safe guides, gesture alignment feedback and optional printed guides.",
+      "**Do** use the existing 24×24 outline SVG grammar with currentColor, 1.7px strokes and round caps/joins."
+    ],
+    "donts": [
+      "**Don't** promote inspiration JPGs, synthetic review artwork or customer imagery into required product assets or palette tokens.",
+      "**Don't** use white text on the cyan primary action; the shipped action uses ink.",
+      "**Don't** turn alignment handles, center lines or the center dot into printed output.",
+      "**Don't** couple physical face and cut dimensions, shrink circles to fit a sheet or change dimensions when choosing Custom paper.",
+      "**Don't** turn defensive narrow-browser layouts into a claim of native mobile support; the Windows minimum remains 1080×720.",
+      "**Don't** substitute RGB after failed CMYK conversion, overwrite existing exports or introduce remote font dependencies."
+    ]
+  }
+}

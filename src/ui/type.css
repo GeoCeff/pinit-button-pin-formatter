@@ -1,0 +1,8 @@
+/* Nunito Sans is bundled locally for the offline workspace. See OFL.txt. */
+@font-face {
+  font-family: 'PinIt Sans';
+  src: url('./fonts/NunitoSans.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 200 1000;
+  font-display: swap;
+}

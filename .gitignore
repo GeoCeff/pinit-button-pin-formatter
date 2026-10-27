@@ -10,3 +10,11 @@
 .DS_Store
 Thumbs.db
 Desktop.ini
+
+node_modules/
+out/
+release/
+coverage/
+.impeccable/questions/
+.impeccable/review/
+resources/ghostscript/

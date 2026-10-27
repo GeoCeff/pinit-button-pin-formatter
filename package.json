@@ -1,0 +1,77 @@
+{
+  "name": "pinit",
+  "version": "0.1.0",
+  "description": "Offline button-pin artwork and print-sheet preparation",
+  "author": "PinIt contributors",
+  "license": "MIT",
+  "main": "out/main/index.js",
+  "scripts": {
+    "dev": "electron-vite dev",
+    "start": "electron-vite preview",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "build": "npm run typecheck && electron-vite build",
+    "dist": "npm run build && node scripts/check-resources.mjs && electron-builder --win nsis --x64",
+    "test:desktop": "node scripts/smoke.mjs",
+    "test:dev": "node scripts/dev-check.mjs",
+    "test:alignment": "node scripts/alignment-check.mjs"
+  },
+  "build": {
+    "appId": "app.pinit.desktop",
+    "productName": "PinIt",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "out/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "resources/ghostscript",
+        "to": "ghostscript"
+      },
+      {
+        "from": "THIRD_PARTY_NOTICES.md",
+        "to": "THIRD_PARTY_NOTICES.md"
+      },
+      {
+        "from": "resources/icon.png",
+        "to": "icon.png"
+      }
+    ],
+    "win": {
+      "icon": "resources/icon.ico",
+      "target": "nsis",
+      "artifactName": "PinIt-${version}-Setup.${ext}"
+    },
+    "nsis": {
+      "include": "resources/installer.nsh",
+      "perMachine": true,
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "license": "LICENSE"
+    }
+  },
+  "dependencies": {
+    "konva": "^10.9.0",
+    "pdf-lib": "^1.17.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-konva": "^19.3.2",
+    "sharp": "^0.35.5"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "electron": "^45.0.0",
+    "electron-builder": "^26.18.0",
+    "electron-vite": "^6.0.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5",
+    "vitest": "^5.0.5"
+  }
+}

@@ -4,20 +4,64 @@ A desktop app for automatically arranging button-pin designs on printable sheets
 
 PinIt starts with a real workflow: a friend runs a button-pin business and spends too much time preparing customer artwork and laying out different designs in Canva. The goal is to automate bleed preparation, circular positioning, duplication, and sheet layout, then save a PDF for the operator's existing color-correction and printing workflow.
 
-**Status:** Project initialized. The application has not been implemented yet; there is no runnable app or installer.
+**Status:** A working offline Electron/React desktop implementation is available. It supports the workflow below, portable project folders, RGB/ICC-converted CMYK PDF, and PNG/JPG sheets. Automated geometry, file-safety and desktop workflow checks are included. Physical printer calibration and clean-machine installer acceptance are still required before production use.
 
-## Planned first version
+## Current workflow
 
-Windows is the initial desktop target. The first version should let the operator:
+Windows 11 x64 is the desktop target. The operator can:
 
 1. Import customer artwork, initially PNG or JPEG, including existing Canva exports.
-2. Center and scale it on a square working area, leaving a margin around the design.
+2. Fit the whole image inside the safe/face circle, fill the face, or move, scale and rotate it manually with drag and numeric controls.
 3. Fill the surrounding margin with a solid color sampled from the artwork's edge, with manual color adjustment.
 4. Preview the artwork inside a circular cut boundary and inner face/fold guide, then adjust its position and scale so important content stays on the front face.
-5. Select a pin template, A4 paper, and quantities per design; automatically duplicate and arrange copies across sheets.
-6. Save an A4 PDF with explicit physical dimensions for manual color correction and printing outside PinIt. The current preferred handoff is CMYK, matching the operator's Canva PDF Print workflow; the color profile and conversion path still need validation.
+5. Set independent face/cut diameters, A4/Letter/custom paper, margins, orientation, gaps, mixed/separate designs, exact quantities and an optional sheet limit. Auto compares grid and staggered arrangements without shrinking circles.
+6. Export a physically sized PDF in RGB or ICC-converted CMYK, or one PNG/JPG per sheet with resolution metadata. Screen guides and printed guides have separate controls. Verify the operator's profile and print result before production use.
+7. Save/open a project folder containing `project.json` and original image bytes in `assets/`. Move the entire folder to another location; missing images retain edits and can be relinked. Named presets copy settings without changing existing projects.
 
 The initial layout will use one pin template per job and support multiple designs. Mixed pin sizes on one sheet can be considered after the basic workflow is proven.
+
+The workspace keeps the artwork library, circular editor, and live sheet preview beside one another. Use the **Artwork** inspector for copies, fit, position, size, rotation and background. Use **Sheet** for physical dimensions, paper, margins, packing and presets. The tabs support arrow keys, Home and End; artwork removal asks for confirmation. The cool blue palette and rounded panels take loose inspiration from `inspiration/`, and Nunito Sans is bundled for offline use.
+
+Artwork alignment works directly in the editor. Drag near the middle to snap either axis into place; blue guides appear for the aligned axes while moving or resizing, and a persistent indicator confirms when the photo is centered. Pull a corner handle to resize proportionally around the photo's center. **Center artwork** resets the position while preserving size and rotation. Hold **Alt** during a drag to place artwork freely inside the snap zone. These editing overlays are excluded from exported sheets.
+
+## Run and build
+
+Development needs Windows 11 x64, Node.js 24 LTS and npm. The installed application runs offline without Node.js.
+
+```powershell
+npm ci
+powershell -ExecutionPolicy Bypass -File scripts/prepare-resources.ps1
+npm run dev
+```
+
+The resource script downloads a pinned, SHA-512-checked official Ghostscript 10.08.0 archive and extracts it locally. It does not run an installer or modify the system. The generic CMYK profile, engine and license notices are packaged with PinIt. The Windows installer requests administrator access and installs the included Microsoft Visual C++ redistributable offline; no separate download is needed. Imported ICC profiles must be CMYK output profiles. Source artwork is normalized to oriented sRGB for editing; original bytes are preserved.
+
+```powershell
+npm test              # numeric geometry, validation, orientation, files and output metadata
+npm run build         # TypeScript checks and production bundles
+npm run test:desktop  # real Electron import/edit/save/reopen/relink and all four export paths
+npm run test:dev      # development renderer and production security-policy check
+npm run test:alignment # actual drag, resize, center feedback and export-overlay checks
+npm run dist          # complete offline Windows NSIS installer under release/
+npm start             # run the production build
+```
+
+The desktop check creates clearly synthetic artwork and output in ignored `local-data/`. It uses native-dialog test responses and a separate test profile. It does not operate on customer files. Rebuild before running it after source changes.
+
+Export captures the current project revision, works in a separate renderer worker, shows progress and supports cancellation. Files are checked and staged in a temporary folder, then published by renaming the complete folder. Every export gets a new destination folder, preserving existing output. A failed CMYK conversion never falls back to RGB.
+
+Safety bounds: at most 500 designs/assets, 100,000 copies, 1,000 sheets, 10,000 circles per sheet, 40 megapixels per source, 50 MB per imported source, a 256 MB source/session and raster/tile budget, 16 custom profiles / 64 MB per session, and 1 GB per export. Raster DPI is a whole number from 1–2400 so JPEG density metadata remains accurate. Start a new project to clear the source session budget. Settings that exceed a bound show an error before allocation. These are deliberate small-shop limits, not production throughput claims.
+
+## Implementation map
+
+- `src/core/`: physical units, fitting, validation, arrangement and pagination; no Electron or drawing imports.
+- `src/state/`: project reducer; computed sheets are not persisted.
+- `src/render/`: render specification, shared Canvas drawing, worker exports and DPI metadata.
+- `src/ui/`: design list, Konva editor, sheet preview, inspector and export dialog.
+- `electron/`: isolated named bridge, native dialogs, authorized source registry, portable project storage, staged exports and separate Ghostscript process.
+- `scripts/`: runtime preparation, packaging preflight and real desktop acceptance checks.
+
+See [plan.md](plan.md) for the full design and [AUDIT.md](AUDIT.md) for the implementation audit and remaining release checks.
 
 ## Reported production settings
 
@@ -50,7 +94,7 @@ Print a calibration sheet at actual size (100%), verify any printer-driver scali
 
 The intended workflow is local and offline. PinIt handles preparation and layout; creating or redesigning artwork can stay in Canva or the operator's chosen editor. Manual color correction stays in the existing downstream workflow. Direct Canva integration, direct printing, user accounts, order management, and cloud storage are outside the first version.
 
-No application framework or dependencies have been selected yet. Start with the confirmed 44 mm face / 53 mm cut template. Choose the smallest desktop stack that supports local image preparation, physical-unit layout, preview, and a validated PDF color-export path.
+The implementation uses Electron, TypeScript, electron-vite, React, Konva, pdf-lib, sharp, Vitest and electron-builder, with a committed npm lockfile. The default is the confirmed 44 mm face / 53 mm cut example. Other inner/outer pairs are editable; no unmeasured outer diameters are invented.
 
 ## Artwork and contributions
 
@@ -60,4 +104,4 @@ Contributions are welcome. While the workflow is being defined, open an issue be
 
 ## License
 
-MIT. See [LICENSE](LICENSE). Customer artwork retains its own ownership and licensing.
+PinIt source is MIT licensed. See [LICENSE](LICENSE). Bundled dependencies retain their licenses, including the AGPL Ghostscript runtime; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Customer artwork retains its own ownership and licensing.
