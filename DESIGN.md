@@ -1,99 +1,252 @@
 ---
-name: PinIt
-description: "Offline button-pin artwork and print-sheet workspace — modular maker studio"
+name: "PinIt"
+description: "An offline pin-making workbench assembled from joined colored blocks."
 colors:
-  primary: "#4ba6c2"
-  primary-hover: "#3d98b4"
-  accent-soft: "#d5edf5"
-  accent-ink: "#14586f"
-  primary-border: "#237a97"
   ink: "#050809"
-  muted: "#4f6470"
+  muted: "#355866"
   workspace: "#f1f7f9"
   surface: "#ffffff"
-  panel: "#e5f2f7"
-  paper-well: "#edf3f6"
-  line: "#cfdee5"
-  control-line: "#79929e"
-  focus: "#136d8c"
-  disabled-text: "#697c87"
-  disabled-surface: "#eaf0f3"
-  disabled-border: "#cbd9df"
-  primary-disabled-text: "#526c78"
-  primary-disabled-surface: "#cfe2e9"
-  primary-disabled-border: "#aec8d2"
-  text-disabled: "#617b88"
-  selected-border: "#80b4c6"
-  row-hover: "#e7f1f5"
-  scrollbar: "#8baebb"
-  tab-tray: "#e0eef4"
-  selected-tab-border: "#a2bdca"
+  accent: "#4ba6c2"
+  secondary: "#93d0e3"
+  bright: "#69c5e2"
+  lemon: "#f3d566"
+  panel: "#d9eff5"
+  paper-well: "#e7f0f3"
+  action: "#075672"
+  accent-ink: "#075672"
+  focus: "#064c68"
+  control-line: "#608491"
+  line: "#b7d2dc"
   danger: "#a12a29"
-  danger-hover: "#84201f"
   danger-soft: "#fff0ec"
+  danger-hover: "#852221"
   success: "#22613c"
   success-soft: "#e9f4ec"
-  quality-warning: "#6b490d"
-  quality-warning-soft: "#fff4dc"
-  cut-guide: "#28566d"
-  face-guide: "#966117"
+  disabled-ink: "#627a84"
+  disabled-line: "#b5cad2"
+  disabled-surface: "#dae7ec"
+  unsaved: "#9b5c17"
+  export-disabled-ink: "#456c7c"
+  export-disabled-surface: "#c0dce5"
+  intro-ink: "#163f50"
+  empty-face-guide: "#875516"
+  library-ink: "#143f4f"
+  settings-paper: "#edf7fa"
+  settings-arrangement: "#c5e8f3"
+  quality-warning: "#794715"
+  dock-ground: "#103e52"
+  dock-tile: "#28677e"
+  dock-label: "#d0e7ef"
+  dock-disabled: "#93b3c0"
+  action-hover: "#06465e"
+  scrim: "rgb(5 20 28 / 45%)"
+  quiet-hover: "rgb(255 255 255 / 35%)"
+  stud-highlight: "rgba(255,255,255,.34)"
+  stud-clear: "rgba(255,255,255,0)"
+  stud-shadow: "rgb(4 58 78 / 21%)"
+  stud-inset-light: "rgb(255 255 255 / 45%)"
+  stud-inset-dark: "rgb(4 58 78 / 20%)"
+  brick-shadow: "rgb(4 58 78 / 12%)"
+  empty-pin-shadow: "rgb(7 71 94 / 10%)"
+  paper-shadow: "rgb(20 59 76 / 9%)"
+  dock-shadow: "rgb(8 56 77 / 15%)"
+  dock-tile-light: "rgb(255 255 255 / 30%)"
+  dock-tile-shadow: "rgb(0 0 0 / 12%)"
+  dialog-shadow: "rgb(4 44 62 / 25%)"
+  progress-shadow: "rgb(7 61 81 / 20%)"
   alignment-guide: "#0d6f91"
-  empty-guide: "#407c94"
-  empty-face-guide: "#8c621d"
-  empty-circle: "#f3fafc"
-  missing-source-preview: "#e8e3da"
+  editor-guide: "#28566d"
+  face-guide: "#966117"
+  missing-preview: "#e8e3da"
   printed-guide: "#333333"
-  scrim: "rgb(5 8 9 / 42%)"
-  paper-shadow-color: "rgb(33 63 79 / 9%)"
-  floating-shadow-color: "rgb(9 45 62 / 18%)"
+  transparent: "transparent"
 typography:
   body:
     fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
     fontSize: "14px"
     fontWeight: 400
-    lineHeight: 1.5
+  paragraph:
+    fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
+    fontSize: "14px"
+    fontWeight: 400
+    lineHeight: 1.55
+  display:
+    fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
+    fontSize: "48px"
+    fontWeight: 850
+    lineHeight: 1.05
+    letterSpacing: "-0.04em"
+  display-compact:
+    fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
+    fontSize: "38px"
+    fontWeight: 850
+    lineHeight: 1.05
+    letterSpacing: "-0.04em"
+  display-narrow:
+    fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
+    fontSize: "36px"
+    fontWeight: 850
+    lineHeight: 1.08
+    letterSpacing: "-0.04em"
+  brand:
+    fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
+    fontSize: "44px"
+    fontWeight: 850
+    lineHeight: "46px"
+    letterSpacing: "-0.04em"
+  brand-compact:
+    fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
+    fontSize: "38px"
+    fontWeight: 850
+    lineHeight: "40px"
+    letterSpacing: "-0.04em"
+  brand-narrow:
+    fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
+    fontSize: "34px"
+    fontWeight: 850
+    lineHeight: "40px"
+    letterSpacing: "-0.04em"
   headline:
     fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
-    fontSize: "26px"
+    fontSize: "28px"
     fontWeight: 800
-    lineHeight: "34px"
-    letterSpacing: "-0.03em"
+    lineHeight: 1.15
+    letterSpacing: "-0.035em"
   headline-compact:
     fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
     fontSize: "24px"
     fontWeight: 800
-    lineHeight: "31px"
-    letterSpacing: "-0.03em"
-  brand:
+    lineHeight: 1.15
+    letterSpacing: "-0.035em"
+  headline-narrow:
+    fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
+    fontSize: "22px"
+    fontWeight: 800
+    lineHeight: 1.15
+    letterSpacing: "-0.035em"
+  mode-title:
+    fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
+    fontSize: "34px"
+    fontWeight: 800
+    lineHeight: 1.15
+    letterSpacing: "-0.035em"
+  mode-title-compact:
+    fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
+    fontSize: "28px"
+    fontWeight: 800
+    lineHeight: 1.15
+    letterSpacing: "-0.035em"
+  mode-title-narrow:
     fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
     fontSize: "26px"
-    fontWeight: 900
-    lineHeight: "28px"
+    fontWeight: 800
+    lineHeight: 1.15
     letterSpacing: "-0.035em"
   section-title:
     fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
-    fontSize: "15px"
-    fontWeight: 800
-    lineHeight: "22px"
+    fontSize: "19px"
+    fontWeight: 750
+    lineHeight: 1.3
+    letterSpacing: "-0.025em"
+  section-title-narrow:
+    fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
+    fontSize: "17px"
+    fontWeight: 750
+    lineHeight: 1.3
+    letterSpacing: "-0.025em"
+  preview-title:
+    fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
+    fontSize: "22px"
+    fontWeight: 750
+    lineHeight: "26px"
+    letterSpacing: "-0.03em"
+  preview-title-compact:
+    fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
+    fontSize: "20px"
+    fontWeight: 750
+    lineHeight: "26px"
+    letterSpacing: "-0.03em"
+  preview-title-narrow:
+    fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
+    fontSize: "24px"
+    fontWeight: 750
+    lineHeight: "26px"
+    letterSpacing: "-0.03em"
   subsection-title:
     fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
+    fontSize: "15px"
+    fontWeight: 750
+    lineHeight: "22px"
+  adjustment-title:
+    fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
+    fontSize: "15px"
+    fontWeight: 750
+    lineHeight: 1.3
+    letterSpacing: "-0.01em"
+  adjustment-title-compact:
+    fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
     fontSize: "14px"
-    fontWeight: 800
-    lineHeight: "20px"
+    fontWeight: 750
+    lineHeight: 1.3
+    letterSpacing: "-0.01em"
   minor-title:
     fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
     fontSize: "13px"
     fontWeight: 700
+  project-name:
+    fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
+    fontSize: "15px"
+    fontWeight: 750
     lineHeight: "20px"
+  project-name-narrow:
+    fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
+    fontSize: "12px"
+    fontWeight: 750
+    lineHeight: "20px"
+  intro:
+    fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
+    fontSize: "16px"
+    fontWeight: 400
+    lineHeight: 1.45
+  intro-compact:
+    fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
+    fontSize: "14px"
+    fontWeight: 400
+    lineHeight: 1.45
+  mode-copy:
+    fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
+    fontSize: "13px"
+    fontWeight: 400
+    lineHeight: 1.55
+  mode-copy-narrow:
+    fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
+    fontSize: "12px"
+    fontWeight: 400
+    lineHeight: 1.55
   button:
     fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
     fontSize: "13px"
-    fontWeight: 700
+    fontWeight: 650
     lineHeight: "20px"
-  primary-button:
+  text-button:
+    fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
+    fontSize: "12px"
+    fontWeight: 650
+    lineHeight: "20px"
+  file-button-narrow:
+    fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
+    fontSize: "11px"
+    fontWeight: 650
+    lineHeight: "20px"
+  export-button:
+    fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
+    fontSize: "17px"
+    fontWeight: 750
+    lineHeight: "20px"
+  export-button-compact:
     fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
     fontSize: "14px"
-    fontWeight: 700
+    fontWeight: 750
     lineHeight: "20px"
   field:
     fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
@@ -103,331 +256,390 @@ typography:
   field-label:
     fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
     fontSize: "12px"
-    fontWeight: 600
+    fontWeight: 550
+    lineHeight: "17px"
+  field-error:
+    fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
+    fontSize: "12px"
+    fontWeight: 400
     lineHeight: "17px"
   hint:
     fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
     fontSize: "12px"
     fontWeight: 400
     lineHeight: 1.5
-  caption:
+  small-copy:
     fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
     fontSize: "11px"
     fontWeight: 400
-  artwork-name:
+    lineHeight: 1.55
+  check:
+    fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
+    fontSize: "12px"
+    fontWeight: 400
+    lineHeight: "18px"
+  artwork-title:
+    fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
+    fontSize: "12px"
+    fontWeight: 750
+    lineHeight: "17px"
+  library-title:
+    fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
+    fontSize: "14px"
+    fontWeight: 750
+    lineHeight: "17px"
+  summary:
     fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
     fontSize: "13px"
-    fontWeight: 800
+    fontWeight: 750
     lineHeight: "18px"
+  summary-compact:
+    fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
+    fontSize: "12px"
+    fontWeight: 750
+    lineHeight: "18px"
+  summary-meta:
+    fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
+    fontSize: "10px"
+    fontWeight: 400
+    lineHeight: "16px"
+  dock-label:
+    fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
+    fontSize: "12px"
+    fontWeight: 650
+    lineHeight: "14px"
+  message:
+    fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
+    fontSize: "12px"
+    fontWeight: 400
+    lineHeight: "19px"
   dialog-title:
-    fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
-    fontSize: "22px"
-    fontWeight: 800
-    lineHeight: "28px"
-    letterSpacing: "-0.025em"
-  empty-inspector-title:
-    fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
-    fontSize: "20px"
-    fontWeight: 800
-    lineHeight: "22px"
-  empty-library-title:
-    fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
-    fontSize: "16px"
-    fontWeight: 800
-    lineHeight: "23px"
-  capacity:
-    fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
-    fontSize: "24px"
-    fontWeight: 800
-    lineHeight: "28px"
-    letterSpacing: "-0.025em"
-  run-total:
     fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
     fontSize: "26px"
     fontWeight: 800
+    lineHeight: "32px"
     letterSpacing: "-0.025em"
-  pin-summary:
+  dialog-title-narrow:
     fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
-    fontSize: "22px"
+    fontSize: "23px"
     fontWeight: 800
+    lineHeight: "32px"
+    letterSpacing: "-0.025em"
+  empty-placement:
+    fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
+    fontSize: "14px"
+    fontWeight: 650
+  utility:
+    fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
+    fontSize: "12px"
+    fontWeight: 400
+  utility-small:
+    fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
+    fontSize: "11px"
+    fontWeight: 400
+  utility-micro:
+    fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
+    fontSize: "10px"
+    fontWeight: 400
+  utility-narrow:
+    fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
+    fontSize: "9px"
+    fontWeight: 400
 rounded:
+  flat: "0px"
   handle: "2px"
-  swatch: "4px"
-  count: "7px"
+  small: "4px"
+  count: "6px"
   control: "8px"
-  paper-well: "10px"
-  artwork-row: "12px"
-  panel: "16px"
+  brick: "10px"
+  card: "12px"
+  progress: "16px"
+  drawer: "18px"
+  dialog: "20px"
+  dock: "22px"
+  module: "24px"
   circle: "50%"
 spacing:
-  step-1: "1px"
-  step-2: "2px"
-  step-3: "3px"
-  step-4: "4px"
-  step-5: "5px"
-  step-6: "6px"
-  step-7: "7px"
-  step-8: "8px"
-  step-9: "9px"
-  step-10: "10px"
-  step-12: "12px"
-  step-14: "14px"
-  step-16: "16px"
-  step-18: "18px"
-  step-20: "20px"
-  step-24: "24px"
-  step-28: "28px"
-  step-32: "32px"
+  "0": "0px"
+  "1": "1px"
+  "2": "2px"
+  "3": "3px"
+  "4": "4px"
+  "5": "5px"
+  "6": "6px"
+  "7": "7px"
+  "8": "8px"
+  "9": "9px"
+  "10": "10px"
+  "12": "12px"
+  "14": "14px"
+  "16": "16px"
+  "18": "18px"
+  "20": "20px"
+  "22": "22px"
+  "24": "24px"
+  "28": "28px"
+  "30": "30px"
+  "32": "32px"
+  "40": "40px"
 components:
-  button:
+  button-default:
     backgroundColor: "{colors.surface}"
     textColor: "{colors.ink}"
     typography: "{typography.button}"
     rounded: "{rounded.control}"
     padding: "8px 12px"
-  button-hover:
-    backgroundColor: "{colors.accent-soft}"
-    textColor: "{colors.ink}"
+  button-default-hover:
+    backgroundColor: "{colors.panel}"
   button-primary:
-    backgroundColor: "{colors.primary}"
-    textColor: "{colors.ink}"
-    typography: "{typography.primary-button}"
+    backgroundColor: "{colors.action}"
+    textColor: "{colors.surface}"
+    typography: "{typography.button}"
     rounded: "{rounded.control}"
-    padding: "8px 12px"
+    padding: "8px 18px"
   button-primary-hover:
-    backgroundColor: "{colors.primary-hover}"
-    textColor: "{colors.ink}"
-  button-primary-disabled:
-    backgroundColor: "{colors.primary-disabled-surface}"
-    textColor: "{colors.primary-disabled-text}"
-  button-disabled:
-    backgroundColor: "{colors.disabled-surface}"
-    textColor: "{colors.disabled-text}"
+    backgroundColor: "{colors.action-hover}"
   button-quiet:
-    backgroundColor: "transparent"
+    backgroundColor: "{colors.transparent}"
     textColor: "{colors.ink}"
+    typography: "{typography.button}"
     rounded: "{rounded.control}"
     padding: "8px 12px"
   button-text:
-    backgroundColor: "transparent"
-    textColor: "{colors.accent-ink}"
+    backgroundColor: "{colors.transparent}"
+    textColor: "{colors.action}"
+    typography: "{typography.text-button}"
     rounded: "{rounded.control}"
-    padding: "2px 4px"
+    padding: "3px 4px"
   button-danger:
     backgroundColor: "{colors.danger}"
     textColor: "{colors.surface}"
+    typography: "{typography.button}"
     rounded: "{rounded.control}"
     padding: "8px 12px"
   button-danger-hover:
     backgroundColor: "{colors.danger-hover}"
-    textColor: "{colors.surface}"
-  input:
+  button-disabled:
+    backgroundColor: "{colors.disabled-surface}"
+    textColor: "{colors.disabled-ink}"
+  field:
     backgroundColor: "{colors.surface}"
     textColor: "{colors.ink}"
     typography: "{typography.field}"
     rounded: "{rounded.control}"
     padding: "8px 10px"
-  count:
-    backgroundColor: "{colors.accent-soft}"
-    textColor: "{colors.accent-ink}"
+  print-chip:
+    backgroundColor: "{colors.lemon}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.small}"
+    padding: "4px 7px"
+  artwork-card:
+    backgroundColor: "{colors.secondary}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.card}"
+    padding: "10px"
+  artwork-card-selected:
+    backgroundColor: "{colors.workspace}"
+  item-count:
+    backgroundColor: "{colors.workspace}"
+    textColor: "{colors.action}"
     rounded: "{rounded.count}"
-    padding: "0 6px"
-    height: "24px"
-  artwork-selected:
-    backgroundColor: "{colors.accent-soft}"
-    rounded: "{rounded.artwork-row}"
-    padding: "10px 8px 10px 10px"
-  editor-panel:
+    padding: "2px 6px"
+  dock:
+    backgroundColor: "{colors.dock-ground}"
+    rounded: "{rounded.dock}"
+    padding: "9px 18px 6px"
+  dock-tile:
+    backgroundColor: "{colors.dock-tile}"
+    textColor: "{colors.surface}"
+    rounded: "{rounded.card}"
+    size: "48px"
+  dock-tile-selected:
+    backgroundColor: "{colors.bright}"
+    textColor: "{colors.ink}"
+  adjustment-drawer:
     backgroundColor: "{colors.panel}"
-    rounded: "{rounded.panel}"
-    padding: "20px"
+    rounded: "0 18px 18px 0"
   preview-panel:
     backgroundColor: "{colors.surface}"
-    rounded: "{rounded.panel}"
-    padding: "20px"
-  inspector-tab:
-    backgroundColor: "transparent"
-    textColor: "{colors.accent-ink}"
-    rounded: "{rounded.control}"
-  inspector-tab-selected:
-    backgroundColor: "{colors.surface}"
-    textColor: "{colors.ink}"
-  paper-stage:
+    rounded: "0 0 24px 0"
+    padding: "22px"
+  paper-well:
     backgroundColor: "{colors.paper-well}"
-    rounded: "{rounded.paper-well}"
-    padding: "16px 12px"
+    rounded: "{rounded.control}"
+    padding: "16px"
   dialog:
-    backgroundColor: "{colors.surface}"
-    rounded: "{rounded.panel}"
+    backgroundColor: "{colors.workspace}"
+    rounded: "{rounded.dialog}"
     padding: "28px"
-    width: "min(520px, 100%)"
+  export-progress:
+    backgroundColor: "{colors.workspace}"
+    rounded: "{rounded.progress}"
+    padding: "20px"
 ---
 
 # Design System: PinIt
 
 ## Overview
 
-**Creative North Star: "The Modular Maker Studio"**
+**Creative North Star: "The Studded Block Workbench"**
 
-PinIt is a modular maker studio for preparing original PNG/JPEG artwork and physically sized button-pin sheets in an offline Windows Electron workspace. Cool white and cyan trays surround the actual work: a circular artwork editor beside a live sheet preview. Rounded forms, strong dark labels and a friendly workhorse sans keep dense production settings approachable.
+PinIt is a pin-making workbench assembled from connected cyan and sky blocks. Substantial Geist typography, near-black ink, rounded external corners and molded circular studs translate the actual inspiration into a practical offline Windows editor. The user explicitly approved this visual and structural replacement; it supersedes the earlier Nunito, loose-reference and three-column system.
 
-The workflow is import, position and fit, set exact copies and independent face/cut dimensions, inspect packed sheets, then export locally. The visual system follows the shipped React/CSS renderer and the approved loose direction from inspiration/. Those reference JPGs are not product assets. No customer artwork is bundled; the review captures use synthetic QA images.
+Flat joined modules carry the work, while CSS lighting gives the pinned stud geometry its material identity. White paper remains distinct from the colored editing ground. The supplied Mac-style dock is a functional tool switcher with visible labels, reserved space and motion that yields immediately to keyboard focus, coarse pointers and reduced-motion preference. The shipped code is the authority; no approved visual comp or Figma artifact is claimed.
 
 **Key Characteristics:**
 
-- Cool cyan action and selection feedback with dark text.
-- Rounded, flat trays; physical artwork and white paper remain the main material.
-- Bundled Nunito Sans, compact labels and tabular numbers.
-- Three desktop regions with local scrolling and keyboard-operated inspector tabs.
-- Direct manipulation plus numeric alternatives; editing overlays stay outside exported artwork.
+- Connected rectangular cyan/sky modules with rounded external corners.
+- Locally bundled Geist under the PinIt Sans alias; strong task headings and compact utility text.
+- CSS molded studs and a dark floating dock as the deliberate material signatures.
+- Large artwork stage, horizontal artwork shelf, disclosed exact adjustments and persistent white sheet preview.
+- Independent physical geometry, numeric alternatives, visible keyboard states and local operational feedback.
+
+Recorded from the implemented renderer after the approved system replacement. The normative values are in the frontmatter; full lighting, motion, responsive rules and drop-in examples extend it in `.impeccable/design.json`. Source authority is `src/ui/styles.css`, `type.css`, the renderer components and the dock implementation. Product constraints come from `PRODUCT.md`; this document does not redefine print geometry or the export pipeline.
 
 ## Colors
 
-Cool whites and blue-gray surfaces frame a single cyan accent. Functional amber, red and green remain scoped to guides, quality and status.
+The palette combines broad molded cyan and sky planes with deep blue working actions, cool white paper and one lemon print reminder.
 
 ### Primary
 
-- **Maker cyan** (`primary`) fills Export sheets, first import and the CSS brand mark; `primary-hover` darkens the same action. The foreground is `ink`, with `primary-border` at rest and `accent-ink` on hover.
-- **Pale cyan** (`accent-soft`) identifies selected artwork, the count chip and hovered controls. **Deep cyan** (`accent-ink`) carries text actions, checkboxes, local status and centered-state text. The directional references' extra cyan swatches were not introduced as separate implementation tokens.
+- **Molded cyan, sky block and bright sky** distinguish the brand/shelf, editing region and selected dock tile. They are structural surfaces, not interchangeable status colors.
+- **Deep action blue and action hover blue** carry primary/export actions; white text sits on the dark fill. The accent-ink token retains the source alias of action.
+- **Dock deep blue and dock tile blue** establish the separate floating tool material. Dock label frost and selected white labels keep names visible.
+
+### Secondary
+
+- **Print lemon** is the passive Print at 100% reminder. It is not a warning or action color.
 
 ### Neutral
 
-- `workspace` is the application ground, `surface` is white for preview and inspector trays, `panel` is the pale-blue artwork tray and `paper-well` sits behind white paper.
-- `ink` and `muted` separate working labels from help. `line` divides summaries; the darker `control-line` defines fields and bordered buttons.
-- `selected-border`, `row-hover`, `tab-tray` and `selected-tab-border` describe navigation states. Disabled base, primary and text controls retain distinct colors rather than a blanket opacity.
-- `missing-source-preview` is a renderer placeholder for an unavailable source on a sheet; it is a retained functional exception, not a general warm surface.
+- **Near-black ink** is the principal type color. **Blue-gray secondary ink** carries supporting text.
+- **Cool white workspace**, **white work surface**, **pale cyan panel** and **paper well** distinguish surround, project/preview/fields, adjustments and paper recess.
+- **Paper-settings wash** and **arrangement sky** are the implemented Sheet form subdivisions. **Control stroke** marks fields and buttons; **module divider** separates settings and summaries.
+- The frontmatter also records implemented disabled-control/export/dock colors, intro/shelf ink, missing-preview placeholder, transparent state and each material lighting literal. These are bounded component roles, not additional general-purpose accents.
 
 ### Functional colors
 
-- Focus uses `focus`. Destruction/validation uses `danger`, `danger-hover` and `danger-soft`; notices use `success` / `success-soft`; below-200-PPI feedback uses `quality-warning` / `quality-warning-soft`.
-- In the editor, `cut-guide` outlines cut and safe circles; `face-guide` marks the dashed face circle. Empty-editor CSS uses the separate `empty-guide`, `empty-face-guide` and `empty-circle` values.
-- `alignment-guide` is the blue artwork transformer and live center-guide color. White handles and an 85%-opaque white under-stroke protect contrast over artwork.
-- `printed-guide` is the shared sheet-renderer gray. Screen visibility toggles do not control printed-guide settings; the sheet preview uses actual output-guide settings.
-- Scrim and shadow colors are recorded as literal alpha CSS colors in frontmatter. Their geometry belongs to Elevation & Depth and the sidecar.
+- **Error red/error wash** pair with explanatory invalid, missing-source and failure text. Destructive hover retains white text over **destructive hover red**. **Success green/success wash** pair with completed-operation notices.
+- **Unsaved amber** is a dot beside a text label. **Quality amber** explains low PPI without preventing export.
+- **Focus blue** gives ordinary controls a visible keyboard outline. The dock uses bright sky on its dark ground.
+- **Alignment blue** identifies transformer handles and temporary snap feedback. **Cut and safe blue**, **editor face amber** and **empty face amber** identify separate editing rings. **Printed guide ink** belongs only to independently enabled output guides.
+- Source artwork fills and pixels, the native application icon and review images are excluded from this palette. White is shared by UI, physical paper and alignment halos; transparent and alpha literals describe material/state behavior.
 
 ### Named Rules
 
-**The Cyan Hierarchy Rule.** Use cyan fill for the primary action and pale cyan for selection; keep dark ink on the filled cyan action. Deep cyan carries secondary actions, checkbox accents and active feedback.
+**The Working Color Rule.** Use molded cyan and sky for the joined work modules, deep action blue with white text for primary/export actions, near-black for working text, and lemon for the passive print-scale reminder.
 
 ## Typography
 
-**Display/task, body and label font:** `'PinIt Sans', 'Segoe UI', sans-serif`. PinIt Sans is the bundled, unmodified Nunito Sans variable font at `src/ui/fonts/NunitoSans.ttf`, mapped by `type.css` with normal style, weights 200–1000 and `font-display: swap`. `index.html` preloads it. Segoe UI is a fallback, not the alias source. Licensing is in `src/ui/fonts/OFL.txt` and `THIRD_PARTY_NOTICES.md`.
+**Display and body font:** Geist, locally bundled from `src/ui/fonts/Geist.ttf` under the CSS family **PinIt Sans**, followed by Segoe UI and sans-serif. The normal variable face supports weights 100–900; synthesis is disabled. No remote font is required.
 
-The root is 14px, normal weight; paragraphs use 1.5 line height. Most working labels use weights 600–800. Headings use balanced wrapping, while the desktop artwork title uses one-line ellipsis and preserves its full name in a title attribute. Long names wrap in artwork rows and in the narrow fallback.
+**Character:** A single compact, direct sans with substantial headings and precise controls. The frontmatter records real roles, including responsive variants; no theoretical ratio is imposed.
 
 ### Hierarchy
 
-- **Task headline:** 26px / 34px, 800, −0.03em; 24px / 31px at 1250px and below.
-- **Brand:** 26px / 28px, 900, −0.035em; 24px at 650px and below.
-- **Dialog heading:** 22px / 28px, 800, −0.025em. Empty-inspector heading is 20px with inherited 22px line height; empty-library heading is 16px / 23px.
-- **Panel heading:** 15px / 22px, 800. Subsection headings are 14px / 20px, 800. Settings summaries are 14px / 22px, 800; h4 is 13px / 20px, bold.
-- **Controls:** 13px / 20px; button weight 700, primary button 14px, input weight 400. Project name is 14px, 800.
-- **Labels and help:** field labels 12px / 17px, 600; help is 12px with 1.5 line height; captions and footer use 11px. Canvas caption is 12px / 18px, becoming 11px / 17px at the compact breakpoint. Units are 11px / 16px.
-- **Counts:** run total is 26px, 800; sheet capacity is 24px / 28px, 800; empty pin-size summary is 22px, 800. Totals/capacity use −0.025em tracking. Count chips are 12px, 800.
+- **Display:** empty-editor heading (48px, 850, 1.05, −0.04em); dense layout (38px), narrow fallback (36px, 1.08). The two-line composition is intentional.
+- **Brand:** wordmark (44px, 850, 46px, −0.04em); dense (38px/40px), narrow (34px/40px).
+- **Task/mode:** active artwork (28px, 800, 1.15, −0.035em), dense (24px), narrow (22px). Sheet/Library headings use 34px, then 28px and 26px at the same weight and metrics.
+- **Sections:** default h2 (19px, 750, 1.3, −0.025em); preview title (22px/26px, 750, −0.03em), dense (20px), narrow (24px). Subsections and expanded summaries use 15px/22px at 750. Minor headings use 13px/700. Adjustment title is 15px, then 14px, at 750 with −0.01em tracking.
+- **Body:** default text (14px/400); paragraphs use 1.55 line height. Empty supporting copy uses 16px/1.45, then 14px; mode copy uses 13px, then 12px. No global body line-height is specified beyond these actual paragraph/role rules.
+- **Controls:** buttons (13px/20px, 650), input/select values (13px/20px, 400), field labels (12px/17px, 550), text actions (12px/20px, 650). Header export is 17px/750, then 14px; narrow file actions use 11px. Project names use 15px/750, then 12px.
+- **Operational text:** hints/checks/status use 12px; card titles use 12px/17px at 750, expanding to 14px in Library. Summaries use 13px/18px at 750, then 12px. Dock labels use 12px/14px at 650. Metadata is 10–11px and narrow footer/shelf annotations reach 9px; these remain secondary to labelled controls.
+- **Dialogs:** titles are 26px/32px at 800 with −0.025em tracking, then 23px in the narrow fallback.
 
-There is no artificial ratio: the machine-readable roles record the actual numeric type steps. Tabular numerals apply to number inputs, page navigation, paper labels, color values and physical/run summaries.
+Numeric inputs, page navigation and displayed color values use tabular figures. Long project/artwork names truncate visually with a full title where implemented; status/error text wraps. The 9px missing-thumbnail note is a source-specific annotation, not a reusable body style. Unused brand/preview micro-label CSS is not promoted into the token hierarchy.
 
 ### Named Rules
 
-**The Working Scale Rule.** Use the observed 11–15px utility scale and 20–26px task/count scale. Numeric controls, page counts, run totals and physical summaries use tabular figures; do not invent a display-face hierarchy.
+**The One Typeface Rule.** Use the locally bundled Geist variable face through PinIt Sans. Keep substantial headings and compact operational copy in the same family; the old Nunito files are neither referenced nor bundled.
 
 ## Layout
 
-The native Windows window opens at 1500×960 and enforces a 1080×720 minimum. The renderer has a 320px defensive minimum. The desktop app uses `100dvh`, minimum height 600px, and four grid rows: toolbar, bounded status area, remaining workspace and footer. The toolbar occupies its own row; it is not sticky-positioned. It is at least 74px tall with 12px 24px padding and 24px gaps. The status region scrolls beyond 118px.
+The desktop shell fills 100dvh with a minimum CSS height of 620px; the native window minimum is 1080×720. The principal review size is 1500×960. The normal outer inset is 16px top and 20px sides. Rows reserve 88px for joined project blocks, an auto status row, the flexible workspace, 100px for the dock bay and 26px for the footer. The header uses 214px brand / flexible project / 190px export columns.
 
-The workspace has `208px minmax(0, 1fr) 288px` columns, 16px gaps and 4px 16px 12px padding. The center uses a 16px vertical gap and 14px top padding. Its editor/preview split is `minmax(0, 1.4fr) minmax(0, 1fr)` with a 16px gap. The editor and preview have 20px padding. Inspector contents use 20px padding; fields form two equal columns with 12px gaps, 7px label spacing and 24px section separation.
+The workspace joins a flexible colored work region to a 344px white preview with no gutter. Within Artwork, a 118px horizontal shelf runs below the editor. Exact adjustments are hidden initially and disclose a 264px drawer beside the canvas. Sheet replaces the editing region with two connected form columns; Library expands the shelf into auto-filled cards (minimum 205px, 150px rows). Preview paper remains visible in all three views. Local overflow belongs to the shelf, adjustments, settings and status region; the desktop shell itself does not page-scroll.
 
-Artwork lists and inspector panels scroll locally. The inspector shell clips its tray, the tab strip stays outside the scrolling panel, and the panel uses `overscroll-behavior: contain`. Flexible cells use zero minimum widths/heights so the center canvases can shrink without pushing controls out of the native minimum window.
+At **1250px and below**, the shell uses 12px top/sides, 76px header, 84px dock bay and 24px footer. Header columns become 178px / flexible / 162px; preview is 282px, drawer 238px and shelf 88px. Studio padding, headings and card sizes compact according to recorded variants.
 
-| Condition | Implemented change |
-| --- | --- |
-| At least 1700px | Side columns 228px / 308px; workspace horizontal padding and gaps 24px; canvas gaps and panel padding 24px. |
-| At most 1250px | Side columns 172px / 252px; workspace padding/gaps 12px; editor/preview ratio 1.35:1 with 12px gap; panels 14px, inspector 16px; toolbar minimum 68px; headline 24px / 31px; local badge and guide-legend label hide. |
-| At most 980px | Defensive document scrolling, two columns (172px + flexible center), inspector below both; artwork list min 600px / max 780px, work area min 650px, canvases min 530px; inspector panel max 680px; toolbar/footer wrap. |
-| At most 650px | Defensive single-column flow; two-column toolbar plus full-row file actions; horizontal artwork list with 180px rows; editor and sheet stack; editor min 480px, preview min 560px; paper stage height 380px / min 330px and sheet max 348px; inspector overflow becomes document flow. Dialog padding 20px, scrim 12px. |
-| Coarse pointer | Base buttons, inputs, selects, icon buttons and checkbox labels have 44px minimum targets; icon buttons become 44px wide. |
-| Reduced motion | Transition and animation durations become 0ms. |
+At **950px and below**, the shell becomes a document-flow single column: header, status, dock, workspace, footer. Header export spans both columns; editor and preview stack. The dock occupies a sticky top flow row (z-index 20) with 110px scroll clearance, and its side notes disappear. The work region has a 660px minimum, editor 540px, preview 620px, paper stage 430px and sheet workspace 680px. This is a defensive browser fallback, not an expanded platform claim.
 
-The 1/2/3/4/5/6/7/8/9/10/12/14/16/18/20/24/28/32px spacing entries reflect literal implementation steps, not a newly imposed scale. Use 8–12px within controls, 12–16px between modules and 20–24px for major grouping.
+At **600px and below**, the header brand is 126px wide; the project/file area wraps. Adjustment controls stack above the stage in 320px/330px rows, and Sheet settings and Library cards become one column. The editor minimum is 620px; the shelf returns to 118px. Dialog padding reduces to 20px inside a 12px scrim inset. The coarse-pointer rule raises generic controls and check labels to 44px; more-specific component minimums remain as implemented. Local overflow remains part of the source implementation.
 
-Physical geometry is independent of CSS: face and cut diameters are editable separately, safe inset is measured from the face radius, and the editor scales them to its available space. The initial 44mm / 53mm example has 4.5mm wrap per side. A4/Letter/custom dimensions, exact quantities, grid/staggered packing and mixed/separate designs remain factual controls; no fixed screenshot capacity is a product promise.
+Spacing uses the measured frontmatter steps rather than an imposed four-pixel-only grid. Default controls use 8px vertical padding with 10–12px horizontal padding. Work modules typically use 18–24px, dialog 28px; compact states reduce density explicitly. Keep the dock in its reserved bay and preserve white paper as a separate physical surface.
 
 ## Elevation & Depth
 
-Tonal layering carries the workspace. Editor, preview and inspector trays have no ambient shadow. White print paper is lifted slightly inside its cool well; modal dialogs and export progress float above the work. The scrim is `rgb(5 8 9 / 42%)` at z-index 50; export progress uses z-index 30, and the focused skip link uses 60.
+The system is flat through joined work modules and deliberately molded through the user-pinned studs. The stud highlight is a 145-degree white-to-clear gradient ending at 55%, combined with currentColor. Studs use circular CSS geometry, one cast shadow and inset light/shade; no raster stud texture is required. Decorative blocks stay behind the editor and ignore pointer events.
 
 ### Shadow Vocabulary
 
-- **Paper:** `0 3px 14px rgb(33 63 79 / 9%)`.
-- **Dialog:** `0 18px 56px rgb(9 45 62 / 18%)`.
-- **Export progress:** `0 10px 40px rgb(9 45 62 / 18%)`.
-
-Buttons transition background and border over 160ms ease-out and press translation over 120ms ease-out. Active enabled buttons move down 1px; artwork-select buttons suppress that transform. There is no entrance, idle or decorative animation. The reduced-motion rule disables both transition and animation durations.
+Exact values are held in the sidecar: molded-stud, canvas-brick, empty-pin, print-paper, floating-dock, dock-tile, dialog and export-progress. These are intentional material exceptions. The dock has a small inset highlight plus cast shade; scrim-backed dialogs and progress need separation from live content. Ordinary connected modules, fields and artwork cards remain flat. Quiet hover uses a translucent white wash; this is feedback rather than a new material.
 
 ### Named Rules
 
-**The Material Depth Rule.** Keep workspace trays flat. Reserve shadows for the white print sheet, dialogs and floating export progress.
+**The Molded Material Rule.** Keep the connected work modules flat. Lighting gradients and inset shadows belong to the pinned circular studs; cast lift belongs to their blocks, the empty pin, white paper, dock, dialogs and export progress.
 
 ## Shapes
 
-Panels, inspector shells, dialogs and export progress use 16px corners. Artwork rows, empty-state marks and the brand mark use 12px; the paper well and quality note use 10px. Controls and thumbnails use 8px; count chips 7px; color swatches and project-name field 4px. The transformer's 10px corner handles use 2px rounding. Narrow brand-mark corners become 10px. Borders are generally 1px; the global focus outline is 2px with a 3px offset.
+Modules are substantial connected rectangles with rounded external corners (module: 24px); internal joins stay square. The brand rounds only the top left, header export only the top right, studio/shelf the bottom left and preview the bottom right. Narrow stacking changes corner assignments as documented in Layout. The adjustment drawer rounds its exposed right corners (18px) on desktop and becomes square when stacked.
 
-Concentric 50%-radius circles describe actual cut, face and safe geometry. The CSS brand mark echoes circles with two 1.6px deep-cyan rings inside a cyan rounded square. It does not replace or modify the existing native app icon. Outline icons use a 24×24 viewBox, no fill, currentColor, 1.7px strokes and rounded caps/joins; 18px is the default rendered size, with contextual 14–38px uses.
+Controls use 8px corners; project name, print chip and swatch use 4px; count uses 6px. Canvas bricks use 10px, cards and dock tiles 12px, export progress 16px, dialog 20px and dock shell 22px. Transformer anchors use 2px. Studs, pins and artwork thumbnails are circles (50%). These differing radii express component scale; do not normalize them all to the module radius. Fields/buttons use a 1px control stroke, invalid fields error red, selected artwork an action-blue outline. Physical circle radii come from user measurements rather than UI corner tokens.
 
 ## Components
 
-### Buttons and fields
+Icons are inline outline SVGs on a 24×24 viewBox, with currentColor, 1.7px strokes and round caps/joins. Their usual rendered size is 16–24px; the empty-artwork icon is larger. Decorative SVGs and studs are hidden from assistive technology while controls retain text or accessible labels.
 
-Base buttons are white with dark ink, a control-line border, 8px corners, minimum 38px height, 8px 12px padding and an 8px icon gap. Hover uses pale cyan and a deep-cyan border; active presses translate 1px. Primary buttons use cyan with dark ink, quiet buttons remove the border/fill, text buttons use deep cyan at 12px with 2px 4px padding and 28px minimum height, and destructive confirmation uses white on danger red. Standard icon buttons are 34×34px; removal/dismiss icons may be 28px. Toolbar primary padding is 16px horizontally, reducing with other file actions to 9px at compact widths.
+### Buttons
 
-Fields share 38px minimum height, white fill, 1px control border, 8px corners, 8px 10px padding and 13px / 20px text. Unit fields reserve 34px on the right. Invalid fields use danger borders, `aria-invalid` and associated 12px / 17px explanations. Color fields show the swatch and uppercase value. Checkboxes are 15px squares with deep-cyan accent and a readable text label. Keyboard focus is always the 2px blue outline; color fields expose the same ring through focus-within.
+Compact controls use white ground and 8px corners (38px minimum height). Primary actions use deep action blue with white text (44px minimum, 18px horizontal padding); the empty import action is 48px high. Quiet controls are transparent; text actions are 12px and 28px minimum. Header export is an attached blue module.
 
-### Artwork library and count chip
+Fine-pointer ordinary hover uses pale cyan; primary/export hover uses action hover blue; destructive hover uses destructive hover red for both fill and stroke; quiet/text hover uses the white wash. Pointer press moves ordinary controls down 2px over 120ms, while keyboard focus prevents press motion. Library selection and dock controls have no press translation. Disabled ordinary controls use dedicated ink/stroke/ground; disabled export and dock have their own colors.
 
-A row has a 52px thumbnail, wrapping name and exact copy count, with a separate labeled trash action. Selected rows have pale-cyan fill and the selected-border stroke; hover uses row-hover. The count chip is 24px high, at least 24px wide, with 7px corners. Removal opens a confirmation alert dialog and defaults to Keep editing; missing sources retain edits and expose relink. Empty-library copy and first import remain visible without bundled sample artwork.
+### Inputs / Fields
 
-### Inspector navigation
+White values, a 1px control stroke and 8px corners distinguish fields from colored panels. Standard height is 38px with 8px 10px padding; numeric units sit at the right and reserve 34px input padding. Labels are associated with native controls. Invalid values use an error border, aria-invalid, an associated explanation and the status region. Color values use a white framed row and focus-within treatment. Global visible focus is 3px with 3px offset. Native checkboxes use the action-blue accent.
 
-Artwork and Sheet form a two-tab strip on a pale-blue tray with 8px padding and 4px gaps. Tabs are 38px minimum height, weight 800, deep-cyan text; selected tabs use white, ink and the selected-tab border. One tab is in the Tab sequence. ArrowLeft/ArrowRight wrap, Home/End select the first/last tab, and activation follows keyboard navigation. The tab panel scrolls independently at desktop sizes. Selecting artwork returns to Artwork; validation's Review settings opens Sheet.
+### Chips and artwork cards
 
-### Editor tray, direct manipulation and alignment
+The lemon Print at 100% chip is passive (4px 7px padding, 4px radius, near-black type); it remains beside paper dimensions. Count uses cool white/action blue and 6px corners. Shelf cards use sky fill and 12px corners; selection changes to cool white with action-blue border. Thumbnails are circular and names/copies stay textual. The selected artwork button uses aria-pressed. Removal opens confirmation. Missing-source cards use an explicit Missing annotation and offer relinking in the editor.
 
-The pale-blue editor tray frames real cut geometry, a persistent alignment-status line, Center artwork, the canvas, screen-guide checkboxes and a gesture caption. The editor measures available space, caps its stage at 560px and scales by `stageSize / (cutDiameter × 1.34)`. Artwork is clipped to the cut circle. Dragging snaps each axis independently within six screen pixels; Alt bypasses snapping. Numeric offsets remain intentional. Center artwork zeroes both offsets while preserving scale and rotation. Corner handles resize proportionally around the current image center; rotation remains a numeric control.
+### Navigation
 
-Persistent status is Centered, Centered horizontally, Centered vertically or Off center. Only the fully centered label receives deep-cyan bold styling. Center artwork is disabled when already centered, when the source is unavailable or while picking. During drag/resize, aligned axes draw 1-screen-pixel blue lines over 3-screen-pixel white under-strokes at 85% opacity; full alignment adds a blue center dot with 3-screen-pixel radius. These center lines are transient; the selected artwork's blue transformer and white handles can remain at rest. Cut/face/safe guides have separate visibility toggles and different stroke patterns.
+The supplied dock contains Artwork, Sheet, Library and Export, all with persistent labels. The first three are view buttons with aria-pressed; Export is an action. Base tiles are 48px, gap 16px, resting slots 70px high (66px in dense layout). Selected tiles use bright sky with near-black icons. Keyboard focus uses a 2px bright-sky outline with 5px offset. Arrow keys wrap focus through enabled controls; Home/End choose first/last; native Enter/Space activate.
 
-Eyedropper mode changes the canvas to a crosshair, hides the transformer, disables dragging/centering and reports its action in the caption. Loading and missing-source feedback remain explicit. None of the editing transformer, center guides, alignment dot or status appears in exported sheets.
+Fine mouse-pointer motion uses Gaussian magnification (maximum 1.35, spread 54) with neighbor displacement to preserve separation. GSAP quickTo setters animate x, scaleX and scaleY over 160ms with power3.out, transform origin center bottom. Pointer position is kept in refs rather than React render state. Focus, keyboard navigation, coarse pointers and reduced motion reset transforms immediately. No decorative keyboard animation is added. CSS globally disables transition/animation durations for reduced motion.
 
-### Sheet preview, settings and feedback
+### Editor and exact adjustments
 
-The white preview tray contains paper dimensions, Print at 100%, a cool paper well, white sheet canvas, previous/next page actions and the computed capacity. The preview displays actual printed-guide settings. Printed guides use 0.12mm gray lines; face and safe lines are dashed `0.8mm / 0.6mm`. Editor cut, face and safe strokes are respectively 0.25mm solid, 0.18mm dashed `1 / 0.7` and 0.15mm dotted `0.4 / 0.6`, in their screen colors. Screen guides and export guides are independent controls.
+The circular editor uses actual independent face/cut/safe dimensions. Drag snaps each axis within six screen pixels; Alt bypasses snapping. Corner handles resize proportionally around the image center. A persistent centered-state label and Center artwork action supplement temporary lines and center dot. Centering preserves size and rotation. Position, size, rotation, quantity, fit and background have numeric/native alternatives in the drawer. Eyedropper has an explicit active state and cancellation label. CSS studs stay behind the work and do not enter canvas export.
 
-Sheet settings group pin dimensions, paper/margins and arrangement; native details/summary progressively disclose reusable settings. Selecting Custom paper reveals dimensions without changing them. Invalid geometry preserves the last valid editor/sheet preview, adds an alert and marks the relevant field. I/O busy, disabled export and missing CMYK engine states remain explicit. Success is a green notice, errors use pale red, and low source PPI uses a pale-amber note without blocking export.
+### Sheet preview and feedback
+
+The white preview encloses a cool paper well and physical white sheet with one paper shadow. Page buttons, sheet count and computed summaries remain visible. Editor and output guide toggles are independent; snap feedback/handles never print. Invalid geometry retains the last valid preview and presents Review settings. Loading and missing-source states use explicit text. Success notices have role=status; failures and invalid layout use role=alert. Status text wraps and its region scrolls after 112px.
 
 ### Dialogs and export progress
 
-Dialogs are white 16px trays, `min(520px, 100%)` wide with 28px padding, maximum `calc(100dvh - 48px)` height and local overflow. Modal focus is contained, Escape dismisses, and focus returns to the triggering control. The export dialog presents PDF RGB/CMYK or PNG/JPG choices, profile/intent/resolution settings and independent printed-guide checkboxes. Progress floats at right 24px / bottom 46px, width `min(500px, calc(100% - 48px))`, with cancellation. Exports use a new output folder; failed CMYK conversion does not silently become RGB.
+Dialogs use cool white, 20px corners and a scrim; width is min(540px,100%), with 28px padding and vertical overflow inside viewport clearance. The modal helper captures prior focus before selecting the first enabled control, traps Tab, closes through Escape and restores prior focus. Progress floats above the dock (right 24px, bottom 122px), uses 16px corners and includes text plus Cancel export. Source operations and validation control disabled actions. Print geometry, original imagery and export failure behavior remain product constraints.
 
 ## Do's and Don'ts
 
 ### Do:
 
-- **Do** use the bundled PinIt Sans/Nunito Sans family, implemented palette and 8px control / 16px panel corners.
-- **Do** preserve the independent face, cut and safe-inset dimensions; the default 44mm face / 53mm cut is an editable example, not a fixed proportion.
-- **Do** pair invalid color with an associated explanation, retain visible focus and provide numeric alternatives to gestures.
-- **Do** preserve the last valid preview when geometry becomes invalid and direct the operator to Sheet settings.
-- **Do** distinguish editor cut/face/safe guides, gesture alignment feedback and optional printed guides.
-- **Do** use the existing 24×24 outline SVG grammar with currentColor, 1.7px strokes and round caps/joins.
+- **Do** use the shipped Geist family, actual palette and connected block corner assignments.
+- **Do** preserve the persistent sheet preview while changing Artwork, Sheet or Library views.
+- **Do** expose exact numeric adjustments beside the canvas on desktop and above it in the narrow fallback.
+- **Do** pair color feedback with text, visible focus, associated invalid-field explanations and useful disabled states.
+- **Do** preserve independent face/cut dimensions and keep editor alignment overlays outside exported artwork.
+- **Do** keep the four dock labels and native button semantics, focus navigation, reduced-motion handling and reserved bay.
+- **Do** draw studs with CSS geometry and light; preserve source artwork as local user content.
 
 ### Don't:
 
-- **Don't** promote inspiration JPGs, synthetic review artwork or customer imagery into required product assets or palette tokens.
-- **Don't** use white text on the cyan primary action; the shipped action uses ink.
-- **Don't** turn alignment handles, center lines or the center dot into printed output.
-- **Don't** couple physical face and cut dimensions, shrink circles to fit a sheet or change dimensions when choosing Custom paper.
-- **Don't** turn defensive narrow-browser layouts into a claim of native mobile support; the Windows minimum remains 1080×720.
-- **Don't** substitute RGB after failed CMYK conversion, overwrite existing exports or introduce remote font dependencies.
-
-Evidence: `src/ui/styles.css`, `type.css`, `App.tsx`, `Workspace.tsx`, `InspectorTabs.tsx`, `controls.tsx`, `Settings.tsx`, `Editor.tsx`, `SheetPreview.tsx`, `Icon.tsx`, `ExportOptions.tsx`, `src/core/alignment.ts`, `src/render/canvas.ts`, `index.html`, `electron/main.ts`, `PRODUCT.md`, `README.md` and `.impeccable/review/revamp-validation.md`. Direct visual checks: `desktop.png`, `compact-sheet.png`, `alignment-one-axis.png` and `invalid-cut.png` in `.impeccable/review/`. The finish reviewer checked the complete required capture set. This document records the replacement world; the detector's 76 old-system advisories are not current normative tokens.
-
-Not canonized or repaired: no new material UI defect was identified by the finish review. The retained warm missing-source placeholder is documented only for that renderer state; synthetic artwork colors and unchanged native-icon pixels are not future UI palette guidance.
+- **Don't** restore the obsolete Nunito, generic three-column or loose-reference rules as preservation requirements.
+- **Don't** turn every module into a detached card, round internal joined edges or spread the stud gradient treatment to ordinary controls.
+- **Don't** use customer artwork, inspiration rasters, synthetic review artwork or native-icon colors as design tokens.
+- **Don't** print transformer handles, snap lines or center dots, or change physical dimensions to fit a screen or sheet.
+- **Don't** let dock magnification move keyboard controls, run for coarse pointers or reduced motion, or cover editing content.
+- **Don't** treat the defensive narrow-browser stack as native mobile support; Windows remains the supported desktop target.
+- **Don't** reuse the 9px missing-thumbnail annotation as a general text size or canonize unused micro-label selectors into new UI.

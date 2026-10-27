@@ -20,7 +20,7 @@ Windows 11 x64 is the desktop target. The operator can:
 
 The initial layout will use one pin template per job and support multiple designs. Mixed pin sizes on one sheet can be considered after the basic workflow is proven.
 
-The workspace keeps the artwork library, circular editor, and live sheet preview beside one another. Use the **Artwork** inspector for copies, fit, position, size, rotation and background. Use **Sheet** for physical dimensions, paper, margins, packing and presets. The tabs support arrow keys, Home and End; artwork removal asks for confirmation. The cool blue palette and rounded panels take loose inspiration from `inspiration/`, and Nunito Sans is bundled for offline use.
+The workspace is a joined block workbench, following the studded shapes and colors in `inspiration/`. A large circular editor sits beside the persistent paper preview, with a horizontal artwork shelf below. **Adjust artwork** opens exact copies, fit, position, size, rotation and background controls beside the canvas. The floating dock switches between **Artwork**, **Sheet** setup and the full **Library**, or opens **Export**. Its arrow keys, Home and End move focus; Enter or Space activates a tool. Pointer magnification stops for keyboard focus and reduced motion. Artwork removal asks for confirmation. Geist is bundled locally for offline use.
 
 Artwork alignment works directly in the editor. Drag near the middle to snap either axis into place; blue guides appear for the aligned axes while moving or resizing, and a persistent indicator confirms when the photo is centered. Pull a corner handle to resize proportionally around the photo's center. **Center artwork** resets the position while preserving size and rotation. Hold **Alt** during a drag to place artwork freely inside the snap zone. These editing overlays are excluded from exported sheets.
 
@@ -57,11 +57,21 @@ Safety bounds: at most 500 designs/assets, 100,000 copies, 1,000 sheets, 10,000 
 - `src/core/`: physical units, fitting, validation, arrangement and pagination; no Electron or drawing imports.
 - `src/state/`: project reducer; computed sheets are not persisted.
 - `src/render/`: render specification, shared Canvas drawing, worker exports and DPI metadata.
-- `src/ui/`: design list, Konva editor, sheet preview, inspector and export dialog.
+- `src/ui/`: block workbench, artwork shelf, Konva editor, sheet settings, preview and export dialog.
+- `src/components/ui/`: the supplied floating dock, adapted to real project tools and accessible motion.
+- `src/lib/`: shared class-name merging for component styling.
 - `electron/`: isolated named bridge, native dialogs, authorized source registry, portable project storage, staged exports and separate Ghostscript process.
 - `scripts/`: runtime preparation, packaging preflight and real desktop acceptance checks.
 
 See [plan.md](plan.md) for the full design and [AUDIT.md](AUDIT.md) for the implementation audit and remaining release checks.
+
+## Component and styling setup
+
+The project already uses TypeScript. Tailwind CSS is integrated into the Electron renderer through `@tailwindcss/vite`; `src/ui/styles.css` is the stylesheet entry. The `@/` alias maps to `src/` in both TypeScript and the renderer configuration. `components.json` records the shadcn conventions, including `@/components/ui` and `@/lib/utils`.
+
+The component from the pasted instructions lives at `src/components/ui/mac-style-floating-dock.tsx`, imported as `@/components/ui/mac-style-floating-dock`. Keeping reusable controls in that directory makes the supplied import and shadcn's component path agree. Its stable-slot magnification math is retained, with controlled view selection, real actions, GSAP transform setters, keyboard navigation, visible labels, reduced-motion support and effect cleanup. No sample Home, Mail or Profile destinations are added to the app.
+
+`npm ci` installs this setup; `npm run dev` starts the desktop app. To add another shadcn component later, use the npm runner, for example `npx shadcn@latest add button`. The configuration follows the official [Tailwind Vite setup](https://tailwindcss.com/docs/installation/using-vite) and [shadcn Vite setup](https://ui.shadcn.com/docs/installation/vite).
 
 ## Reported production settings
 

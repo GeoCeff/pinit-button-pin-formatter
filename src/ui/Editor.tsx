@@ -18,7 +18,7 @@ export const Editor=memo(function Editor({design,asset,image,circles,onChange,gu
   const [interacting,setInteracting]=useState(false)
   useEffect(()=>{const observer=new ResizeObserver(entries=>{const {width,height}=entries[0].contentRect;setSize(Math.max(120,Math.min(560,width-8,height-8)))});observer.observe(container.current!);return()=>observer.disconnect()},[])
   useEffect(()=>{transformer.current?.nodes(image&&!picking&&artwork.current?[artwork.current]:[])},[image,picking])
-  const scale=size/(circles.outer*1.34)
+  const scale=size/(circles.outer*1.14)
   const t=design.transform
   const aligned=centerAlignment(t)
   const status=aligned.horizontal&&aligned.vertical?'Centered':aligned.horizontal?'Centered horizontally':aligned.vertical?'Centered vertically':'Off center'

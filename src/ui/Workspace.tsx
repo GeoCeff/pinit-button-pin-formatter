@@ -12,11 +12,11 @@ export function ArtworkLibrary({ designs, selectedId, sources, total, disabled, 
   onSelect: (id: string) => void
   onRemove: (design: Design) => void
 }) {
-  return <aside className="designs-panel" aria-label="Design list">
+  return <section className="designs-panel" aria-label="Design list">
     <div className="library-header">
       <div className="section-title"><h2>Your artwork</h2><span className="item-count">{designs.length}</span></div>
       <button className="import-button" disabled={disabled} onClick={onImport}><Icon name="plus" />Import artwork</button>
-      <p className="hint">PNG or JPG. Originals preserved.</p>
+      <p className="hint">PNG / JPG · originals preserved</p>
     </div>
     <div className="design-list">
       {designs.length ? designs.map(design => <div key={design.id} className={`design-row ${selectedId === design.id ? 'selected' : ''}`}>
@@ -27,8 +27,8 @@ export function ArtworkLibrary({ designs, selectedId, sources, total, disabled, 
         <button className="remove-design icon-button" disabled={disabled} aria-label={`Remove ${design.name}`} title={`Remove ${design.name}`} onClick={() => onRemove(design)}><Icon name="trash" size={16} /></button>
       </div>) : <div className="empty-list"><div className="empty-library-mark" aria-hidden="true"><Icon name="image" size={26} /></div><h3>A little art.<br />A lot of possibilities.</h3><p>Add your first design and give it a place on the sheet.</p></div>}
     </div>
-    <footer className="design-footer"><div><strong>{total.toLocaleString()}</strong><span>copies in this run</span></div><p><Icon name="shield" size={16} />Local files. Always yours.</p></footer>
-  </aside>
+    <footer className="design-footer"><strong>{total.toLocaleString()} copies in this run</strong><span>{designs.length} {designs.length === 1 ? 'design' : 'designs'}</span></footer>
+  </section>
 }
 
 export function ArtworkControls({ design, asset, onChange, onFit, onRelink, picking, onTogglePick, sourceReady, ioBusy }: {
