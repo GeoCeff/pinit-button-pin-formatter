@@ -46,7 +46,7 @@ export const Editor=memo(function Editor({design,asset,image,circles,onChange,gu
     onPick('#'+[data[0],data[1],data[2]].map(n=>n.toString(16).padStart(2,'0')).join(''))
   }
   return <div className="artwork-editor" role="group" aria-label="Artwork positioning" aria-describedby={instructionsId}>
-    <p id={instructionsId} className="sr-only">Drag to position the image. Drag a round corner handle to resize it proportionally. Use Adjust artwork above for exact width, rotation and horizontal or vertical offsets. Center artwork aligns both axes without changing size or rotation.</p>
+    <p id={instructionsId} className="sr-only">Drag to position the image. Drag a round corner handle to resize it proportionally. Hold Alt while dragging to skip center snapping. Use Adjust artwork above for exact width, rotation and horizontal or vertical offsets. Center artwork aligns both axes without changing size or rotation.</p>
     <div className="alignment-toolbar">
       <div className={`alignment-feedback ${status==='Centered'?'is-centered':''}`}>
         <span className="alignment-symbol" aria-hidden="true"><Icon name={status==='Centered'?'check':'center'} size={20}/></span>
@@ -57,7 +57,7 @@ export const Editor=memo(function Editor({design,asset,image,circles,onChange,gu
     <div ref={container} className={`editor-canvas ${picking?'picking':''}`}>
     <Stage width={size} height={size} scaleX={scale} scaleY={scale} x={size/2} y={size/2} onClick={pick}>
       <Layer>
-        <Circle radius={circles.outer/2} fill="#ffffff"/>
+        <Circle radius={circles.outer/2} fill="#ffffff" shadowColor="#000000" shadowOpacity={0.1} shadowBlur={18/scale} shadowOffsetY={4/scale} listening={false}/>
         <Group clipFunc={ctx=>{ctx.arc(0,0,circles.outer/2,0,Math.PI*2)}}>
           <Circle radius={circles.outer/2} fill={design.fill}/>
           {image?<KonvaImage ref={artwork} image={image} width={asset.width} height={asset.height} offsetX={asset.width/2} offsetY={asset.height/2} x={t.x} y={t.y} scaleX={t.mmPerPixel} scaleY={t.mmPerPixel} rotation={t.rotation} draggable={!picking}

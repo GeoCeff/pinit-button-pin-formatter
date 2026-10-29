@@ -13,13 +13,13 @@ const steps = [
   {
     label: 'Position',
     title: 'Find the perfect position.',
-    description: 'Drag the image to move it. Pull a round corner handle to resize. The center guides and Centered confirmation help you line it up.',
+    description: 'Drag the image to move it. Pull a round corner handle to resize. Hold Alt while dragging to skip snapping. The center guides help you line it up.',
     tip: 'The outer circle is the cut line; the inner circle is the visible face. Safe is an optional margin guide. Use Adjust artwork for exact size, rotation and offsets.',
   },
   {
     label: 'Print',
     title: 'Build your sheet. Then export.',
-    description: 'Set copies in Adjust artwork, then open Sheet in the dock to choose paper and spacing. The preview updates alongside your work.',
+    description: 'Set copies in Adjust artwork, then open Sheet in the toolbar to choose paper and spacing. The preview updates alongside your work.',
     tip: 'Export sheets as PDF, PNG or JPG. When printing, choose actual size or 100% so the pin dimensions stay correct.',
   },
 ] as const
@@ -92,7 +92,7 @@ export function QuickStart({ onClose, onImport, hasArtwork }: { onClose: () => v
           {step < steps.length - 1 ? <button type="button" className="primary" onClick={event => go(step + 1, event)}>Next<Icon name="right" size={16} /></button> : <button type="button" className="primary" onClick={finish}>{hasArtwork ? 'Start editing' : 'Import artwork'}<Icon name={hasArtwork ? 'check' : 'upload'} size={16} /></button>}
         </div>
       </div>
-      <p className="quick-start-replay">You can reopen this tour anytime from Help in the dock.</p>
+      <p className="quick-start-replay">You can reopen this tour anytime from Help in the toolbar.</p>
     </div>
   </Dialog>
 }

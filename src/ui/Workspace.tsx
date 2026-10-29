@@ -15,8 +15,9 @@ export function ArtworkLibrary({ designs, selectedId, sources, variant, disabled
 }) {
   return <section className="designs-panel" aria-label="Artwork library" data-variant={variant}>
     <div className="library-header">
+      {variant==='tray'?<div className="artwork-rail-heading"><div><span className="eyebrow">Your collection</span><h2>Artwork</h2></div><span className="item-count">{designs.length}</span></div>:null}
       <button className="import-button" disabled={disabled} onClick={onImport}><Icon name="upload" size={20}/><span>Import artwork</span></button>
-      {variant==='tray'?<button className="manage-library text-button" onClick={onManage}><Icon name="folder" size={14}/>Manage artwork<span className="library-count">{designs.length}</span></button>:<p className="hint">PNG or JPG · original files preserved</p>}
+      {variant==='gallery'?<p className="hint">PNG or JPG · original files preserved</p>:null}
     </div>
     <div className="design-list">
       {designs.length ? designs.map(design => <div key={design.id} className={`design-row ${selectedId === design.id ? 'selected' : ''}`}>
@@ -28,6 +29,7 @@ export function ArtworkLibrary({ designs, selectedId, sources, variant, disabled
         {variant==='gallery'?<button className="remove-design" disabled={disabled} aria-label={`Remove ${design.name}`} onClick={() => onRemove(design)}><Icon name="trash" size={15}/>Remove</button>:null}
       </div>) : <div className="empty-list"><Icon name="image" size={24}/><div><strong>No artwork yet</strong><p>Import a PNG or JPG to get started.</p></div></div>}
     </div>
+    {variant==='tray'?<div className="library-bottom"><button className="manage-library text-button" onClick={onManage}><Icon name="folder" size={16}/>Manage artwork<Icon name="right" size={14}/></button><p><Icon name="shield" size={14}/>Original files preserved</p></div>:null}
   </section>
 }
 
