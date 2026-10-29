@@ -1,15 +1,30 @@
 import { describe, expect, it } from 'vitest'
 import sharp from 'sharp'
-import { mkdtemp, readFile, rm } from 'node:fs/promises'
+import { mkdir, mkdtemp, readFile, realpath, rm, symlink, writeFile } from 'node:fs/promises'
 import os from 'node:os'
 import path from 'node:path'
-import { atomicWrite, checkProfile, decodeImage, images, isInside } from './files'
+import { atomicWrite, checkProfile, containedFile, decodeImage, images, isInside } from './files'
 import { setJpgDensity, setPngDensity } from '../src/render/density'
 import { PDFDocument } from 'pdf-lib'
 import { verifyPdf } from './color'
 import { mmToPt } from '../src/core/model'
 describe('files and output boundaries',()=>{
   it('does not confuse sibling folders with contained paths',()=>{expect(isInside(path.resolve('work'),path.resolve('work','assets','a.png'))).toBe(true);expect(isInside(path.resolve('work'),path.resolve('work-other','a.png'))).toBe(false);expect(isInside(path.resolve('work'),path.resolve('work','..','a.png'))).toBe(false)})
+  it('rejects project assets that escape through a linked directory',async()=>{
+    const root=await mkdtemp(path.join(os.tmpdir(),'pinit-test-'))
+    try {
+      const project=path.join(root,'project');const outside=path.join(root,'outside')
+      await mkdir(project);await mkdir(outside)
+      await writeFile(path.join(project,'inside.png'),'inside');await writeFile(path.join(outside,'source.png'),'outside')
+      await symlink(outside,path.join(project,'assets'),process.platform==='win32'?'junction':'dir')
+      await expect(containedFile(project,'inside.png')).resolves.toBe(await realpath(path.join(project,'inside.png')))
+      await expect(containedFile(project,'assets/source.png')).rejects.toThrow(/outside its folder/)
+      expect(await readFile(path.join(outside,'source.png'),'utf8')).toBe('outside')
+    } finally {
+      if(!isInside(path.resolve(os.tmpdir()),path.resolve(root))||!path.basename(root).startsWith('pinit-test-'))throw new Error('Invalid test temp directory')
+      await rm(root,{recursive:true,force:true})
+    }
+  })
   it('writes complete replacements and preserves original imported bytes',async()=>{
     const root=await mkdtemp(path.join(os.tmpdir(),'pinit-test-'))
     try{const file=path.join(root,'project.json');await atomicWrite(file,'old');await atomicWrite(file,'new');expect(await readFile(file,'utf8')).toBe('new')}

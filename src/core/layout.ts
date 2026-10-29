@@ -30,8 +30,13 @@ export function buildSheetPlan(project: Project): PlanResult {
   if (issues.length) return { ok: false, error: issues[0] }
   try {
     const { circles, paper, layout, output } = project.settings
-    // A printed outer guide has a 0.12 mm stroke. Reserve its full extent.
-    const diameter = circles.outer + (output.guides.outer ? 0.12 : 0)
+    // All printed guides have a 0.12 mm stroke. Reserve any extent beyond the artwork.
+    const diameter = Math.max(
+      circles.outer,
+      output.guides.outer ? circles.outer + 0.12 : 0,
+      output.guides.inner ? circles.inner + 0.12 : 0,
+      output.guides.safe ? circles.inner - 2 * circles.safeInset + 0.12 : 0
+    )
     const portrait = [Math.min(paper.width, paper.height), Math.max(paper.width, paper.height)]
     const dimensions = paper.orientation === 'auto' ? [portrait, [...portrait].reverse()] : [paper.orientation === 'portrait' ? portrait : [...portrait].reverse()]
     let best: { points: Point[]; width: number; height: number; label: string } | undefined

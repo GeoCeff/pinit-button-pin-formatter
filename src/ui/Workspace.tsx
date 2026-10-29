@@ -2,32 +2,32 @@ import { effectivePpi, type Asset, type Design } from '../core/model'
 import { NumberField, SelectField } from './controls'
 import { Icon } from './Icon'
 
-export function ArtworkLibrary({ designs, selectedId, sources, total, disabled, onImport, onSelect, onRemove }: {
+export function ArtworkLibrary({ designs, selectedId, sources, variant, disabled, onImport, onManage, onSelect, onRemove }: {
   designs: Design[]
   selectedId?: string
   sources: Record<string, string>
-  total: number
+  variant: 'tray' | 'gallery'
   disabled: boolean
   onImport: () => void
+  onManage: () => void
   onSelect: (id: string) => void
   onRemove: (design: Design) => void
 }) {
-  return <section className="designs-panel" aria-label="Design list">
+  return <section className="designs-panel" aria-label="Artwork library" data-variant={variant}>
     <div className="library-header">
-      <div className="section-title"><h2>Your artwork</h2><span className="item-count">{designs.length}</span></div>
-      <button className="import-button" disabled={disabled} onClick={onImport}><Icon name="plus" />Import artwork</button>
-      <p className="hint">PNG / JPG · originals preserved</p>
+      <button className="import-button" disabled={disabled} onClick={onImport}><Icon name="upload" size={20}/><span>Import artwork</span></button>
+      {variant==='tray'?<button className="manage-library text-button" onClick={onManage}><Icon name="folder" size={14}/>Manage artwork<span className="library-count">{designs.length}</span></button>:<p className="hint">PNG or JPG · original files preserved</p>}
     </div>
     <div className="design-list">
       {designs.length ? designs.map(design => <div key={design.id} className={`design-row ${selectedId === design.id ? 'selected' : ''}`}>
         <button className="design-select" onClick={() => onSelect(design.id)} aria-pressed={selectedId === design.id}>
           {sources[design.assetId] ? <img src={sources[design.assetId]} width="52" height="52" alt="" /> : <span className="missing-thumb"><Icon name="image" /><small>Missing</small></span>}
           <span className="design-copy"><strong title={design.name}>{design.name}</strong><small>{design.quantity.toLocaleString()} {design.quantity === 1 ? 'copy' : 'copies'}</small></span>
+          {selectedId===design.id?<span className="design-selected-mark" aria-hidden="true"><Icon name="check" size={12}/></span>:null}
         </button>
-        <button className="remove-design icon-button" disabled={disabled} aria-label={`Remove ${design.name}`} title={`Remove ${design.name}`} onClick={() => onRemove(design)}><Icon name="trash" size={16} /></button>
-      </div>) : <div className="empty-list"><div className="empty-library-mark" aria-hidden="true"><Icon name="image" size={26} /></div><h3>A little art.<br />A lot of possibilities.</h3><p>Add your first design and give it a place on the sheet.</p></div>}
+        {variant==='gallery'?<button className="remove-design" disabled={disabled} aria-label={`Remove ${design.name}`} onClick={() => onRemove(design)}><Icon name="trash" size={15}/>Remove</button>:null}
+      </div>) : <div className="empty-list"><Icon name="image" size={24}/><div><strong>No artwork yet</strong><p>Import a PNG or JPG to get started.</p></div></div>}
     </div>
-    <footer className="design-footer"><strong>{total.toLocaleString()} copies in this run</strong><span>{designs.length} {designs.length === 1 ? 'design' : 'designs'}</span></footer>
   </section>
 }
 

@@ -7,7 +7,7 @@ import { projectReducer } from '../state/project'
 import { Check, Confirm, Dialog } from './controls'
 import { Icon } from './Icon'
 import MacFloatingDock, { type DockItem } from '@/components/ui/mac-style-floating-dock'
-import { BlockStuds } from './BlockStuds'
+import { QuickStart } from './QuickStart'
 import { ArtworkControls, ArtworkLibrary } from './Workspace'
 import { Editor, useImages } from './Editor'
 import { SheetPreview } from './SheetPreview'
@@ -34,7 +34,9 @@ export function App() {
   const [picking,setPicking]=useState(false)
   const [workspaceView,setWorkspaceView]=useState('artwork')
   const [adjustmentsOpen,setAdjustmentsOpen]=useState(false)
-  const [guides,setGuides]=useState({inner:true,outer:true,safe:true})
+  const [guides,setGuides]=useState({inner:true,outer:true,safe:false})
+  const [tutorialOpen,setTutorialOpen]=useState(()=>{try{return localStorage.getItem('pinit.quick-start.v1')!=='seen'}catch{return true}})
+  const [noticePaused,setNoticePaused]=useState(false)
   const [confirm,setConfirm]=useState<{title?:string;confirmLabel?:string;message:string;resolve:(v:boolean)=>void}|null>(null)
   const job=useRef<{id:string;worker:Worker;canceled:boolean}|null>(null)
   const deferred=useDeferredValue(project)
@@ -56,7 +58,7 @@ export function App() {
   const pickColor=useCallback((fill:string)=>{updateDesign({fill});setPicking(false)},[updateDesign])
   const selectDesign=useCallback((id:string)=>{setSelectedId(id);setWorkspaceView('artwork')},[])
   useEffect(()=>window.desktop.setDirty(dirty),[dirty])
-  useEffect(()=>{if(!notice)return;const timer=setTimeout(()=>setNotice(''),3500);return()=>clearTimeout(timer)},[notice])
+  useEffect(()=>{if(!notice||noticePaused||notice.startsWith('Export saved:'))return;const timer=setTimeout(()=>setNotice(''),6000);return()=>clearTimeout(timer)},[notice,noticePaused])
   useEffect(()=>{window.desktop.presets().then(p=>setPresets([initialPreset,...p])).catch(e=>setError(e.message));window.desktop.runtimeStatus().then(s=>setCmyk(s.cmyk)).catch(e=>setError(e.message));return window.desktop.onProgress(setProgress)},[])
   useEffect(()=>{setPage(0)},[plan?.sheets.length])
   useEffect(()=>{setPicking(false)},[design?.id])
@@ -103,17 +105,19 @@ export function App() {
   const invalid=valid[0]??(!result.ok?result.error:'')
   const circles=spec?.project.settings.circles??project.settings.circles
   const setOutput=(output:Project['settings']['output'])=>updateSettings({...project.settings,output})
-  const artworkLibrary=<ArtworkLibrary designs={project.designs} selectedId={design?.id} sources={sources} total={total} disabled={ioBusy||exporting} onImport={()=>void importArtwork()} onSelect={selectDesign} onRemove={item=>void removeDesign(item)}/>
+  function closeTutorial(){try{localStorage.setItem('pinit.quick-start.v1','seen')}catch{}setTutorialOpen(false)}
+  const artworkLibrary=<ArtworkLibrary designs={project.designs} selectedId={design?.id} sources={sources} variant={workspaceView==='library'?'gallery':'tray'} disabled={ioBusy||exporting} onImport={()=>void importArtwork()} onManage={()=>setWorkspaceView('library')} onSelect={selectDesign} onRemove={item=>void removeDesign(item)}/>
   const dockItems:DockItem[]=[
     {id:'artwork',label:'Artwork',kind:'view',icon:<Icon name="image" size={24}/>},
     {id:'sheet',label:'Sheet',kind:'view',icon:<Icon name="stack" size={24}/>},
     {id:'library',label:'Library',kind:'view',icon:<Icon name="folder" size={24}/>},
+    {id:'help',label:'Help',kind:'action',icon:<Icon name="help" size={24}/>},
     {id:'export',label:'Export',kind:'action',icon:<Icon name="download" size={24}/>,disabled:ioBusy||exporting||!!invalid||!total}
   ]
-  return <div className="app">
+  return <div className="app" onPointerDownCapture={()=>{document.documentElement.dataset.input='pointer'}} onKeyDownCapture={()=>{document.documentElement.dataset.input='keyboard'}}>
     <a className="skip-link" href="#artwork-workspace">Skip to artwork workspace</a>
     <header className="topbar">
-      <div className="brand" aria-label="PinIt"><span className="brand-symbol" aria-hidden="true"><BlockStuds/></span><strong>PinIt<span>.</span></strong></div>
+      <div className="brand" aria-label="PinIt"><span className="brand-symbol" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="11" stroke="currentColor" strokeWidth="1.7"/><circle cx="16" cy="16" r="7" stroke="currentColor" strokeWidth="1.3" strokeDasharray="2 2"/></svg></span><strong>PinIt<span>.</span></strong></div>
       <div className="project-block"><div className="project-name"><input name="project-name" aria-label="Project name" autoComplete="off" spellCheck={false} maxLength={200} value={project.name} onChange={event=>dispatch({type:'name',name:event.target.value})}/><span><i className={dirty?'unsaved-dot':'saved-dot'}/>{ioBusy?'Working with local files…':dirty?'Unsaved changes':location?'Saved on this computer':'Local project'}</span></div>
         <div className="actions file-actions">
           <button className="quiet-button" disabled={ioBusy||exporting} onClick={()=>void createProject()}><Icon name="plus" size={16}/>New</button>
@@ -126,10 +130,10 @@ export function App() {
     </header>
     <div className="status-area">
       {error?<div className="message error" role="alert"><span>{error}</span><button className="text-button" onClick={()=>setError('')} aria-label="Dismiss error">Dismiss</button></div>:null}
-      {notice?<div className="message notice" role="status"><Icon name="check" size={16}/><span title={notice}>{notice}</span><button className="icon-button" onClick={()=>setNotice('')} aria-label="Dismiss notification"><Icon name="close" size={15}/></button></div>:null}
+      {notice?<div className="message notice" role="status" onMouseEnter={()=>setNoticePaused(true)} onMouseLeave={()=>setNoticePaused(false)} onFocusCapture={()=>setNoticePaused(true)} onBlurCapture={event=>{if(!event.currentTarget.contains(event.relatedTarget))setNoticePaused(false)}}><Icon name="check" size={16}/><span>{notice}</span><button className="icon-button" onClick={()=>{setNotice('');setNoticePaused(false)}} aria-label="Dismiss notification"><Icon name="close" size={15}/></button></div>:null}
       {invalid?<div className="message error" role="alert"><span>{invalid} Last valid preview is retained.</span><button className="text-button" onClick={()=>setWorkspaceView('sheet')}>Review settings</button></div>:null}
     </div>
-    <div className="dock-bay"><div className="tray-slot">{workspaceView==='artwork'?<div className="artwork-shelf">{artworkLibrary}</div>:<div className="tray-summary"><Icon name="image" size={20}/><strong>{project.designs.length} {project.designs.length===1?'design':'designs'}</strong><span>{total.toLocaleString()} {total===1?'copy':'copies'} in this project</span></div>}</div><div className="dock-slot-panel"><MacFloatingDock items={dockItems} active={workspaceView} onSelect={id=>{if(id==='export')setExportOpen(true);else setWorkspaceView(id)}}/></div></div>
+    <div className="dock-bay"><div className="tray-slot">{workspaceView==='artwork'?<div className="artwork-shelf">{artworkLibrary}</div>:<div className="tray-summary"><Icon name="image" size={20}/><strong>{project.designs.length} {project.designs.length===1?'design':'designs'}</strong><span>{total.toLocaleString()} {total===1?'copy':'copies'} in this project</span></div>}</div><div className="dock-slot-panel"><MacFloatingDock items={dockItems} active={workspaceView} onSelect={id=>{if(id==='export')setExportOpen(true);else if(id==='help')setTutorialOpen(true);else setWorkspaceView(id)}}/></div></div>
     <main className="workspace" id="artwork-workspace" tabIndex={-1} data-view={workspaceView}>
       <div className="studio-zone">
         <section className="editor-panel" aria-label="Artwork editor" hidden={workspaceView!=='artwork'}>
@@ -141,9 +145,8 @@ export function App() {
               {design&&asset?<ArtworkControls design={design} asset={asset} onChange={updateDesign} onFit={fit} onRelink={()=>void relink()} picking={picking} onTogglePick={()=>setPicking(previous=>!previous)} sourceReady={!!images[design.assetId]} ioBusy={ioBusy}/>:null}
             </aside>
             <div className="stage-surface">
-              <div className="canvas-corner" aria-hidden="true"><BlockStuds/></div>
               {design&&asset&&safeDesign&&spec?<><Editor key={design.id+'-'+asset.id} design={valid.length||!result.ok?safeDesign:design} asset={asset} image={images[design.assetId]} circles={spec.project.settings.circles} onChange={updateDesign} guideVisibility={guides} picking={picking} onPick={pickColor}/>{!sources[design.assetId]?<div className="missing-message">Source missing. <button className="text-button" onClick={()=>void relink()}>Relink artwork</button></div>:!images[design.assetId]?<p className="artwork-loading" role="status">Loading artwork…</p>:null}</>:<div className="empty-editor">
-                <div className="empty-copy"><div className="empty-pin" aria-hidden="true"><div className="empty-cut"><div className="empty-face" style={{width:(circles.inner/circles.outer*100)+'%'}}/><div className="empty-safe" style={{width:((circles.inner-2*circles.safeInset)/circles.outer*100)+'%'}}/><Icon name="image" size={28}/></div></div><h1 className="max-w-5xl">Add your artwork.</h1><p>Bring a PNG or JPG. Position it once,<br/>then let PinIt prepare the sheet.</p><button className="primary" disabled={ioBusy} onClick={()=>void importArtwork()}><Icon name="plus" size={18}/>Import first design</button><span>Your original image stays untouched.</span></div>
+                <div className="empty-copy"><div className="empty-pin" aria-hidden="true"><div className="empty-cut"><div className="empty-face" style={{width:(circles.inner/circles.outer*100)+'%'}}/><Icon name="image" size={28}/></div></div><h1 className="max-w-5xl">Add your artwork.</h1><p>Bring a PNG or JPG. Position it once,<br/>then let PinIt prepare the sheet.</p><button className="primary" disabled={ioBusy} onClick={()=>void importArtwork()}><Icon name="upload" size={18}/>Import first design</button><button className="text-button empty-help" onClick={()=>setTutorialOpen(true)}>Show me how it works<Icon name="right" size={15}/></button></div>
               </div>}
             </div>
           </div>
@@ -160,7 +163,7 @@ export function App() {
         <footer className="layout-summary"><div><strong>{total.toLocaleString()}</strong><span>{total===1?'copy':'copies'} to print</span></div><div><strong>{plan?.capacity??0}</strong><span>per sheet</span></div></footer><p className="packing-detail">{plan?.sheets.length??0} {plan?.sheets.length===1?'sheet':'sheets'} · {plan?.arrangement??'No layout'}<span>{((circles.outer-circles.inner)/2).toLocaleString(undefined,{maximumFractionDigits:2})} mm radial wrap</span></p>
       </section>
     </main>
-    <footer className="app-footer"><span title={location}>{location||'Your artwork stays on this computer.'}</span><span>All measurements in millimetres · PinIt</span></footer>
+    {tutorialOpen?<QuickStart hasArtwork={!!project.designs.length} onClose={closeTutorial} onImport={()=>void importArtwork()}/>:null}
     {exporting?<div className="export-progress"><div role="status"><strong>Exporting your sheets</strong><p>{progress}</p></div><button disabled={!job.current} onClick={()=>void cancelExport()}>Cancel export</button></div>:null}
     {exportOpen?<Dialog title="Export sheets" onClose={()=>{if(!exporting)setExportOpen(false)}}><p>{total.toLocaleString()} copies across {plan?.sheets.length??0} sheets. A new output folder keeps previous exports intact.</p>{invalid||error?<p role="alert" className="field-error">{invalid||error}</p>:null}<ExportOptions value={project.settings.output} onChange={setOutput} cmyk={cmyk} onProfile={()=>void operation(async()=>{const profile=await window.desktop.importProfile();if(profile)setOutput({...project.settings.output,profile})})}/><div className="actions dialog-actions"><button onClick={()=>setExportOpen(false)} disabled={exporting}>Back to workspace</button><button className="primary" disabled={exporting||ioBusy||!!invalid||(project.settings.output.format==='pdf'&&project.settings.output.color==='cmyk'&&!cmyk)} onClick={()=>void startExport()}>Choose folder & export</button></div></Dialog>:null}
     {confirm?<Confirm title={confirm.title} message={confirm.message} confirmLabel={confirm.confirmLabel} onAnswer={value=>{confirm.resolve(value);setConfirm(null)}}/>:null}

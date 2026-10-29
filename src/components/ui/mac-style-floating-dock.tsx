@@ -2,7 +2,6 @@ import { useRef, type KeyboardEvent, type ReactNode } from 'react'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { DOCK_BASE, DOCK_GAP, dockLayout } from './dock-layout'
-import { cn } from '@/lib/utils'
 gsap.registerPlugin(useGSAP)
 
 export interface DockItem { id: string; label: string; icon: ReactNode; kind: 'view' | 'action'; disabled?: boolean }
@@ -22,7 +21,11 @@ export default function MacFloatingDock({ items, active, onSelect }: MacFloating
       const resting = query.matches || !fine.matches || instant
       const { scales, shifts } = dockLayout(tiles.length, resting ? null : pointer)
       tiles.forEach((tile, i) => {
-        if (resting) { gsap.killTweensOf(tile); gsap.set(tile, { x: shifts[i], scaleX: scales[i], scaleY: scales[i] }) }
+        if (resting) {
+          // Keep quickTo's reusable tweens alive when keyboard focus or motion preferences reset the dock.
+          setters[i].x.tween.pause(); setters[i].scaleX.tween.pause(); setters[i].scaleY.tween.pause()
+          gsap.set(tile, { x: shifts[i], scaleX: scales[i], scaleY: scales[i] })
+        }
         else { setters[i].x(shifts[i]); setters[i].scaleX(scales[i]); setters[i].scaleY(scales[i]) }
       })
     }
@@ -48,7 +51,7 @@ export default function MacFloatingDock({ items, active, onSelect }: MacFloating
       onPointerMove={event => { if (event.pointerType === 'mouse') move.current(event.clientX - row.current!.getBoundingClientRect().left) }}
       onPointerLeave={() => move.current(null)} onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) move.current(null, true) }}>
       {items.map(item => <li key={item.id} className="dock-slot" style={{ width: DOCK_BASE }}>
-        <button type="button" className={cn('dock-button', item.id === active && 'dock-selected')} aria-label={item.label} aria-pressed={item.kind === 'view' ? item.id === active : undefined} disabled={item.disabled}
+        <button type="button" className={item.id === active ? 'dock-button dock-selected' : 'dock-button'} aria-label={item.label} aria-pressed={item.kind === 'view' ? item.id === active : undefined} disabled={item.disabled}
           onFocus={() => move.current(null, true)} onClick={() => onSelect(item.id)}>
           <span className="dock-tile" aria-hidden="true">{item.icon}</span><span className="dock-label">{item.label}</span>
         </button>

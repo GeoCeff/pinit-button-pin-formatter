@@ -13,6 +13,7 @@ const app=await electron.launch({executablePath:process.env.PINIT_EXECUTABLE,arg
 const errors=[]
 try {
   const page=await app.firstWindow();page.on('pageerror',error=>errors.push(error.message))
+  await page.getByRole('dialog',{name:'A quick tour of PinIt',exact:true}).getByRole('button',{name:'Skip tour',exact:true}).click()
   const xField=page.getByLabel('Horizontal offset',{exact:true})
   const yField=page.getByLabel('Vertical offset',{exact:true})
   const widthField=page.getByLabel('Artwork width',{exact:true})
@@ -48,7 +49,7 @@ try {
   }
   await choose([fixture]);await page.getByRole('button',{name:'Import artwork',exact:true}).click()
   await page.getByRole('button',{name:'Adjust artwork',exact:true}).click()
-  await expect(indicator).toHaveText('Centered');await expect(centerButton).toBeDisabled()
+  await expect(indicator).toHaveText('Centered');await expect(centerButton).toBeHidden()
   await xField.fill('4');await yField.fill('5');await rotationField.fill('27');await widthField.fill('32')
   await expect(indicator).toHaveText('Off center');await centerButton.click()
   assert.deepEqual(await offsets(),{x:0,y:0});assert.equal(Number(await widthField.inputValue()),32);assert.equal(Number(await rotationField.inputValue()),27)

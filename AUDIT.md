@@ -4,7 +4,15 @@ Healthy. Nothing to fix in the checked application paths.
 
 The implementation audit covered every authored application module, the renderer/main trust boundary, image import and orientation, physical geometry, fitting, both packing directions and parities, pagination, project writes, missing-asset recovery, export staging, cancellation, ICC conversion, output verification, dependencies, build configuration and installer configuration. Third-party implementation internals were not audited.
 
-Checks completed on 26 October 2026:
+Follow-up fixes verified on 29 October 2026:
+
+- PDF memory checks count artwork tiles rather than a full-page raster that is never allocated. Regression checks accept an A4 PDF at 1200 DPI while rejecting oversized PNG/JPG sheets, combined PDF tiles and individual tiles.
+- Layout reserves the full stroke of every enabled printed guide. Face and safe guides stay inside A4 at the zero-gap boundary; guides contained inside the artwork do not reduce capacity.
+- All 25 unit/file tests pass, including a real Windows folder-junction check that rejects assets outside the project and confirms ordinary contained files still open.
+- Removed the single-use class-name helper, its two dependencies and the unused Nunito Sans font and notices. The active Geist font and its notices remain.
+- TypeScript checking, the production build, the desktop workflow, development launch and alignment checks pass after these changes.
+
+Earlier implementation checks completed on 26 October 2026:
 
 - 20 unit/file tests pass. Geometry checks cover grid, staggered and automatic arrangements, portrait/landscape/automatic orientation, asymmetric margins, several diameters, guide-stroke bounds and pairwise circle separation. Quantity tests cover mixed/separate jobs, caps, zero copies and excessive jobs. Alignment tests cover independent axes, view-scaled snap tolerance and rotated centers without changing size or rotation.
 - TypeScript checking and the production build pass. Invalid manifests, unsafe paths, duplicate IDs, non-finite edits, fractional quantities, fractional DPI, zero-capacity layouts and excessive allocations are rejected.

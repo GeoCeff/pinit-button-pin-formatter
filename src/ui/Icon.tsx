@@ -15,6 +15,8 @@ const paths = {
   stack: 'm12 3 10 5-10 5L2 8l10-5ZM2 12l10 5 10-5M2 16l10 5 10-5',
   eye: 'M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12Zm10-3a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z',
   dropper: 'm14 4 6 6M6 15l9-9 3 3-9 9H6v-3Zm9-9 3-3a2.1 2.1 0 0 1 3 3l-3 3M6 18l-3 3',
+  center: 'M12 2v4m0 12v4M2 12h4m12 0h4M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Z',
+  help: 'M9.1 9a3 3 0 0 1 5.8 1c0 2-3 2-3 4m.1 3h.01M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Z',
 } as const
 
 export function Icon({ name, size = 18, className }: {

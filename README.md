@@ -20,9 +20,11 @@ Windows 11 x64 is the desktop target. The operator can:
 
 The initial layout will use one pin template per job and support multiple designs. Mixed pin sizes on one sheet can be considered after the basic workflow is proven.
 
-The workspace is a compact professional editor with playful block accents from `inspiration/`. A quiet canvas and persistent paper preview sit side by side. The artwork tray and floating dock share one bottom row, leaving more height for the pin. **Safe**, **Face** and **Fill** provide quick fit choices on roomy desktops; **Adjust artwork** opens exact copies, fit, position, size, rotation and background controls. The dock switches between **Artwork**, **Sheet** setup and the full **Library**, or opens **Export**. Arrow keys, Home and End move focus; Enter or Space activates a tool. Pointer magnification stops for keyboard focus and reduced motion. Success notices dismiss after 3.5 seconds; errors remain visible with recovery controls. Artwork removal asks for confirmation. Geist is bundled locally for offline use.
+The workspace is a compact professional editor using the cool palette from `inspiration/`. A quiet canvas and persistent paper preview sit side by side. A prominent upload button and selection tray share the bottom row with the floating dock. The tray has larger thumbnails, readable copy counts and a checkmark for the selected artwork. **Manage artwork** opens the full **Library**, where removal asks for confirmation. **Safe**, **Face** and **Fill** provide quick fit choices on roomy desktops; **Adjust artwork** opens exact copies, fit, position, size, rotation and background controls. Cut and Face are the two default circle guides; Safe is optional and does not change physical geometry or export-guide settings.
 
-Artwork alignment works directly in the editor. Drag near the middle to snap either axis into place; blue guides appear for the aligned axes while moving or resizing, and a persistent indicator confirms when the photo is centered. Pull a corner handle to resize proportionally around the photo's center. **Center artwork** resets the position while preserving size and rotation. Hold **Alt** during a drag to place artwork freely inside the snap zone. These editing overlays are excluded from exported sheets.
+The dock switches between **Artwork**, **Sheet** setup and **Library**, replays the **Help** tutorial, or opens **Export**. The three-step tutorial appears on first use; completing or skipping it is remembered on this computer. Arrow keys, Home and End move dock focus; Enter or Space activates a tool. Native dialogs isolate background controls and restore focus. Numeric fields describe their units. Pointer magnification stops for keyboard focus and reduced motion. Dialogs and tutorial steps use short, bounded blur/fade transitions; keyboard and reduced-motion paths suppress them. Ordinary success notices dismiss after six seconds and pause while hovered or focused; export destinations and errors stay visible until dismissed. Geist is bundled locally for offline use.
+
+Artwork alignment works directly in the editor. Drag near the middle to snap either axis into place; blue guides appear for the aligned axes while moving or resizing. A centered confirmation with a checkmark sits above the artwork, and an off-center action makes correction available in one click. Pull a round corner handle to resize proportionally around the photo's center. **Center artwork** resets the position while preserving size and rotation. Hold **Alt** during a drag to place artwork freely inside the snap zone. These editing overlays are excluded from exported sheets.
 
 ## Run and build
 
@@ -52,14 +54,15 @@ Export captures the current project revision, works in a separate renderer worke
 
 Safety bounds: at most 500 designs/assets, 100,000 copies, 1,000 sheets, 10,000 circles per sheet, 40 megapixels per source, 50 MB per imported source, a 256 MB source/session and raster/tile budget, 16 custom profiles / 64 MB per session, and 1 GB per export. Raster DPI is a whole number from 1–2400 so JPEG density metadata remains accurate. Start a new project to clear the source session budget. Settings that exceed a bound show an error before allocation. These are deliberate small-shop limits, not production throughput claims.
 
+PDF memory checks count artwork tiles. PNG/JPG memory checks count the full sheet plus artwork tiles. Layout reserves space for the stroke of every printed guide that extends beyond the artwork.
+
 ## Implementation map
 
 - `src/core/`: physical units, fitting, validation, arrangement and pagination; no Electron or drawing imports.
 - `src/state/`: project reducer; computed sheets are not persisted.
 - `src/render/`: render specification, shared Canvas drawing, worker exports and DPI metadata.
-- `src/ui/`: block workbench, artwork shelf, Konva editor, sheet settings, preview and export dialog.
+- `src/ui/`: artwork workspace/tray, first-run tutorial, Konva editor, sheet settings, preview and native dialogs.
 - `src/components/ui/`: the supplied floating dock, adapted to real project tools and accessible motion.
-- `src/lib/`: shared class-name merging for component styling.
 - `electron/`: isolated named bridge, native dialogs, authorized source registry, portable project storage, staged exports and separate Ghostscript process.
 - `scripts/`: runtime preparation, packaging preflight and real desktop acceptance checks.
 
@@ -67,7 +70,7 @@ See [plan.md](plan.md) for the full design and [AUDIT.md](AUDIT.md) for the impl
 
 ## Component and styling setup
 
-The project already uses TypeScript. Tailwind CSS is integrated into the Electron renderer through `@tailwindcss/vite`; `src/ui/styles.css` is the stylesheet entry. The `@/` alias maps to `src/` in both TypeScript and the renderer configuration. `components.json` records the shadcn conventions, including `@/components/ui` and `@/lib/utils`.
+The project already uses TypeScript. Tailwind CSS is integrated into the Electron renderer through `@tailwindcss/vite`; `src/ui/styles.css` is the stylesheet entry. The `@/` alias maps to `src/` in both TypeScript and the renderer configuration. `components.json` records the shadcn component paths, including `@/components/ui`. The dock uses a plain conditional class string.
 
 The component from the pasted instructions lives at `src/components/ui/mac-style-floating-dock.tsx`, imported as `@/components/ui/mac-style-floating-dock`. Keeping reusable controls in that directory makes the supplied import and shadcn's component path agree. Its stable-slot magnification math is retained, with controlled view selection, real actions, GSAP transform setters, keyboard navigation, visible labels, reduced-motion support and effect cleanup. No sample Home, Mail or Profile destinations are added to the app.
 

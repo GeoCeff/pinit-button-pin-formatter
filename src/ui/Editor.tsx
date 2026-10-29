@@ -1,8 +1,9 @@
-import { memo, useEffect, useRef, useState } from 'react'
+import { memo, useEffect, useId, useRef, useState } from 'react'
 import { Stage, Layer, Group, Circle, Line, Image as KonvaImage, Transformer } from 'react-konva'
 import type Konva from 'konva'
 import type { Asset, CircleSettings, Design } from '../core/model'
 import { centerAlignment, snapToCenter } from '../core/alignment'
+import { Icon } from './Icon'
 
 export function useImages(sources:Record<string,string>) {
   const [images,setImages]=useState<Record<string,HTMLImageElement>>({})
@@ -16,6 +17,7 @@ export const Editor=memo(function Editor({design,asset,image,circles,onChange,gu
   const transformer=useRef<Konva.Transformer>(null)
   const [size,setSize]=useState(440)
   const [interacting,setInteracting]=useState(false)
+  const instructionsId=useId()
   useEffect(()=>{const observer=new ResizeObserver(entries=>{const {width,height}=entries[0].contentRect;setSize(Math.max(120,Math.min(760,width-8,height-8)))});observer.observe(container.current!);return()=>observer.disconnect()},[])
   useEffect(()=>{transformer.current?.nodes(image&&!picking&&artwork.current?[artwork.current]:[])},[image,picking])
   const scale=size/(circles.outer*1.14)
@@ -43,10 +45,14 @@ export const Editor=memo(function Editor({design,asset,image,circles,onChange,gu
     if(data[3]===0)return
     onPick('#'+[data[0],data[1],data[2]].map(n=>n.toString(16).padStart(2,'0')).join(''))
   }
-  return <div className="artwork-editor">
+  return <div className="artwork-editor" role="group" aria-label="Artwork positioning" aria-describedby={instructionsId}>
+    <p id={instructionsId} className="sr-only">Drag to position the image. Drag a round corner handle to resize it proportionally. Use Adjust artwork above for exact width, rotation and horizontal or vertical offsets. Center artwork aligns both axes without changing size or rotation.</p>
     <div className="alignment-toolbar">
-      <span className={`alignment-status ${status==='Centered'?'is-centered':''}`} role="status" aria-live="polite">{status}</span>
-      <button className="text-button" disabled={!image||picking||(aligned.horizontal&&aligned.vertical)} onClick={()=>onChange({fit:'manual',transform:{...t,x:0,y:0}})}>Center artwork</button>
+      <div className={`alignment-feedback ${status==='Centered'?'is-centered':''}`}>
+        <span className="alignment-symbol" aria-hidden="true"><Icon name={status==='Centered'?'check':'center'} size={20}/></span>
+        <div><span className="alignment-status" role="status" aria-live="polite" aria-atomic="true">{status}</span><span className="alignment-hint">{status==='Centered'?'Aligned on both axes':status==='Centered horizontally'?'Move up or down to finish aligning':status==='Centered vertically'?'Move left or right to finish aligning':'Drag to align, or center in one click'}</span></div>
+        <button className="center-button" disabled={!image||picking||(aligned.horizontal&&aligned.vertical)} onClick={()=>onChange({fit:'manual',transform:{...t,x:0,y:0}})}><Icon name="center" size={16}/>Center artwork</button>
+      </div>
     </div>
     <div ref={container} className={`editor-canvas ${picking?'picking':''}`}>
     <Stage width={size} height={size} scaleX={scale} scaleY={scale} x={size/2} y={size/2} onClick={pick}>
@@ -68,7 +74,8 @@ export const Editor=memo(function Editor({design,asset,image,circles,onChange,gu
         {guideVisibility.inner?<Circle radius={circles.inner/2} stroke="#966117" strokeWidth={0.18} dash={[1,0.7]} listening={false}/>:null}
         {guideVisibility.safe?<Circle radius={circles.inner/2-circles.safeInset} stroke="#28566d" strokeWidth={0.15} dash={[0.4,0.6]} listening={false}/>:null}
         <Transformer ref={transformer} visible={!!image&&!picking} rotateEnabled={false} keepRatio centeredScaling flipEnabled={false} shiftBehavior="none" enabledAnchors={['top-left','top-right','bottom-left','bottom-right']}
-          borderStroke={alignmentColor} borderStrokeWidth={1} anchorStroke={alignmentColor} anchorFill="#ffffff" anchorStrokeWidth={1.5} anchorSize={10} anchorCornerRadius={2}
+          borderStroke={alignmentColor} borderStrokeWidth={1} borderDash={[4,3]} anchorStroke={alignmentColor} anchorFill="#ffffff" anchorStrokeWidth={2} anchorSize={12} anchorCornerRadius={6}
+          anchorStyleFunc={anchor=>{anchor.hitFunc((context,shape)=>{context.beginPath();context.rect(-6,-6,anchor.width()+12,anchor.height()+12);context.closePath();context.fillStrokeShape(shape)})}}
           boundBoxFunc={(previous,next)=>{const proposedScale=(artwork.current?.scaleX()??t.mmPerPixel)*next.width/previous.width;return next.width<=0||next.height<=0||Math.max(next.width,next.height)<12||!Number.isFinite(proposedScale)||proposedScale<0.000001||proposedScale>2000?previous:next}}/>
         {interacting&&!picking?([aligned.horizontal?[0,-guideExtent,0,guideExtent]:null,aligned.vertical?[-guideExtent,0,guideExtent,0]:null]).map((points,index)=>points?<Group key={index} listening={false}>
           <Line points={points} stroke="#ffffff" strokeWidth={3/scale} opacity={0.85}/><Line points={points} stroke={alignmentColor} strokeWidth={1/scale}/>

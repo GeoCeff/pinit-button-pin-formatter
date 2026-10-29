@@ -2,23 +2,23 @@
 version: 1
 slug: "src-ui-app-tsx"
 primary_target: "src/ui/App.tsx"
-related_targets: ["src/ui/Workspace.tsx","src/ui/Settings.tsx","src/ui/styles.css","src/components/ui/mac-style-floating-dock.tsx"]
+related_targets: ["src/ui/Workspace.tsx","src/ui/Editor.tsx","src/ui/QuickStart.tsx","src/ui/controls.tsx","src/ui/styles.css","src/ui/quick-start.css","src/components/ui/mac-style-floating-dock.tsx"]
 ---
 
-# PinIt professional editor refinement
+# PinIt editor usability refinement
 
-Mode: Operate. Offline Windows Electron/React editor. User rejected the previous block workbench as still not good and explicitly selected **Clean professional editor with playful block accents**. This latest answer supersedes the earlier literal/decorative block density. Direct to code, no Figma. Existing product truth, source images, independent physical dimensions, portable projects, center guides and exports remain.
+Mode: Operate. Latest user critique specifies obvious centering, round corner handles, two default circle guides, removal of arbitrary blocks/tiny app footer, stronger Import/artwork tray, a first-run/replayable tutorial, accessibility and immersive blur/fade feedback. These concrete changes supersede the earlier decorative details. Direct to code, no Figma. Product truth, original images, independent physical dimensions, portable projects and exports remain.
 
-THESIS: Make artwork the working surface. Reclaim vertical space from repeated chrome and group tools around the task.
+THESIS: Make alignment and the next action unambiguous. Keep the artwork and physical sheet visible together.
 
-OWN-WORLD: Preserve locally bundled Geist, cool white #f1f7f9, the cyan/sky reference palette, and a few precise molded studs. Professional neutral canvas, white controls/panels, dark blue active tools, restrained 7–14px radii. Studs belong to the brand symbol and a cropped outer canvas corner, not floating inside the customer's artwork.
+OWN-WORLD: Preserve locally bundled Geist, cool white #f1f7f9, cyan/sky reference surfaces, professional neutral canvas, white panels and navy actions. A purposeful cut/face pin mark replaces the stud logo; stray canvas blocks are removed. Selection uses a dark border/checkmark and readable artwork thumbnails/copy counts.
 
-STORY: Project commands → artwork and quick Safe/Face/Fill controls → exact adjustments when needed → simultaneous sheet verification → export. Artwork selection is a compact tray shared with the supplied four-tool dock.
+STORY: Optional first-use tutorial → import → select artwork → fit/drag or exact adjustments → obvious centered confirmation/one-click correction → copies/sheet verification → export. Help reopens the three-step tutorial. Skip, close and completion are remembered locally. Removal lives in the full Library with confirmation, away from the selection tray.
 
-FIRST VIEWPORT: 60–64px project bar; flexible editor and 300–332px preview, both occupied. A single 56px artwork header groups thumbnail, name, geometry and adjustments; fit modes on roomy desktop. The artwork tray and dock share a 76–80px row, recovering canvas height. Target cut-circle ≥300px at native minimum1080×720, versus ~192px in the rejected capture. Toast success messages do not consume working height. Errors remain in flow. Empty state is one central import composition with real pin rings.
+FIRST VIEWPORT: 60–64px project bar; flexible editor and300–332px preview; shared96px artwork tray/dock row and no app footer. The56px artwork header retains thumbnail/name/geometry/fit/adjustment controls. A prominent centered check sits above the artwork. Round handles have larger invisible hit regions and a fine dashed selection edge. Cut and Face are the two default guides; optional Safe is off. Target cut-circle≥300px at native minimum1080×720. Toast success does not consume working height; errors stay in flow.
 
-FORM: Retained historical surface provenance seed:7e89320490c7d9c4; this refinement preserves that reference and requires no new direction roll. Existing-world layout and usability refinement, code-led. No new concept tournament/comp approval claimed. gpt-taste Python seed83 selected Artistic Asymmetry/Geist; seeded marketing patterns are adapted to the actual operating task (thumbnail heading, artwork carousel, disclosed adjustments, persistent navigation). Emil governs frequent/keyboard interactions; instant keyboard actions, ref-based dock motion, reduced-motion and fine-pointer gates. Dock base40/gap12 retains Gaussian max1.35/spread54/160ms motion.
+FORM: Retained historical surface provenance seed:7e89320490c7d9c4; no new direction roll or concept/comp approval claimed. Existing-world code-led refinement. Pointer-only tutorial/modal blur is bounded to220ms and3–4px; drawer feedback180ms. Keyboard actions are immediate and reduced motion removes movement/blur. Native dialogs isolate the background and restore focus. Numeric fields describe units. Export destinations persist; other success notices pause on hover/focus. Dock base40/gap12 retains Gaussian max1.35/spread54/160ms motion with Help before Export.
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
 
-Verify desktop1500×960, native minimum1080×720, defensive390px fallback, empty/loaded/long/error/library/Sheet/adjustment/export/hover/focus/alignment states. Use rejected-block-desktop.png and rejected-block-compact.png as anti-reference, not authority. Preserve keyboard dock, source originals, numeric gesture alternatives, physical geometry and failed/canceled export cleanup. No new shipping raster is introduced.
+Verify first-use/skip/replay/completion/import, reload persistence, native modal isolation/Escape/focus restoration, keyboard/reduced-motion, two-guide default, gallery-only deletion, desktop1500×960, minimum1080×720, defensive390px and all long/error/Sheet/adjustment/export/hover/alignment states. Preserve source bytes, numeric gesture alternatives, physical dimensions, failed/canceled export cleanup and editing-overlay exclusion. No new shipping raster is introduced. See .impeccable/editor-usability-brief.md for the current complete scope.
