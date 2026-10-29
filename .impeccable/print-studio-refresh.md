@@ -30,4 +30,13 @@ One desktop run hit a temporary image-decoder allocation failure. A subsequent c
 
 Not verified: physical touch hardware, 10% DevTools animation playback, printer/color calibration or a fresh-machine installer run. The target remains an offline Windows desktop app with a defensive narrow layout.
 
+## Header refinement
+
+| Principle / severity | Location | Before | After | Why |
+| --- | --- | --- | --- | --- |
+| Hierarchy / Medium | src/ui/styles.css | Small inline brand descriptor and 16px project title | Stacked brand lockup, separator, 18px desktop title and 13px status badge | Separate product identity from the active document. |
+| Focus visibility / High, resolved | src/ui/styles.css; scripts/smoke.mjs | The taller title/status stack leaves insufficient compact focus clearance | Compact title/status spacing reserves the full outline and offset within the existing header height | Keep keyboard editing visible at the native minimum window. |
+
+Header verification includes the production build, desktop workflow, long titles, compact focus-ring clearance, 200% zoom and 320px fallback. Status contrast is 6.01:1 for unsaved, 5.91:1 for saved and 4.62:1 for local/working. The screenshot is captured directly from the application in `.impeccable/review/header-refined.png`.
+
 Approve - no open high-severity findings in the inspected scope.

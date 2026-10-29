@@ -84,6 +84,8 @@ Use the bundled Geist variable face through PinIt Sans, with Segoe UI as fallbac
 
 Use rem sizes, unitless line heights and CSS font-weight. Keep changing counts and measurements tabular. Text remains selectable outside the draggable canvas.
 
+The header stacks Print studio beneath the wordmark and separates the brand from project context with a quiet vertical divider. The editable project title uses 18px/600 on wide desktops and 16px on compact layouts. A 13px status badge distinguishes local, working, unsaved and saved states with text and color. Its compact spacing preserves the full keyboard focus ring within the 56px header.
+
 Project names are editable and retain their full value. Artwork names truncate with a full title available. Errors and notices wrap. The field/unit layout preserves the existing five-decimal display without rounding stored geometry.
 
 Print-summary labels and layout rows use 14px. Counts use 32px, or 28px on compact desktops. Page navigation uses a readable current/total counter with an accessible sheet announcement.

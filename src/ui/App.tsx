@@ -51,6 +51,8 @@ export function App() {
   const safeDesign=spec?.project.designs.find(d=>d.id===design?.id)
   const asset=project.assets.find(a=>a.id===design?.assetId)
   const dirty=project.revision!==savedRevision
+  const saveState=ioBusy?'working':dirty?'unsaved':location?'saved':'local'
+  const saveLabel=ioBusy?'Working…':dirty?'Unsaved changes':location?'Saved locally':'Local project'
   const total=project.designs.reduce((n,d)=>n+(Number.isFinite(d.quantity)?d.quantity:0),0)
   const currentDesignId=design?.id
   const updateDesign=useCallback((patch:Partial<Design>)=>{if(currentDesignId)dispatch({type:'design',id:currentDesignId,patch})},[currentDesignId])
@@ -118,7 +120,7 @@ export function App() {
     <a className="skip-link" href="#artwork-workspace">Skip to artwork workspace</a>
     <header className="topbar">
       <div className="brand" aria-label="PinIt"><span className="brand-symbol" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="11" stroke="currentColor" strokeWidth="1.7"/><circle cx="16" cy="16" r="7" stroke="currentColor" strokeWidth="1.3" strokeDasharray="2 2"/></svg></span><div><strong>PinIt<span>.</span></strong><span className="brand-caption">Print studio</span></div></div>
-      <div className="project-block"><div className="project-name"><input name="project-name" aria-label="Project name" title={project.name} autoComplete="off" spellCheck={false} maxLength={200} value={project.name} onChange={event=>dispatch({type:'name',name:event.target.value})}/><span><i className={dirty?'unsaved-dot':'saved-dot'}/>{ioBusy?'Working with local files…':dirty?'Unsaved changes':location?'Saved on this computer':'Local project'}</span></div>
+      <div className="project-block"><div className="project-name"><input name="project-name" aria-label="Project name" title={project.name} autoComplete="off" spellCheck={false} maxLength={200} value={project.name} onChange={event=>dispatch({type:'name',name:event.target.value})}/><span className="project-save-state" data-state={saveState} role="status" aria-live="polite" aria-atomic="true"><i aria-hidden="true"/>{saveLabel}</span></div>
         <div className="actions file-actions">
           <button className="quiet-button" disabled={ioBusy||exporting} onClick={()=>void createProject()}><Icon name="plus" size={16}/>New</button>
           <button className="quiet-button" disabled={ioBusy||exporting} onClick={()=>void openProject()}><Icon name="folder" size={16}/>Open</button>
