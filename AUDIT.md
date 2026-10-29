@@ -12,6 +12,13 @@ Follow-up fixes verified on 29 October 2026:
 - Removed the single-use class-name helper, its two dependencies and the unused Nunito Sans font and notices. The active Geist font and its notices remain.
 - TypeScript checking, the production build, the desktop workflow, development launch and alignment checks pass after these changes.
 
+Print-studio UI follow-up verified on 29 October 2026:
+
+- Wide desktops use an artwork rail beside the canvas; compact windows move it below the editor. The print summary uses readable labels and a current/total page counter, and respects the copies-per-sheet cap. Gesture instructions moved to Help.
+- Desktop acceptance passes at the native minimum with a 304.92 CSS-pixel cut circle, at 200% application zoom and at a 320px fallback with a complete artwork card visible. Keyboard transitions are disabled and reduced motion uses opacity only.
+- The alignment toolbar keeps a stable height when status changes, preserving drag coordinates. Real drag, Alt bypass, rotated resizing, centering, saved transforms and export-overlay exclusion all pass.
+- All 25 unit/file tests, TypeScript checking, the production build, development launch and the complete desktop import/save/open/relink/export workflow pass. See `.impeccable/print-studio-refresh.md` for the scoped design review and unverified physical checks.
+
 Earlier implementation checks completed on 26 October 2026:
 
 - 20 unit/file tests pass. Geometry checks cover grid, staggered and automatic arrangements, portrait/landscape/automatic orientation, asymmetric margins, several diameters, guide-stroke bounds and pairwise circle separation. Quantity tests cover mixed/separate jobs, caps, zero copies and excessive jobs. Alignment tests cover independent axes, view-scaled snap tolerance and rotated centers without changing size or rotation.

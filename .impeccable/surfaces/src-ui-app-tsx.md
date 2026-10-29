@@ -5,20 +5,22 @@ primary_target: "src/ui/App.tsx"
 related_targets: ["src/ui/Workspace.tsx","src/ui/Editor.tsx","src/ui/QuickStart.tsx","src/ui/controls.tsx","src/ui/styles.css","src/ui/quick-start.css","src/components/ui/mac-style-floating-dock.tsx"]
 ---
 
-# PinIt editor usability refinement
+# PinIt print studio refresh
 
-Mode: Operate. Latest user critique specifies obvious centering, round corner handles, two default circle guides, removal of arbitrary blocks/tiny app footer, stronger Import/artwork tray, a first-run/replayable tutorial, accessibility and immersive blur/fade feedback. These concrete changes supersede the earlier decorative details. Direct to code, no Figma. Product truth, original images, independent physical dimensions, portable projects and exports remain.
+Mode: Operate. The current request is a complete frontend revamp using UI/UX Pro Max, Emil Design Engineering, Better UI, Better Typography and Find Skills. The follow-up explicitly removes hard-to-read print/footer copy and requires a conventional feature branch and a completed commit.
 
-THESIS: Make alignment and the next action unambiguous. Keep the artwork and physical sheet visible together.
+THESIS: Separate artwork selection, positioning and printed output. Keep the canvas stable and the print summary easy to scan.
 
-OWN-WORLD: Preserve locally bundled Geist, cool white #f1f7f9, cyan/sky reference surfaces, professional neutral canvas, white panels and navy actions. A purposeful cut/face pin mark replaces the stud logo; stray canvas blocks are removed. Selection uses a dark border/checkmark and readable artwork thumbnails/copy counts.
+OWN-WORLD: Locally bundled Geist, cool neutral workspace, white surfaces, restrained blue identity and dark blue actions. Customer artwork supplies the expressive color. DESIGN.md and the implemented UI define the current values; older generated snapshots record prior iterations.
 
-STORY: Optional first-use tutorial → import → select artwork → fit/drag or exact adjustments → obvious centered confirmation/one-click correction → copies/sheet verification → export. Help reopens the three-step tutorial. Skip, close and completion are remembered locally. Removal lives in the full Library with confirmation, away from the selection tray.
+STORY: Import in the artwork rail, select a design, position or adjust it, check the paper preview and export. Compact desktops move the rail below the canvas. The toolbar sits above the editor. Removal remains in the Library with confirmation. Help retains the optional three-step tutorial and explains gestures.
 
-FIRST VIEWPORT: 60–64px project bar; flexible editor and300–332px preview; shared96px artwork tray/dock row and no app footer. The56px artwork header retains thumbnail/name/geometry/fit/adjustment controls. A prominent centered check sits above the artwork. Round handles have larger invisible hit regions and a fine dashed selection edge. Cut and Face are the two default guides; optional Safe is off. Target cut-circle≥300px at native minimum1080×720. Toast success does not consume working height; errors stay in flow.
+FIRST VIEWPORT: 72px project bar, 218px artwork rail, flexible studio and 292px paper preview. At compact desktop widths use a 56px bar and 84px artwork tray; the preview spans the studio and tray. At narrow widths stack the areas and show a complete artwork card below Import. Preserve a cut circle of at least 300px at 1080 x 720.
 
-FORM: Retained historical surface provenance seed:7e89320490c7d9c4; no new direction roll or concept/comp approval claimed. Existing-world code-led refinement. Pointer-only tutorial/modal blur is bounded to220ms and3–4px; drawer feedback180ms. Keyboard actions are immediate and reduced motion removes movement/blur. Native dialogs isolate the background and restore focus. Numeric fields describe units. Export destinations persist; other success notices pause on hover/focus. Dock base40/gap12 retains Gaussian max1.35/spread54/160ms motion with Help before Export.
+READABILITY: Root 16px; dense tool body and normal inputs 14px; narrow inputs 16px. Print labels and rows are 14px, counts 28-32px. Page navigation is current/total with a complete accessible label. Remove persistent drag/resize/Alt prose and duplicate sheet/print reminders. Layout and Wrap use short rows. Copies / sheet follows the selected cap.
 
-FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
+INTERACTION: Reserve alignment-feedback height so badge text/buttons never move the canvas during dragging. Keep numeric gesture alternatives. Buttons press to 0.96 only for pointer actions with normal motion. Use interruptible transitions; keyboard actions are immediate and reduced motion keeps opacity only. Retain native modal isolation, Escape and focus restoration.
 
-Verify first-use/skip/replay/completion/import, reload persistence, native modal isolation/Escape/focus restoration, keyboard/reduced-motion, two-guide default, gallery-only deletion, desktop1500×960, minimum1080×720, defensive390px and all long/error/Sheet/adjustment/export/hover/alignment states. Preserve source bytes, numeric gesture alternatives, physical dimensions, failed/canceled export cleanup and editing-overlay exclusion. No new shipping raster is introduced. See .impeccable/editor-usability-brief.md for the current complete scope.
+VERIFICATION: Unit and file tests, production build, wide/compact/narrow screenshots, 200% zoom, full artwork cards at 320px, readable print labels, caps, keyboard/reduced-motion paths, portable persistence, all export formats, cancellation and real drag/resize/center/Alt behavior.
+
+Review and verification record: .impeccable/print-studio-refresh.md. Git branch: feat/print-studio-redesign.
