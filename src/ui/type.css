@@ -1,8 +1,8 @@
-/* Nunito Sans is bundled locally for the offline workspace. See OFL.txt. */
+/* Geist is bundled locally for the offline workspace. See Geist-OFL.txt. */
 @font-face {
   font-family: 'PinIt Sans';
-  src: url('./fonts/NunitoSans.ttf') format('truetype');
+  src: url('./fonts/Geist.ttf') format('truetype');
   font-style: normal;
-  font-weight: 200 1000;
+  font-weight: 100 900;
   font-display: swap;
 }

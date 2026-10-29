@@ -19,6 +19,15 @@ describe('physical geometry and fit',()=>{
     expect(effectivePpi({...t,mmPerPixel:25.4/200})).toBe(200)
   })
   it('finds 18 default circles and never changes diameters to fit',()=>{const p=order();const before=structuredClone(p.settings.circles);expect(planned(p).capacity).toBe(18);expect(p.settings.circles).toEqual(before)})
+  it.each(['inner','safe'] as const)('keeps printed %s guides inside the paper without reserving space for contained guides',guide=>{
+    const p=order();p.settings.circles={inner:52.5,outer:52.5,safeInset:0};p.settings.paper.orientation='portrait';p.settings.layout={...p.settings.layout,arrangement:'grid',gap:0}
+    expect(planned(p).capacity).toBe(20)
+    p.settings.output.guides[guide]=true
+    const plan=planned(p);const radius=52.5/2+0.06
+    expect(plan.capacity).toBe(15)
+    for(const center of plan.centers){expect(center.x-radius).toBeGreaterThanOrEqual(-1e-7);expect(center.x+radius).toBeLessThanOrEqual(plan.width+1e-7);expect(center.y-radius).toBeGreaterThanOrEqual(-1e-7);expect(center.y+radius).toBeLessThanOrEqual(plan.height+1e-7)}
+    p.settings.circles.inner=50;expect(planned(p).capacity).toBe(20)
+  })
   it('keeps circles within asymmetric margins and apart across arrangements and orientations',()=>{
     for(const arrangement of ['grid','staggered','auto'] as const)for(const orientation of ['portrait','landscape','auto'] as const)for(const outer of [25,32,53,67]) {
       const p=order();p.settings.circles={inner:outer-4,outer,safeInset:1};p.settings.paper.orientation=orientation;p.settings.paper.margins={top:3,right:11,bottom:7,left:5};p.settings.layout={...p.settings.layout,arrangement,gap:2};p.settings.output.guides.outer=true
@@ -45,6 +54,15 @@ describe('untrusted project validation',()=>{
   it('rejects path traversal, duplicate IDs, non-finite transforms and unsafe quantities',()=>{
     for(const mutate of [(p:Project)=>{p.assets[0].path='../secret.png'},(p:Project)=>{p.designs[1].id=p.designs[0].id},(p:Project)=>{p.designs[0].transform.x=NaN},(p:Project)=>{p.designs[0].quantity=1.5},(p:Project)=>{p.settings.circles.safeInset=22},(p:Project)=>{p.settings.circles.inner=54}]){const p=order();mutate(p);expect(()=>parseProject(p)).toThrow()}
   })
-  it('checks raster and tile memory before allocation',()=>{const p=order();p.settings.output.dpi=2400;const plan=planned(p);expect(()=>checkExportSize({project:p,plan})).toThrow(/budget/)})
+  it('budgets PDF artwork without counting a full-page raster and still bounds raster exports',()=>{
+    const p=order();p.designs=p.designs.slice(0,1);p.settings.output.dpi=1200
+    expect(()=>checkExportSize({project:p,plan:planned(p)})).not.toThrow()
+    for(const format of ['png','jpg'] as const){p.settings.output.format=format;expect(()=>checkExportSize({project:p,plan:planned(p)})).toThrow(/raster budget/)}
+    p.settings.output.format='pdf';p.settings.output.dpi=2400
+    p.designs=Array.from({length:3},(_,i)=>({...p.designs[0],id:`design-${i}`}))
+    expect(()=>checkExportSize({project:p,plan:planned(p)})).toThrow(/tile budget/)
+    p.designs=p.designs.slice(0,1);p.settings.circles.outer=100
+    expect(()=>checkExportSize({project:p,plan:planned(p)})).toThrow(/raster budget/)
+  })
   it('rejects fractional density and output smaller than a pixel',()=>{const p=order();p.settings.output.dpi=150.5;expect(()=>parseProject(p)).toThrow(/whole-number DPI/);p.settings.output.dpi=1;p.settings.circles={inner:0.1,outer:0.1,safeInset:0};p.settings.paper.width=p.settings.paper.height=1;expect(()=>checkExportSize({project:p,plan:planned(p)})).toThrow(/DPI is too low/)})
 })

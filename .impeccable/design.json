@@ -1,1172 +1,961 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-27T04:42:54.054Z",
+  "generatedAt": "2026-10-27T14:38:54.363510Z",
   "title": "Design System: PinIt",
   "extensions": {
     "colorMeta": {
-      "primary": {
-        "role": "primary",
-        "displayName": "Primary",
-        "tonalRamp": [
-          "oklch(15% 0.0951 221.1)",
-          "oklch(27% 0.0951 221.1)",
-          "oklch(38% 0.0951 221.1)",
-          "oklch(49% 0.0951 221.1)",
-          "oklch(61% 0.0951 221.1)",
-          "oklch(72% 0.0951 221.1)",
-          "oklch(84% 0.0951 221.1)",
-          "oklch(95% 0.0951 221.1)"
-        ]
-      },
-      "primary-hover": {
-        "role": "primary",
-        "displayName": "Primary Hover",
-        "tonalRamp": [
-          "oklch(15% 0.0945 221.7)",
-          "oklch(27% 0.0945 221.7)",
-          "oklch(38% 0.0945 221.7)",
-          "oklch(49% 0.0945 221.7)",
-          "oklch(61% 0.0945 221.7)",
-          "oklch(72% 0.0945 221.7)",
-          "oklch(84% 0.0945 221.7)",
-          "oklch(95% 0.0945 221.7)"
-        ]
-      },
-      "accent-soft": {
-        "role": "primary",
-        "displayName": "Accent Soft",
-        "tonalRamp": [
-          "oklch(15% 0.0275 219.8)",
-          "oklch(27% 0.0275 219.8)",
-          "oklch(38% 0.0275 219.8)",
-          "oklch(49% 0.0275 219.8)",
-          "oklch(61% 0.0275 219.8)",
-          "oklch(72% 0.0275 219.8)",
-          "oklch(84% 0.0275 219.8)",
-          "oklch(95% 0.0275 219.8)"
-        ]
-      },
-      "accent-ink": {
-        "role": "primary",
-        "displayName": "Accent Ink",
-        "tonalRamp": [
-          "oklch(15% 0.0743 225.8)",
-          "oklch(27% 0.0743 225.8)",
-          "oklch(38% 0.0743 225.8)",
-          "oklch(49% 0.0743 225.8)",
-          "oklch(61% 0.0743 225.8)",
-          "oklch(72% 0.0743 225.8)",
-          "oklch(84% 0.0743 225.8)",
-          "oklch(95% 0.0743 225.8)"
-        ]
-      },
-      "primary-border": {
-        "role": "primary",
-        "displayName": "Primary Border",
-        "tonalRamp": [
-          "oklch(15% 0.0909 225.0)",
-          "oklch(27% 0.0909 225.0)",
-          "oklch(38% 0.0909 225.0)",
-          "oklch(49% 0.0909 225.0)",
-          "oklch(61% 0.0909 225.0)",
-          "oklch(72% 0.0909 225.0)",
-          "oklch(84% 0.0909 225.0)",
-          "oklch(95% 0.0909 225.0)"
-        ]
-      },
       "ink": {
         "role": "neutral",
-        "displayName": "Ink",
+        "displayName": "Working ink",
+        "canonical": "#142b36",
         "tonalRamp": [
-          "oklch(15% 0.0070 216.8)",
-          "oklch(27% 0.0070 216.8)",
-          "oklch(38% 0.0070 216.8)",
-          "oklch(49% 0.0070 216.8)",
-          "oklch(61% 0.0070 216.8)",
-          "oklch(72% 0.0070 216.8)",
-          "oklch(84% 0.0070 216.8)",
-          "oklch(95% 0.0070 216.8)"
+          "oklch(0.15 0.03542 230.65)",
+          "oklch(0.26 0.03542 230.65)",
+          "oklch(0.38 0.03542 230.65)",
+          "oklch(0.49 0.03542 230.65)",
+          "oklch(0.61 0.03542 230.65)",
+          "oklch(0.72 0.03542 230.65)",
+          "oklch(0.84 0.03542 230.65)",
+          "oklch(0.95 0.03542 230.65)"
         ]
       },
       "muted": {
         "role": "neutral",
-        "displayName": "Muted",
+        "displayName": "Blue-gray supporting ink",
+        "canonical": "#526c79",
         "tonalRamp": [
-          "oklch(15% 0.0318 233.3)",
-          "oklch(27% 0.0318 233.3)",
-          "oklch(38% 0.0318 233.3)",
-          "oklch(49% 0.0318 233.3)",
-          "oklch(61% 0.0318 233.3)",
-          "oklch(72% 0.0318 233.3)",
-          "oklch(84% 0.0318 233.3)",
-          "oklch(95% 0.0318 233.3)"
+          "oklch(0.15 0.03686 229.97)",
+          "oklch(0.26 0.03686 229.97)",
+          "oklch(0.38 0.03686 229.97)",
+          "oklch(0.49 0.03686 229.97)",
+          "oklch(0.61 0.03686 229.97)",
+          "oklch(0.72 0.03686 229.97)",
+          "oklch(0.84 0.03686 229.97)",
+          "oklch(0.95 0.03686 229.97)"
         ]
       },
       "workspace": {
         "role": "neutral",
-        "displayName": "Workspace",
+        "displayName": "Cool workspace",
+        "canonical": "#f1f7f9",
         "tonalRamp": [
-          "oklch(15% 0.0069 219.6)",
-          "oklch(27% 0.0069 219.6)",
-          "oklch(38% 0.0069 219.6)",
-          "oklch(49% 0.0069 219.6)",
-          "oklch(61% 0.0069 219.6)",
-          "oklch(72% 0.0069 219.6)",
-          "oklch(84% 0.0069 219.6)",
-          "oklch(95% 0.0069 219.6)"
+          "oklch(0.15 0.00693 219.56)",
+          "oklch(0.26 0.00693 219.56)",
+          "oklch(0.38 0.00693 219.56)",
+          "oklch(0.49 0.00693 219.56)",
+          "oklch(0.61 0.00693 219.56)",
+          "oklch(0.72 0.00693 219.56)",
+          "oklch(0.84 0.00693 219.56)",
+          "oklch(0.95 0.00693 219.56)"
         ]
       },
       "surface": {
         "role": "neutral",
-        "displayName": "Surface",
+        "displayName": "White surface",
+        "canonical": "#ffffff",
         "tonalRamp": [
-          "oklch(15% 0.0000 89.9)",
-          "oklch(27% 0.0000 89.9)",
-          "oklch(38% 0.0000 89.9)",
-          "oklch(49% 0.0000 89.9)",
-          "oklch(61% 0.0000 89.9)",
-          "oklch(72% 0.0000 89.9)",
-          "oklch(84% 0.0000 89.9)",
-          "oklch(95% 0.0000 89.9)"
+          "oklch(0.15 0.00000 89.88)",
+          "oklch(0.26 0.00000 89.88)",
+          "oklch(0.38 0.00000 89.88)",
+          "oklch(0.49 0.00000 89.88)",
+          "oklch(0.61 0.00000 89.88)",
+          "oklch(0.72 0.00000 89.88)",
+          "oklch(0.84 0.00000 89.88)",
+          "oklch(0.95 0.00000 89.88)"
         ]
+      },
+      "canvas": {
+        "role": "neutral",
+        "displayName": "Neutral canvas",
+        "canonical": "#edf3f6",
+        "tonalRamp": [
+          "oklch(0.15 0.00758 228.85)",
+          "oklch(0.26 0.00758 228.85)",
+          "oklch(0.38 0.00758 228.85)",
+          "oklch(0.49 0.00758 228.85)",
+          "oklch(0.61 0.00758 228.85)",
+          "oklch(0.72 0.00758 228.85)",
+          "oklch(0.84 0.00758 228.85)",
+          "oklch(0.95 0.00758 228.85)"
+        ]
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "Reference cyan",
+        "canonical": "#4ba6c2",
+        "tonalRamp": [
+          "oklch(0.15 0.09507 221.10)",
+          "oklch(0.26 0.09507 221.10)",
+          "oklch(0.38 0.09507 221.10)",
+          "oklch(0.49 0.09507 221.10)",
+          "oklch(0.61 0.09507 221.10)",
+          "oklch(0.72 0.09507 221.10)",
+          "oklch(0.84 0.09507 221.10)",
+          "oklch(0.95 0.09507 221.10)"
+        ]
+      },
+      "secondary": {
+        "role": "primary",
+        "displayName": "Reference sky",
+        "canonical": "#93d0e3",
+        "tonalRamp": [
+          "oklch(0.15 0.06758 219.22)",
+          "oklch(0.26 0.06758 219.22)",
+          "oklch(0.38 0.06758 219.22)",
+          "oklch(0.49 0.06758 219.22)",
+          "oklch(0.61 0.06758 219.22)",
+          "oklch(0.72 0.06758 219.22)",
+          "oklch(0.84 0.06758 219.22)",
+          "oklch(0.95 0.06758 219.22)"
+        ]
+      },
+      "bright": {
+        "role": "primary",
+        "displayName": "Bright sky",
+        "canonical": "#69c5e2",
+        "tonalRamp": [
+          "oklch(0.15 0.09674 220.83)",
+          "oklch(0.26 0.09674 220.83)",
+          "oklch(0.38 0.09674 220.83)",
+          "oklch(0.49 0.09674 220.83)",
+          "oklch(0.61 0.09674 220.83)",
+          "oklch(0.72 0.09674 220.83)",
+          "oklch(0.84 0.09674 220.83)",
+          "oklch(0.95 0.09674 220.83)"
+        ],
+        "purpose": "Retained reference palette; not the selected dock fill."
       },
       "panel": {
         "role": "neutral",
-        "displayName": "Panel",
+        "displayName": "Pale panel",
+        "canonical": "#e7f3f7",
         "tonalRamp": [
-          "oklch(15% 0.0154 222.7)",
-          "oklch(27% 0.0154 222.7)",
-          "oklch(38% 0.0154 222.7)",
-          "oklch(49% 0.0154 222.7)",
-          "oklch(61% 0.0154 222.7)",
-          "oklch(72% 0.0154 222.7)",
-          "oklch(84% 0.0154 222.7)",
-          "oklch(95% 0.0154 222.7)"
+          "oklch(0.15 0.01384 219.62)",
+          "oklch(0.26 0.01384 219.62)",
+          "oklch(0.38 0.01384 219.62)",
+          "oklch(0.49 0.01384 219.62)",
+          "oklch(0.61 0.01384 219.62)",
+          "oklch(0.72 0.01384 219.62)",
+          "oklch(0.84 0.01384 219.62)",
+          "oklch(0.95 0.01384 219.62)"
         ]
       },
       "paper-well": {
         "role": "neutral",
-        "displayName": "Paper Well",
+        "displayName": "Paper well",
+        "canonical": "#eaf0f3",
         "tonalRamp": [
-          "oklch(15% 0.0076 228.9)",
-          "oklch(27% 0.0076 228.9)",
-          "oklch(38% 0.0076 228.9)",
-          "oklch(49% 0.0076 228.9)",
-          "oklch(61% 0.0076 228.9)",
-          "oklch(72% 0.0076 228.9)",
-          "oklch(84% 0.0076 228.9)",
-          "oklch(95% 0.0076 228.9)"
+          "oklch(0.15 0.00759 228.85)",
+          "oklch(0.26 0.00759 228.85)",
+          "oklch(0.38 0.00759 228.85)",
+          "oklch(0.49 0.00759 228.85)",
+          "oklch(0.61 0.00759 228.85)",
+          "oklch(0.72 0.00759 228.85)",
+          "oklch(0.84 0.00759 228.85)",
+          "oklch(0.95 0.00759 228.85)"
         ]
       },
-      "line": {
-        "role": "neutral",
-        "displayName": "Line",
+      "action": {
+        "role": "primary",
+        "displayName": "Deep action blue",
+        "canonical": "#075672",
         "tonalRamp": [
-          "oklch(15% 0.0188 227.3)",
-          "oklch(27% 0.0188 227.3)",
-          "oklch(38% 0.0188 227.3)",
-          "oklch(49% 0.0188 227.3)",
-          "oklch(61% 0.0188 227.3)",
-          "oklch(72% 0.0188 227.3)",
-          "oklch(84% 0.0188 227.3)",
-          "oklch(95% 0.0188 227.3)"
-        ]
-      },
-      "control-line": {
-        "role": "neutral",
-        "displayName": "Control Line",
-        "tonalRamp": [
-          "oklch(15% 0.0336 228.5)",
-          "oklch(27% 0.0336 228.5)",
-          "oklch(38% 0.0336 228.5)",
-          "oklch(49% 0.0336 228.5)",
-          "oklch(61% 0.0336 228.5)",
-          "oklch(72% 0.0336 228.5)",
-          "oklch(84% 0.0336 228.5)",
-          "oklch(95% 0.0336 228.5)"
+          "oklch(0.15 0.08164 229.61)",
+          "oklch(0.26 0.08164 229.61)",
+          "oklch(0.38 0.08164 229.61)",
+          "oklch(0.49 0.08164 229.61)",
+          "oklch(0.61 0.08164 229.61)",
+          "oklch(0.72 0.08164 229.61)",
+          "oklch(0.84 0.08164 229.61)",
+          "oklch(0.95 0.08164 229.61)"
         ]
       },
       "focus": {
         "role": "primary",
-        "displayName": "Focus",
+        "displayName": "Focus blue",
+        "canonical": "#064c68",
         "tonalRamp": [
-          "oklch(15% 0.0916 227.6)",
-          "oklch(27% 0.0916 227.6)",
-          "oklch(38% 0.0916 227.6)",
-          "oklch(49% 0.0916 227.6)",
-          "oklch(61% 0.0916 227.6)",
-          "oklch(72% 0.0916 227.6)",
-          "oklch(84% 0.0916 227.6)",
-          "oklch(95% 0.0916 227.6)"
+          "oklch(0.15 0.07770 232.47)",
+          "oklch(0.26 0.07770 232.47)",
+          "oklch(0.38 0.07770 232.47)",
+          "oklch(0.49 0.07770 232.47)",
+          "oklch(0.61 0.07770 232.47)",
+          "oklch(0.72 0.07770 232.47)",
+          "oklch(0.84 0.07770 232.47)",
+          "oklch(0.95 0.07770 232.47)"
         ]
       },
-      "disabled-text": {
+      "control-line": {
         "role": "neutral",
-        "displayName": "Disabled Text",
+        "displayName": "Control stroke",
+        "canonical": "#78929f",
         "tonalRamp": [
-          "oklch(15% 0.0280 233.4)",
-          "oklch(27% 0.0280 233.4)",
-          "oklch(38% 0.0280 233.4)",
-          "oklch(49% 0.0280 233.4)",
-          "oklch(61% 0.0280 233.4)",
-          "oklch(72% 0.0280 233.4)",
-          "oklch(84% 0.0280 233.4)",
-          "oklch(95% 0.0280 233.4)"
+          "oklch(0.15 0.03530 229.61)",
+          "oklch(0.26 0.03530 229.61)",
+          "oklch(0.38 0.03530 229.61)",
+          "oklch(0.49 0.03530 229.61)",
+          "oklch(0.61 0.03530 229.61)",
+          "oklch(0.72 0.03530 229.61)",
+          "oklch(0.84 0.03530 229.61)",
+          "oklch(0.95 0.03530 229.61)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Divider",
+        "canonical": "#d7e2e7",
+        "tonalRamp": [
+          "oklch(0.15 0.01368 226.57)",
+          "oklch(0.26 0.01368 226.57)",
+          "oklch(0.38 0.01368 226.57)",
+          "oklch(0.49 0.01368 226.57)",
+          "oklch(0.61 0.01368 226.57)",
+          "oklch(0.72 0.01368 226.57)",
+          "oklch(0.84 0.01368 226.57)",
+          "oklch(0.95 0.01368 226.57)"
+        ]
+      },
+      "danger": {
+        "role": "neutral",
+        "displayName": "Danger",
+        "canonical": "#a12a29",
+        "tonalRamp": [
+          "oklch(0.15 0.15565 25.82)",
+          "oklch(0.26 0.15565 25.82)",
+          "oklch(0.38 0.15565 25.82)",
+          "oklch(0.49 0.15565 25.82)",
+          "oklch(0.61 0.15565 25.82)",
+          "oklch(0.72 0.15565 25.82)",
+          "oklch(0.84 0.15565 25.82)",
+          "oklch(0.95 0.15565 25.82)"
+        ]
+      },
+      "danger-hover": {
+        "role": "neutral",
+        "displayName": "Danger Hover",
+        "canonical": "#852221",
+        "tonalRamp": [
+          "oklch(0.15 0.13437 25.78)",
+          "oklch(0.26 0.13437 25.78)",
+          "oklch(0.38 0.13437 25.78)",
+          "oklch(0.49 0.13437 25.78)",
+          "oklch(0.61 0.13437 25.78)",
+          "oklch(0.72 0.13437 25.78)",
+          "oklch(0.84 0.13437 25.78)",
+          "oklch(0.95 0.13437 25.78)"
+        ]
+      },
+      "danger-soft": {
+        "role": "neutral",
+        "displayName": "Danger Soft",
+        "canonical": "#fff0ec",
+        "tonalRamp": [
+          "oklch(0.15 0.01716 35.34)",
+          "oklch(0.26 0.01716 35.34)",
+          "oklch(0.38 0.01716 35.34)",
+          "oklch(0.49 0.01716 35.34)",
+          "oklch(0.61 0.01716 35.34)",
+          "oklch(0.72 0.01716 35.34)",
+          "oklch(0.84 0.01716 35.34)",
+          "oklch(0.95 0.01716 35.34)"
+        ]
+      },
+      "success": {
+        "role": "neutral",
+        "displayName": "Success",
+        "canonical": "#22613c",
+        "tonalRamp": [
+          "oklch(0.15 0.08890 154.41)",
+          "oklch(0.26 0.08890 154.41)",
+          "oklch(0.38 0.08890 154.41)",
+          "oklch(0.49 0.08890 154.41)",
+          "oklch(0.61 0.08890 154.41)",
+          "oklch(0.72 0.08890 154.41)",
+          "oklch(0.84 0.08890 154.41)",
+          "oklch(0.95 0.08890 154.41)"
+        ]
+      },
+      "action-hover": {
+        "role": "primary",
+        "displayName": "Action Hover",
+        "canonical": "#06465e",
+        "tonalRamp": [
+          "oklch(0.15 0.07106 230.39)",
+          "oklch(0.26 0.07106 230.39)",
+          "oklch(0.38 0.07106 230.39)",
+          "oklch(0.49 0.07106 230.39)",
+          "oklch(0.61 0.07106 230.39)",
+          "oklch(0.72 0.07106 230.39)",
+          "oklch(0.84 0.07106 230.39)",
+          "oklch(0.95 0.07106 230.39)"
+        ]
+      },
+      "canvas-dot": {
+        "role": "neutral",
+        "displayName": "Canvas dot",
+        "canonical": "#ccdbe2",
+        "tonalRamp": [
+          "oklch(0.15 0.01885 227.31)",
+          "oklch(0.26 0.01885 227.31)",
+          "oklch(0.38 0.01885 227.31)",
+          "oklch(0.49 0.01885 227.31)",
+          "oklch(0.61 0.01885 227.31)",
+          "oklch(0.72 0.01885 227.31)",
+          "oklch(0.84 0.01885 227.31)",
+          "oklch(0.95 0.01885 227.31)"
+        ]
+      },
+      "disabled-ink": {
+        "role": "neutral",
+        "displayName": "Disabled Ink",
+        "canonical": "#6b808b",
+        "tonalRamp": [
+          "oklch(0.15 0.02971 230.74)",
+          "oklch(0.26 0.02971 230.74)",
+          "oklch(0.38 0.02971 230.74)",
+          "oklch(0.49 0.02971 230.74)",
+          "oklch(0.61 0.02971 230.74)",
+          "oklch(0.72 0.02971 230.74)",
+          "oklch(0.84 0.02971 230.74)",
+          "oklch(0.95 0.02971 230.74)"
         ]
       },
       "disabled-surface": {
         "role": "neutral",
         "displayName": "Disabled Surface",
+        "canonical": "#edf2f5",
         "tonalRamp": [
-          "oklch(15% 0.0076 228.9)",
-          "oklch(27% 0.0076 228.9)",
-          "oklch(38% 0.0076 228.9)",
-          "oklch(49% 0.0076 228.9)",
-          "oklch(61% 0.0076 228.9)",
-          "oklch(72% 0.0076 228.9)",
-          "oklch(84% 0.0076 228.9)",
-          "oklch(95% 0.0076 228.9)"
+          "oklch(0.15 0.00670 233.64)",
+          "oklch(0.26 0.00670 233.64)",
+          "oklch(0.38 0.00670 233.64)",
+          "oklch(0.49 0.00670 233.64)",
+          "oklch(0.61 0.00670 233.64)",
+          "oklch(0.72 0.00670 233.64)",
+          "oklch(0.84 0.00670 233.64)",
+          "oklch(0.95 0.00670 233.64)"
         ]
       },
-      "disabled-border": {
+      "unsaved": {
         "role": "neutral",
-        "displayName": "Disabled Border",
+        "displayName": "Unsaved",
+        "canonical": "#9b5c17",
         "tonalRamp": [
-          "oklch(15% 0.0173 225.2)",
-          "oklch(27% 0.0173 225.2)",
-          "oklch(38% 0.0173 225.2)",
-          "oklch(49% 0.0173 225.2)",
-          "oklch(61% 0.0173 225.2)",
-          "oklch(72% 0.0173 225.2)",
-          "oklch(84% 0.0173 225.2)",
-          "oklch(95% 0.0173 225.2)"
-        ]
-      },
-      "primary-disabled-text": {
-        "role": "neutral",
-        "displayName": "Primary Disabled Text",
-        "tonalRamp": [
-          "oklch(15% 0.0360 227.9)",
-          "oklch(27% 0.0360 227.9)",
-          "oklch(38% 0.0360 227.9)",
-          "oklch(49% 0.0360 227.9)",
-          "oklch(61% 0.0360 227.9)",
-          "oklch(72% 0.0360 227.9)",
-          "oklch(84% 0.0360 227.9)",
-          "oklch(95% 0.0360 227.9)"
-        ]
-      },
-      "primary-disabled-surface": {
-        "role": "neutral",
-        "displayName": "Primary Disabled Surface",
-        "tonalRamp": [
-          "oklch(15% 0.0225 221.8)",
-          "oklch(27% 0.0225 221.8)",
-          "oklch(38% 0.0225 221.8)",
-          "oklch(49% 0.0225 221.8)",
-          "oklch(61% 0.0225 221.8)",
-          "oklch(72% 0.0225 221.8)",
-          "oklch(84% 0.0225 221.8)",
-          "oklch(95% 0.0225 221.8)"
-        ]
-      },
-      "primary-disabled-border": {
-        "role": "neutral",
-        "displayName": "Primary Disabled Border",
-        "tonalRamp": [
-          "oklch(15% 0.0314 223.0)",
-          "oklch(27% 0.0314 223.0)",
-          "oklch(38% 0.0314 223.0)",
-          "oklch(49% 0.0314 223.0)",
-          "oklch(61% 0.0314 223.0)",
-          "oklch(72% 0.0314 223.0)",
-          "oklch(84% 0.0314 223.0)",
-          "oklch(95% 0.0314 223.0)"
-        ]
-      },
-      "text-disabled": {
-        "role": "neutral",
-        "displayName": "Text Disabled",
-        "tonalRamp": [
-          "oklch(15% 0.0362 229.8)",
-          "oklch(27% 0.0362 229.8)",
-          "oklch(38% 0.0362 229.8)",
-          "oklch(49% 0.0362 229.8)",
-          "oklch(61% 0.0362 229.8)",
-          "oklch(72% 0.0362 229.8)",
-          "oklch(84% 0.0362 229.8)",
-          "oklch(95% 0.0362 229.8)"
-        ]
-      },
-      "selected-border": {
-        "role": "primary",
-        "displayName": "Selected Border",
-        "tonalRamp": [
-          "oklch(15% 0.0604 221.4)",
-          "oklch(27% 0.0604 221.4)",
-          "oklch(38% 0.0604 221.4)",
-          "oklch(49% 0.0604 221.4)",
-          "oklch(61% 0.0604 221.4)",
-          "oklch(72% 0.0604 221.4)",
-          "oklch(84% 0.0604 221.4)",
-          "oklch(95% 0.0604 221.4)"
-        ]
-      },
-      "row-hover": {
-        "role": "primary",
-        "displayName": "Row Hover",
-        "tonalRamp": [
-          "oklch(15% 0.0120 223.5)",
-          "oklch(27% 0.0120 223.5)",
-          "oklch(38% 0.0120 223.5)",
-          "oklch(49% 0.0120 223.5)",
-          "oklch(61% 0.0120 223.5)",
-          "oklch(72% 0.0120 223.5)",
-          "oklch(84% 0.0120 223.5)",
-          "oklch(95% 0.0120 223.5)"
-        ]
-      },
-      "scrollbar": {
-        "role": "neutral",
-        "displayName": "Scrollbar",
-        "tonalRamp": [
-          "oklch(15% 0.0425 222.5)",
-          "oklch(27% 0.0425 222.5)",
-          "oklch(38% 0.0425 222.5)",
-          "oklch(49% 0.0425 222.5)",
-          "oklch(61% 0.0425 222.5)",
-          "oklch(72% 0.0425 222.5)",
-          "oklch(84% 0.0425 222.5)",
-          "oklch(95% 0.0425 222.5)"
-        ]
-      },
-      "tab-tray": {
-        "role": "primary",
-        "displayName": "Tab Tray",
-        "tonalRamp": [
-          "oklch(15% 0.0170 225.2)",
-          "oklch(27% 0.0170 225.2)",
-          "oklch(38% 0.0170 225.2)",
-          "oklch(49% 0.0170 225.2)",
-          "oklch(61% 0.0170 225.2)",
-          "oklch(72% 0.0170 225.2)",
-          "oklch(84% 0.0170 225.2)",
-          "oklch(95% 0.0170 225.2)"
-        ]
-      },
-      "selected-tab-border": {
-        "role": "primary",
-        "displayName": "Selected Tab Border",
-        "tonalRamp": [
-          "oklch(15% 0.0348 228.5)",
-          "oklch(27% 0.0348 228.5)",
-          "oklch(38% 0.0348 228.5)",
-          "oklch(49% 0.0348 228.5)",
-          "oklch(61% 0.0348 228.5)",
-          "oklch(72% 0.0348 228.5)",
-          "oklch(84% 0.0348 228.5)",
-          "oklch(95% 0.0348 228.5)"
-        ]
-      },
-      "danger": {
-        "role": "functional",
-        "displayName": "Danger",
-        "tonalRamp": [
-          "oklch(15% 0.1556 25.8)",
-          "oklch(27% 0.1556 25.8)",
-          "oklch(38% 0.1556 25.8)",
-          "oklch(49% 0.1556 25.8)",
-          "oklch(61% 0.1556 25.8)",
-          "oklch(72% 0.1556 25.8)",
-          "oklch(84% 0.1556 25.8)",
-          "oklch(95% 0.1556 25.8)"
-        ]
-      },
-      "danger-hover": {
-        "role": "functional",
-        "displayName": "Danger Hover",
-        "tonalRamp": [
-          "oklch(15% 0.1354 26.0)",
-          "oklch(27% 0.1354 26.0)",
-          "oklch(38% 0.1354 26.0)",
-          "oklch(49% 0.1354 26.0)",
-          "oklch(61% 0.1354 26.0)",
-          "oklch(72% 0.1354 26.0)",
-          "oklch(84% 0.1354 26.0)",
-          "oklch(95% 0.1354 26.0)"
-        ]
-      },
-      "danger-soft": {
-        "role": "functional",
-        "displayName": "Danger Soft",
-        "tonalRamp": [
-          "oklch(15% 0.0172 35.3)",
-          "oklch(27% 0.0172 35.3)",
-          "oklch(38% 0.0172 35.3)",
-          "oklch(49% 0.0172 35.3)",
-          "oklch(61% 0.0172 35.3)",
-          "oklch(72% 0.0172 35.3)",
-          "oklch(84% 0.0172 35.3)",
-          "oklch(95% 0.0172 35.3)"
-        ]
-      },
-      "success": {
-        "role": "functional",
-        "displayName": "Success",
-        "tonalRamp": [
-          "oklch(15% 0.0889 154.4)",
-          "oklch(27% 0.0889 154.4)",
-          "oklch(38% 0.0889 154.4)",
-          "oklch(49% 0.0889 154.4)",
-          "oklch(61% 0.0889 154.4)",
-          "oklch(72% 0.0889 154.4)",
-          "oklch(84% 0.0889 154.4)",
-          "oklch(95% 0.0889 154.4)"
-        ]
-      },
-      "success-soft": {
-        "role": "functional",
-        "displayName": "Success Soft",
-        "tonalRamp": [
-          "oklch(15% 0.0157 154.5)",
-          "oklch(27% 0.0157 154.5)",
-          "oklch(38% 0.0157 154.5)",
-          "oklch(49% 0.0157 154.5)",
-          "oklch(61% 0.0157 154.5)",
-          "oklch(72% 0.0157 154.5)",
-          "oklch(84% 0.0157 154.5)",
-          "oklch(95% 0.0157 154.5)"
+          "oklch(0.15 0.11339 62.11)",
+          "oklch(0.26 0.11339 62.11)",
+          "oklch(0.38 0.11339 62.11)",
+          "oklch(0.49 0.11339 62.11)",
+          "oklch(0.61 0.11339 62.11)",
+          "oklch(0.72 0.11339 62.11)",
+          "oklch(0.84 0.11339 62.11)",
+          "oklch(0.95 0.11339 62.11)"
         ]
       },
       "quality-warning": {
-        "role": "functional",
+        "role": "neutral",
         "displayName": "Quality Warning",
+        "canonical": "#794715",
         "tonalRamp": [
-          "oklch(15% 0.0847 75.7)",
-          "oklch(27% 0.0847 75.7)",
-          "oklch(38% 0.0847 75.7)",
-          "oklch(49% 0.0847 75.7)",
-          "oklch(61% 0.0847 75.7)",
-          "oklch(72% 0.0847 75.7)",
-          "oklch(84% 0.0847 75.7)",
-          "oklch(95% 0.0847 75.7)"
-        ]
-      },
-      "quality-warning-soft": {
-        "role": "functional",
-        "displayName": "Quality Warning Soft",
-        "tonalRamp": [
-          "oklch(15% 0.0336 86.3)",
-          "oklch(27% 0.0336 86.3)",
-          "oklch(38% 0.0336 86.3)",
-          "oklch(49% 0.0336 86.3)",
-          "oklch(61% 0.0336 86.3)",
-          "oklch(72% 0.0336 86.3)",
-          "oklch(84% 0.0336 86.3)",
-          "oklch(95% 0.0336 86.3)"
-        ]
-      },
-      "cut-guide": {
-        "role": "functional",
-        "displayName": "Cut Guide",
-        "tonalRamp": [
-          "oklch(15% 0.0630 232.6)",
-          "oklch(27% 0.0630 232.6)",
-          "oklch(38% 0.0630 232.6)",
-          "oklch(49% 0.0630 232.6)",
-          "oklch(61% 0.0630 232.6)",
-          "oklch(72% 0.0630 232.6)",
-          "oklch(84% 0.0630 232.6)",
-          "oklch(95% 0.0630 232.6)"
-        ]
-      },
-      "face-guide": {
-        "role": "functional",
-        "displayName": "Face Guide",
-        "tonalRamp": [
-          "oklch(15% 0.1081 69.3)",
-          "oklch(27% 0.1081 69.3)",
-          "oklch(38% 0.1081 69.3)",
-          "oklch(49% 0.1081 69.3)",
-          "oklch(61% 0.1081 69.3)",
-          "oklch(72% 0.1081 69.3)",
-          "oklch(84% 0.1081 69.3)",
-          "oklch(95% 0.1081 69.3)"
+          "oklch(0.15 0.09229 60.79)",
+          "oklch(0.26 0.09229 60.79)",
+          "oklch(0.38 0.09229 60.79)",
+          "oklch(0.49 0.09229 60.79)",
+          "oklch(0.61 0.09229 60.79)",
+          "oklch(0.72 0.09229 60.79)",
+          "oklch(0.84 0.09229 60.79)",
+          "oklch(0.95 0.09229 60.79)"
         ]
       },
       "alignment-guide": {
-        "role": "functional",
+        "role": "neutral",
         "displayName": "Alignment Guide",
+        "canonical": "#0d6f91",
         "tonalRamp": [
-          "oklch(15% 0.0965 228.9)",
-          "oklch(27% 0.0965 228.9)",
-          "oklch(38% 0.0965 228.9)",
-          "oklch(49% 0.0965 228.9)",
-          "oklch(61% 0.0965 228.9)",
-          "oklch(72% 0.0965 228.9)",
-          "oklch(84% 0.0965 228.9)",
-          "oklch(95% 0.0965 228.9)"
+          "oklch(0.15 0.09648 228.94)",
+          "oklch(0.26 0.09648 228.94)",
+          "oklch(0.38 0.09648 228.94)",
+          "oklch(0.49 0.09648 228.94)",
+          "oklch(0.61 0.09648 228.94)",
+          "oklch(0.72 0.09648 228.94)",
+          "oklch(0.84 0.09648 228.94)",
+          "oklch(0.95 0.09648 228.94)"
         ]
       },
-      "empty-guide": {
-        "role": "functional",
-        "displayName": "Empty Guide",
+      "editor-guide": {
+        "role": "neutral",
+        "displayName": "Editor Guide",
+        "canonical": "#28566d",
         "tonalRamp": [
-          "oklch(15% 0.0725 226.4)",
-          "oklch(27% 0.0725 226.4)",
-          "oklch(38% 0.0725 226.4)",
-          "oklch(49% 0.0725 226.4)",
-          "oklch(61% 0.0725 226.4)",
-          "oklch(72% 0.0725 226.4)",
-          "oklch(84% 0.0725 226.4)",
-          "oklch(95% 0.0725 226.4)"
+          "oklch(0.15 0.06302 232.57)",
+          "oklch(0.26 0.06302 232.57)",
+          "oklch(0.38 0.06302 232.57)",
+          "oklch(0.49 0.06302 232.57)",
+          "oklch(0.61 0.06302 232.57)",
+          "oklch(0.72 0.06302 232.57)",
+          "oklch(0.84 0.06302 232.57)",
+          "oklch(0.95 0.06302 232.57)"
         ]
       },
-      "empty-face-guide": {
-        "role": "functional",
-        "displayName": "Empty Face Guide",
+      "face-guide": {
+        "role": "neutral",
+        "displayName": "Face Guide",
+        "canonical": "#966117",
         "tonalRamp": [
-          "oklch(15% 0.0985 75.2)",
-          "oklch(27% 0.0985 75.2)",
-          "oklch(38% 0.0985 75.2)",
-          "oklch(49% 0.0985 75.2)",
-          "oklch(61% 0.0985 75.2)",
-          "oklch(72% 0.0985 75.2)",
-          "oklch(84% 0.0985 75.2)",
-          "oklch(95% 0.0985 75.2)"
+          "oklch(0.15 0.10814 69.26)",
+          "oklch(0.26 0.10814 69.26)",
+          "oklch(0.38 0.10814 69.26)",
+          "oklch(0.49 0.10814 69.26)",
+          "oklch(0.61 0.10814 69.26)",
+          "oklch(0.72 0.10814 69.26)",
+          "oklch(0.84 0.10814 69.26)",
+          "oklch(0.95 0.10814 69.26)"
         ]
       },
-      "empty-circle": {
-        "role": "functional",
-        "displayName": "Empty Circle",
+      "missing-preview": {
+        "role": "neutral",
+        "displayName": "Missing Preview",
+        "canonical": "#e8e3da",
         "tonalRamp": [
-          "oklch(15% 0.0079 216.6)",
-          "oklch(27% 0.0079 216.6)",
-          "oklch(38% 0.0079 216.6)",
-          "oklch(49% 0.0079 216.6)",
-          "oklch(61% 0.0079 216.6)",
-          "oklch(72% 0.0079 216.6)",
-          "oklch(84% 0.0079 216.6)",
-          "oklch(95% 0.0079 216.6)"
-        ]
-      },
-      "missing-source-preview": {
-        "role": "functional",
-        "displayName": "Missing Source Preview",
-        "tonalRamp": [
-          "oklch(15% 0.0133 82.4)",
-          "oklch(27% 0.0133 82.4)",
-          "oklch(38% 0.0133 82.4)",
-          "oklch(49% 0.0133 82.4)",
-          "oklch(61% 0.0133 82.4)",
-          "oklch(72% 0.0133 82.4)",
-          "oklch(84% 0.0133 82.4)",
-          "oklch(95% 0.0133 82.4)"
+          "oklch(0.15 0.01325 82.40)",
+          "oklch(0.26 0.01325 82.40)",
+          "oklch(0.38 0.01325 82.40)",
+          "oklch(0.49 0.01325 82.40)",
+          "oklch(0.61 0.01325 82.40)",
+          "oklch(0.72 0.01325 82.40)",
+          "oklch(0.84 0.01325 82.40)",
+          "oklch(0.95 0.01325 82.40)"
         ]
       },
       "printed-guide": {
-        "role": "functional",
+        "role": "neutral",
         "displayName": "Printed Guide",
+        "canonical": "#333333",
         "tonalRamp": [
-          "oklch(15% 0.0000 89.9)",
-          "oklch(27% 0.0000 89.9)",
-          "oklch(38% 0.0000 89.9)",
-          "oklch(49% 0.0000 89.9)",
-          "oklch(61% 0.0000 89.9)",
-          "oklch(72% 0.0000 89.9)",
-          "oklch(84% 0.0000 89.9)",
-          "oklch(95% 0.0000 89.9)"
+          "oklch(0.15 0.00000 89.88)",
+          "oklch(0.26 0.00000 89.88)",
+          "oklch(0.38 0.00000 89.88)",
+          "oklch(0.49 0.00000 89.88)",
+          "oklch(0.61 0.00000 89.88)",
+          "oklch(0.72 0.00000 89.88)",
+          "oklch(0.84 0.00000 89.88)",
+          "oklch(0.95 0.00000 89.88)"
         ]
       },
       "scrim": {
         "role": "neutral",
         "displayName": "Scrim",
+        "canonical": "rgb(5 20 28 / 35%)",
         "tonalRamp": [
-          "oklch(15% 0.0070 216.8)",
-          "oklch(27% 0.0070 216.8)",
-          "oklch(38% 0.0070 216.8)",
-          "oklch(49% 0.0070 216.8)",
-          "oklch(61% 0.0070 216.8)",
-          "oklch(72% 0.0070 216.8)",
-          "oklch(84% 0.0070 216.8)",
-          "oklch(95% 0.0070 216.8)"
+          "oklch(0.15 0.02711 232.69)",
+          "oklch(0.26 0.02711 232.69)",
+          "oklch(0.38 0.02711 232.69)",
+          "oklch(0.49 0.02711 232.69)",
+          "oklch(0.61 0.02711 232.69)",
+          "oklch(0.72 0.02711 232.69)",
+          "oklch(0.84 0.02711 232.69)",
+          "oklch(0.95 0.02711 232.69)"
         ]
       },
-      "paper-shadow-color": {
+      "transparent": {
         "role": "neutral",
-        "displayName": "Paper Shadow Color",
-        "tonalRamp": [
-          "oklch(15% 0.0455 233.4)",
-          "oklch(27% 0.0455 233.4)",
-          "oklch(38% 0.0455 233.4)",
-          "oklch(49% 0.0455 233.4)",
-          "oklch(61% 0.0455 233.4)",
-          "oklch(72% 0.0455 233.4)",
-          "oklch(84% 0.0455 233.4)",
-          "oklch(95% 0.0455 233.4)"
-        ]
-      },
-      "floating-shadow-color": {
-        "role": "neutral",
-        "displayName": "Floating Shadow Color",
-        "tonalRamp": [
-          "oklch(15% 0.0504 233.5)",
-          "oklch(27% 0.0504 233.5)",
-          "oklch(38% 0.0504 233.5)",
-          "oklch(49% 0.0504 233.5)",
-          "oklch(61% 0.0504 233.5)",
-          "oklch(72% 0.0504 233.5)",
-          "oklch(84% 0.0504 233.5)",
-          "oklch(95% 0.0504 233.5)"
-        ]
+        "displayName": "Transparent",
+        "canonical": "transparent"
       }
     },
     "typographyMeta": {
       "body": {
         "displayName": "Body",
-        "purpose": "Root size and paragraph text; paragraph line-height is 1.5."
+        "purpose": "Implemented body role; exact values live in DESIGN.md frontmatter."
       },
-      "headline": {
-        "displayName": "Headline",
-        "purpose": "Selected artwork or empty task title at desktop widths above 1250px."
-      },
-      "headline-compact": {
-        "displayName": "Headline Compact",
-        "purpose": "Task title at 1250px and below."
+      "paragraph": {
+        "displayName": "Paragraph",
+        "purpose": "Implemented paragraph role; exact values live in DESIGN.md frontmatter."
       },
       "brand": {
         "displayName": "Brand",
-        "purpose": "PinIt wordmark; narrow override is 24px with the same line-height and tracking."
+        "purpose": "Implemented brand role; exact values live in DESIGN.md frontmatter."
+      },
+      "brand-narrow": {
+        "displayName": "Brand Narrow",
+        "purpose": "Implemented variant at max-width 600px."
+      },
+      "empty-title": {
+        "displayName": "Empty Title",
+        "purpose": "Implemented empty title role; exact values live in DESIGN.md frontmatter."
+      },
+      "empty-title-narrow": {
+        "displayName": "Empty Title Narrow",
+        "purpose": "Implemented variant at max-width 600px."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Implemented headline role; exact values live in DESIGN.md frontmatter."
+      },
+      "headline-narrow": {
+        "displayName": "Headline Narrow",
+        "purpose": "Implemented variant at max-width 600px."
       },
       "section-title": {
         "displayName": "Section Title",
-        "purpose": "Panel and inspector h2, and export-progress title."
+        "purpose": "Implemented section title role; exact values live in DESIGN.md frontmatter."
+      },
+      "artwork-title": {
+        "displayName": "Artwork Title",
+        "purpose": "Implemented artwork title role; exact values live in DESIGN.md frontmatter."
+      },
+      "artwork-title-narrow": {
+        "displayName": "Artwork Title Narrow",
+        "purpose": "Implemented variant at max-width 600px."
       },
       "subsection-title": {
         "displayName": "Subsection Title",
-        "purpose": "Artwork/settings h3; native settings summaries use 22px line-height."
+        "purpose": "Implemented subsection title role; exact values live in DESIGN.md frontmatter."
       },
-      "minor-title": {
-        "displayName": "Minor Title",
-        "purpose": "Settings h4."
+      "project-name": {
+        "displayName": "Project Name",
+        "purpose": "Implemented project name role; exact values live in DESIGN.md frontmatter."
       },
       "button": {
         "displayName": "Button",
-        "purpose": "Base button text."
-      },
-      "primary-button": {
-        "displayName": "Primary Button",
-        "purpose": "Cyan filled action text."
+        "purpose": "Implemented button role; exact values live in DESIGN.md frontmatter."
       },
       "field": {
         "displayName": "Field",
-        "purpose": "Inputs and selects."
+        "purpose": "Implemented field role; exact values live in DESIGN.md frontmatter."
+      },
+      "artwork-field": {
+        "displayName": "Artwork Field",
+        "purpose": "Implemented artwork field role; exact values live in DESIGN.md frontmatter."
       },
       "field-label": {
         "displayName": "Field Label",
-        "purpose": "Labels above fields; associated errors retain the size/line-height at normal weight."
+        "purpose": "Implemented field label role; exact values live in DESIGN.md frontmatter."
+      },
+      "field-error": {
+        "displayName": "Field Error",
+        "purpose": "Implemented field error role; exact values live in DESIGN.md frontmatter."
       },
       "hint": {
         "displayName": "Hint",
-        "purpose": "Supporting help, statuses and text actions; text actions use weight 700."
+        "purpose": "Implemented hint role; exact values live in DESIGN.md frontmatter."
       },
-      "caption": {
-        "displayName": "Caption",
-        "purpose": "Footer, brand descriptor, paper labels and compact annotations; line-height is context-dependent."
+      "empty-copy": {
+        "displayName": "Empty Copy",
+        "purpose": "Implemented empty copy role; exact values live in DESIGN.md frontmatter."
       },
-      "artwork-name": {
-        "displayName": "Artwork Name",
-        "purpose": "Wrapping name in the artwork library."
+      "small-copy": {
+        "displayName": "Small Copy",
+        "purpose": "Implemented small copy role; exact values live in DESIGN.md frontmatter."
+      },
+      "check": {
+        "displayName": "Check",
+        "purpose": "Implemented 12px guide/check labels."
+      },
+      "tray-title": {
+        "displayName": "Tray Title",
+        "purpose": "13px tray names with 19px line height."
+      },
+      "library-title": {
+        "displayName": "Library Title",
+        "purpose": "14px full Library card names with 19px line height."
+      },
+      "summary": {
+        "displayName": "Summary",
+        "purpose": "Implemented summary role; exact values live in DESIGN.md frontmatter."
+      },
+      "dock-label": {
+        "displayName": "Dock Label",
+        "purpose": "Implemented dock label role; exact values live in DESIGN.md frontmatter."
+      },
+      "metadata": {
+        "displayName": "Metadata",
+        "purpose": "Implemented metadata role; exact values live in DESIGN.md frontmatter."
+      },
+      "annotation-narrow": {
+        "displayName": "Annotation Narrow",
+        "purpose": "9px Missing-source annotation only; not general body/control text."
+      },
+      "message": {
+        "displayName": "Message",
+        "purpose": "Implemented message role; exact values live in DESIGN.md frontmatter."
       },
       "dialog-title": {
         "displayName": "Dialog Title",
-        "purpose": "Export and confirmation modal headings."
+        "purpose": "Implemented dialog title role; exact values live in DESIGN.md frontmatter."
       },
-      "empty-inspector-title": {
-        "displayName": "Empty Inspector Title",
-        "purpose": "Artwork inspector before import."
+      "dialog-title-narrow": {
+        "displayName": "Dialog Title Narrow",
+        "purpose": "Implemented variant at max-width 600px."
       },
-      "empty-library-title": {
-        "displayName": "Empty Library Title",
-        "purpose": "First-import library heading."
+      "alignment-status": {
+        "displayName": "Alignment Status",
+        "purpose": "Persistent 14px centered/per-axis status above artwork."
       },
-      "capacity": {
-        "displayName": "Capacity",
-        "purpose": "Computed capacity per sheet; tabular figures."
+      "tutorial-art": {
+        "displayName": "Tutorial Art",
+        "purpose": "Bounded 18px SVG artwork diagram label; not a heading scale expansion."
       },
-      "run-total": {
-        "displayName": "Run Total",
-        "purpose": "Total copies in the run; tabular figures."
-      },
-      "pin-summary": {
-        "displayName": "Pin Summary",
-        "purpose": "Empty inspector's independent face/cut values; tabular figures."
+      "tutorial-title": {
+        "displayName": "Tutorial Title",
+        "purpose": "23px tutorial step title, 21px at max-width 600px."
       }
     },
-    "tonalRampPolicy": "Eight OKLCH lightness steps synthesized for swatch exploration only, using each implemented color's hue/chroma. Alpha-color ramps show the underlying RGB hue. These are not additional normative UI tokens.",
-    "fonts": [
-      {
-        "name": "PinIt Sans",
-        "source": "src/ui/fonts/NunitoSans.ttf",
-        "upstreamFamily": "Nunito Sans",
-        "style": "normal",
-        "weight": "200 1000",
-        "display": "swap",
-        "fallbacks": [
-          "Segoe UI",
-          "sans-serif"
-        ],
-        "preload": "index.html",
-        "license": "src/ui/fonts/OFL.txt; THIRD_PARTY_NOTICES.md"
-      }
-    ],
     "shadows": [
       {
-        "name": "paper",
-        "value": "0 3px 14px rgb(33 63 79 / 9%)",
-        "purpose": "White sheet inside its cool well."
+        "name": "selected-fit",
+        "value": "0 1px 3px rgb(4 44 62 / 12%)",
+        "purpose": "Selected roomy-desktop fit choice."
+      },
+      {
+        "name": "print-paper",
+        "value": "0 3px 10px rgb(20 59 76 / 10%)",
+        "purpose": "Paper in its preview recess."
+      },
+      {
+        "name": "success-notice",
+        "value": "0 5px 24px rgb(4 44 62 / 16%)",
+        "purpose": "Operational success feedback, including persistent export destination."
       },
       {
         "name": "dialog",
-        "value": "0 18px 56px rgb(9 45 62 / 18%)",
-        "purpose": "Modal surface above the dimmed workspace."
+        "value": "0 16px 48px rgb(4 44 62 / 20%)",
+        "purpose": "Modal separation over 35% scrim."
       },
       {
         "name": "export-progress",
-        "value": "0 10px 40px rgb(9 45 62 / 18%)",
-        "purpose": "Floating export/cancel status."
+        "value": "0 6px 24px rgb(7 61 81 / 16%)",
+        "purpose": "Cancelable operation overlay."
+      },
+      {
+        "name": "selected-artwork-stroke",
+        "value": "inset 0 0 0 1px var(--action)",
+        "purpose": "Dark inset selection stroke paired with a checkmark; not cast elevation."
       }
     ],
     "motion": [
       {
-        "name": "button-color",
-        "value": "background-color 160ms ease-out, border-color 160ms ease-out",
-        "purpose": "Enabled button hover feedback."
+        "name": "ease-out",
+        "value": "cubic-bezier(.23,1,.32,1)",
+        "purpose": "Ordinary pointer press."
       },
       {
         "name": "button-press",
-        "value": "transform 120ms ease-out",
-        "purpose": "Enabled press translates down 1px; artwork selection suppresses translation."
+        "value": "transform 120ms var(--ease-out); scale(.97)",
+        "purpose": "Except keyboard focus; selection/dock do not scale."
       },
       {
-        "name": "reduced-motion",
-        "value": "transition-duration: 0ms !important; animation-duration: 0ms !important",
-        "purpose": "Applies to all elements and before/after pseudo-elements under prefers-reduced-motion: reduce."
+        "name": "button-color",
+        "value": "background-color 150ms ease",
+        "purpose": "Fine-pointer feedback."
+      },
+      {
+        "name": "dock-transform",
+        "value": "160ms power3.out",
+        "purpose": "Ref-held GSAP quickTo x/scaleX/scaleY; instant resets pause reusable tweens before gsap.set, cleanup kills tweens."
+      },
+      {
+        "name": "dock-layout",
+        "value": "base 40px; gap 12px; maximum 1.35; Gaussian spread 54",
+        "purpose": "Stable slots with neighbor displacement."
+      },
+      {
+        "name": "motion-gates",
+        "value": "(hover:hover) and (pointer:fine); (prefers-reduced-motion:reduce)",
+        "purpose": "Mouse-only magnification; keyboard/focus/coarse/reduced motion reset instantly."
+      },
+      {
+        "name": "notice-dismiss",
+        "value": "6000ms",
+        "purpose": "Ordinary notices clear the timer while hovered/focused and restart afterward; Export saved destinations persist until dismissed or replaced."
+      },
+      {
+        "name": "dialog-entry",
+        "value": "220ms var(--ease-out); opacity .35→1; blur 4px→0; translateY 6px→0; scale .985→1",
+        "purpose": "Pointer path only; keyboard skips entry animation and reduced motion disables it."
+      },
+      {
+        "name": "dialog-backdrop",
+        "value": "180ms var(--ease-out); opacity 0→1; backdrop-filter:blur(3px)",
+        "purpose": "Pointer entry fade; reduced motion removes backdrop blur."
+      },
+      {
+        "name": "adjustment-entry",
+        "value": "180ms var(--ease-out); opacity .4→1; translateX -6px→0",
+        "purpose": "Pointer-opened drawer; keyboard and reduced-motion paths are immediate."
+      },
+      {
+        "name": "tutorial-step",
+        "value": "220ms var(--ease-out); opacity .2→1; blur 3px→0; translateX 6px→0",
+        "purpose": "Pointer step transitions only, using data-motion; keyboard and reduced-motion paths are immediate."
       }
     ],
     "breakpoints": [
       {
-        "name": "wide",
-        "value": "1700px",
-        "query": "(min-width: 1700px)",
-        "purpose": "228px / 308px side columns; 24px workspace gaps/padding and panel padding."
-      },
-      {
         "name": "compact",
-        "value": "1250px",
-        "query": "(max-width: 1250px)",
-        "purpose": "172px / 252px side columns, 12px workspace gaps, 14px panels, 16px inspector padding."
+        "value": "1250px"
       },
       {
-        "name": "defensive-tablet",
-        "value": "980px",
-        "query": "(max-width: 980px)",
-        "purpose": "Document scroll; inspector below two-column work area; max 680px inspector panel."
+        "name": "stacked",
+        "value": "850px"
       },
       {
-        "name": "defensive-narrow",
-        "value": "650px",
-        "query": "(max-width: 650px)",
-        "purpose": "Single-column canvas stack; horizontal artwork list; document inspector scroll; compact dialog/progress."
+        "name": "narrow",
+        "value": "600px"
       }
     ],
-    "accessibility": [
-      {
-        "name": "focus",
-        "value": "outline: 2px solid var(--focus); outline-offset: 3px",
-        "purpose": "Keyboard focus for controls and color field focus-within."
-      },
-      {
-        "name": "coarse-pointer",
-        "value": "(pointer: coarse)",
-        "purpose": "Base buttons, inputs, selects and checkbox labels min-height 44px; icon buttons width/min-height 44px."
-      },
-      {
-        "name": "tabs",
-        "value": "ArrowLeft / ArrowRight / Home / End",
-        "purpose": "Roving tabIndex; arrow navigation wraps and activates; selected tab owns tabpanel association."
-      },
-      {
-        "name": "modal",
-        "value": "focus containment; Escape dismiss; return focus",
-        "purpose": "Dialog and confirmation controls; Keep editing is initial confirmation focus."
-      },
-      {
-        "name": "validation",
-        "value": "aria-invalid and aria-describedby",
-        "purpose": "Numeric fields expose associated inline errors in addition to border color."
-      },
-      {
-        "name": "status",
-        "value": "role=status; aria-live=polite",
-        "purpose": "Persistent alignment text and export progress; errors use role=alert."
-      }
-    ],
-    "layout": {
-      "nativeWindow": {
-        "initial": "1500px × 960px",
-        "minimum": "1080px × 720px",
-        "source": "electron/main.ts"
-      },
-      "renderer": {
-        "minimumWidth": "320px",
-        "height": "100dvh",
-        "minimumHeight": "600px",
-        "gridRows": "auto auto minmax(0, 1fr) auto",
-        "overflow": "hidden"
-      },
-      "toolbar": {
-        "minimumHeight": "74px",
-        "padding": "12px 24px",
-        "gap": "24px",
-        "position": "normal grid row"
-      },
-      "workspace": {
-        "columns": "208px minmax(0, 1fr) 288px",
-        "gap": "16px",
-        "padding": "4px 16px 12px"
-      },
-      "canvasPanels": {
-        "columns": "minmax(0, 1.4fr) minmax(0, 1fr)",
-        "gap": "16px",
-        "padding": "20px",
-        "compactColumns": "minmax(0, 1.35fr) minmax(0, 1fr)"
-      },
-      "localScroll": {
-        "library": "overflow: auto; min-height: 0",
-        "inspector": "overflow: auto; overscroll-behavior: contain; min-height: 0",
-        "status": "max-height: 118px; overflow-y: auto",
-        "dialog": "max-height: calc(100dvh - 48px); overflow-y: auto; overscroll-behavior: contain"
-      },
-      "inspector": {
-        "padding": "20px",
-        "compactPadding": "16px",
-        "twoColumnGap": "12px",
-        "labelGap": "7px",
-        "sectionGap": "24px",
-        "tabStripPadding": "8px",
-        "tabGap": "4px"
-      },
-      "narrow": {
-        "libraryRowWidth": "180px",
-        "editorMinimumHeight": "480px",
-        "previewMinimumHeight": "560px",
-        "paperStageHeight": "380px",
-        "paperStageMinimumHeight": "330px",
-        "sheetMaximumHeight": "348px",
-        "inspectorOverflow": "visible"
-      },
-      "dialog": {
-        "width": "min(520px, 100%)",
-        "padding": "28px",
-        "narrowPadding": "20px",
-        "scrimPadding": "24px",
-        "narrowScrimPadding": "12px"
-      },
-      "exportProgress": {
-        "right": "24px",
-        "bottom": "46px",
-        "width": "min(500px, calc(100% - 48px))",
-        "padding": "20px",
-        "gap": "20px",
-        "narrowRight": "12px",
-        "narrowBottom": "12px",
-        "narrowWidth": "calc(100% - 24px)",
-        "narrowPadding": "16px",
-        "narrowGap": "12px"
-      },
-      "zIndex": {
-        "exportProgress": 30,
-        "scrim": 50,
-        "skipLink": 60
-      }
-    },
-    "borders": {
-      "base": "1px solid var(--control-line)",
-      "selectedArtwork": "1px solid #80b4c6",
-      "selectedTab": "1px solid #a2bdca",
-      "brandRings": "1.6px solid var(--accent-ink)"
-    },
-    "icons": {
-      "source": "src/ui/Icon.tsx",
-      "viewBox": "0 0 24 24",
-      "fill": "none",
-      "stroke": "currentColor",
-      "strokeWidth": 1.7,
-      "strokeLinecap": "round",
-      "strokeLinejoin": "round",
-      "defaultRenderedSize": "18px",
-      "accessibility": "aria-hidden=true; focusable=false"
-    },
-    "directManipulation": {
-      "stage": "max(120px, min(560px, availableWidth - 8px, availableHeight - 8px))",
-      "scale": "stageSize / (cutDiameter × 1.34)",
-      "clip": "cut circle",
-      "snapTolerance": "6 screen pixels per axis",
-      "bypass": "Alt while dragging",
-      "numericOffsets": "No snapping imposed on numeric edits",
-      "status": [
-        "Centered",
-        "Centered horizontally",
-        "Centered vertically",
-        "Off center"
+    "material": {
+      "canvasTexture": "radial-gradient(#ccdbe2 .7px,transparent .7px); background-size:20px 20px",
+      "brandMark": "Flat cut/face pin SVG: 32×32 viewBox, concentric 11px/7px circles; white on action blue.",
+      "removed": [
+        "Stud logo",
+        "Stray canvas plate",
+        "App footer"
       ],
-      "centeredText": "color: var(--accent-ink); font-weight: 800",
-      "centerAction": "Sets x/y to 0; preserves mmPerPixel and rotation; disabled if already fully centered, image unavailable or picking",
-      "resize": "Four corner anchors; keepRatio; centeredScaling; no flipping or rotation handle; numeric rotation remains available",
-      "handles": {
-        "size": "10 screen pixels",
-        "radius": "2px",
-        "strokeWidth": "1.5px",
-        "fill": "#ffffff",
-        "stroke": "#0d6f91"
-      },
-      "transformer": {
-        "stroke": "#0d6f91",
-        "strokeWidth": "1px",
-        "atRest": "Visible when image is selected and eyedropper is off"
-      },
-      "gestureGuides": {
-        "stroke": "#0d6f91",
-        "width": "1 screen pixel",
-        "whiteUnderStroke": "3 screen pixels",
-        "underStrokeOpacity": 0.85,
-        "centerDotRadius": "3 screen pixels",
-        "centerDotWhiteStroke": "1 screen pixel",
-        "visible": "Only while dragging or resizing, on each aligned axis"
-      },
-      "eyedropper": "Crosshair; hides transformer; disables drag/center; sample caption; skips transparent/outside pixels",
-      "export": "Selection handles, alignment guides/dot/status are absent from exported output"
+      "raster": "No shipping raster added or modified by this refinement."
     },
-    "physicalGuides": {
-      "editor": {
-        "cut": {
-          "token": "cut-guide",
-          "widthMm": 0.25
-        },
-        "face": {
-          "token": "face-guide",
-          "widthMm": 0.18,
-          "dashMm": [
-            1,
-            0.7
-          ]
-        },
-        "safe": {
-          "token": "cut-guide",
-          "widthMm": 0.15,
-          "dashMm": [
-            0.4,
-            0.6
-          ]
-        }
-      },
-      "emptyEditor": {
-        "cut": {
-          "token": "empty-guide",
-          "widthPx": 1,
-          "pattern": "solid"
-        },
-        "face": {
-          "token": "empty-face-guide",
-          "widthPx": 1,
-          "pattern": "dashed"
-        },
-        "safe": {
-          "token": "empty-guide",
-          "widthPx": 1,
-          "pattern": "dotted"
-        }
-      },
-      "sheetAndExport": {
-        "token": "printed-guide",
-        "widthMm": 0.12,
-        "cutPattern": "solid",
-        "faceAndSafeDashMm": [
-          0.8,
-          0.6
-        ]
-      },
-      "visibility": "Editor guide checkboxes and output-guide checkboxes are independent. Sheet preview uses the output-guide values.",
-      "geometry": "Independent face and cut diameters; safe radius = face/2 - safeInset. 44mm / 53mm is an editable initial example."
+    "accessibility": {
+      "focus": "3px solid var(--focus); outline-offset:3px",
+      "dockFocus": "2px solid var(--focus); outline-offset:4px",
+      "modal": "Native dialog.showModal top-layer/background inertness and focus isolation; Escape cancel handler; cleanup closes, then restores connected visible prior focus, otherwise selected artwork, otherwise Import.",
+      "success": "role=status; full wrapping text; local scroll at 180px; Export saved destinations persist; ordinary notices use 6000ms timer cleared by hover/focus and restarted afterward.",
+      "error": "role=alert; in-flow wrapped text and recovery controls.",
+      "numeric": "Associated labels, described units/errors, aria-invalid, tabular figures; existing five-decimal display normalization.",
+      "coarsePointer": "44px minimum controls/checks including specific compact actions; 116px tray and desktop bottom row.",
+      "alignment": "Polite atomic 14px centered/per-axis status, text plus check/color and one-click Center artwork; round 12px handles with 24px hit regions; numeric alternatives.",
+      "tutorial": "Three labeled steps, SVG accessible names, polite current-title/step count; Skip/Close/completion locally remembered; Help replay.",
+      "motion": "Pointer-only entry animation; keyboard paths skip entry; reduced motion disables movement/transition and removes backdrop blur."
     },
-    "states": {
-      "invalid": "Preserve last valid preview; alert and associated field error; Review settings selects Sheet; saving/export disabled",
-      "sourceMissing": "Retain design edits, quantity and transforms; show Missing thumbnail and relink action; sheet placeholder remains #e8e3da",
-      "sourceLoading": "Loading artwork status in the editor",
-      "lowQuality": "Below 200 PPI: amber warning note; export remains allowed",
-      "removal": "Confirmation alert dialog; Keep editing default focus; Escape cancels",
-      "export": "PDF RGB or ICC CMYK, PNG/JPG RGB; progress and cancellation; no RGB fallback after failed CMYK; new destination folder preserves existing exports"
+    "layout": {
+      "desktop": {
+        "rows": "64px auto minmax(0,1fr) 96px",
+        "inset": "12px 16px 12px",
+        "headerColumns": "142px minmax(0,1fr) 150px",
+        "workspaceColumns": "minmax(0,1fr) 332px",
+        "gap": "12px",
+        "drawer": "260px"
+      },
+      "compact": {
+        "rows": "60px auto minmax(0,1fr) 96px",
+        "inset": "10px 12px 10px",
+        "headerColumns": "124px minmax(0,1fr) 140px",
+        "workspaceColumns": "minmax(0,1fr) 300px",
+        "gap": "10px",
+        "drawer": "244px",
+        "alignmentToolbar": "50px minimum; 2px vertical padding; feedback 4px 8px"
+      },
+      "editorHeader": "56px minimum",
+      "stageMaximum": "760px",
+      "nativeMinimum": "1080×720",
+      "stackedOrder": "header status dock workspace",
+      "library": "One mounted location: selection-only compact tray in Artwork or expanded gallery in Library; Remove only in gallery with confirmation; actual design/copy totals below Sheet and Library.",
+      "coarsePointer": "116px tray; desktop rows 64px auto minmax(0,1fr) 116px",
+      "stackedScrollClearance": "200px",
+      "artworkCards": "212px default tray width, 204px compact, 190px narrow; 46px thumbnail, 13px name, 12px copies; gallery minmax(200px,1fr), 248px rows and 116px images.",
+      "tutorial": "760px dialog maximum; two equal columns with 28px gap, 302px minimum content; one column at 600px, diagram maximum 280px wide/190px high."
     },
-    "evidence": {
-      "artifacts": [
+    "source": {
+      "authority": [
         "src/ui/styles.css",
         "src/ui/type.css",
         "src/ui/App.tsx",
         "src/ui/Workspace.tsx",
-        "src/ui/InspectorTabs.tsx",
-        "src/ui/controls.tsx",
-        "src/ui/Settings.tsx",
         "src/ui/Editor.tsx",
+        "src/ui/Settings.tsx",
+        "src/ui/controls.tsx",
         "src/ui/SheetPreview.tsx",
-        "src/ui/Icon.tsx",
-        "src/ui/ExportOptions.tsx",
-        "src/core/alignment.ts",
-        "src/render/canvas.ts",
-        "index.html",
-        "electron/main.ts"
+        "src/components/ui/dock-layout.ts",
+        "src/components/ui/mac-style-floating-dock.tsx",
+        "src/ui/QuickStart.tsx",
+        "src/ui/quick-start.css"
       ],
-      "product": [
+      "contract": ".impeccable/editor-usability-brief.md",
+      "canonicalSurface": ".impeccable/surfaces/src-ui-app-tsx.md",
+      "productTruth": [
         "PRODUCT.md",
         "README.md"
       ],
-      "direction": ".impeccable/surfaces/src-ui-app-tsx.md",
-      "directVisualChecks": [
-        ".impeccable/review/desktop.png",
-        ".impeccable/review/compact-sheet.png",
-        ".impeccable/review/alignment-one-axis.png",
-        ".impeccable/review/invalid-cut.png"
-      ],
-      "verification": ".impeccable/review/revamp-validation.md",
-      "detector": "Ran once before this correction; 76 old-system advisories, zero non-advisories; not rerun",
-      "imagery": "Reference JPGs do not ship; review artwork is synthetic; existing native app-icon pixels are unchanged"
+      "validation": ".impeccable/review/usability-validation.md",
+      "supersedes": "Prior decorative studs/canvas plate, app footer, tray deletion and manual modal; current dock, notices and shared row sizing replace their earlier descriptions.",
+      "workflow": "Authorized bounded merge of the existing professional Geist/cool-white/cyan/navy system; no identity expansion or new concept seed.",
+      "cutCircleTarget": {
+        "nativeMinimum": 300,
+        "unit": "CSS px",
+        "status": "Acceptance target; do not reuse prior-layout measurements."
+      }
     },
-    "notCanonized": "No new material UI defect was identified in the finish review. The retained warm missing-source placeholder applies only to that renderer state; synthetic artwork colors and unchanged native-icon pixels are not future UI palette guidance."
+    "detectorDisposition": {
+      "report": ".impeccable/review/usability-detector.json",
+      "advisories": 2,
+      "nonAdvisory": 0,
+      "rerun": false,
+      "changes": [
+        {
+          "kind": "font-size",
+          "count": 1,
+          "value": "18px",
+          "disposition": "Intentional SVG artwork diagram label only; typography.tutorial-art. Does not expand general headings or controls."
+        },
+        {
+          "kind": "radius",
+          "count": 1,
+          "value": "9px",
+          "disposition": "Source cut/face logo container only; rounded.brand. Controls retain 7px."
+        }
+      ]
+    },
+    "notCanonized": [
+      {
+        "issue": "9px Missing-source annotation.",
+        "reason": "Secondary source annotation is not promoted to general body/control text."
+      },
+      {
+        "issue": "Physical printer calibration and clean-machine installation remain external.",
+        "reason": "Product acceptance checks, not visual system claims."
+      }
+    ]
   },
   "components": [
     {
-      "name": "Bordered button",
+      "name": "Default button",
       "kind": "button",
-      "refersTo": "button",
-      "description": "Save, import and other bordered actions; includes enabled, disabled, hover, focus and press treatments.",
-      "html": "<button class=\"ds-button\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M5 3h12l4 4v13a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5a2 2 0 0 1 2-2Zm2 0v6h10V3M7 21v-8h10v8\"/></svg>Save</button>",
-      "css": ".ds-button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:38px;padding:8px 12px;border:1px solid var(--control-line,#79929e);border-radius:var(--control-radius,8px);background:var(--surface,#ffffff);color:var(--ink,#050809);font-family:'PinIt Sans','Segoe UI',sans-serif;font-size:13px;font-weight:700;line-height:20px;cursor:pointer;transition:background-color 160ms ease-out,border-color 160ms ease-out,transform 120ms ease-out;} .ds-button:hover:not(:disabled){border-color:var(--accent-ink,#14586f);background:var(--accent-soft,#d5edf5);} .ds-button:active:not(:disabled){transform:translateY(1px)} .ds-button:focus-visible{outline:2px solid var(--focus,#136d8c);outline-offset:3px} .ds-button:disabled{cursor:not-allowed;color:#697c87;background:#eaf0f3;border-color:#cbd9df;} @media(pointer:coarse){.ds-button{min-height:44px}} @media(prefers-reduced-motion:reduce){.ds-button{transition-duration:0ms}}"
+      "refersTo": "button-default",
+      "description": "Implemented default button; source dimensions, pointer feedback and keyboard focus.",
+      "html": "<button class=\"ds-button\">Save</button>",
+      "css": ".ds-button { display:inline-flex; align-items:center; justify-content:center; gap:7px; min-height:36px; padding:7px 11px; border:1px solid var(--line,#d7e2e7); border-radius:7px; color:var(--ink,#142b36); background:var(--surface,#ffffff); font-size:12px; font-weight:600; line-height:20px; cursor:pointer; transition:transform 120ms var(--ease-out,cubic-bezier(.23,1,.32,1)),background-color 150ms ease }\n.ds-button:active:not(:disabled):not(:focus-visible) { transform:scale(.97) }\n.ds-button:disabled { cursor:not-allowed; color:#6b808b; border-color:var(--line,#d7e2e7); background:#edf2f5 }.ds-button{font-family:'PinIt Sans','Segoe UI',sans-serif}.ds-button:focus-visible{outline:3px solid var(--focus,#064c68);outline-offset:3px}@media(hover:hover) and (pointer:fine){.ds-button:hover:not(:disabled) { background:var(--panel,#e7f3f7) }}@media(prefers-reduced-motion:reduce){.ds-button{transition-duration:0ms!important}}"
     },
     {
       "name": "Primary button",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "Cyan action with dark ink; toolbar uses 16px horizontal padding before compact overrides.",
-      "html": "<button class=\"ds-primary\"><svg width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M12 3v12m-4-4 4 4 4-4M4 16v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4\"/></svg>Export sheets</button>",
-      "css": ".ds-primary{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:38px;padding:8px 12px;border:1px solid var(--control-line,#79929e);border-radius:var(--control-radius,8px);background:var(--surface,#ffffff);color:var(--ink,#050809);font-family:'PinIt Sans','Segoe UI',sans-serif;font-size:13px;font-weight:700;line-height:20px;cursor:pointer;transition:background-color 160ms ease-out,border-color 160ms ease-out,transform 120ms ease-out;background:var(--accent,#4ba6c2);border-color:#237a97;font-size:14px;} .ds-primary:hover:not(:disabled){border-color:var(--accent-ink,#14586f);background:var(--accent-soft,#d5edf5);background:var(--accent-hover,#3d98b4);} .ds-primary:active:not(:disabled){transform:translateY(1px)} .ds-primary:focus-visible{outline:2px solid var(--focus,#136d8c);outline-offset:3px} .ds-primary:disabled{cursor:not-allowed;color:#697c87;background:#eaf0f3;border-color:#cbd9df;color:#526c78;background:#cfe2e9;border-color:#aec8d2;} @media(pointer:coarse){.ds-primary{min-height:44px}} @media(prefers-reduced-motion:reduce){.ds-primary{transition-duration:0ms}}"
+      "description": "Implemented primary button; source dimensions, pointer feedback and keyboard focus.",
+      "html": "<button class=\"ds-button ds-primary\">Import first design</button>",
+      "css": ".ds-button { display:inline-flex; align-items:center; justify-content:center; gap:7px; min-height:36px; padding:7px 11px; border:1px solid var(--line,#d7e2e7); border-radius:7px; color:var(--ink,#142b36); background:var(--surface,#ffffff); font-size:12px; font-weight:600; line-height:20px; cursor:pointer; transition:transform 120ms var(--ease-out,cubic-bezier(.23,1,.32,1)),background-color 150ms ease }\n.ds-button:active:not(:disabled):not(:focus-visible) { transform:scale(.97) }\n.ds-button:disabled { cursor:not-allowed; color:#6b808b; border-color:var(--line,#d7e2e7); background:#edf2f5 }.ds-button{font-family:'PinIt Sans','Segoe UI',sans-serif}.ds-button:focus-visible{outline:3px solid var(--focus,#064c68);outline-offset:3px}@media(hover:hover) and (pointer:fine){.ds-button:hover:not(:disabled) { background:var(--panel,#e7f3f7) }}@media(prefers-reduced-motion:reduce){.ds-button{transition-duration:0ms!important}}.ds-primary { color:white; background:var(--action,#075672); border-color:var(--action,#075672); min-height:40px; padding-inline:16px }@media(hover:hover) and (pointer:fine){.ds-primary:hover:not(:disabled),.ds-export-block:hover:not(:disabled) { background:#06465e }}"
     },
     {
       "name": "Quiet button",
       "kind": "button",
       "refersTo": "button-quiet",
-      "description": "Low-emphasis file action with transparent rest state.",
-      "html": "<button class=\"ds-quiet\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M3 7V5a1 1 0 0 1 1-1h5l2 3h9a1 1 0 0 1 1 1v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z\"/></svg>Open</button>",
-      "css": ".ds-quiet{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:38px;padding:8px 12px;border:1px solid var(--control-line,#79929e);border-radius:var(--control-radius,8px);background:var(--surface,#ffffff);color:var(--ink,#050809);font-family:'PinIt Sans','Segoe UI',sans-serif;font-size:13px;font-weight:700;line-height:20px;cursor:pointer;transition:background-color 160ms ease-out,border-color 160ms ease-out,transform 120ms ease-out;background:transparent;border-color:transparent;box-shadow:none;} .ds-quiet:hover:not(:disabled){border-color:var(--accent-ink,#14586f);background:var(--accent-soft,#d5edf5);border-color:transparent;} .ds-quiet:active:not(:disabled){transform:translateY(1px)} .ds-quiet:focus-visible{outline:2px solid var(--focus,#136d8c);outline-offset:3px} .ds-quiet:disabled{cursor:not-allowed;color:#697c87;background:#eaf0f3;border-color:#cbd9df;} @media(pointer:coarse){.ds-quiet{min-height:44px}} @media(prefers-reduced-motion:reduce){.ds-quiet{transition-duration:0ms}}"
+      "description": "Implemented quiet button; source dimensions, pointer feedback and keyboard focus.",
+      "html": "<button class=\"ds-button ds-quiet-button\">Open</button>",
+      "css": ".ds-button { display:inline-flex; align-items:center; justify-content:center; gap:7px; min-height:36px; padding:7px 11px; border:1px solid var(--line,#d7e2e7); border-radius:7px; color:var(--ink,#142b36); background:var(--surface,#ffffff); font-size:12px; font-weight:600; line-height:20px; cursor:pointer; transition:transform 120ms var(--ease-out,cubic-bezier(.23,1,.32,1)),background-color 150ms ease }\n.ds-button:active:not(:disabled):not(:focus-visible) { transform:scale(.97) }\n.ds-button:disabled { cursor:not-allowed; color:#6b808b; border-color:var(--line,#d7e2e7); background:#edf2f5 }.ds-button{font-family:'PinIt Sans','Segoe UI',sans-serif}.ds-button:focus-visible{outline:3px solid var(--focus,#064c68);outline-offset:3px}@media(hover:hover) and (pointer:fine){.ds-button:hover:not(:disabled) { background:var(--panel,#e7f3f7) }}@media(prefers-reduced-motion:reduce){.ds-button{transition-duration:0ms!important}}.ds-quiet-button,.ds-text-button { border-color:transparent; background:transparent }@media(hover:hover) and (pointer:fine){.ds-quiet-button:hover:not(:disabled),.ds-text-button:hover:not(:disabled) { background:var(--panel,#e7f3f7) }}"
     },
     {
-      "name": "Text button",
+      "name": "Text action",
       "kind": "button",
       "refersTo": "button-text",
-      "description": "Compact deep-cyan inline action, without an underline.",
-      "html": "<button class=\"ds-text\">Center artwork</button>",
-      "css": ".ds-text{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:38px;padding:8px 12px;border:1px solid var(--control-line,#79929e);border-radius:var(--control-radius,8px);background:var(--surface,#ffffff);color:var(--ink,#050809);font-family:'PinIt Sans','Segoe UI',sans-serif;font-size:13px;font-weight:700;line-height:20px;cursor:pointer;transition:background-color 160ms ease-out,border-color 160ms ease-out,transform 120ms ease-out;min-height:28px;padding:2px 4px;color:var(--accent-ink,#14586f);background:transparent;border-color:transparent;font-size:12px;box-shadow:none;} .ds-text:hover:not(:disabled){border-color:var(--accent-ink,#14586f);background:var(--accent-soft,#d5edf5);border-color:transparent;} .ds-text:active:not(:disabled){transform:translateY(1px)} .ds-text:focus-visible{outline:2px solid var(--focus,#136d8c);outline-offset:3px} .ds-text:disabled{cursor:not-allowed;color:#697c87;background:#eaf0f3;border-color:#cbd9df;color:#617b88;background:transparent;border-color:transparent;} @media(prefers-reduced-motion:reduce){.ds-text{transition-duration:0ms}}"
+      "description": "Implemented text action; source dimensions, pointer feedback and keyboard focus.",
+      "html": "<button class=\"ds-button ds-text-button\">Reset fit</button>",
+      "css": ".ds-button { display:inline-flex; align-items:center; justify-content:center; gap:7px; min-height:36px; padding:7px 11px; border:1px solid var(--line,#d7e2e7); border-radius:7px; color:var(--ink,#142b36); background:var(--surface,#ffffff); font-size:12px; font-weight:600; line-height:20px; cursor:pointer; transition:transform 120ms var(--ease-out,cubic-bezier(.23,1,.32,1)),background-color 150ms ease }\n.ds-button:active:not(:disabled):not(:focus-visible) { transform:scale(.97) }\n.ds-button:disabled { cursor:not-allowed; color:#6b808b; border-color:var(--line,#d7e2e7); background:#edf2f5 }.ds-button{font-family:'PinIt Sans','Segoe UI',sans-serif}.ds-button:focus-visible{outline:3px solid var(--focus,#064c68);outline-offset:3px}@media(hover:hover) and (pointer:fine){.ds-button:hover:not(:disabled) { background:var(--panel,#e7f3f7) }}@media(prefers-reduced-motion:reduce){.ds-button{transition-duration:0ms!important}}.ds-quiet-button,.ds-text-button { border-color:transparent; background:transparent }\n.ds-text-button { padding:2px 5px; min-height:28px; color:var(--action,#075672); font-size:12px }@media(hover:hover) and (pointer:fine){.ds-quiet-button:hover:not(:disabled),.ds-text-button:hover:not(:disabled) { background:var(--panel,#e7f3f7) }}"
     },
     {
-      "name": "Danger button",
+      "name": "Destructive button",
       "kind": "button",
       "refersTo": "button-danger",
-      "description": "Destructive confirmation in the removal/unsaved dialog.",
-      "html": "<button class=\"ds-danger\">Remove artwork</button>",
-      "css": ".ds-danger{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:38px;padding:8px 12px;border:1px solid var(--control-line,#79929e);border-radius:var(--control-radius,8px);background:var(--surface,#ffffff);color:var(--ink,#050809);font-family:'PinIt Sans','Segoe UI',sans-serif;font-size:13px;font-weight:700;line-height:20px;cursor:pointer;transition:background-color 160ms ease-out,border-color 160ms ease-out,transform 120ms ease-out;color:#ffffff;background:var(--danger,#a12a29);border-color:var(--danger,#a12a29);} .ds-danger:hover:not(:disabled){border-color:var(--accent-ink,#14586f);background:var(--accent-soft,#d5edf5);color:#ffffff;background:#84201f;border-color:#84201f;} .ds-danger:active:not(:disabled){transform:translateY(1px)} .ds-danger:focus-visible{outline:2px solid var(--focus,#136d8c);outline-offset:3px} .ds-danger:disabled{cursor:not-allowed;color:#697c87;background:#eaf0f3;border-color:#cbd9df;} @media(pointer:coarse){.ds-danger{min-height:44px}} @media(prefers-reduced-motion:reduce){.ds-danger{transition-duration:0ms}}"
+      "description": "Implemented destructive button; source dimensions, pointer feedback and keyboard focus.",
+      "html": "<button class=\"ds-button ds-danger\">Remove artwork</button>",
+      "css": ".ds-button { display:inline-flex; align-items:center; justify-content:center; gap:7px; min-height:36px; padding:7px 11px; border:1px solid var(--line,#d7e2e7); border-radius:7px; color:var(--ink,#142b36); background:var(--surface,#ffffff); font-size:12px; font-weight:600; line-height:20px; cursor:pointer; transition:transform 120ms var(--ease-out,cubic-bezier(.23,1,.32,1)),background-color 150ms ease }\n.ds-button:active:not(:disabled):not(:focus-visible) { transform:scale(.97) }\n.ds-button:disabled { cursor:not-allowed; color:#6b808b; border-color:var(--line,#d7e2e7); background:#edf2f5 }.ds-button{font-family:'PinIt Sans','Segoe UI',sans-serif}.ds-button:focus-visible{outline:3px solid var(--focus,#064c68);outline-offset:3px}@media(hover:hover) and (pointer:fine){.ds-button:hover:not(:disabled) { background:var(--panel,#e7f3f7) }}@media(prefers-reduced-motion:reduce){.ds-button{transition-duration:0ms!important}}.ds-danger { color:white; background:var(--danger,#a12a29); border-color:var(--danger,#a12a29) }@media(hover:hover) and (pointer:fine){.ds-danger:hover:not(:disabled) { background:var(--danger-hover,#852221); border-color:var(--danger-hover,#852221) }}"
     },
     {
       "name": "Numeric field",
       "kind": "input",
-      "refersTo": "input",
-      "description": "Physical value with a trailing unit and associated validation copy; snippet shows a valid value.",
-      "html": "<label class=\"ds-field\"><span>Cut diameter</span><span class=\"ds-unit\"><input aria-label=\"Cut diameter\" type=\"number\" value=\"53\" step=\"0.5\" min=\"0.1\"/><small>mm</small></span><small class=\"ds-error\" hidden>Cut must be at least the face diameter.</small></label>",
-      "css": ".ds-field{display:flex;flex-direction:column;gap:7px;color:var(--muted,#4f6470);font-family:'PinIt Sans','Segoe UI',sans-serif;font-size:12px;line-height:17px}.ds-field>span:first-child{font-weight:600}.ds-unit{position:relative;display:block;min-width:0}.ds-unit input{width:100%;min-width:0;min-height:38px;padding:8px 34px 8px 10px;color:var(--ink,#050809);background:var(--surface,#ffffff);border:1px solid var(--control-line,#79929e);border-radius:var(--control-radius,8px);font-family:'PinIt Sans','Segoe UI',sans-serif;font-size:13px;line-height:20px;font-variant-numeric:tabular-nums;caret-color:var(--accent-ink,#14586f)}.ds-unit input:hover:not(:disabled){border-color:var(--accent-ink,#14586f)}.ds-unit input:focus-visible{outline:2px solid var(--focus,#136d8c);outline-offset:3px}.ds-unit input:disabled{color:var(--muted,#4f6470);background:var(--paper-well,#edf3f6)}.ds-unit input[aria-invalid=true]{border-color:var(--danger,#a12a29)}.ds-unit input::-webkit-inner-spin-button{appearance:none;margin:0}.ds-unit>small{position:absolute;top:50%;right:10px;transform:translateY(-50%);font-size:11px;line-height:16px;pointer-events:none}.ds-error{color:var(--danger,#a12a29);font-size:12px;line-height:17px}.ds-error[hidden]{display:none}@media(pointer:coarse){.ds-unit input{min-height:44px}}"
+      "refersTo": "field",
+      "description": "Native exact value with associated label, described unit/error and right-aligned unit. Existing numeric precision is preserved.",
+      "html": "<label class=\"ds-field\"><span>Artwork width</span><span class=\"ds-input-unit\"><input class=\"ds-input\" aria-label=\"Artwork width\" aria-describedby=\"ds-artwork-width-unit\" type=\"number\" value=\"53\" step=\"0.5\"/><small id=\"ds-artwork-width-unit\">mm</small></span></label>",
+      "css": ".ds-field { display:flex; flex-direction:column; min-width:0; gap:5px; color:var(--muted,#526c79); font-size:12px; line-height:17px }\n.ds-field>span:first-child { font-weight:500 }\n.ds-input,.ds-select { width:100%; min-width:0; min-height:36px; padding:7px 10px; background:var(--surface,#ffffff); border:1px solid var(--control-line,#78929f); border-radius:7px; color:var(--ink,#142b36); font-size:13px; line-height:20px; caret-color:var(--action,#075672) }\n.ds-input[type=number] { font-variant-numeric:tabular-nums }\n.ds-input[aria-invalid=true] { border-color:var(--danger,#a12a29) }\n.ds-input-unit { display:block; position:relative; min-width:0 }\n.ds-input-unit .ds-input { padding-right:34px }\n.ds-input-unit .ds-input::-webkit-inner-spin-button { appearance:none; margin:0 }\n.ds-input-unit>small { position:absolute; top:50%; right:10px; transform:translateY(-50%); font-size:10px; pointer-events:none }.ds-field,.ds-input{font-family:'PinIt Sans','Segoe UI',sans-serif}.ds-input:focus-visible{outline:3px solid var(--focus,#064c68);outline-offset:3px}"
     },
     {
-      "name": "Inspector tabs",
-      "kind": "nav",
-      "refersTo": "inspector-tab-selected",
-      "description": "Static visual states of the two-tab inspector; the React component supplies arrow/Home/End activation and roving Tab focus.",
-      "html": "<div class=\"ds-tabs\" role=\"tablist\" aria-label=\"Inspector sections\"><button role=\"tab\" aria-selected=\"true\">Artwork</button><button role=\"tab\" aria-selected=\"false\" tabindex=\"-1\">Sheet</button></div>",
-      "css": ".ds-tabs{display:flex;gap:4px;padding:8px;background:#e0eef4;border-radius:16px 16px 0 0}.ds-tabs>button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:38px;padding:8px 12px;border:1px solid var(--control-line,#79929e);border-radius:var(--control-radius,8px);background:var(--surface,#ffffff);color:var(--ink,#050809);font-family:'PinIt Sans','Segoe UI',sans-serif;font-size:13px;font-weight:700;line-height:20px;cursor:pointer;transition:background-color 160ms ease-out,border-color 160ms ease-out,transform 120ms ease-out;flex:1;color:var(--accent-ink,#14586f);background:transparent;border-color:transparent;font-weight:800}.ds-tabs>button[aria-selected=true]{color:var(--ink,#050809);background:var(--surface,#ffffff);border-color:#a2bdca}.ds-tabs>button:hover{background:var(--accent-soft,#d5edf5);border-color:var(--accent-ink,#14586f)}.ds-tabs>button[aria-selected=true]:hover{background:var(--surface,#ffffff);border-color:#a2bdca}.ds-tabs>button:active{transform:translateY(1px)}.ds-tabs>button:focus-visible{outline:2px solid var(--focus,#136d8c);outline-offset:3px}@media(prefers-reduced-motion:reduce){.ds-tabs>button{transition-duration:0ms}}"
-    },
-    {
-      "name": "Artwork count",
+      "name": "Print-scale chip",
       "kind": "chip",
-      "refersTo": "count",
-      "description": "Passive count beside Your artwork; no independent interaction.",
-      "html": "<span class=\"ds-count\">2</span>",
-      "css": ".ds-count{display:inline-grid;place-items:center;min-width:24px;height:24px;padding:0 6px;color:var(--accent-ink,#14586f);background:var(--accent-soft,#d5edf5);border-radius:7px;font-family:'PinIt Sans','Segoe UI',sans-serif;font-size:12px;font-weight:800}"
+      "refersTo": "print-chip",
+      "description": "Passive reminder beside the actual paper dimensions.",
+      "html": "<div class=\"ds-preview-paper-label\"><span>210 × 297 mm</span><span>Print at 100%</span></div>",
+      "css": ".ds-preview-paper-label { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:6px; margin-top:12px; font-size:11px; color:var(--muted,#526c79) }\n.ds-preview-paper-label>span:last-child { padding:3px 6px; color:var(--action,#075672); background:var(--panel,#e7f3f7); border-radius:4px; font-size:10px; font-weight:600 }.ds-preview-paper-label{font-family:'PinIt Sans','Segoe UI',sans-serif}"
     },
     {
-      "name": "Editor tray",
+      "name": "Selected artwork card",
       "kind": "card",
-      "refersTo": "editor-panel",
-      "description": "Flat pale-blue work surface; the white preview tray shares the same padding and 16px shape.",
-      "html": "<section class=\"ds-tray\"><div class=\"ds-heading\"><h2>Artwork editor</h2><span>53 mm cut</span></div><p class=\"ds-tray-caption\">Drag to position · pull a corner to resize · Alt for free placement</p></section>",
-      "css": ".ds-tray{display:flex;flex-direction:column;min-width:0;padding:20px;border-radius:var(--radius,16px);background:var(--panel,#e5f2f7);color:var(--ink,#050809);font-family:'PinIt Sans','Segoe UI',sans-serif;}.ds-heading{display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:24px}.ds-heading h2{margin:0;font-size:15px;font-weight:800;line-height:22px}.ds-heading>span{color:var(--muted,#4f6470);font-size:12px;white-space:nowrap}.ds-tray-caption{margin:8px 0 0;color:var(--muted,#4f6470);font-size:12px;line-height:18px;text-align:center}@media(max-width:1250px){.ds-tray{padding:14px}.ds-tray-caption{font-size:11px;line-height:17px}}@media(min-width:1700px){.ds-tray{padding:24px}}"
+      "refersTo": "artwork-card",
+      "description": "Selected tray card: larger thumbnail and name/copy text, dark border/inset stroke and checkmark; removal belongs only to full Library.",
+      "html": "<div class=\"ds-design-row ds-selected\"><button class=\"ds-button ds-design-select\" aria-pressed=\"true\"><span class=\"ds-missing-thumb\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm-1 13 5-5 5 5 3-3 5 5M16 7h.01\"/></svg><small>Missing</small></span><span class=\"ds-design-copy\"><strong title=\"Customer artwork\">Customer artwork</strong><small>18 copies</small></span><span class=\"ds-design-selected-mark\" aria-hidden=\"true\"><svg width=\"12\" height=\"12\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m5 12 4 4L19 6\"/></svg></span></button></div>",
+      "css": ".ds-button { display:inline-flex; align-items:center; justify-content:center; gap:7px; min-height:36px; padding:7px 11px; border:1px solid var(--line,#d7e2e7); border-radius:7px; color:var(--ink,#142b36); background:var(--surface,#ffffff); font-size:12px; font-weight:600; line-height:20px; cursor:pointer; transition:transform 120ms var(--ease-out,cubic-bezier(.23,1,.32,1)),background-color 150ms ease }\n.ds-button:active:not(:disabled):not(:focus-visible) { transform:scale(.97) }\n.ds-button:disabled { cursor:not-allowed; color:#6b808b; border-color:var(--line,#d7e2e7); background:#edf2f5 }.ds-button{font-family:'PinIt Sans','Segoe UI',sans-serif}.ds-button:focus-visible{outline:3px solid var(--focus,#064c68);outline-offset:3px}@media(hover:hover) and (pointer:fine){.ds-button:hover:not(:disabled) { background:var(--panel,#e7f3f7) }}@media(prefers-reduced-motion:reduce){.ds-button{transition-duration:0ms!important}}\n.ds-design-row { display:flex; align-items:center; flex:none; width:212px; gap:4px; padding:9px 10px; border:1px solid var(--line,#d7e2e7); border-radius:12px; background:white; position:relative }\n.ds-design-row.selected { background:var(--panel,#e7f3f7); border-color:var(--action,#075672); box-shadow:inset 0 0 0 1px var(--action,#075672) }\n.ds-design-select { display:flex; justify-content:flex-start; gap:10px; padding:0; min-width:0; min-height:48px; border:0; background:transparent; text-align:left; flex:1 }\n.ds-design-select:active:not(:disabled) { transform:none }\n.ds-design-select img,.ds-missing-thumb { display:grid; place-items:center; flex:none; width:46px; height:46px; object-fit:cover; border-radius:8px; background:white }\n.ds-design-copy { display:flex; flex-direction:column; gap:2px; min-width:0; flex:1 }\n.ds-design-copy strong { font-size:13px; line-height:19px; font-weight:600; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; max-width:118px }\n.ds-design-copy small { color:var(--muted,#526c79); font-size:12px }\n.ds-design-selected-mark { position:absolute; right:7px; top:7px; display:grid; place-items:center; width:17px; height:17px; border-radius:50%; background:var(--action,#075672); color:white }\n.ds-missing-thumb { color:var(--danger,#a12a29); background:var(--danger-soft,#fff0ec); font-size:10px }\n.ds-missing-thumb small { font-size:9px }\n.ds-design-row{font-family:'PinIt Sans','Segoe UI',sans-serif}@media(hover:hover) and (pointer:fine){.ds-design-select:hover:not(:disabled){background:transparent}}"
     },
     {
-      "name": "Alignment status and action",
+      "name": "Cut/face pin mark",
       "kind": "custom",
-      "refersTo": "button-text",
-      "description": "Persistent centered-state text plus the action; the blue/white canvas lines occur only during manipulation.",
-      "html": "<div class=\"ds-alignment\"><span role=\"status\" aria-live=\"polite\" class=\"ds-alignment-status\">Centered horizontally</span><button class=\"ds-center\">Center artwork</button></div>",
-      "css": ".ds-center{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:38px;padding:8px 12px;border:1px solid var(--control-line,#79929e);border-radius:var(--control-radius,8px);background:var(--surface,#ffffff);color:var(--ink,#050809);font-family:'PinIt Sans','Segoe UI',sans-serif;font-size:13px;font-weight:700;line-height:20px;cursor:pointer;transition:background-color 160ms ease-out,border-color 160ms ease-out,transform 120ms ease-out;min-height:28px;padding:2px 4px;color:var(--accent-ink,#14586f);background:transparent;border-color:transparent;font-size:12px;} .ds-center:hover:not(:disabled){border-color:var(--accent-ink,#14586f);background:var(--accent-soft,#d5edf5);border-color:transparent;} .ds-center:active:not(:disabled){transform:translateY(1px)} .ds-center:focus-visible{outline:2px solid var(--focus,#136d8c);outline-offset:3px} .ds-center:disabled{cursor:not-allowed;color:#697c87;background:#eaf0f3;border-color:#cbd9df;color:#617b88;background:transparent;border-color:transparent;} @media(prefers-reduced-motion:reduce){.ds-center{transition-duration:0ms}}.ds-alignment{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:42px;font-family:'PinIt Sans','Segoe UI',sans-serif;}.ds-alignment-status{color:var(--muted,#4f6470);font-size:12px}.ds-alignment-status.ds-centered{color:var(--accent-ink,#14586f);font-weight:800}"
+      "refersTo": "brand-symbol",
+      "description": "Purposeful source SVG with cut and face circles; flat action-blue container, no studs.",
+      "html": "<span class=\"ds-brand-symbol\" aria-hidden=\"true\"><svg viewBox=\"0 0 32 32\" fill=\"none\"><circle cx=\"16\" cy=\"16\" r=\"11\" stroke=\"currentColor\" stroke-width=\"1.7\"/><circle cx=\"16\" cy=\"16\" r=\"7\" stroke=\"currentColor\" stroke-width=\"1.3\" stroke-dasharray=\"2 2\"/></svg></span>",
+      "css": ".ds-brand-symbol { display:grid; place-items:center; width:34px; height:34px; background:var(--action,#075672); color:white; border-radius:9px; flex:none }\n.ds-brand-symbol svg { width:30px; height:30px }@media(max-width:600px){.ds-brand-symbol{width:28px;height:28px;border-radius:7px}.ds-brand-symbol svg{width:25px;height:25px}}"
+    },
+    {
+      "name": "Floating tool dock",
+      "kind": "nav",
+      "refersTo": "dock",
+      "description": "Resting five-tool dock: Artwork, Sheet, Library, Help, Export. Static source-derived example; GSAP motion/reset behavior is recorded in extensions.",
+      "html": "<nav class=\"ds-floating-dock\" aria-label=\"Studio tools\"><ul><li class=\"ds-dock-slot\"><button class=\"ds-dock-button ds-dock-selected\" aria-label=\"Artwork\" aria-pressed=\"true\"><span class=\"ds-dock-tile\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm-1 13 5-5 5 5 3-3 5 5M16 7h.01\"/></svg></span><span class=\"ds-dock-label\">Artwork</span></button></li><li class=\"ds-dock-slot\"><button class=\"ds-dock-button \" aria-label=\"Sheet\" aria-pressed=\"false\"><span class=\"ds-dock-tile\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m12 3 10 5-10 5L2 8l10-5ZM2 12l10 5 10-5M2 16l10 5 10-5\"/></svg></span><span class=\"ds-dock-label\">Sheet</span></button></li><li class=\"ds-dock-slot\"><button class=\"ds-dock-button \" aria-label=\"Library\" aria-pressed=\"false\"><span class=\"ds-dock-tile\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M3 7V5a1 1 0 0 1 1-1h5l2 3h9a1 1 0 0 1 1 1v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z\"/></svg></span><span class=\"ds-dock-label\">Library</span></button></li><li class=\"ds-dock-slot\"><button class=\"ds-dock-button\" aria-label=\"Help\"><span class=\"ds-dock-tile\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M9.1 9a3 3 0 0 1 5.8 1c0 2-3 2-3 4m.1 3h.01M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Z\"/></svg></span><span class=\"ds-dock-label\">Help</span></button></li><li class=\"ds-dock-slot\"><button class=\"ds-dock-button \" aria-label=\"Export\"><span class=\"ds-dock-tile\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 3v12m-4-4 4 4 4-4M4 16v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4\"/></svg></span><span class=\"ds-dock-label\">Export</span></button></li></ul></nav>",
+      "css": ".ds-floating-dock { position:relative; padding:8px 20px 4px; border-radius:14px; background:white; border:1px solid var(--line,#d7e2e7) }\n.ds-floating-dock ul { list-style:none; margin:0; padding:0 }\n.ds-dock-slot { position:relative; height:56px; flex:none }\n.ds-dock-button { display:flex; flex-direction:column; justify-content:flex-start; width:40px; height:56px; min-height:0; padding:0; gap:4px; border:0; border-radius:7px; color:var(--ink,#142b36); background:transparent; transition:none }\n.ds-dock-button:active:not(:disabled) { transform:none }\n.ds-dock-tile { display:grid; place-items:center; width:40px; height:36px; flex:none; border-radius:8px; background:var(--workspace,#f1f7f9); color:var(--muted,#526c79); transform-origin:center bottom; will-change:transform }\n.ds-dock-tile svg { width:21px; height:21px }\n.ds-dock-selected .ds-dock-tile { background:var(--action,#075672); color:white }\n.ds-dock-selected .ds-dock-label { color:var(--action,#075672); font-weight:650 }\n.ds-dock-label { font-size:10px; line-height:14px; font-weight:500; color:var(--muted,#526c79) }\n.ds-dock-button:disabled { border:0; background:transparent; opacity:.5 }\n.ds-dock-button:focus-visible { outline:2px solid var(--focus,#064c68); outline-offset:4px }.ds-floating-dock{display:inline-block;font-family:'PinIt Sans','Segoe UI',sans-serif}.ds-floating-dock ul{display:flex;align-items:flex-end;gap:12px}.ds-dock-slot{width:40px}.ds-dock-button{align-items:center;font-family:inherit}@media(hover:hover) and (pointer:fine){.ds-design-select:hover:not(:disabled),.ds-dock-button:hover:not(:disabled) { background:transparent }}@media(pointer:coarse){.ds-dock-button{width:44px;min-height:44px}}"
+    },
+    {
+      "name": "Centered confirmation",
+      "kind": "custom",
+      "refersTo": "centered-confirmation",
+      "description": "Persistent above-artwork centered confirmation with text, circular check and color. Partial/off-center source states retain the one-click action.",
+      "html": "<div class=\"ds-alignment-toolbar\"><div class=\"ds-alignment-feedback ds-is-centered\"><span class=\"ds-alignment-symbol\" aria-hidden=\"true\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m5 12 4 4L19 6\"/></svg></span><div><span class=\"ds-alignment-status\" role=\"status\" aria-live=\"polite\" aria-atomic=\"true\">Centered</span><span class=\"ds-alignment-hint\">Aligned on both axes</span></div></div></div>",
+      "css": ".ds-alignment-toolbar { display:flex; justify-content:center; align-items:center; flex:none; min-height:54px; padding:4px 0 6px }\n.ds-alignment-feedback { display:flex; align-items:center; gap:10px; padding:7px 10px; border:1px solid var(--control-line,#78929f); border-radius:12px; background:var(--surface,#ffffff); max-width:100% }\n.ds-alignment-feedback.is-centered { background:var(--panel,#e7f3f7); border-color:var(--action,#075672) }\n.ds-alignment-symbol { display:grid; place-items:center; width:30px; height:30px; flex:none; border-radius:50%; background:var(--workspace,#f1f7f9); color:var(--action,#075672) }\n.ds-is-centered .ds-alignment-symbol { color:white; background:var(--action,#075672) }\n.ds-alignment-feedback>div { min-width:0 }\n.ds-alignment-status { display:block; font-size:14px; line-height:19px; font-weight:650; color:var(--ink,#142b36) }\n.ds-alignment-hint { display:block; color:var(--muted,#526c79); font-size:11px; line-height:16px }\n.ds-alignment-toolbar{font-family:'PinIt Sans','Segoe UI',sans-serif}@media(max-width:1250px){.ds-alignment-toolbar{min-height:50px;padding:2px 0}.ds-alignment-feedback{padding:4px 8px}}@media(max-width:600px){.ds-alignment-toolbar{min-height:58px}.ds-alignment-feedback{gap:7px;padding:7px 8px}}"
+    },
+    {
+      "name": "First-use tutorial",
+      "kind": "custom",
+      "refersTo": "dialog",
+      "description": "Actual Import step, SVG and three-step progress. Production uses native dialog with persisted Skip/Close/completion and Help replay; this static preview does not simulate step changes.",
+      "html": "<section class=\"ds-tour-preview\"><h2>A quick tour of PinIt</h2><ol class=\"ds-quick-start-progress\" aria-label=\"Tutorial progress\"><li aria-current=\"step\"><span class=\"ds-quick-start-step\" aria-hidden=\"true\">1</span><span>Import</span></li><li><span class=\"ds-quick-start-step\" aria-hidden=\"true\">2</span><span>Position</span></li><li><span class=\"ds-quick-start-step\" aria-hidden=\"true\">3</span><span>Print</span></li></ol><div class=\"ds-quick-start-content\"><figure class=\"ds-quick-start-diagram\"><svg viewBox=\"0 0 340 236\" role=\"img\" aria-label=\"PNG and JPG artwork imported into a pin with a cut circle and a face circle\">\n    <g class=\"tour-file\"><path d=\"M28 38h48l16 16v60H28Z\" /><path d=\"M76 38v16h16\" /><text x=\"60\" y=\"92\">PNG</text></g>\n    <g class=\"tour-file\"><path d=\"M52 124h48l16 16v60H52Z\" /><path d=\"M100 124v16h16\" /><text x=\"84\" y=\"178\">JPG</text></g>\n    <path class=\"tour-arrow\" d=\"M132 118h32m-7-7 7 7-7 7\" />\n    <circle class=\"tour-cut\" cx=\"249\" cy=\"118\" r=\"72\" />\n    <circle class=\"tour-face\" cx=\"249\" cy=\"118\" r=\"59\" />\n    <text class=\"tour-art-label\" x=\"249\" y=\"114\">YOUR</text><text class=\"tour-art-label\" x=\"249\" y=\"135\">ART</text>\n  </svg></figure><div class=\"ds-quick-start-copy\"><h3>Start with your artwork.</h3><p>Add one or more PNG or JPG files. Choose a design from the artwork tray to work on it.</p><p class=\"ds-quick-start-tip\">Your original files stay intact. Positioning and sizing only change how the artwork appears on the pin.</p></div></div><div class=\"ds-quick-start-navigation\"><button class=\"ds-button ds-text-button\">Skip tour</button><p class=\"ds-quick-start-count\">Step 1 of 3</p><div class=\"ds-quick-start-buttons\"><button class=\"ds-button ds-primary\">Next</button></div></div><p class=\"ds-quick-start-replay\">You can reopen this tour anytime from Help in the dock.</p></section>",
+      "css": ".ds-button { display:inline-flex; align-items:center; justify-content:center; gap:7px; min-height:36px; padding:7px 11px; border:1px solid var(--line,#d7e2e7); border-radius:7px; color:var(--ink,#142b36); background:var(--surface,#ffffff); font-size:12px; font-weight:600; line-height:20px; cursor:pointer; transition:transform 120ms var(--ease-out,cubic-bezier(.23,1,.32,1)),background-color 150ms ease }\n.ds-button:active:not(:disabled):not(:focus-visible) { transform:scale(.97) }\n.ds-button:disabled { cursor:not-allowed; color:#6b808b; border-color:var(--line,#d7e2e7); background:#edf2f5 }.ds-button{font-family:'PinIt Sans','Segoe UI',sans-serif}.ds-button:focus-visible{outline:3px solid var(--focus,#064c68);outline-offset:3px}@media(hover:hover) and (pointer:fine){.ds-button:hover:not(:disabled) { background:var(--panel,#e7f3f7) }}@media(prefers-reduced-motion:reduce){.ds-button{transition-duration:0ms!important}}\n.ds-tour-preview{width:min(760px,calc(100% - 48px));padding:28px;background:var(--surface,#ffffff);color:var(--ink,#142b36);border-radius:14px;font-family:'PinIt Sans','Segoe UI',sans-serif}.ds-tour-preview h2{margin:0 0 18px;font-size:23px;font-weight:650;line-height:30px;letter-spacing:-.02em}.ds-tour-preview h3,.ds-tour-preview p{margin:0}.ds-primary{color:white;background:var(--action,#075672);border-color:var(--action,#075672)}.ds-text-button{padding:2px 5px;min-height:28px;color:var(--action,#075672);border-color:transparent;background:transparent}.ds-quick-start-progress { display:flex; margin:0; padding:0; list-style:none; gap:28px }\n.ds-quick-start-progress li { display:flex; align-items:center; gap:8px; color:var(--muted,#526c79); font-size:13px; font-weight:500 }\n.ds-quick-start-step { display:grid; place-items:center; width:24px; height:24px; flex:none; border:1px solid var(--control-line,#78929f); border-radius:50%; font-size:12px; font-variant-numeric:tabular-nums }\n.ds-quick-start-progress li[aria-current=step] { color:var(--action,#075672); font-weight:650 }\n.ds-quick-start-progress li[aria-current=step] .ds-quick-start-step { color:var(--surface,#ffffff); background:var(--action,#075672); border-color:var(--action,#075672) }\n.ds-quick-start-content { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); align-items:center; gap:28px; min-height:302px; padding:24px 0 }\n.ds-quick-start-diagram { margin:0; padding:16px 0; background:var(--canvas,#edf3f6); border-radius:12px; overflow:hidden }\n.ds-quick-start-diagram svg { display:block; width:100%; height:auto; overflow:visible; font-family:inherit }\n.ds-quick-start-diagram text { fill:var(--action,#075672); font-size:13px; font-weight:600; text-anchor:middle }\n.ds-tour-file { fill:var(--surface,#ffffff); stroke:var(--control-line,#78929f); stroke-width:1.5 }\n.ds-tour-file text { stroke:none }\n.ds-tour-arrow { fill:none; stroke:var(--action,#075672); stroke-width:2; stroke-linecap:round; stroke-linejoin:round }\n.ds-tour-cut { fill:var(--surface,#ffffff); stroke:var(--action,#075672); stroke-width:1.5 }\n.ds-tour-face { fill:var(--panel,#e7f3f7); stroke:var(--muted,#526c79); stroke-width:1; stroke-dasharray:4 4 }\n.ds-quick-start-diagram .ds-tour-art-label { font-size:18px; letter-spacing:-.02em; font-weight:650 }\n.ds-quick-start-copy { min-width:0 }\n.ds-quick-start-copy h3 { font-size:23px; line-height:1.25; letter-spacing:-.025em; font-weight:650; margin-bottom:12px; text-wrap:balance }\n.ds-quick-start-copy p { font-size:14px; line-height:1.6 }\n.ds-quick-start-copy .ds-quick-start-tip { margin-top:16px; color:var(--muted,#526c79); font-size:13px; line-height:1.6 }\n.ds-quick-start-navigation { display:flex; align-items:center; gap:16px; padding-top:20px; border-top:1px solid var(--line,#d7e2e7) }\n.ds-quick-start-count { margin-left:auto; color:var(--muted,#526c79); font-size:12px; font-variant-numeric:tabular-nums }\n.ds-quick-start-buttons { display:flex; gap:8px }\n.ds-quick-start-buttons button { min-height:40px; padding-inline:12px }\n.ds-quick-start-replay { margin-top:16px; font-size:12px; color:var(--muted,#526c79); text-align:center }@media(hover:hover) and (pointer:fine){.ds-primary:hover:not(:disabled){background:#06465e}}@media(max-width:600px){.ds-tour-preview{width:calc(100% - 24px);padding:20px}.ds-quick-start-progress{gap:16px;flex-wrap:wrap}.ds-quick-start-progress li{font-size:12px;gap:6px}.ds-quick-start-content{grid-template-columns:minmax(0,1fr);gap:20px;padding:20px 0;min-height:0}.ds-quick-start-diagram{padding:8px;max-width:280px;width:100%;margin-inline:auto}.ds-quick-start-diagram svg{max-height:190px}.ds-quick-start-copy h3{font-size:21px}.ds-quick-start-copy p{font-size:13px}.ds-quick-start-copy .ds-quick-start-tip{font-size:12px;margin-top:12px}}@media(pointer:coarse){.ds-quick-start-navigation button{min-height:44px}}"
     }
   ],
   "narrative": {
-    "northStar": "The Modular Maker Studio",
-    "overview": "PinIt is a modular maker studio for preparing original PNG/JPEG artwork and physically sized button-pin sheets in an offline Windows Electron workspace. Cool white and cyan trays surround the actual work: a circular artwork editor beside a live sheet preview. Rounded forms, strong dark labels and a friendly workhorse sans keep dense production settings approachable.\n\nThe workflow is import, position and fit, set exact copies and independent face/cut dimensions, inspect packed sheets, then export locally. The visual system follows the shipped React/CSS renderer and the approved loose direction from inspiration/. Those reference JPGs are not product assets. No customer artwork is bundled; the review captures use synthetic QA images.",
+    "northStar": "Clean professional artwork editor",
+    "overview": "PinIt gives customer artwork most of the working area. Cool neutral canvas, white panels and compact Geist typography support repeated positioning and print preparation. Dark blue marks working actions and selected tools; the cyan and sky reference colors remain small identity accents.\n\nThe cut/face pin mark gives the brand a purposeful silhouette. The user-requested usability refinement removes studs, the stray canvas plate and the app footer while keeping the established palette and typography. The implemented source is the authority; this is a code-led existing-world refinement with no approved visual comp or new concept seed claimed.",
     "keyCharacteristics": [
-      "Cool cyan action and selection feedback with dark text.",
-      "Rounded, flat trays; physical artwork and white paper remain the main material.",
-      "Bundled Nunito Sans, compact labels and tabular numbers.",
-      "Three desktop regions with local scrolling and keyboard-operated inspector tabs.",
-      "Direct manipulation plus numeric alternatives; editing overlays stay outside exported artwork."
+      "Quiet dotted artwork canvas, white controls and a simultaneous white sheet preview.",
+      "Locally bundled Geist, compact task headings and precise numeric fields.",
+      "Restrained cyan/sky accents, dark blue active tools and a purposeful cut/face pin mark.",
+      "Selection-only artwork tray, shared tray/dock row, disclosed exact adjustments and persistent tool labels.",
+      "Independent print geometry, clear centered confirmation, numeric alternatives and replayable first-use guidance."
     ],
     "rules": [
       {
-        "name": "The Cyan Hierarchy Rule",
-        "body": "Use cyan fill for the primary action and pale cyan for selection; keep dark ink on the filled cyan action. Deep cyan carries secondary actions, checkbox accents and active feedback.",
+        "name": "The Working Color Rule",
+        "body": "Keep canvas and panels neutral, working actions dark blue, and the reference cyan/sky palette as restrained identity and selection accents.",
         "section": "colors"
       },
       {
-        "name": "The Working Scale Rule",
-        "body": "Use the observed 11–15px utility scale and 20–26px task/count scale. Numeric controls, page counts, run totals and physical summaries use tabular figures; do not invent a display-face hierarchy.",
+        "name": "The One Typeface Rule",
+        "body": "Use the locally bundled Geist variable face through PinIt Sans for headings, controls and operational text.",
         "section": "typography"
       },
       {
-        "name": "The Material Depth Rule",
-        "body": "Keep workspace trays flat. Reserve shadows for the white print sheet, dialogs and floating export progress.",
+        "name": "The Quiet Surface Rule",
+        "body": "Keep ordinary panels, controls, cards and dock flat; reserve cast lift for selected fit, paper and operational overlays.",
         "section": "elevation"
       }
     ],
     "dos": [
-      "**Do** use the bundled PinIt Sans/Nunito Sans family, implemented palette and 8px control / 16px panel corners.",
-      "**Do** preserve the independent face, cut and safe-inset dimensions; the default 44mm face / 53mm cut is an editable example, not a fixed proportion.",
-      "**Do** pair invalid color with an associated explanation, retain visible focus and provide numeric alternatives to gestures.",
-      "**Do** preserve the last valid preview when geometry becomes invalid and direct the operator to Sheet settings.",
-      "**Do** distinguish editor cut/face/safe guides, gesture alignment feedback and optional printed guides.",
-      "**Do** use the existing 24×24 outline SVG grammar with currentColor, 1.7px strokes and round caps/joins."
+      "Do use locally bundled Geist, the implemented neutral palette and restrained cyan/sky accents.",
+      "Do preserve the large artwork stage, shared tray/dock row and persistent sheet preview.",
+      "Do retain exact numeric controls, meaningful labels, described units, tabular figures and aligned paired fields.",
+      "Do pair operational color with text, visible focus, associated validation and recovery controls.",
+      "Do preserve independent face/cut dimensions and exclude editing overlays from exports.",
+      "Do keep dock labels, keyboard navigation, reduced-motion behavior and fine-pointer gates.",
+      "Do make centered state, artwork selection, Import and replayable Help easy to find."
     ],
     "donts": [
-      "**Don't** promote inspiration JPGs, synthetic review artwork or customer imagery into required product assets or palette tokens.",
-      "**Don't** use white text on the cyan primary action; the shipped action uses ink.",
-      "**Don't** turn alignment handles, center lines or the center dot into printed output.",
-      "**Don't** couple physical face and cut dimensions, shrink circles to fit a sheet or change dimensions when choosing Custom paper.",
-      "**Don't** turn defensive narrow-browser layouts into a claim of native mobile support; the Windows minimum remains 1080×720.",
-      "**Don't** substitute RGB after failed CMYK conversion, overwrite existing exports or introduce remote font dependencies."
+      "Don't restore studs, decorative canvas blocks or the removed app footer.",
+      "Don't place decorative blocks over customer artwork or add modeled lighting to ordinary controls.",
+      "Don't use customer pixels, review imagery or native-icon colors as UI design tokens.",
+      "Don't change physical measurements to fit the viewport or round stored values for visual alignment.",
+      "Don't put Remove in the selection tray or omit the Library confirmation.",
+      "Don't let dock magnification move keyboard controls, run for coarse pointers/reduced motion or cover editing work.",
+      "Don't treat the defensive narrow-browser layout as a new native mobile product claim.",
+      "Don't reuse 9px source annotations as general body or control text."
     ]
   }
 }

@@ -12,6 +12,6 @@ try{
   const response=await fetch('http://127.0.0.1:5187/');const html=await response.text();assert.ok(html.includes("script-src 'self' 'unsafe-inline'"))
   assert.ok(!(await readFile('out/renderer/index.html','utf8')).includes("script-src 'self' 'unsafe-inline'"),'production keeps a strict CSP')
   app=await electron.launch({args:['.'],env:{...process.env,PINIT_TEST_DATA:root,ELECTRON_RENDERER_URL:'http://127.0.0.1:5187/'},timeout:30000})
-  const page=await app.firstWindow();const errors=[];page.on('pageerror',e=>errors.push(e.message));await page.getByRole('heading',{name:'Make your first pin.'}).waitFor();await page.getByRole('button',{name:'Import artwork',exact:true}).waitFor();assert.deepEqual(errors,[])
+  const page=await app.firstWindow();const errors=[];page.on('pageerror',e=>errors.push(e.message));await page.getByRole('dialog',{name:'A quick tour of PinIt',exact:true}).getByRole('button',{name:'Skip tour',exact:true}).click();await page.getByRole('heading',{name:'Add your artwork.',exact:true}).waitFor();await page.getByRole('button',{name:'Import artwork',exact:true}).waitFor();assert.deepEqual(errors,[])
   console.log('Development renderer launches with React refresh; production CSP remains strict.')
 }finally{if(app)await app.close();await server.close()}

@@ -13,6 +13,7 @@ const app=await electron.launch({executablePath:process.env.PINIT_EXECUTABLE,arg
 const errors=[]
 try {
   const page=await app.firstWindow();page.on('pageerror',error=>errors.push(error.message))
+  await page.getByRole('dialog',{name:'A quick tour of PinIt',exact:true}).getByRole('button',{name:'Skip tour',exact:true}).click()
   const xField=page.getByLabel('Horizontal offset',{exact:true})
   const yField=page.getByLabel('Vertical offset',{exact:true})
   const widthField=page.getByLabel('Artwork width',{exact:true})
@@ -24,7 +25,7 @@ try {
     await page.evaluate(()=>window.scrollTo(0,0))
     await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))))
     const box=await page.locator('.editor-canvas .konvajs-content').boundingBox()
-    return {x:box.x+box.width/2,y:box.y+box.height/2,scale:box.width/(53*1.34)}
+    return {x:box.x+box.width/2,y:box.y+box.height/2,scale:box.width/(53*1.14)}
   }
   async function offsets(){return {x:Number(await xField.inputValue()),y:Number(await yField.inputValue())}}
   async function dragTo(xPixels,yPixels,{alt=false,capture,steps=12}={}){
@@ -32,7 +33,7 @@ try {
     if(alt)await page.keyboard.down('Alt')
     await page.mouse.move(s.x+current.x*s.scale,s.y+current.y*s.scale);await page.mouse.down()
     await page.mouse.move(s.x+xPixels,s.y+yPixels,{steps})
-    if(capture)await page.screenshot({path:path.join(captures,capture)})
+    if(capture)await page.screenshot({animations:'disabled',path:path.join(captures,capture)})
     await page.mouse.up();if(alt)await page.keyboard.up('Alt')
   }
   async function resizeCorner(factor,capture){
@@ -43,11 +44,12 @@ try {
     const center={x:s.x+position.x*s.scale,y:s.y+position.y*s.scale}
     await page.mouse.move(center.x+dx,center.y+dy);await page.mouse.down()
     await page.mouse.move(center.x+dx*factor,center.y+dy*factor,{steps:12})
-    if(capture)await page.screenshot({path:path.join(captures,capture)})
+    if(capture)await page.screenshot({animations:'disabled',path:path.join(captures,capture)})
     await page.mouse.up()
   }
   await choose([fixture]);await page.getByRole('button',{name:'Import artwork',exact:true}).click()
-  await expect(indicator).toHaveText('Centered');await expect(centerButton).toBeDisabled()
+  await page.getByRole('button',{name:'Adjust artwork',exact:true}).click()
+  await expect(indicator).toHaveText('Centered');await expect(centerButton).toBeHidden()
   await xField.fill('4');await yField.fill('5');await rotationField.fill('27');await widthField.fill('32')
   await expect(indicator).toHaveText('Off center');await centerButton.click()
   assert.deepEqual(await offsets(),{x:0,y:0});assert.equal(Number(await widthField.inputValue()),32);assert.equal(Number(await rotationField.inputValue()),27)
@@ -99,6 +101,6 @@ try {
   const report={passed:true,checks:['independent-axis snap','center feedback','Alt bypass','rotated proportional resizing','preserved offsets','center action preserves size/rotation','eyedropper','minimum window','saved geometry','no alignment guides in export'],root}
   await writeFile(path.join(root,'validation.json'),JSON.stringify(report,null,2))
   console.log(JSON.stringify(report,null,2))
-}catch(error){const page=await app.firstWindow().catch(()=>null);if(page)await page.screenshot({path:path.join(captures,'alignment-failure.png')}).catch(()=>{});throw error}
+}catch(error){const page=await app.firstWindow().catch(()=>null);if(page)await page.screenshot({animations:'disabled',path:path.join(captures,'alignment-failure.png')}).catch(()=>{});throw error}
 finally{await app.evaluate(({dialog})=>{dialog.showMessageBoxSync=()=>1}).catch(()=>{});await app.close()}
 
