@@ -98,9 +98,9 @@ Borders define controls, dividers and selection. Soft layered shadows separate p
 
 Use one currentColor outline icon set. Keep functional icon controls named. The brand is the concentric cut/face mark on a blue square.
 
-The artwork rail shows thumbnails, names, quantities and a selected check. Import is the primary action in the rail. The centered badge uses a check, text and green; off-center artwork retains a Center artwork action.
+The artwork rail uses a simple Artwork heading, contained square thumbnails, names and quantities. Ordinary rows stay flat; the selected row has a quiet blue surface, one border and an inline check. Import is the primary action in the rail. Copies is always editable beside the artwork name, using the shared numeric field and inline validation. Adjust artwork contains the less frequent fit, geometry and background controls. Paired drawer fields use natural label heights with their inputs aligned. The centered badge uses a check, text and green; off-center artwork retains a Center artwork action.
 
-The sheet preview shows physical paper size, one actual-size reminder, page navigation, Total copies and Copies / sheet. Copies / sheet follows the optional cap. Layout and Wrap are short rows. Gesture instructions belong in Help, with a contextual color-picker prompt shown only while sampling.
+The sheet preview shows physical paper size, one actual-size reminder, page navigation, Total copies and Copies / sheet. A short Setup action opens sheet settings directly. The paper well uses a flat surface and 12px horizontal padding to give the sheet more room. Copies / sheet follows the optional cap. Layout and Wrap are short rows. Gesture instructions belong in Help, with a contextual color-picker prompt shown only while sampling.
 
 ## Motion
 

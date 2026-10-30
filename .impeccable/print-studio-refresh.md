@@ -58,3 +58,23 @@ Calculated contrast on the header background: title 12.82:1, ordinary save feedb
 Not verified: physical touch hardware, screen-reader speech output or 10% DevTools animation playback. This change adds no motion; the app supports a light theme only.
 
 Approve - no open high-severity findings in the inspected header scope.
+
+## Workspace polish - 30 October 2026
+
+Scope: make frequent editing controls easier to reach and reduce visual clutter while preserving the current print-studio design, dock behavior and physical geometry.
+
+| Severity | Location | Before | After | Why |
+| --- | --- | --- | --- | --- |
+| Medium | src/ui/App.tsx:145; src/ui/Workspace.tsx:48 | Quantities are hidden inside Adjust artwork | Copies uses the shared numeric field beside the artwork title | Change the main order value without opening another panel; fractional input still shows an inline error and blocks export. |
+| Low | src/ui/Workspace.tsx:18; src/ui/styles.css:91 | Extra collection eyebrow, cropped thumbnails and boxed rows compete for attention | Simple heading, contained square thumbnails and restrained selection | Keep the source recognizable and make the active design easy to scan. |
+| Low | src/ui/Workspace.tsx:26; src/ui/styles.css:99 | An inline selection check consumes artwork-name width | Check shares the quantity row; truncated quantities retain a full tooltip | Selecting artwork does not shorten its title. |
+| Medium | src/ui/App.tsx:163; src/ui/styles.css:191 | Preview header contains a decorative icon | Setup opens sheet settings directly; the paper well gives the sheet more room | Make paper settings discoverable where the operator checks output. |
+| Low | src/ui/styles.css:232 | All paired drawer labels reserve 36px even when they fit one line | Natural label heights with aligned input bottoms | Width, rotation, offsets, background and source quality fit without the former dead space. |
+
+Verification: production build and TypeScript; Electron import/edit/save/open/relink and RGB/CMYK/PDF/PNG/JPG export workflow; inline fractional-copy error recovery; editing Copies with adjustments closed; preview Setup action; wide, compact, 200% zoom and 320px layouts; emulated 44px quick-control targets; keyboard and reduced motion. The compact cut circle remains 304.92 CSS pixels. Real drag/resize/center/Alt checks pass and editing overlays stay absent from exported artwork. Desktop, compact, adjustments, gallery and narrow captures were visually inspected.
+
+The mechanical scan returned advisory design-token/documentation mismatches only, including existing 13px/16px text roles, black image outlines and existing color variants. Current DESIGN.md and source remain the authority; the older generated design sidecar was not refreshed as an unrelated repair.
+
+Not verified: physical touch hardware, screen-reader speech, real print calibration or a fresh-machine installer. No new dependency, font or animation was introduced.
+
+Approve - no open high-severity findings in the inspected workspace scope.

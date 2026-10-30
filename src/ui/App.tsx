@@ -4,7 +4,7 @@ import { buildSheetPlan } from '../core/layout'
 import { validateProject } from '../core/validation'
 import { buildRenderSpec, checkExportSize, type RenderSpec } from '../render/spec'
 import { projectReducer } from '../state/project'
-import { Check, Confirm, Dialog } from './controls'
+import { Check, Confirm, Dialog, NumberField } from './controls'
 import { Icon } from './Icon'
 import MacFloatingDock, { type DockItem } from '@/components/ui/mac-style-floating-dock'
 import { QuickStart } from './QuickStart'
@@ -142,7 +142,7 @@ export function App() {
         <div className="workspace-tools"><div className="workspace-title"><Icon name="studio" size={18}/><span>Workspace</span></div><MacFloatingDock items={dockItems} active={workspaceView} onSelect={id=>{if(id==='export')setExportOpen(true);else if(id==='help')setTutorialOpen(true);else setWorkspaceView(id)}}/></div>
         <section className="editor-panel" aria-label="Artwork editor" hidden={workspaceView!=='artwork'}>
           <header className="studio-heading"><div className="design-heading">{design&&sources[design.assetId]?<img className="heading-thumbnail" src={sources[design.assetId]} alt=""/>:<Icon name="image" size={22}/>}<div>{design?<h1 title={design.name}>{design.name}</h1>:<h2>Artwork</h2>}<span>{circles.inner} mm face / {circles.outer} mm cut</span></div></div>
-            {design?<div className="studio-actions"><div className="fit-modes" role="group" aria-label="Artwork fit"><button aria-label="Fit within safe circle" aria-pressed={design.fit==='safe'} disabled={!!invalid} onClick={()=>fit('safe')}>Safe</button><button aria-label="Fit within face circle" aria-pressed={design.fit==='contain'} disabled={!!invalid} onClick={()=>fit('contain')}>Face</button><button aria-label="Fill face circle" aria-pressed={design.fit==='fill'} disabled={!!invalid} onClick={()=>fit('fill')}>Fill</button></div><button className="adjust-toggle" aria-expanded={adjustmentsOpen} aria-controls="artwork-adjustments" onClick={()=>setAdjustmentsOpen(value=>!value)}><Icon name="sliders" size={16}/>{adjustmentsOpen?'Hide adjustments':'Adjust artwork'}</button></div>:<span className="offline-note"><Icon name="shield" size={16}/>Offline workspace</span>}
+            {design?<div className="studio-actions"><div className="fit-modes" role="group" aria-label="Artwork fit"><button aria-label="Fit within safe circle" aria-pressed={design.fit==='safe'} disabled={!!invalid} onClick={()=>fit('safe')}>Safe</button><button aria-label="Fit within face circle" aria-pressed={design.fit==='contain'} disabled={!!invalid} onClick={()=>fit('contain')}>Face</button><button aria-label="Fill face circle" aria-pressed={design.fit==='fill'} disabled={!!invalid} onClick={()=>fit('fill')}>Fill</button></div><div className="quick-copies"><NumberField label="Copies" value={design.quantity} onChange={quantity=>updateDesign({quantity})} min={0} max={100000} integer/></div><button className="adjust-toggle" aria-expanded={adjustmentsOpen} aria-controls="artwork-adjustments" onClick={()=>setAdjustmentsOpen(value=>!value)}><Icon name="sliders" size={16}/>{adjustmentsOpen?'Hide adjustments':'Adjust artwork'}</button></div>:<span className="offline-note"><Icon name="shield" size={16}/>Offline workspace</span>}
           </header>
           <div className="editor-layout" data-adjustments={adjustmentsOpen&&!!design}>
             <aside id="artwork-adjustments" className="adjustment-drawer" hidden={!adjustmentsOpen||!design} aria-label="Artwork adjustments">
@@ -160,7 +160,7 @@ export function App() {
         {workspaceView==='library'?<><header className="library-mode-heading"><div><h1>Your artwork</h1><p>Select a design to edit its position and copies.</p></div><span className="item-count">{project.designs.length}</span></header><div className="artwork-shelf" data-expanded="true">{artworkLibrary}</div></>:null}
       </div>
       <section className="preview-panel" aria-label="Sheet preview">
-        <header className="preview-heading"><h2>Sheet preview</h2><span className="preview-symbol"><Icon name="stack" size={20}/></span></header>
+        <header className="preview-heading"><h2>Sheet preview</h2><button className="text-button preview-setup" aria-label="Edit sheet settings" onClick={()=>setWorkspaceView('sheet')}><Icon name="sliders" size={15}/>Setup</button></header>
         <div className="preview-paper-label"><span>{plan?plan.width+' × '+plan.height+' mm':'No layout'}</span><span><Icon name="check" size={13}/>Print at 100%</span></div>
         <div className="paper-stage">{spec?<SheetPreview spec={spec} page={page} images={images}/>:<p>Correct the settings to preview sheets.</p>}</div>
         <div className="page-nav"><button className="icon-button" aria-label="Previous sheet" disabled={!plan||page===0} onClick={()=>setPage(previous=>previous-1)}><Icon name="left" size={18}/></button><span className="sheet-counter" role="status" aria-live="polite" aria-atomic="true" aria-label={plan?.sheets.length?`Sheet ${page+1} of ${plan.sheets.length}`:'No sheets yet'}>{plan?.sheets.length?<><strong>{page+1}</strong><span>/ {plan.sheets.length}</span></>:'No sheets yet'}</span><button className="icon-button" aria-label="Next sheet" disabled={!plan||page>=plan.sheets.length-1} onClick={()=>setPage(previous=>previous+1)}><Icon name="right" size={18}/></button></div>
