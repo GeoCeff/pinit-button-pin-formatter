@@ -119,9 +119,10 @@ export function App() {
   return <div className="app" onPointerDownCapture={()=>{document.documentElement.dataset.input='pointer'}} onKeyDownCapture={()=>{document.documentElement.dataset.input='keyboard'}}>
     <a className="skip-link" href="#artwork-workspace">Skip to artwork workspace</a>
     <header className="topbar">
-      <div className="brand" aria-label="PinIt"><span className="brand-symbol" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="11" stroke="currentColor" strokeWidth="1.7"/><circle cx="16" cy="16" r="7" stroke="currentColor" strokeWidth="1.3" strokeDasharray="2 2"/></svg></span><div><strong>PinIt<span>.</span></strong><span className="brand-caption">Print studio</span></div></div>
-      <div className="project-block"><div className="project-name"><input name="project-name" aria-label="Project name" title={project.name} autoComplete="off" spellCheck={false} maxLength={200} value={project.name} onChange={event=>dispatch({type:'name',name:event.target.value})}/><span className="project-save-state" data-state={saveState} role="status" aria-live="polite" aria-atomic="true"><i aria-hidden="true"/>{saveLabel}</span></div>
+      <div className="brand" aria-label="PinIt"><span className="brand-symbol" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="11" stroke="currentColor" strokeWidth="1.7"/><circle cx="16" cy="16" r="7" stroke="currentColor" strokeWidth="1.3" strokeDasharray="2 2"/></svg></span><strong>PinIt</strong></div>
+      <div className="project-block"><div className="project-name"><input name="project-name" aria-label="Project name" title={project.name} autoComplete="off" spellCheck={false} maxLength={200} value={project.name} onChange={event=>dispatch({type:'name',name:event.target.value})}/><Icon name="edit" className="project-edit-icon" size={14}/></div>
         <div className="actions file-actions">
+          <span className="project-save-state" data-state={saveState} role="status" aria-live="polite" aria-atomic="true">{saveState==='saved'?<Icon name="check" size={14}/>:<i aria-hidden="true"/>}{saveLabel}</span>
           <button className="quiet-button" disabled={ioBusy||exporting} onClick={()=>void createProject()}><Icon name="plus" size={16}/>New</button>
           <button className="quiet-button" disabled={ioBusy||exporting} onClick={()=>void openProject()}><Icon name="folder" size={16}/>Open</button>
           <button disabled={ioBusy||!!invalid} onClick={()=>void saveProject()}><Icon name="save" size={16}/>Save</button>

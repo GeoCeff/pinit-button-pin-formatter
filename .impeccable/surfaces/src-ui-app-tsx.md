@@ -15,7 +15,7 @@ OWN-WORLD: Locally bundled Geist, cool neutral workspace, white surfaces, restra
 
 STORY: Import in the artwork rail, select a design, position or adjust it, check the paper preview and export. Compact desktops move the rail below the canvas. The toolbar sits above the editor. Removal remains in the Library with confirmation. Help retains the optional three-step tutorial and explains gestures.
 
-FIRST VIEWPORT: 72px project bar, 218px artwork rail, flexible studio and 292px paper preview. At compact desktop widths use a 56px bar and 84px artwork tray; the preview spans the studio and tray. At narrow widths stack the areas and show a complete artwork card below Import. Preserve a cut circle of at least 300px at 1080 x 720.
+FIRST VIEWPORT: 64px project bar, 218px artwork rail, flexible studio and 292px paper preview. The document toolbar uses a compact natural-width brand, inline editable project title and plain save feedback beside file actions. At compact desktop widths use a 56px bar and 84px artwork tray; the preview spans the studio and tray. At narrow widths place the title in a full-width field, stack the areas and show a complete artwork card below Import. Preserve a cut circle of at least 300px at 1080 x 720.
 
 READABILITY: Root 16px; dense tool body and normal inputs 14px; narrow inputs 16px. Print labels and rows are 14px, counts 28-32px. Page navigation is current/total with a complete accessible label. Remove persistent drag/resize/Alt prose and duplicate sheet/print reminders. Layout and Wrap use short rows. Copies / sheet follows the selected cap.
 

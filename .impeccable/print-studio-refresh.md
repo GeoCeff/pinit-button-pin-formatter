@@ -40,3 +40,21 @@ Not verified: physical touch hardware, 10% DevTools animation playback, printer/
 Header verification includes the production build, desktop workflow, long titles, compact focus-ring clearance, 200% zoom and 320px fallback. Status contrast is 6.01:1 for unsaved, 5.91:1 for saved and 4.62:1 for local/working. The screenshot is captured directly from the application in `.impeccable/review/header-refined.png`.
 
 Approve - no open high-severity findings in the inspected scope.
+
+## Document toolbar redesign - 30 October 2026
+
+The user requested a structural redesign of the brand, document title and save feedback. This supersedes the stacked header refinement above.
+
+| Severity | Location | Before | After | Why |
+| --- | --- | --- | --- | --- |
+| Medium | src/ui/App.tsx:122; src/ui/styles.css:54 | Large stacked lockup, descriptor and tall separator occupy a sidebar-width column | Natural-width brand with a 28px mark and 18px wordmark, in a 64px desktop toolbar | Give the current document more space and remove redundant ornament. |
+| Medium | src/ui/App.tsx:123; src/ui/styles.css:60 | Project title sits over an amber status badge | 16px editable title with a pencil cue; plain 13px status lives with file actions | Separate document identity from persistence feedback and keep one desktop reading line. |
+| High, resolved | src/ui/styles.css:357; scripts/smoke.mjs:97 | Compact stacks risk crowding the title and its focus ring | A single row at native desktop sizes; full-width title and deliberate action rows below 850px | Preserve readable titles, editing and full keyboard focus at compact sizes and zoom. |
+
+Verified: TypeScript and production build, full Electron desktop acceptance, title editing, long-title tooltip, compact focus clearance, title/status baseline alignment, natural-width brand, 320px fallback, 200% application zoom, emulated coarse-pointer header targets of at least 44px, keyboard and reduced-motion paths, save/open/relink and all export formats. The native minimum cut circle remains 304.92 CSS pixels. Captured and inspected `header-document-toolbar.png` and `narrow-320.png` directly from the app. No animation or dependency was added.
+
+Calculated contrast on the header background: title 12.82:1, ordinary save feedback 4.97:1, saved feedback 5.97:1. The narrow title field boundary is 3.28:1 against white. Font sizes use rem, line heights are unitless, all small text weights are at least 400, and title truncation retains the full-value tooltip and native editable value.
+
+Not verified: physical touch hardware, screen-reader speech output or 10% DevTools animation playback. This change adds no motion; the app supports a light theme only.
+
+Approve - no open high-severity findings in the inspected header scope.

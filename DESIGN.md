@@ -59,7 +59,7 @@ typography:
 
 # Design system: PinIt print studio
 
-Updated 29 October 2026. This document describes the current implementation. The UI source is the authority for exact component states. Older briefs and generated snapshots in `.impeccable/` record earlier iterations.
+Updated 30 October 2026. This document describes the current implementation. The UI source is the authority for exact component states. Older briefs and generated snapshots in `.impeccable/` record earlier iterations.
 
 ## Direction
 
@@ -69,7 +69,7 @@ The latest user refinement prioritizes readability: remove the persistent drag/r
 
 ## Composition
 
-- Wide desktop: 218px artwork rail; flexible editor; 292px sheet preview; 16px gutters. The project bar is 72px high.
+- Wide desktop: 218px artwork rail; flexible editor; 292px sheet preview; 16px gutters. The project bar is 64px high.
 - At 1281-1450px: 196px artwork rail and 272px preview, with 12px gutters.
 - At 851-1280px: the artwork rail becomes an 84px tray below the editor. The preview spans both rows. The project bar is 56px high and the preview is 284px wide.
 - At 850px and below: the project bar, artwork tray, editor and sheet preview stack. Content scrolls normally.
@@ -84,7 +84,7 @@ Use the bundled Geist variable face through PinIt Sans, with Segoe UI as fallbac
 
 Use rem sizes, unitless line heights and CSS font-weight. Keep changing counts and measurements tabular. Text remains selectable outside the draggable canvas.
 
-The header stacks Print studio beneath the wordmark and separates the brand from project context with a quiet vertical divider. The editable project title uses 18px/600 on wide desktops and 16px on compact layouts. A 13px status badge distinguishes local, working, unsaved and saved states with text and color. Its compact spacing preserves the full keyboard focus ring within the 56px header.
+The header is a document toolbar. A compact 28px mark and 18px wordmark use their natural width instead of a sidebar-sized column. The editable project title uses 16px/550 with a persistent pencil cue and a full-value tooltip. Plain 13px save feedback sits with the file actions, using a check for saved projects and text for every state. No descriptor, decorative period, tall divider or colored status badge is needed. At narrow widths, brand and Export share the first row, the title gets a full-width field, and file actions follow. Keep the full keyboard focus ring inside the 56px compact desktop header.
 
 Project names are editable and retain their full value. Artwork names truncate with a full title available. Errors and notices wrap. The field/unit layout preserves the existing five-decimal display without rounding stored geometry.
 
