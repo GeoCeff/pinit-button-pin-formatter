@@ -40,3 +40,41 @@ Not verified: physical touch hardware, 10% DevTools animation playback, printer/
 Header verification includes the production build, desktop workflow, long titles, compact focus-ring clearance, 200% zoom and 320px fallback. Status contrast is 6.01:1 for unsaved, 5.91:1 for saved and 4.62:1 for local/working. The screenshot is captured directly from the application in `.impeccable/review/header-refined.png`.
 
 Approve - no open high-severity findings in the inspected scope.
+
+## Document toolbar redesign - 30 October 2026
+
+The user requested a structural redesign of the brand, document title and save feedback. This supersedes the stacked header refinement above.
+
+| Severity | Location | Before | After | Why |
+| --- | --- | --- | --- | --- |
+| Medium | src/ui/App.tsx:122; src/ui/styles.css:54 | Large stacked lockup, descriptor and tall separator occupy a sidebar-width column | Natural-width brand with a 28px mark and 18px wordmark, in a 64px desktop toolbar | Give the current document more space and remove redundant ornament. |
+| Medium | src/ui/App.tsx:123; src/ui/styles.css:60 | Project title sits over an amber status badge | 16px editable title with a pencil cue; plain 13px status lives with file actions | Separate document identity from persistence feedback and keep one desktop reading line. |
+| High, resolved | src/ui/styles.css:357; scripts/smoke.mjs:97 | Compact stacks risk crowding the title and its focus ring | A single row at native desktop sizes; full-width title and deliberate action rows below 850px | Preserve readable titles, editing and full keyboard focus at compact sizes and zoom. |
+
+Verified: TypeScript and production build, full Electron desktop acceptance, title editing, long-title tooltip, compact focus clearance, title/status baseline alignment, natural-width brand, 320px fallback, 200% application zoom, emulated coarse-pointer header targets of at least 44px, keyboard and reduced-motion paths, save/open/relink and all export formats. The native minimum cut circle remains 304.92 CSS pixels. Captured and inspected `header-document-toolbar.png` and `narrow-320.png` directly from the app. No animation or dependency was added.
+
+Calculated contrast on the header background: title 12.82:1, ordinary save feedback 4.97:1, saved feedback 5.97:1. The narrow title field boundary is 3.28:1 against white. Font sizes use rem, line heights are unitless, all small text weights are at least 400, and title truncation retains the full-value tooltip and native editable value.
+
+Not verified: physical touch hardware, screen-reader speech output or 10% DevTools animation playback. This change adds no motion; the app supports a light theme only.
+
+Approve - no open high-severity findings in the inspected header scope.
+
+## Workspace polish - 30 October 2026
+
+Scope: make frequent editing controls easier to reach and reduce visual clutter while preserving the current print-studio design, dock behavior and physical geometry.
+
+| Severity | Location | Before | After | Why |
+| --- | --- | --- | --- | --- |
+| Medium | src/ui/App.tsx:145; src/ui/Workspace.tsx:48 | Quantities are hidden inside Adjust artwork | Copies uses the shared numeric field beside the artwork title | Change the main order value without opening another panel; fractional input still shows an inline error and blocks export. |
+| Low | src/ui/Workspace.tsx:18; src/ui/styles.css:91 | Extra collection eyebrow, cropped thumbnails and boxed rows compete for attention | Simple heading, contained square thumbnails and restrained selection | Keep the source recognizable and make the active design easy to scan. |
+| Low | src/ui/Workspace.tsx:26; src/ui/styles.css:99 | An inline selection check consumes artwork-name width | Check shares the quantity row; truncated quantities retain a full tooltip | Selecting artwork does not shorten its title. |
+| Medium | src/ui/App.tsx:163; src/ui/styles.css:191 | Preview header contains a decorative icon | Setup opens sheet settings directly; the paper well gives the sheet more room | Make paper settings discoverable where the operator checks output. |
+| Low | src/ui/styles.css:232 | All paired drawer labels reserve 36px even when they fit one line | Natural label heights with aligned input bottoms | Width, rotation, offsets, background and source quality fit without the former dead space. |
+
+Verification: production build and TypeScript; Electron import/edit/save/open/relink and RGB/CMYK/PDF/PNG/JPG export workflow; inline fractional-copy error recovery; editing Copies with adjustments closed; preview Setup action; wide, compact, 200% zoom and 320px layouts; emulated 44px quick-control targets; keyboard and reduced motion. The compact cut circle remains 304.92 CSS pixels. Real drag/resize/center/Alt checks pass and editing overlays stay absent from exported artwork. Desktop, compact, adjustments, gallery and narrow captures were visually inspected.
+
+The mechanical scan returned advisory design-token/documentation mismatches only, including existing 13px/16px text roles, black image outlines and existing color variants. Current DESIGN.md and source remain the authority; the older generated design sidecar was not refreshed as an unrelated repair.
+
+Not verified: physical touch hardware, screen-reader speech, real print calibration or a fresh-machine installer. No new dependency, font or animation was introduced.
+
+Approve - no open high-severity findings in the inspected workspace scope.

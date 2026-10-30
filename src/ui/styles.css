@@ -50,22 +50,21 @@ input[type=number] { font-variant-numeric:tabular-nums }
 input[type=checkbox] { width:15px; height:15px; min-height:0; margin:0; accent-color:var(--action) }
 input[aria-invalid=true] { border-color:var(--danger) }
 select { cursor:pointer; padding-right:24px }
-.app { display:grid; grid-template-columns:218px minmax(0,1fr); grid-template-rows:72px auto minmax(0,1fr); grid-template-areas:'header header' 'status status' 'dock workspace'; column-gap:16px; height:100dvh; min-height:620px; padding:0 20px 20px; overflow:hidden }
-.topbar { grid-area:header; display:grid; grid-template-columns:218px minmax(0,1fr) 160px; align-items:center; column-gap:16px; min-width:0 }
-.brand { display:flex; align-items:center; gap:11px; min-width:0; min-height:44px; padding-right:20px; border-right:1px solid #d0d9e3 }
-.brand-symbol { display:grid; place-items:center; width:38px; height:38px; background:var(--action); color:white; border:1px solid transparent; border-radius:11px; flex:none; box-shadow:0 2px 4px rgb(7 86 114 / 12%) }
-.brand-symbol svg { width:32px; height:32px }
-.brand>div { display:flex; flex-direction:column; align-items:flex-start; gap:2px }
-.brand strong { font-size:1.5rem; font-weight:700; letter-spacing:-.035em; line-height:1.2 }
-.brand strong>span { color:var(--action) }
-.brand-caption { color:var(--muted); font-size:.8125rem; line-height:1.35; white-space:nowrap }
-.project-block { display:flex; align-items:center; min-width:0; gap:20px }
-.project-name { display:flex; flex-direction:column; align-items:flex-start; gap:3px; min-width:0; flex:1 }
-.project-name input { min-height:28px; padding:1px 4px; border-color:transparent; background:transparent; font-size:1.125rem; line-height:1.3; font-weight:600; letter-spacing:-.01em; text-overflow:ellipsis }
-.project-save-state { display:inline-flex; align-items:center; gap:6px; max-width:100%; margin-left:4px; padding:2px 7px; border:1px solid transparent; border-radius:5px; color:var(--muted); background:#e3e9f0; font-size:.8125rem; font-weight:500; line-height:1.35 }
+.app { display:grid; grid-template-columns:218px minmax(0,1fr); grid-template-rows:64px auto minmax(0,1fr); grid-template-areas:'header header' 'status status' 'dock workspace'; column-gap:16px; height:100dvh; min-height:620px; padding:0 20px 20px; overflow:hidden }
+.topbar { grid-area:header; display:grid; grid-template-columns:auto minmax(0,1fr) 160px; align-items:center; column-gap:24px; min-width:0 }
+.brand { display:flex; align-items:center; gap:8px; min-width:0; white-space:nowrap }
+.brand-symbol { display:grid; place-items:center; width:28px; height:28px; background:var(--action); color:white; border:1px solid transparent; border-radius:7px; flex:none }
+.brand-symbol svg { width:26px; height:26px }
+.brand strong { font-size:1.125rem; font-weight:700; letter-spacing:-.025em; line-height:1.3 }
+.project-block { display:flex; align-items:center; min-width:0; gap:24px }
+.project-name { position:relative; min-width:0; flex:1 }
+.project-name input { min-height:36px; padding:6px 32px 6px 10px; border-color:transparent; background:transparent; font-size:1rem; line-height:1.4; font-weight:550; text-overflow:ellipsis }
+.project-edit-icon { position:absolute; top:50%; right:10px; transform:translateY(-50%); color:var(--muted); pointer-events:none }
+.project-name input:focus { border-color:var(--control-line); background:var(--surface) }
+.project-name:focus-within .project-edit-icon { color:var(--action) }
+.project-save-state { display:inline-flex; align-items:center; gap:6px; margin-inline:8px; color:var(--muted); font-size:.8125rem; font-weight:400; line-height:1.4; white-space:nowrap }
 .project-save-state>i { width:5px; height:5px; flex:none; border-radius:50%; background:currentColor }
-.project-save-state[data-state=unsaved] { color:#80521b; background:#fff1dc }
-.project-save-state[data-state=saved] { color:var(--success); background:#e4f3eb }
+.project-save-state[data-state=saved] { color:var(--success) }
 .actions { display:flex; flex-wrap:wrap; align-items:center; gap:8px }
 .file-actions { flex-wrap:nowrap; gap:4px }
 .file-actions button { min-height:34px; padding:6px 9px; white-space:nowrap }
@@ -85,20 +84,21 @@ select { cursor:pointer; padding-right:24px }
 .designs-panel { height:100%; min-height:0; min-width:0; display:flex; flex-direction:column; padding:18px 12px 12px; gap:18px }
 .library-header { display:flex; flex-direction:column; flex:none; gap:18px }
 .artwork-rail-heading { display:flex; align-items:center; justify-content:space-between; gap:8px; padding-inline:4px }
-.artwork-rail-heading h2 { margin-top:2px }
 .item-count { display:grid; place-items:center; min-width:25px; min-height:25px; padding:2px 6px; border:1px solid var(--line); border-radius:7px; background:var(--surface); color:var(--muted); font-size:.75rem; font-weight:600; font-variant-numeric:tabular-nums }
 .import-button { width:100%; min-height:40px; font-weight:600 }
 .import-button svg { width:17px; height:17px }
 .design-list { display:flex; flex-direction:column; align-items:stretch; gap:10px; min-width:0; min-height:0; overflow:auto; overscroll-behavior:contain; flex:1; padding:3px; scrollbar-width:thin; scrollbar-color:var(--control-line) transparent }
-.design-row { display:flex; flex:none; min-width:0; align-items:center; position:relative; gap:6px; padding:10px; border:1px solid var(--line); border-radius:11px; background:var(--surface) }
-.design-row.selected { background:var(--surface); border-color:var(--action); box-shadow:0 0 0 1px var(--action),0 2px 6px rgb(7 86 114 / 5%) }
+.design-row { display:flex; flex:none; min-width:0; align-items:center; position:relative; gap:6px; padding:10px; border:1px solid transparent; border-radius:8px; background:transparent }
+.design-row.selected { background:var(--panel); border-color:var(--action) }
 .design-select { display:flex; align-items:center; justify-content:flex-start; flex:1; gap:10px; min-width:0; min-height:60px; padding:0; border:0; background:transparent; text-align:start; box-shadow:none }
-.design-select img,.missing-thumb { display:grid; place-items:center; flex:none; width:56px; height:64px; object-fit:cover; border-radius:6px; background:var(--canvas) }
+.design-select img,.missing-thumb { display:grid; place-items:center; flex:none; width:56px; height:56px; object-fit:contain; border-radius:5px; background:var(--surface) }
 .design-select img,.heading-thumbnail { outline:1px solid oklch(0 0 0 / .1); outline-offset:-1px }
 .design-copy { display:flex; flex-direction:column; gap:5px; min-width:0; flex:1 }
 .design-copy strong { display:block; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-size:.8125rem; line-height:1.45; font-weight:600 }
 .design-copy small { color:var(--muted); font-size:.75rem; font-variant-numeric:tabular-nums }
-.design-selected-mark { position:absolute; right:5px; top:5px; display:grid; place-items:center; width:17px; height:17px; border:2px solid white; border-radius:50%; background:var(--action); color:white }
+.design-meta { display:flex; align-items:center; gap:6px; min-width:0 }
+.design-meta small { min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap }
+.design-selected-mark { display:grid; place-items:center; width:16px; height:16px; margin-left:auto; flex:none; color:var(--action) }
 .missing-thumb { color:var(--danger); background:var(--danger-soft) }
 .missing-thumb small { font-size:.75rem }
 .library-bottom { display:flex; flex-direction:column; gap:12px; flex:none; margin-top:auto; padding:12px 3px 0; border-top:1px solid var(--line) }
@@ -138,6 +138,10 @@ select { cursor:pointer; padding-right:24px }
 .design-heading>div>span { display:block; margin-top:3px; font-size:.75rem; color:var(--muted); font-variant-numeric:tabular-nums }
 .heading-thumbnail { width:36px; height:40px; object-fit:cover; border-radius:6px; flex:none }
 .studio-actions { display:flex; align-items:center; gap:12px; flex:none }
+.quick-copies .field { display:grid; grid-template-columns:auto 86px; align-items:center; gap:6px 8px }
+.quick-copies .field>span:first-child { color:var(--muted); white-space:nowrap }
+.quick-copies .input-unit input { min-height:32px; padding:4px 8px; font-variant-numeric:tabular-nums }
+.quick-copies .field-error { grid-column:1/-1; max-width:132px }
 .fit-modes { display:flex; gap:2px; padding:3px; border:1px solid var(--line); border-radius:9px; background:var(--rail) }
 .fit-modes button { min-height:28px; padding:4px 9px; border:1px solid transparent; background:transparent; color:var(--muted); font-size:.75rem; border-radius:5px; box-shadow:none }
 .fit-modes button[aria-pressed=true] { color:var(--action); background:white; box-shadow:0 1px 3px rgb(19 37 55 / 10%) }
@@ -183,10 +187,10 @@ select { cursor:pointer; padding-right:24px }
 .preview-panel { display:flex; flex-direction:column; min-width:0; min-height:0; padding:22px 18px 18px; border:1px solid var(--line); border-radius:14px; background:var(--surface); box-shadow:var(--shadow-panel) }
 .preview-heading { display:flex; justify-content:space-between; align-items:center; gap:12px }
 .preview-heading h2 { margin:0 }
-.preview-symbol { display:grid; place-items:center; width:36px; height:36px; flex:none; border:1px solid var(--line); border-radius:9px; color:var(--action); background:var(--rail) }
+.preview-setup { gap:5px; min-height:32px; flex:none }
 .preview-paper-label { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:6px; margin-top:20px; color:var(--muted); font-size:.8125rem; font-variant-numeric:tabular-nums }
 .preview-paper-label>span:last-child { display:flex; align-items:center; gap:3px; color:var(--success); font-size:.8125rem }
-.paper-stage { display:flex; align-items:center; justify-content:center; flex:1; min-height:0; min-width:0; overflow:hidden; margin-top:12px; padding:22px 18px; border:1px solid transparent; border-radius:9px; background:var(--paper-well); box-shadow:inset 0 1px 3px rgb(19 37 55 / 3%) }
+.paper-stage { display:flex; align-items:center; justify-content:center; flex:1; min-height:0; min-width:0; overflow:hidden; margin-top:12px; padding:18px 12px; border-radius:6px; background:var(--paper-well) }
 .sheet-canvas { display:block; width:auto; height:auto; max-width:100%; max-height:100%; box-shadow:0 1px 2px rgb(19 37 55 / 6%),0 5px 14px rgb(19 37 55 / 10%) }
 .page-nav { display:flex; align-items:center; justify-content:space-between; flex:none; gap:8px; margin-top:12px; font-size:.875rem; color:var(--muted); font-variant-numeric:tabular-nums }
 .sheet-counter { display:flex; align-items:baseline; gap:6px }
@@ -224,7 +228,7 @@ select { cursor:pointer; padding-right:24px }
 .two-col { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:12px }
 .field-error { color:var(--danger); font-size:.75rem; line-height:1.5; overflow-wrap:anywhere }
 .artwork-controls { display:flex; flex-direction:column; gap:18px; padding:20px 16px }
-.artwork-controls .two-col .field>span:first-child { min-height:36px; display:flex; align-items:flex-end }
+.artwork-controls .two-col { align-items:end }
 .inspector-heading { display:flex; align-items:center; justify-content:space-between; gap:8px }
 .inspector-heading h2 { font-size:1rem }
 .inspector-section { display:flex; flex-direction:column; gap:14px }
@@ -252,7 +256,7 @@ select { cursor:pointer; padding-right:24px }
 .artwork-shelf[data-expanded=true] .design-select img,.artwork-shelf[data-expanded=true] .missing-thumb { width:100%; height:124px; object-fit:contain; border-radius:6px; background:var(--canvas) }
 .artwork-shelf[data-expanded=true] .design-copy { flex:0; gap:4px }
 .artwork-shelf[data-expanded=true] .design-copy strong { max-width:none; font-size:.875rem }
-.artwork-shelf[data-expanded=true] .design-selected-mark { width:22px; height:22px; top:18px; right:18px }
+.artwork-shelf[data-expanded=true] .design-selected-mark { position:absolute; width:22px; height:22px; top:18px; right:18px; margin:0; border:1px solid var(--line); border-radius:4px; background:var(--surface) }
 .remove-design { min-height:30px; align-self:flex-end; padding:4px 8px; border-color:transparent; background:transparent; color:var(--muted); font-size:.75rem; box-shadow:none }
 .dialog { position:fixed; inset:0; width:min(540px,calc(100% - 48px)); max-height:calc(100dvh - 48px); overflow:auto; margin:auto; padding:28px; border:1px solid transparent; border-radius:18px; color:var(--ink); background:white; box-shadow:var(--shadow-overlay); overscroll-behavior:contain }
 .dialog::backdrop { background:rgb(19 37 55 / 38%) }
@@ -275,31 +279,26 @@ select { cursor:pointer; padding-right:24px }
   .primary:hover:not(:disabled),.export-block:hover:not(:disabled),.import-button:hover:not(:disabled) { background:#06465e }
   .danger:hover:not(:disabled) { background:var(--danger-hover); border-color:var(--danger-hover) }
   .design-select:hover:not(:disabled),.dock-button:hover:not(:disabled) { background:transparent }
-  .design-row:not(.selected):hover { background:var(--rail) }
+  .design-row:not(.selected):hover { background:var(--canvas) }
   .remove-design:hover:not(:disabled) { color:var(--danger); background:var(--danger-soft) }
-  .project-name input:hover { border-color:var(--line); background:white }
+  .project-name input:hover { border-color:var(--control-line); background:var(--surface) }
   .dock-button:hover .dock-label { visibility:visible }
 }
 @media(min-width:1281px) and (max-width:1450px) {
   .app { grid-template-columns:196px minmax(0,1fr); padding-inline:16px; column-gap:12px }
-  .topbar { grid-template-columns:196px minmax(0,1fr) 152px; column-gap:12px }
-  .brand-caption { display:none }
+  .topbar { grid-template-columns:auto minmax(0,1fr) 152px; column-gap:20px }
   .workspace { grid-template-columns:minmax(0,1fr) 272px; gap:12px }
   .workspace-tools { justify-content:center; padding-inline:12px }
   .workspace-title { display:none }
   .studio-heading { padding-inline:14px }
   .fit-modes { display:none }
   .design-select { gap:8px }
-  .design-select img,.missing-thumb { width:48px; height:56px }
+  .design-select img,.missing-thumb { width:48px; height:48px }
 }
 @media(max-width:1280px) {
   .app { grid-template-columns:minmax(0,1fr); grid-template-rows:56px auto minmax(0,1fr) 84px; grid-template-areas:'header' 'status' 'workspace' 'dock'; padding:0 12px 12px }
-  .topbar { grid-template-columns:156px minmax(0,1fr) 144px; gap:16px }
-  .brand-caption { display:none }
+  .topbar { grid-template-columns:auto minmax(0,1fr) 144px; gap:16px }
   .project-block { gap:12px }
-  .project-name { gap:2px }
-  .project-name input { min-height:24px; padding-block:0; font-size:1rem }
-  .project-save-state { padding-block:0; line-height:1.2 }
   .file-actions button { padding-inline:7px }
   .workspace { grid-template-columns:minmax(0,1fr) 284px; grid-row:3 / span 2; gap:12px }
   .studio-zone { margin-bottom:84px; border-bottom-left-radius:0; border-bottom-right-radius:0 }
@@ -332,9 +331,9 @@ select { cursor:pointer; padding-right:24px }
   .artwork-rail-heading { display:none }
   .import-button { min-height:36px }
   .design-list { flex-direction:row; height:68px; align-items:stretch; padding:3px; gap:10px }
-  .design-row { width:188px; padding:7px 9px; flex-direction:row }
+  .design-row { width:200px; padding:7px 9px; flex-direction:row }
   .design-select { min-height:48px; gap:8px }
-  .design-select img,.missing-thumb { width:42px; height:44px }
+  .design-select img,.missing-thumb { width:42px; height:42px }
   .design-copy { gap:2px }
   .design-copy strong { max-width:104px }
   .library-bottom { margin:0; padding:0; border:0 }
@@ -351,7 +350,7 @@ select { cursor:pointer; padding-right:24px }
   .preview-heading h2 { font-size:1rem }
   .preview-heading .eyebrow { display:none }
   .preview-paper-label { margin-top:12px }
-  .paper-stage { padding:16px; margin-top:10px }
+  .paper-stage { padding:12px; margin-top:10px }
   .layout-summary { margin-top:14px; padding-block:12px }
   .layout-summary strong { font-size:1.75rem }
   .packing-detail { margin-top:12px; gap:7px }
@@ -362,16 +361,16 @@ select { cursor:pointer; padding-right:24px }
   .app { height:auto; min-height:100dvh; overflow:visible; grid-template-rows:auto auto auto auto; grid-template-areas:'header' 'status' 'dock' 'workspace'; padding:10px }
   html { scroll-padding-top:20px }
   button,input,select { scroll-margin-block:20px }
-  .topbar { grid-template-columns:120px minmax(0,1fr); gap:8px; padding-bottom:12px }
-  .brand-symbol { width:32px; height:32px; border-radius:9px }
-  .brand-symbol svg { width:28px; height:28px }
-  .project-block { flex-wrap:wrap; gap:6px }
-  .file-actions { margin-left:auto }
-  .project-name { flex-basis:100%; padding:0 }
-  .project-name input { font-size:1rem }
+  .topbar { grid-template-columns:minmax(0,1fr) auto; gap:10px 16px; padding-bottom:12px }
+  .brand { grid-column:1; grid-row:1 }
+  .project-block { display:contents }
+  .project-name { grid-column:1/-1; grid-row:2 }
+  .project-name input { min-height:40px; border-color:var(--control-line); background:var(--surface) }
+  .file-actions { grid-column:1/-1; grid-row:3; justify-content:flex-end }
+  .project-save-state { margin-inline:0 auto }
   input,select,.artwork-controls input { font-size:1rem }
   .editor-layout[data-adjustments=true] { grid-template-columns:280px minmax(0,1fr) }
-  .export-block { grid-column:1/-1; justify-content:center; min-height:38px; margin-top:3px; gap:12px }
+  .export-block { grid-column:2; grid-row:1; justify-content:center; min-height:36px; gap:10px; padding:7px 10px }
   .workspace { grid-area:workspace; grid-template-columns:minmax(0,1fr); gap:14px }
   .dock-bay { margin-right:0; margin-bottom:12px; height:88px }
   .tray-slot { border:1px solid var(--line); border-radius:12px }
@@ -392,11 +391,8 @@ select { cursor:pointer; padding-right:24px }
 }
 @media(max-width:600px) {
   .app { padding:8px }
-  .topbar { grid-template-columns:100px minmax(0,1fr) }
-  .brand { gap:7px; padding-right:8px }
-  .brand strong { font-size:1.375rem }
-  .project-name input { font-size:1rem }
-  .file-actions { gap:1px; flex-wrap:wrap }
+  .file-actions { gap:4px; flex-wrap:wrap }
+  .project-save-state { flex-basis:100%; margin:0 0 2px }
   .file-actions button { min-height:28px; padding:4px 6px; font-size:.75rem }
   .file-actions button svg { display:none }
   input,select,.artwork-controls input { font-size:1rem }
@@ -408,8 +404,9 @@ select { cursor:pointer; padding-right:24px }
   .import-button { font-size:.75rem; gap:6px; padding-inline:8px }
   .import-button svg { width:15px; height:15px }
   .manage-library { width:30px; min-height:32px }
-  .design-row { width:182px }
-  .studio-heading { gap:8px; padding:10px }
+  .design-row { width:194px }
+  .studio-heading { flex-wrap:wrap; gap:10px; padding:10px }
+  .studio-actions { width:100%; justify-content:space-between }
   .studio-heading h1 { font-size:1.125rem }
   .design-heading { gap:8px }
   .heading-thumbnail { width:28px; height:30px }
@@ -447,6 +444,9 @@ select { cursor:pointer; padding-right:24px }
 }
 @media(pointer:coarse) {
   button,input,select,.check { min-height:44px }
+  .project-name input,.export-block { min-height:44px }
+  .quick-copies .input-unit input,.preview-setup { min-height:44px }
+  .file-actions button { min-width:44px }
   .icon-button,.dock-button { min-width:44px; min-height:44px }
   .adjust-toggle,.file-actions button,.manage-library,.center-button,.remove-design,.message .icon-button { min-height:44px }
   .adjust-toggle,.message .icon-button { min-width:44px }

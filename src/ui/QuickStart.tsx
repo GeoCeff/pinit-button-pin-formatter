@@ -19,7 +19,7 @@ const steps = [
   {
     label: 'Print',
     title: 'Build your sheet. Then export.',
-    description: 'Set copies in Adjust artwork, then open Sheet in the toolbar to choose paper and spacing. The preview updates alongside your work.',
+    description: 'Set Copies beside the artwork name. Use Setup in the sheet preview to choose paper and spacing. The preview updates alongside your work.',
     tip: 'Export sheets as PDF, PNG or JPG. When printing, choose actual size or 100% so the pin dimensions stay correct.',
   },
 ] as const
