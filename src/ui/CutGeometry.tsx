@@ -1,0 +1,8 @@
+import type { CircleSettings } from '../core/model'
+
+export function CutMark(){return <svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M4 11V4h7m10 0h7v7M4 21v7h7m10 0h7v-7" stroke="currentColor" strokeWidth="2"/><circle cx="16" cy="16" r="10" stroke="currentColor" strokeWidth="2"/><circle cx="16" cy="16" r="6" stroke="currentColor" strokeWidth="1.5" strokeDasharray="2 2"/></svg>}
+export function CutGeometry(){return <svg className="cut-geometry" viewBox="0 0 280 180" fill="none" aria-hidden="true"><path d="M44 15h102l28 28v122H44V15Z" fill="var(--surface)" stroke="currentColor" strokeWidth="1.5"/><path d="M146 15v28h28" stroke="currentColor" strokeWidth="1.5"/><circle cx="109" cy="94" r="43" fill="var(--panel)" stroke="currentColor" strokeWidth="1.5"/><circle cx="109" cy="94" r="34" stroke="currentColor" strokeDasharray="4 4"/><path d="M191 73h45m-9-9 9 9-9 9M191 115h45" stroke="currentColor" strokeWidth="1.5"/><path d="M236 106v18m-45-18v18" stroke="currentColor" strokeWidth="1.5"/></svg>}
+export function PinDimensions({circles}:{circles:CircleSettings}) {
+  const face=Number.isFinite(circles.inner/circles.outer)?Math.max(0,Math.min(1,circles.inner/circles.outer))*42:35
+  return <svg className="pin-dimensions" viewBox="0 0 240 112" fill="none" role="img" aria-label="Cut boundary surrounds the visible pin face"><circle cx="64" cy="56" r="42" fill="var(--canvas)" stroke="currentColor" strokeWidth="1.5"/><circle cx="64" cy="56" r={face} stroke="currentColor" strokeDasharray="3 3"/><path d="M110 30h25m-25 49h25" stroke="currentColor"/><text x="144" y="34" fill="currentColor">Cut boundary</text><text x="144" y="83" fill="currentColor">Visible face</text></svg>
+}

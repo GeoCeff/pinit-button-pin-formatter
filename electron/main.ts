@@ -193,7 +193,7 @@ else {
 app.on('second-instance',()=>{if(window){if(window.isMinimized())window.restore();window.focus()}})
 app.whenReady().then(()=>{
   app.setAppUserModelId('app.pinit.desktop')
-  window=new BrowserWindow({width:1500,height:960,minWidth:1080,minHeight:720,title:'dfCuts',icon:app.isPackaged?path.join(process.resourcesPath,'icon.png'):path.join(app.getAppPath(),'resources','icon.png'),backgroundColor:'#f1f7f9',webPreferences:{preload:path.join(__dirname,'../preload/index.cjs'),nodeIntegration:false,contextIsolation:true,sandbox:true,webSecurity:true}})
+  window=new BrowserWindow({width:1500,height:960,minWidth:1080,minHeight:720,title:'dfCuts',icon:app.isPackaged?path.join(process.resourcesPath,'icon.png'):path.join(app.getAppPath(),'resources','icon.png'),backgroundColor:'#f7f6f2',webPreferences:{preload:path.join(__dirname,'../preload/index.cjs'),nodeIntegration:false,contextIsolation:true,sandbox:true,webSecurity:true}})
   window.setMenuBarVisibility(false)
   session.defaultSession.setPermissionRequestHandler((_contents,_permission,callback)=>callback(false))
   window.webContents.setWindowOpenHandler(()=>({action:'deny'}))

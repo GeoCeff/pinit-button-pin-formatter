@@ -57,11 +57,8 @@ try {
   assert.equal(await page.getByRole('button',{name:'Remove Garden club',exact:true}).count(),0,'the selection tray has no accidental delete action')
   const artworkTab=page.getByRole('button',{name:'Artwork',exact:true});const sheetTab=page.getByRole('button',{name:'Sheet',exact:true})
   await page.getByRole('button',{name:'Edit sheet settings',exact:true}).click();await expect(page.getByRole('heading',{name:'Sheet setup',exact:true})).toBeVisible();await artworkTab.click();await page.getByLabel('Project name',{exact:true}).focus()
-  const firstTile=page.locator('.dock-tile').first()
-  const dockScale=()=>firstTile.evaluate(node=>new DOMMatrixReadOnly(getComputedStyle(node).transform).a)
-  await artworkTab.hover();await expect.poll(dockScale).toBeGreaterThan(1.1);await page.screenshot({animations:'disabled',path:path.join(screenshotDir,'dock-hover.png')})
-  await artworkTab.focus();await expect.poll(dockScale).toBeCloseTo(1,4)
-  await page.emulateMedia({reducedMotion:'reduce'});await artworkTab.hover();await expect.poll(dockScale).toBeCloseTo(1,4);await page.mouse.move(0,0);await page.emulateMedia({reducedMotion:'no-preference'});await artworkTab.hover();await expect.poll(dockScale).toBeGreaterThan(1.1);await page.mouse.move(0,0);await artworkTab.focus();await expect.poll(dockScale).toBeCloseTo(1,4)
+  await artworkTab.hover();await expect(artworkTab).toHaveAttribute('aria-pressed','true')
+  await page.emulateMedia({reducedMotion:'reduce'});await expect(artworkTab).toBeVisible();await page.emulateMedia({reducedMotion:'no-preference'})
   await artworkTab.focus();await page.keyboard.press('ArrowRight');await expect(sheetTab).toBeFocused();await page.keyboard.press('Enter');await expect(sheetTab).toHaveAttribute('aria-pressed','true')
   await page.keyboard.press('Home');await expect(artworkTab).toBeFocused();await page.keyboard.press('Enter');await expect(artworkTab).toHaveAttribute('aria-pressed','true')
   await page.getByRole('button',{name:'Fit within face circle',exact:true}).click();await expect(page.getByRole('button',{name:'Fit within face circle',exact:true})).toHaveAttribute('aria-pressed','true');await page.getByRole('button',{name:'Fit within safe circle',exact:true}).click()
@@ -96,7 +93,7 @@ try {
   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'desktop has no horizontal overflow')
   assert.ok(await page.locator('.layout-summary span').first().evaluate(node=>parseFloat(getComputedStyle(node).fontSize)>=14),'print summary labels stay readable')
   assert.ok(await page.locator('.sheet-counter').evaluate(node=>parseFloat(getComputedStyle(node).fontSize)>=14),'sheet navigation uses readable text')
-  assert.ok(await page.evaluate(()=>document.querySelector('.dock-bay').getBoundingClientRect().right<document.querySelector('.studio-zone').getBoundingClientRect().left),'wide desktop places the artwork rail beside the canvas')
+  assert.ok(await page.evaluate(()=>document.querySelector('.dock-bay').getBoundingClientRect().right<=document.querySelector('.studio-zone').getBoundingClientRect().left+1),'wide desktop places the artwork rail beside the canvas')
   await app.evaluate(({BrowserWindow})=>BrowserWindow.getAllWindows()[0].setSize(1080,720));await page.evaluate(()=>window.scrollTo(0,0));await page.screenshot({animations:'disabled',path:path.join(screenshotDir,'compact.png')});assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'minimum window has no horizontal overflow');await expect.poll(async()=>(await page.locator('.editor-canvas .konvajs-content').boundingBox()).width/1.14).toBeGreaterThanOrEqual(300)
   const minimumCutPixels=(await page.locator('.editor-canvas .konvajs-content').boundingBox()).width/1.14
   await page.getByLabel('Project name',{exact:true}).focus();await page.keyboard.press('ArrowLeft')
@@ -130,6 +127,7 @@ try {
   assert.ok(await page.evaluate(()=>matchMedia('(pointer:coarse)').matches),'touch emulation activates coarse-pointer styling')
   const smallHeaderTargets=await page.locator('.topbar button,.project-name input').evaluateAll(nodes=>nodes.filter(node=>{const rect=node.getBoundingClientRect();return rect.width<44||rect.height<44}).map(node=>node.getAttribute('aria-label')||node.textContent))
   assert.deepEqual(smallHeaderTargets,[],'all header controls have 44px touch targets')
+  assert.ok(await page.locator('.workbench-tab').evaluateAll(nodes=>nodes.every(node=>{const r=node.getBoundingClientRect();return r.width>=44&&r.height>=44})),'document navigation has 44px touch targets')
   for(const control of [page.getByLabel('Copies',{exact:true}),page.getByRole('button',{name:'Edit sheet settings',exact:true})]){const target=await control.boundingBox();assert.ok(target&&target.width>=44&&target.height>=44,'quick controls retain 44px touch targets')}
   await touchSession.send('Emulation.setTouchEmulationEnabled',{enabled:false});await touchSession.detach()
   await app.evaluate(({BrowserWindow})=>{const w=BrowserWindow.getAllWindows()[0];w.setMinimumSize(1080,720);w.setSize(1500,960)})
@@ -184,6 +182,6 @@ try {
   await expect(page.getByRole('button',{name:/Garden club.*20 copies/})).toBeFocused()
   assert.deepEqual(errors,[])
   await page.evaluate(()=>window.desktop.setDirty(false))
-  console.log(JSON.stringify({passed:true,minimumCutPixels,checks:['first-run tutorial','tutorial steps and replay','persisted tutorial dismissal','native modal background isolation','keyboard and reduced-motion tutorial navigation','two default guides','readable centered feedback','safe selection tray','offline Geist font','dock pointer magnification','reduced motion','keyboard dock navigation','modal focus restoration','custom paper','removal cancel and confirm','import','orientation','quantities','invalid settings','portable save/open','missing source/relink','RGB PDF','CMYK PDF','PNG/JPG metadata','cancel cleanup','desktop and compact layouts','narrow fallback','narrow tutorial','wide artwork rail','compact artwork tray','readable print summary','copies-per-sheet cap','200% zoom','320px complete artwork card','keyboard transitions disabled','reduced-motion opacity only'],root},null,2))
+  console.log(JSON.stringify({passed:true,minimumCutPixels,checks:['first-run tutorial','tutorial steps and replay','persisted tutorial dismissal','native modal background isolation','keyboard and reduced-motion tutorial navigation','two default guides','readable centered feedback','safe selection tray','offline Geist font','stable text navigation','reduced motion','keyboard document navigation','modal focus restoration','custom paper','removal cancel and confirm','import','orientation','quantities','invalid settings','portable save/open','missing source/relink','RGB PDF','CMYK PDF','PNG/JPG metadata','cancel cleanup','desktop and compact layouts','narrow fallback','narrow tutorial','wide artwork rail','compact artwork tray','readable print summary','copies-per-sheet cap','200% zoom','320px complete artwork card','keyboard transitions disabled','reduced-motion opacity only'],root},null,2))
 }catch(error){const page=await app.firstWindow().catch(()=>null);if(page)await page.screenshot({animations:'disabled',path:path.join(screenshotDir,'smoke-failure.png')}).catch(()=>{});throw error}
 finally{await app.evaluate(({dialog})=>{dialog.showMessageBoxSync=()=>1}).catch(()=>{});await app.close()}

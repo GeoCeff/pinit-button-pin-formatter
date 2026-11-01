@@ -1,6 +1,7 @@
 import { memo, useState } from 'react'
 import type { Preset, Settings as SettingsType } from '../core/model'
 import { Check, NumberField, SelectField } from './controls'
+import { PinDimensions } from './CutGeometry'
 export const Settings=memo(function Settings({settings:s,onChange,presets,onSavePreset}:{settings:SettingsType;onChange:(s:SettingsType)=>void;presets:Preset[];onSavePreset:(name:string)=>void}) {
   const [unit,setUnit]=useState('mm');const [name,setName]=useState('')
   const [customPaper,setCustomPaper]=useState(false)
@@ -15,6 +16,7 @@ export const Settings=memo(function Settings({settings:s,onChange,presets,onSave
   return <section className="inspector" aria-label="Project settings">
     <div className="section-title"><h2>Sheet settings</h2><select name="measurement-unit" aria-label="Measurement unit" value={unit} onChange={e=>setUnit(e.target.value)}><option value="mm">mm</option><option value="in">inches</option></select></div>
     <section className="settings-group"><h3>Pin dimensions</h3>
+      <PinDimensions circles={s.circles}/>
       <SelectField label="Preset" value="" onChange={value=>{const selected=presets[Number(value)];if(selected){setCustomPaper(false);onChange(structuredClone(selected.settings))}}}><option value="">Custom settings</option>{presets.map((p,i)=><option key={p.name} value={i}>{p.name}</option>)}</SelectField>
       <div className="two-col">{dimension('Face diameter',s.circles.inner,v=>circle('inner',v))}{dimension('Cut diameter',s.circles.outer,v=>circle('outer',v))}</div>
       {dimension('Safe inset',s.circles.safeInset,v=>circle('safeInset',v))}

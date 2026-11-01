@@ -10,7 +10,7 @@ export function useImages(sources:Record<string,string>) {
   useEffect(()=>{let current=true;Promise.all(Object.entries(sources).map(([id,source])=>new Promise<[string,HTMLImageElement]>((resolve,reject)=>{const img=new Image();img.onload=()=>resolve([id,img]);img.onerror=reject;img.src=source}))).then(entries=>{if(current)setImages(Object.fromEntries(entries))}).catch(()=>{if(current)setImages({})});return()=>{current=false}},[sources])
   return images
 }
-const alignmentColor = '#0d6f91'
+const alignmentColor = '#49624f'
 export const Editor=memo(function Editor({design,asset,image,circles,onChange,guideVisibility,picking,onPick}:{design:Design;asset:Asset;image?:HTMLImageElement;circles:CircleSettings;onChange:(patch:Partial<Design>)=>void;guideVisibility:{inner:boolean;outer:boolean;safe:boolean};picking:boolean;onPick:(color:string)=>void}) {
   const container=useRef<HTMLDivElement>(null)
   const artwork=useRef<Konva.Image>(null)
@@ -57,7 +57,7 @@ export const Editor=memo(function Editor({design,asset,image,circles,onChange,gu
     <div ref={container} className={`editor-canvas ${picking?'picking':''}`}>
     <Stage width={size} height={size} scaleX={scale} scaleY={scale} x={size/2} y={size/2} onClick={pick}>
       <Layer>
-        <Circle radius={circles.outer/2} fill="#ffffff" shadowColor="#000000" shadowOpacity={0.1} shadowBlur={18/scale} shadowOffsetY={4/scale} listening={false}/>
+        <Circle radius={circles.outer/2} fill="#ffffff" listening={false}/>
         <Group clipFunc={ctx=>{ctx.arc(0,0,circles.outer/2,0,Math.PI*2)}}>
           <Circle radius={circles.outer/2} fill={design.fill}/>
           {image?<KonvaImage ref={artwork} image={image} width={asset.width} height={asset.height} offsetX={asset.width/2} offsetY={asset.height/2} x={t.x} y={t.y} scaleX={t.mmPerPixel} scaleY={t.mmPerPixel} rotation={t.rotation} draggable={!picking}
@@ -70,9 +70,9 @@ export const Editor=memo(function Editor({design,asset,image,circles,onChange,gu
             onDragStart={()=>setInteracting(true)} onDragMove={drag} onDragEnd={event=>{drag(event);setInteracting(false)}}
             onTransformStart={()=>setInteracting(true)} onTransform={resize} onTransformEnd={()=>{resize();setInteracting(false)}}/>:null}
         </Group>
-        {guideVisibility.outer?<Circle radius={circles.outer/2} stroke="#28566d" strokeWidth={0.25} listening={false}/>:null}
-        {guideVisibility.inner?<Circle radius={circles.inner/2} stroke="#966117" strokeWidth={0.18} dash={[1,0.7]} listening={false}/>:null}
-        {guideVisibility.safe?<Circle radius={circles.inner/2-circles.safeInset} stroke="#28566d" strokeWidth={0.15} dash={[0.4,0.6]} listening={false}/>:null}
+        {guideVisibility.outer?<Circle radius={circles.outer/2} stroke="#55554e" strokeWidth={0.25} listening={false}/>:null}
+        {guideVisibility.inner?<Circle radius={circles.inner/2} stroke="#78766d" strokeWidth={0.18} dash={[1,0.7]} listening={false}/>:null}
+        {guideVisibility.safe?<Circle radius={circles.inner/2-circles.safeInset} stroke="#55554e" strokeWidth={0.15} dash={[0.4,0.6]} listening={false}/>:null}
         <Transformer ref={transformer} visible={!!image&&!picking} rotateEnabled={false} keepRatio centeredScaling flipEnabled={false} shiftBehavior="none" enabledAnchors={['top-left','top-right','bottom-left','bottom-right']}
           borderStroke={alignmentColor} borderStrokeWidth={1} borderDash={[4,3]} anchorStroke={alignmentColor} anchorFill="#ffffff" anchorStrokeWidth={2} anchorSize={12} anchorCornerRadius={6}
           anchorStyleFunc={anchor=>{anchor.hitFunc((context,shape)=>{context.beginPath();context.rect(-6,-6,anchor.width()+12,anchor.height()+12);context.closePath();context.fillStrokeShape(shape)})}}

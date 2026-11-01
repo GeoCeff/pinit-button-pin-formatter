@@ -6,7 +6,8 @@ import { buildRenderSpec, checkExportSize, type RenderSpec } from '../render/spe
 import { projectReducer } from '../state/project'
 import { Check, Confirm, Dialog, NumberField } from './controls'
 import { Icon } from './Icon'
-import MacFloatingDock, { type DockItem } from '@/components/ui/mac-style-floating-dock'
+import { WorkbenchNavigation, type WorkbenchItem } from './WorkbenchNavigation'
+import { CutMark, CutGeometry } from './CutGeometry'
 import { QuickStart } from './QuickStart'
 import { ArtworkControls, ArtworkLibrary } from './Workspace'
 import { Editor, useImages } from './Editor'
@@ -109,7 +110,7 @@ export function App() {
   const setOutput=(output:Project['settings']['output'])=>updateSettings({...project.settings,output})
   function closeTutorial(){try{localStorage.setItem('pinit.quick-start.v1','seen')}catch{}setTutorialOpen(false)}
   const artworkLibrary=<ArtworkLibrary designs={project.designs} selectedId={design?.id} sources={sources} variant={workspaceView==='library'?'gallery':'tray'} disabled={ioBusy||exporting} onImport={()=>void importArtwork()} onManage={()=>setWorkspaceView('library')} onSelect={selectDesign} onRemove={item=>void removeDesign(item)}/>
-  const dockItems:DockItem[]=[
+  const dockItems:WorkbenchItem[]=[
     {id:'artwork',label:'Artwork',kind:'view',icon:<Icon name="image" size={24}/>},
     {id:'sheet',label:'Sheet',kind:'view',icon:<Icon name="stack" size={24}/>},
     {id:'library',label:'Library',kind:'view',icon:<Icon name="folder" size={24}/>},
@@ -119,7 +120,7 @@ export function App() {
   return <div className="app" onPointerDownCapture={()=>{document.documentElement.dataset.input='pointer'}} onKeyDownCapture={()=>{document.documentElement.dataset.input='keyboard'}}>
     <a className="skip-link" href="#artwork-workspace">Skip to artwork workspace</a>
     <header className="topbar">
-      <div className="brand" aria-label="dfCuts"><span className="brand-symbol" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="11" stroke="currentColor" strokeWidth="1.7"/><circle cx="16" cy="16" r="7" stroke="currentColor" strokeWidth="1.3" strokeDasharray="2 2"/></svg></span><strong>dfCuts</strong></div>
+      <div className="brand" aria-label="dfCuts"><span className="brand-symbol"><CutMark/></span><strong>dfCuts</strong></div>
       <div className="project-block"><div className="project-name"><input name="project-name" aria-label="Project name" title={project.name} autoComplete="off" spellCheck={false} maxLength={200} value={project.name} onChange={event=>dispatch({type:'name',name:event.target.value})}/><Icon name="edit" className="project-edit-icon" size={14}/></div>
         <div className="actions file-actions">
           <span className="project-save-state" data-state={saveState} role="status" aria-live="polite" aria-atomic="true">{saveState==='saved'?<Icon name="check" size={14}/>:<i aria-hidden="true"/>}{saveLabel}</span>
@@ -131,15 +132,15 @@ export function App() {
       </div>
       <button className="export-block" disabled={ioBusy||exporting||!!invalid||!total} onClick={()=>setExportOpen(true)}><span>Export sheets</span><Icon name="download" size={24}/></button>
     </header>
+    <div className="workspace-tools"><div className="workspace-title">Print workbench</div><WorkbenchNavigation items={dockItems} active={workspaceView} onSelect={id=>{if(id==='export')setExportOpen(true);else if(id==='help')setTutorialOpen(true);else setWorkspaceView(id)}}/><span className="workspace-note">{project.designs.length} {project.designs.length===1?'artwork':'artworks'} · {total.toLocaleString()} copies</span></div>
     <div className="status-area">
       {error?<div className="message error" role="alert"><span>{error}</span><button className="text-button" onClick={()=>setError('')} aria-label="Dismiss error">Dismiss</button></div>:null}
       {notice?<div className="message notice" role="status" onMouseEnter={()=>setNoticePaused(true)} onMouseLeave={()=>setNoticePaused(false)} onFocusCapture={()=>setNoticePaused(true)} onBlurCapture={event=>{if(!event.currentTarget.contains(event.relatedTarget))setNoticePaused(false)}}><Icon name="check" size={16}/><span>{notice}</span><button className="icon-button" onClick={()=>{setNotice('');setNoticePaused(false)}} aria-label="Dismiss notification"><Icon name="close" size={15}/></button></div>:null}
       {invalid?<div className="message error" role="alert"><span>{invalid} Last valid preview is retained.</span><button className="text-button" onClick={()=>setWorkspaceView('sheet')}>Review settings</button></div>:null}
     </div>
-    <aside className="dock-bay" aria-label="Project artwork"><div className="tray-slot">{workspaceView==='artwork'?<div className="artwork-shelf">{artworkLibrary}</div>:<div className="tray-summary"><span className="summary-symbol"><Icon name="stack" size={24}/></span><span className="eyebrow">This project</span><strong>{project.designs.length} {project.designs.length===1?'design':'designs'}</strong><span>{total.toLocaleString()} {total===1?'copy':'copies'} to print</span><div className="summary-dimensions"><span>{circles.inner} mm face</span><span>{circles.outer} mm cut</span></div><button className="text-button" onClick={()=>setWorkspaceView('artwork')}><Icon name="left" size={16}/>Back to artwork</button></div>}</div></aside>
+    <aside className="dock-bay" aria-label="Project artwork"><div className="tray-slot">{workspaceView==='artwork'?<div className="artwork-shelf">{artworkLibrary}</div>:<div className="tray-summary"><span className="summary-symbol"><Icon name="stack" size={24}/></span><strong>{project.designs.length} {project.designs.length===1?'design':'designs'}</strong><span>{total.toLocaleString()} {total===1?'copy':'copies'} to print</span><div className="summary-dimensions"><span>{circles.inner} mm face</span><span>{circles.outer} mm cut</span></div><button className="text-button" onClick={()=>setWorkspaceView('artwork')}><Icon name="left" size={16}/>Back to artwork</button></div>}</div></aside>
     <main className="workspace" id="artwork-workspace" tabIndex={-1} data-view={workspaceView}>
       <div className="studio-zone">
-        <div className="workspace-tools"><div className="workspace-title"><Icon name="studio" size={18}/><span>Workspace</span></div><MacFloatingDock items={dockItems} active={workspaceView} onSelect={id=>{if(id==='export')setExportOpen(true);else if(id==='help')setTutorialOpen(true);else setWorkspaceView(id)}}/></div>
         <section className="editor-panel" aria-label="Artwork editor" hidden={workspaceView!=='artwork'}>
           <header className="studio-heading"><div className="design-heading">{design&&sources[design.assetId]?<img className="heading-thumbnail" src={sources[design.assetId]} alt=""/>:<Icon name="image" size={22}/>}<div>{design?<h1 title={design.name}>{design.name}</h1>:<h2>Artwork</h2>}<span>{circles.inner} mm face / {circles.outer} mm cut</span></div></div>
             {design?<div className="studio-actions"><div className="fit-modes" role="group" aria-label="Artwork fit"><button aria-label="Fit within safe circle" aria-pressed={design.fit==='safe'} disabled={!!invalid} onClick={()=>fit('safe')}>Safe</button><button aria-label="Fit within face circle" aria-pressed={design.fit==='contain'} disabled={!!invalid} onClick={()=>fit('contain')}>Face</button><button aria-label="Fill face circle" aria-pressed={design.fit==='fill'} disabled={!!invalid} onClick={()=>fit('fill')}>Fill</button></div><div className="quick-copies"><NumberField label="Copies" value={design.quantity} onChange={quantity=>updateDesign({quantity})} min={0} max={100000} integer/></div><button className="adjust-toggle" aria-expanded={adjustmentsOpen} aria-controls="artwork-adjustments" onClick={()=>setAdjustmentsOpen(value=>!value)}><Icon name="sliders" size={16}/>{adjustmentsOpen?'Hide adjustments':'Adjust artwork'}</button></div>:<span className="offline-note"><Icon name="shield" size={16}/>Offline workspace</span>}
@@ -150,7 +151,7 @@ export function App() {
             </aside>
             <div className="stage-surface">
               {design&&asset&&safeDesign&&spec?<><Editor key={design.id+'-'+asset.id} design={valid.length||!result.ok?safeDesign:design} asset={asset} image={images[design.assetId]} circles={spec.project.settings.circles} onChange={updateDesign} guideVisibility={guides} picking={picking} onPick={pickColor}/>{!sources[design.assetId]?<div className="missing-message">Source missing. <button className="text-button" onClick={()=>void relink()}>Relink artwork</button></div>:!images[design.assetId]?<p className="artwork-loading" role="status">Loading artwork…</p>:null}</>:<div className="empty-editor">
-                <div className="empty-copy"><div className="empty-pin" aria-hidden="true"><div className="empty-cut"><div className="empty-face" style={{width:(circles.inner/circles.outer*100)+'%'}}/><Icon name="image" size={28}/></div></div><h1 className="max-w-5xl">Add your artwork.</h1><p>Bring a PNG or JPG. Position it once,<br/>then let dfCuts prepare the sheet.</p><button className="primary" disabled={ioBusy} onClick={()=>void importArtwork()}><Icon name="upload" size={18}/>Import first design</button><button className="text-button empty-help" onClick={()=>setTutorialOpen(true)}>Show me how it works<Icon name="right" size={15}/></button></div>
+                <div className="empty-copy"><CutGeometry/><h1 className="max-w-5xl">Add your artwork.</h1><p>Bring a PNG or JPG. Position it once,<br/>then let dfCuts prepare the sheet.</p><button className="primary" disabled={ioBusy} onClick={()=>void importArtwork()}><Icon name="upload" size={18}/>Import first design</button><button className="text-button empty-help" onClick={()=>setTutorialOpen(true)}>Show me how it works<Icon name="right" size={15}/></button></div>
               </div>}
             </div>
           </div>
