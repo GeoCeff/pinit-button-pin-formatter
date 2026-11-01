@@ -6,7 +6,7 @@
   --color-border:var(--control-line); --color-ring:var(--focus);
 }
 :root {
-  font-family:'PinIt Sans','Segoe UI',sans-serif; font-size:16px; color-scheme:light;
+  font-family:'dfCuts Sans','Segoe UI',sans-serif; font-size:16px; color-scheme:light;
   -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
   --ink:#172b3a; --muted:#596979; --workspace:#edf1f5; --surface:#fff; --canvas:#f4f6f9;
   --rail:#f8fafc; --panel:#e9f4f8; --paper-well:#e8edf3; --line:#dde4ec; --control-line:#80909f;

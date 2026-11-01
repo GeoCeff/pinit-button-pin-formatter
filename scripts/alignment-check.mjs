@@ -13,7 +13,7 @@ const app=await electron.launch({executablePath:process.env.PINIT_EXECUTABLE,arg
 const errors=[]
 try {
   const page=await app.firstWindow();page.on('pageerror',error=>errors.push(error.message))
-  await page.getByRole('dialog',{name:'A quick tour of PinIt',exact:true}).getByRole('button',{name:'Skip tour',exact:true}).click()
+  await page.getByRole('dialog',{name:'A quick tour of dfCuts',exact:true}).getByRole('button',{name:'Skip tour',exact:true}).click()
   const xField=page.getByLabel('Horizontal offset',{exact:true})
   const yField=page.getByLabel('Vertical offset',{exact:true})
   const widthField=page.getByLabel('Artwork width',{exact:true})
@@ -85,13 +85,13 @@ try {
   await app.evaluate(({BrowserWindow})=>BrowserWindow.getAllWindows()[0].setSize(1500,960))
 
   await choose([root]);await page.getByRole('button',{name:'Save',exact:true}).click();await page.getByRole('status').filter({hasText:'Project saved'}).waitFor()
-  const projectFolder=path.join(root,(await readdir(root)).find(name=>name.startsWith('PinIt-')))
+  const projectFolder=path.join(root,(await readdir(root)).find(name=>name.startsWith('dfCuts-')))
   const saved=JSON.parse(await readFile(path.join(projectFolder,'project.json'),'utf8'))
   assert.ok(Math.abs(saved.designs[0].transform.x)<1e-7);assert.ok(Math.abs(saved.designs[0].transform.y)<1e-7)
   assert.ok(Math.abs(saved.designs[0].transform.mmPerPixel*1000-36)<pointerTolerance)
   await page.getByRole('button',{name:'Export sheets',exact:true}).click();await page.getByLabel('File format',{exact:true}).selectOption('png');await page.getByLabel('Raster resolution',{exact:true}).fill('150')
   await choose([root]);await page.getByRole('button',{name:'Choose folder & export'}).click();await page.getByRole('status').filter({hasText:'Export saved:'}).waitFor({timeout:60000})
-  const output=path.join(root,(await readdir(root)).find(name=>name.startsWith('PinIt-export-')),'sheet-0001.png')
+  const output=path.join(root,(await readdir(root)).find(name=>name.startsWith('dfCuts-export-')),'sheet-0001.png')
   const {data,info}=await sharp(output).raw().toBuffer({resolveWithObject:true})
   let selectionBlue=0
   for(let i=0;i<data.length;i+=info.channels)if(data[i]<40&&data[i+1]>80&&data[i+2]>data[i+1]+15)selectionBlue++

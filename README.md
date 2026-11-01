@@ -1,8 +1,8 @@
-# PinIt - button pin formatter
+# dfCuts - button pin formatter
 
 A desktop app for automatically arranging button-pin designs on printable sheets.
 
-PinIt starts with a real workflow: a friend runs a button-pin business and spends too much time preparing customer artwork and laying out different designs in Canva. The goal is to automate bleed preparation, circular positioning, duplication, and sheet layout, then save a PDF for the operator's existing color-correction and printing workflow.
+dfCuts starts with a real workflow: a friend runs a button-pin business and spends too much time preparing customer artwork and laying out different designs in Canva. The goal is to automate bleed preparation, circular positioning, duplication, and sheet layout, then save a PDF for the operator's existing color-correction and printing workflow.
 
 **Status:** A working offline Electron/React desktop implementation is available. It supports the workflow below, portable project folders, RGB/ICC-converted CMYK PDF, and PNG/JPG sheets. Automated geometry, file-safety and desktop workflow checks are included. Physical printer calibration and clean-machine installer acceptance are still required before production use.
 
@@ -30,6 +30,8 @@ Artwork alignment works directly in the editor. Drag near the middle to snap eit
 
 ## Run and build
 
+The application is now named dfCuts. Existing project folders still open normally. The original `app.pinit.desktop` installation identity and `PinIt` settings directory are retained so upgrades keep presets, tutorial preferences and local settings. Internal bridge channels and test environment variables retain their compatibility names. New project and export folders use `dfCuts-`.
+
 Development needs Windows 11 x64, Node.js 24 LTS and npm. The installed application runs offline without Node.js.
 
 ```powershell
@@ -38,7 +40,7 @@ powershell -ExecutionPolicy Bypass -File scripts/prepare-resources.ps1
 npm run dev
 ```
 
-The resource script downloads a pinned, SHA-512-checked official Ghostscript 10.08.0 archive and extracts it locally. It does not run an installer or modify the system. The generic CMYK profile, engine and license notices are packaged with PinIt. The Windows installer requests administrator access and installs the included Microsoft Visual C++ redistributable offline; no separate download is needed. Imported ICC profiles must be CMYK output profiles. Source artwork is normalized to oriented sRGB for editing; original bytes are preserved.
+The resource script downloads a pinned, SHA-512-checked official Ghostscript 10.08.0 archive and extracts it locally. It does not run an installer or modify the system. The generic CMYK profile, engine and license notices are packaged with dfCuts. The Windows installer requests administrator access and installs the included Microsoft Visual C++ redistributable offline; no separate download is needed. Imported ICC profiles must be CMYK output profiles. Source artwork is normalized to oriented sRGB for editing; original bytes are preserved.
 
 ```powershell
 npm test              # numeric geometry, validation, orientation, files and output metadata
@@ -80,7 +82,7 @@ The component from the pasted instructions lives at `src/components/ui/mac-style
 
 ## Reported production settings
 
-These settings were supplied from the operator's workflow. They have not been independently measured in a generated or printed PinIt file.
+These settings were supplied from the operator's workflow. They have not been independently measured in a generated or printed dfCuts file.
 
 | Pin / inner face diameter | Outer cut diameter | Reported circles per A4 sheet |
 | --- | --- | --- |
@@ -91,9 +93,9 @@ These settings were supplied from the operator's workflow. They have not been in
 
 For the 44 mm pin, the inner circle is the 44 mm front face/fold boundary. The 53 mm outer circle is the cut boundary including the wrap area; the operator confirmed it matches the machine opening. This gives `(53 - 44) / 2 = 4.5 mm` of allowance per side. Other sizes need their own measured outer diameters.
 
-The current Canva intermediate is a 1254 x 1254 px PNG, high quality, transparency off, exporting the current page only. This is an observed workflow setting; PinIt should retain source detail and use millimeters for print geometry rather than require this intermediate export.
+The current Canva intermediate is a 1254 x 1254 px PNG, high quality, transparency off, exporting the current page only. This is an observed workflow setting; dfCuts should retain source detail and use millimeters for print geometry rather than require this intermediate export.
 
-The operator currently uses borderless A4 and manually corrects color before printing. PinIt should save the PDF locally; direct printer control is outside the first version.
+The operator currently uses borderless A4 and manually corrects color before printing. dfCuts should save the PDF locally; direct printer control is outside the first version.
 
 ## Inputs still needed
 
@@ -107,7 +109,7 @@ Print a calibration sheet at actual size (100%), verify any printer-driver scali
 
 ## Scope
 
-The intended workflow is local and offline. PinIt handles preparation and layout; creating or redesigning artwork can stay in Canva or the operator's chosen editor. Manual color correction stays in the existing downstream workflow. Direct Canva integration, direct printing, user accounts, order management, and cloud storage are outside the first version.
+The intended workflow is local and offline. dfCuts handles preparation and layout; creating or redesigning artwork can stay in Canva or the operator's chosen editor. Manual color correction stays in the existing downstream workflow. Direct Canva integration, direct printing, user accounts, order management, and cloud storage are outside the first version.
 
 The implementation uses Electron, TypeScript, electron-vite, React, Konva, pdf-lib, sharp, Vitest and electron-builder, with a committed npm lockfile. The default is the confirmed 44 mm face / 53 mm cut example. Other inner/outer pairs are editable; no unmeasured outer diameters are invented.
 
@@ -119,4 +121,4 @@ Contributions are welcome. While the workflow is being defined, open an issue be
 
 ## License
 
-PinIt source is MIT licensed. See [LICENSE](LICENSE). Bundled dependencies retain their licenses, including the AGPL Ghostscript runtime; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Customer artwork retains its own ownership and licensing.
+dfCuts source is MIT licensed. See [LICENSE](LICENSE). Bundled dependencies retain their licenses, including the AGPL Ghostscript runtime; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Customer artwork retains its own ownership and licensing.

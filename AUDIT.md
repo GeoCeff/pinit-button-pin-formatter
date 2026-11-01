@@ -1,4 +1,4 @@
-What this repo does: PinIt prepares local PNG/JPEG artwork for circular button pins, arranges exact quantities on physical sheets, and exports PDF or raster files. It preserves original artwork and project edits in portable folders. The assumed load is one operator in one desktop session, within the documented batch and memory limits.
+What this repo does: dfCuts prepares local PNG/JPEG artwork for circular button pins, arranges exact quantities on physical sheets, and exports PDF or raster files. It preserves original artwork and project edits in portable folders. The assumed load is one operator in one desktop session, within the documented batch and memory limits.
 
 Healthy. Nothing to fix in the checked application paths.
 

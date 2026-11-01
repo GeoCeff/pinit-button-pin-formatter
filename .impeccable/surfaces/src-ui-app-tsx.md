@@ -5,7 +5,7 @@ primary_target: "src/ui/App.tsx"
 related_targets: ["src/ui/Workspace.tsx","src/ui/Editor.tsx","src/ui/QuickStart.tsx","src/ui/controls.tsx","src/ui/styles.css","src/ui/quick-start.css","src/components/ui/mac-style-floating-dock.tsx"]
 ---
 
-# PinIt print studio refresh
+# dfCuts print studio refresh
 
 Mode: Operate. The current request is a complete frontend revamp using UI/UX Pro Max, Emil Design Engineering, Better UI, Better Typography and Find Skills. The follow-up explicitly removes hard-to-read print/footer copy and requires a conventional feature branch and a completed commit.
 

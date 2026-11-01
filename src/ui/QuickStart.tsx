@@ -69,7 +69,7 @@ export function QuickStart({ onClose, onImport, hasArtwork }: { onClose: () => v
     onClose()
     if (!hasArtwork) onImport()
   }
-  return <Dialog title="A quick tour of PinIt" className="quick-start-dialog" onClose={onClose}>
+  return <Dialog title="A quick tour of dfCuts" className="quick-start-dialog" onClose={onClose}>
     <div className="quick-start">
       <ol className="quick-start-progress" aria-label="Tutorial progress">
         {steps.map((item, index) => <li key={item.label} aria-current={step === index ? 'step' : undefined} data-complete={step > index}>

@@ -1,8 +1,8 @@
 {
-  "name": "pinit",
+  "name": "dfcuts",
   "version": "0.1.0",
   "description": "Offline button-pin artwork and print-sheet preparation",
-  "author": "PinIt contributors",
+  "author": "dfCuts contributors",
   "license": "MIT",
   "main": "out/main/index.js",
   "scripts": {
@@ -18,7 +18,7 @@
   },
   "build": {
     "appId": "app.pinit.desktop",
-    "productName": "PinIt",
+    "productName": "dfCuts",
     "directories": {
       "output": "release"
     },
@@ -43,7 +43,7 @@
     "win": {
       "icon": "resources/icon.ico",
       "target": "nsis",
-      "artifactName": "PinIt-${version}-Setup.${ext}"
+      "artifactName": "dfCuts-${version}-Setup.${ext}"
     },
     "nsis": {
       "include": "resources/installer.nsh",

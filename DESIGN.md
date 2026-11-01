@@ -1,5 +1,5 @@
 ---
-name: "PinIt"
+name: "dfCuts"
 description: "A focused print studio for button-pin artwork and physically sized sheets."
 colors:
   ink: "#172b3a"
@@ -22,7 +22,7 @@ colors:
   danger-soft: "#fff0ec"
 typography:
   body:
-    fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
+    fontFamily: "'dfCuts Sans', 'Segoe UI', sans-serif"
     fontSize: "0.875rem"
     fontWeight: 400
     lineHeight: 1.5
@@ -57,9 +57,9 @@ typography:
     lineHeight: 1.5
 ---
 
-# Design system: PinIt print studio
+# Design system: dfCuts print studio
 
-Updated 30 October 2026. This document describes the current implementation. The UI source is the authority for exact component states. Older briefs and generated snapshots in `.impeccable/` record earlier iterations.
+Updated 2 November 2026. This document describes the current implementation. The UI source is the authority for exact component states. Older briefs and generated snapshots in `.impeccable/` record earlier iterations.
 
 ## Direction
 
@@ -80,7 +80,7 @@ The toolbar belongs to the editor panel. Artwork selection remains separate from
 
 ## Typography
 
-Use the bundled Geist variable face through PinIt Sans, with Segoe UI as fallback. Root size is 16px; the dense professional tool uses 14px body/input text. Captions rarely go below 12px. Narrow inputs use 16px at 850px and below.
+Use the bundled Geist variable face through dfCuts Sans, with Segoe UI as fallback. Root size is 16px; the dense professional tool uses 14px body/input text. Captions rarely go below 12px. Narrow inputs use 16px at 850px and below.
 
 Use rem sizes, unitless line heights and CSS font-weight. Keep changing counts and measurements tabular. Text remains selectable outside the draggable canvas.
 
