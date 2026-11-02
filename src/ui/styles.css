@@ -268,6 +268,17 @@ select { cursor:pointer; padding-right:24px }
 .dialog>.hint { margin-top:18px }
 .dialog-actions { justify-content:flex-end; gap:8px; margin-top:24px }
 .dialog .field-error { color:var(--danger) }
+.close-dialog { width:min(560px,calc(100% - 48px)) }
+.close-dialog h2 { margin-bottom:12px }
+.close-dialog>p { margin-bottom:0; overflow-wrap:anywhere; font-size:.9375rem }
+.close-dialog strong { color:var(--ink); font-weight:600 }
+.close-dialog>.close-export-note,.close-dialog>.close-hint { margin-top:16px; font-size:.8125rem }
+.close-dialog>.close-error { margin-top:16px }
+.close-actions { margin-top:28px; padding-top:20px; border-top:1px solid var(--line) }
+.close-actions button { min-height:42px }
+.close-actions button:first-child { margin-right:auto }
+.close-discard:not(:disabled) { color:var(--danger); border-color:transparent }
+@media (hover:hover) { .close-discard:hover:not(:disabled) { color:var(--danger-hover); background:var(--danger-soft) } }
 .export-progress { position:fixed; right:24px; bottom:24px; z-index:45; display:flex; align-items:center; gap:18px; width:min(480px,calc(100% - 48px)); padding:20px; border:1px solid transparent; border-radius:14px; background:white; box-shadow:var(--shadow-overlay) }
 .export-progress>div { min-width:0; flex:1 }
 .export-progress p { margin-top:5px; font-size:.8125rem; color:var(--muted); overflow-wrap:anywhere }
