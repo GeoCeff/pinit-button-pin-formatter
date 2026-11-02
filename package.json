@@ -15,7 +15,8 @@
     "test:desktop": "node scripts/smoke.mjs",
     "test:dev": "node scripts/dev-check.mjs",
     "test:alignment": "node scripts/alignment-check.mjs",
-    "test:eyedropper": "node scripts/eyedropper-check.mjs"
+    "test:eyedropper": "node scripts/eyedropper-check.mjs",
+    "test:close": "node scripts/close-check.mjs"
   },
   "build": {
     "appId": "app.pinit.desktop",

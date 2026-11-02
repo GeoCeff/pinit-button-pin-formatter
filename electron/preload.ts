@@ -9,6 +9,8 @@ const api: DesktopBridge = {
   beginExport:p=>invoke('export-begin',p),writeExport:(id,name,bytes)=>invoke('export-write',id,name,bytes),
   finishExport:id=>invoke('export-finish',id),cancelExport:id=>invoke('export-cancel',id),
   setDirty:dirty=>ipcRenderer.send('pinit:dirty',dirty),runtimeStatus:()=>invoke('runtime'),
+  respondToClose:action=>invoke('close-response',action),
+  onCloseRequested:callback=>{const listener=(_:unknown,request:{exporting:boolean})=>callback(request);ipcRenderer.on('pinit:close-request',listener);return()=>ipcRenderer.removeListener('pinit:close-request',listener)},
   onProgress:callback=>{ const listener=(_:unknown,message:string)=>callback(message); ipcRenderer.on('pinit:progress',listener);return()=>ipcRenderer.removeListener('pinit:progress',listener) }
 }
 contextBridge.exposeInMainWorld('desktop',api)

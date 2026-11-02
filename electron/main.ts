@@ -15,6 +15,8 @@ import { convertCmyk, verifyPdf } from './color'
 let window: BrowserWindow
 let dirty = false
 let fileBusy = false
+let closing = false
+let closeRequested = false
 const locations = new Map<string,string>()
 const runtime = () => app.isPackaged ? path.join(process.resourcesPath,'ghostscript') : path.join(app.getAppPath(),'resources','ghostscript')
 interface Job { id: string; stage: string; destination: string; project: Project; plan: SheetPlan; files: Set<string>; child?: ChildProcess; canceled: boolean; finishing: boolean; writing: boolean; bytes: number }
@@ -51,6 +53,20 @@ async function cleanup(active: typeof job): Promise<void> {
   if(!isInside(path.dirname(active.destination),path.resolve(active.stage))||!path.basename(active.stage).startsWith('.pinit-'))throw new Error('Invalid temporary export directory.')
   await fs.rm(active.stage,{recursive:true,force:true})
 }
+async function completeClose(): Promise<void> {
+  if(closing)return
+  if(fileBusy)throw new Error('Wait for the current file operation to finish before closing.')
+  closing=true
+  try {
+    const active=job
+    if(active){
+      active.canceled=true;active.child?.kill()
+      while(job===active&&(active.writing||active.finishing))await new Promise(resolve=>setTimeout(resolve,20))
+      if(job===active){await cleanup(active);job=undefined}
+    }
+    window.destroy()
+  } catch(error) {closing=false;throw error}
+}
 async function loadPresets(): Promise<Preset[]> {
   try {
     const raw = JSON.parse((await boundedRead(path.join(app.getPath('userData'),'presets.json'),LIMITS.projectBytes)).toString())
@@ -59,6 +75,12 @@ async function loadPresets(): Promise<Preset[]> {
   } catch(error) { if ((error as NodeJS.ErrnoException).code === 'ENOENT') return []; throw error }
 }
 function register(): void {
+  handle('close-response',async(action:unknown)=>{
+    if(action!=='cancel'&&action!=='discard')throw new Error('Invalid close response.')
+    if(!closeRequested)throw new Error('No close request is pending.')
+    if(action==='cancel'){if(!closing)closeRequested=false;return}
+    await completeClose()
+  })
   handle('reset',()=>{if(job)throw new Error('Cancel the current export first.');images.clear();profiles.clear();locations.clear()},true)
   handle('import',()=>importFiles(true),true)
   handle('relink',async()=>(await importFiles(false))[0] ?? null,true)
@@ -173,6 +195,7 @@ function register(): void {
       // Commit is a single directory rename. Existing exports are never replaced.
       await fs.rename(active.stage,active.destination);job=undefined;return active.destination
     } catch(error) {await cleanup(active);if(job===active)job=undefined;throw error}
+    finally {active.finishing=false}
   })
   handle('export-cancel',async(id:unknown)=>{
     const active=job;if(!active||id!==active.id)return
@@ -198,18 +221,23 @@ app.whenReady().then(()=>{
   session.defaultSession.setPermissionRequestHandler((_contents,_permission,callback)=>callback(false))
   window.webContents.setWindowOpenHandler(()=>({action:'deny'}))
   window.webContents.on('will-navigate',event=>event.preventDefault())
-  let closing=false
+  let rendererResponsive=true
+  window.on('unresponsive',()=>{rendererResponsive=false})
+  window.on('responsive',()=>{rendererResponsive=true})
+  window.webContents.on('render-process-gone',()=>{rendererResponsive=false})
+  window.webContents.on('did-finish-load',()=>{rendererResponsive=true;closeRequested=false})
   window.on('close',event=>{
+    if(!job&&!dirty&&!fileBusy&&!closeRequested&&!closing)return
+    event.preventDefault()
     if(closing)return
-    if(job||dirty){const response=dialog.showMessageBoxSync(window,{type:'question',buttons:['Keep editing','Discard changes and close'],defaultId:0,cancelId:0,message:job?'An export is running. Close and cancel it?':'There are unsaved changes. Close without saving?'});if(response===0){event.preventDefault();return}}
-    if(job){
-      event.preventDefault();closing=true
-      const active=job;active.canceled=true;active.child?.kill()
-      void(async()=>{
-        while(job===active&&(active.writing||active.finishing))await new Promise(resolve=>setTimeout(resolve,20))
-        if(job===active){await cleanup(active);job=undefined}
-        window.destroy()
-      })().catch(()=>{closing=false;dialog.showErrorBox('Export cleanup failed','Wait for the export to stop, then try closing again.')})
+    if(!rendererResponsive){
+      const response=dialog.showMessageBoxSync(window,{type:'warning',buttons:['Keep editing','Discard changes and close'],defaultId:0,cancelId:0,message:'The workspace is not responding. Close without saving?',detail:fileBusy?'A file operation is still running. Wait for it to finish before closing.':'Any export still running will be canceled. Completed files are kept.'})
+      if(response===1)void completeClose().catch(error=>dialog.showErrorBox('Could not close dfCuts',(error as Error).message))
+      return
+    }
+    if(!closeRequested){
+      closeRequested=true
+      window.webContents.send('pinit:close-request',{exporting:!!job})
     }
   })
   register()

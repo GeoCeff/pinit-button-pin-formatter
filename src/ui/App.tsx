@@ -4,7 +4,7 @@ import { buildSheetPlan } from '../core/layout'
 import { validateProject } from '../core/validation'
 import { buildRenderSpec, checkExportSize, type RenderSpec } from '../render/spec'
 import { projectReducer } from '../state/project'
-import { Check, Confirm, Dialog, NumberField } from './controls'
+import { Check, CloseConfirmation, Confirm, Dialog, NumberField } from './controls'
 import { Icon } from './Icon'
 import { WorkbenchNavigation, type WorkbenchItem } from './WorkbenchNavigation'
 import { CutMark, CutGeometry } from './CutGeometry'
@@ -39,6 +39,9 @@ export function App() {
   const [tutorialOpen,setTutorialOpen]=useState(()=>{try{return localStorage.getItem('pinit.quick-start.v1')!=='seen'}catch{return true}})
   const [noticePaused,setNoticePaused]=useState(false)
   const [confirm,setConfirm]=useState<{title?:string;confirmLabel?:string;message:string;resolve:(v:boolean)=>void}|null>(null)
+  const [closeRequest,setCloseRequest]=useState<{exporting:boolean}|null>(null)
+  const [closeBusy,setCloseBusy]=useState(false)
+  const [closeError,setCloseError]=useState('')
   const job=useRef<{id:string;worker:Worker;canceled:boolean}|null>(null)
   const deferred=useDeferredValue(project)
   const result=useMemo(()=>buildSheetPlan(deferred),[deferred])
@@ -62,6 +65,7 @@ export function App() {
   const cancelPick=useCallback(()=>setPicking(false),[])
   const selectDesign=useCallback((id:string)=>{setSelectedId(id);setWorkspaceView('artwork')},[])
   useEffect(()=>window.desktop.setDirty(dirty),[dirty])
+  useEffect(()=>window.desktop.onCloseRequested(request=>{setCloseRequest(request);setCloseError('');setPicking(false)}),[])
   useEffect(()=>{if(!notice||noticePaused||notice.startsWith('Export saved:'))return;const timer=setTimeout(()=>setNotice(''),6000);return()=>clearTimeout(timer)},[notice,noticePaused])
   useEffect(()=>{window.desktop.presets().then(p=>setPresets([initialPreset,...p])).catch(e=>setError(e.message));window.desktop.runtimeStatus().then(s=>setCmyk(s.cmyk)).catch(e=>setError(e.message));return window.desktop.onProgress(setProgress)},[])
   useEffect(()=>{setPage(0)},[plan?.sheets.length])
@@ -72,6 +76,23 @@ export function App() {
   async function importArtwork(){await operation(async()=>{if(valid.length)throw new Error('Correct the project settings before importing artwork.');const added=await window.desktop.importImages();if(!added.length)return;dispatch({type:'import',images:added});setSources(previous=>({...previous,...Object.fromEntries(added.map(i=>[i.asset.id,i.source]))}));setSelectedId('');setWorkspaceView('artwork');setNotice(`Imported ${added.length} ${added.length===1?'design':'designs'}.`)})}
   async function openProject(){if(!await canDiscard())return;await operation(async()=>{const opened=await window.desktop.openProject();if(!opened)return;dispatch({type:'replace',project:opened.project});setSavedRevision(opened.project.revision);setSources(Object.fromEntries(opened.images.map(i=>[i.asset.id,i.source])));setLocation(opened.location);setSelectedId('');setWorkspaceView('artwork');if(opened.profileMissing)setError('The saved CMYK profile is missing. Import it again in Export sheets or select the bundled generic profile.');if(opened.missing.length)setError(`${opened.missing.length} source image(s) are missing or changed. Select each design and relink artwork. Its edits are preserved.`)})}
   async function saveProject(saveAs=false){await operation(async()=>{const snapshot=structuredClone(project);const path=await window.desktop.saveProject(snapshot,saveAs);if(path){setSavedRevision(snapshot.revision);setLocation(path);setNotice('Project saved with preserved source artwork.')}})}
+  async function answerClose(action:'cancel'|'discard'|'save') {
+    if(closeBusy)return
+    setCloseBusy(true);setCloseError('')
+    try {
+      if(action==='cancel'){await window.desktop.respondToClose('cancel');setCloseRequest(null);return}
+      if(action==='save'){
+        const snapshot=structuredClone(project)
+        const path=await window.desktop.saveProject(snapshot,false)
+        if(!path)return
+        setSavedRevision(snapshot.revision);setLocation(path)
+      }
+      const active=job.current
+      if(active){active.canceled=true;active.worker.terminate();setProgress('Stopping export…')}
+      await window.desktop.respondToClose('discard')
+    } catch(e) {setCloseError((e as Error).message);if(job.current?.canceled)setProgress('Export stopped. Cancel the export to retry cleanup.')}
+    finally {setCloseBusy(false)}
+  }
   async function relink(){if(!design)return;await operation(async()=>{const imported=await window.desktop.relinkImage();if(!imported)return;dispatch({type:'relink',id:design.id,image:imported});setSources(previous=>({...previous,[imported.asset.id]:imported.source}));setNotice('Artwork relinked. Position, scale and quantity were retained.')})}
   function fit(mode:'safe'|'contain'|'fill'){if(!asset||valid.length)return;updateDesign({fit:mode,transform:fitImage(asset,project.settings.circles,mode)})}
   const savePreset=useCallback(async(name:string)=>{await operation(async()=>{const settings=structuredClone(project.settings);settings.output.profile=null;await window.desktop.savePreset({name,settings});const saved=await window.desktop.presets();setPresets([initialPreset,...saved]);setNotice('Preset saved. Existing projects keep their own settings.')})},[operation,project.settings])
@@ -173,6 +194,7 @@ export function App() {
     {exporting?<div className="export-progress"><div role="status"><strong>Exporting your sheets</strong><p>{progress}</p></div><button disabled={!job.current} onClick={()=>void cancelExport()}>Cancel export</button></div>:null}
     {exportOpen?<Dialog title="Export sheets" onClose={()=>{if(!exporting)setExportOpen(false)}}><p>{total.toLocaleString()} copies across {plan?.sheets.length??0} sheets. A new output folder keeps previous exports intact.</p>{invalid||error?<p role="alert" className="field-error">{invalid||error}</p>:null}<ExportOptions value={project.settings.output} onChange={setOutput} cmyk={cmyk} onProfile={()=>void operation(async()=>{const profile=await window.desktop.importProfile();if(profile)setOutput({...project.settings.output,profile})})}/><div className="actions dialog-actions"><button onClick={()=>setExportOpen(false)} disabled={exporting}>Back to workspace</button><button className="primary" disabled={exporting||ioBusy||!!invalid||(project.settings.output.format==='pdf'&&project.settings.output.color==='cmyk'&&!cmyk)} onClick={()=>void startExport()}>Choose folder & export</button></div></Dialog>:null}
     {confirm?<Confirm title={confirm.title} message={confirm.message} confirmLabel={confirm.confirmLabel} onAnswer={value=>{confirm.resolve(value);setConfirm(null)}}/>:null}
+    {closeRequest?<CloseConfirmation name={project.name} dirty={dirty} exporting={exporting||closeRequest.exporting} busy={closeBusy} fileBusy={ioBusy} saveBlocked={invalid} error={closeError} onKeepEditing={()=>void answerClose('cancel')} onDiscard={()=>void answerClose('discard')} onSave={()=>void answerClose('save')}/>:null}
   </div>
 }
 

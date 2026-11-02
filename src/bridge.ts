@@ -15,6 +15,8 @@ export interface DesktopBridge {
   finishExport(id: string): Promise<string>
   cancelExport(id: string): Promise<void>
   setDirty(dirty: boolean): void
+  onCloseRequested(callback: (request: { exporting: boolean }) => void): () => void
+  respondToClose(action: 'cancel' | 'discard'): Promise<void>
   onProgress(callback: (message: string) => void): () => void
   runtimeStatus(): Promise<{ cmyk: boolean }>
 }
