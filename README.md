@@ -1,127 +1,244 @@
-# dfCuts - button pin formatter
+# dfCuts
 
-A desktop app for automatically arranging button-pin designs on printable sheets.
+**Prepare button-pin artwork and printable sheets, offline.**
 
-dfCuts starts with a real workflow: a friend runs a button-pin business and spends too much time preparing customer artwork and laying out different designs in Canva. The goal is to automate bleed preparation, circular positioning, duplication, and sheet layout, then save a PDF for the operator's existing color-correction and printing workflow.
+dfCuts is a Windows desktop app for button-pin makers. Import PNG or JPG artwork, position it inside a circular template, set quantities, and arrange designs across printable sheets. Export physically sized PDFs or PNG/JPG sheets, then continue with your existing color-correction and printing workflow.
 
-**Status:** A working offline Electron/React desktop implementation is available. It supports the workflow below, portable project folders, RGB/ICC-converted CMYK PDF, and PNG/JPG sheets. Automated geometry, file-safety and desktop workflow checks are included. Physical printer calibration and clean-machine installer acceptance are still required before production use.
+It was built around a small button-pin business spending too much time preparing artwork and duplicating designs manually in Canva. dfCuts handles positioning, wrap allowance, duplication, and sheet layout while preserving the original artwork.
 
-## Current workflow
+**Target:** Windows 11 x64. The desktop workflow is implemented and covered by automated checks; physical printer calibration and installation on a fresh Windows machine still need acceptance testing.
 
-Windows 11 x64 is the desktop target. The operator can:
+[Open the app](#open-the-app) · [Clone and run](#clone-and-run) · [Architecture](#architecture) · [Licenses](#licenses)
 
-1. Import customer artwork, initially PNG or JPEG, including existing Canva exports.
-2. Fit the whole image inside the safe/face circle, fill the face, or move, scale and rotate it manually with drag and numeric controls.
-3. Fill the surrounding margin with a solid color sampled from the artwork's edge, with manual color adjustment.
-4. Preview the artwork inside a circular cut boundary and inner face/fold guide, then adjust its position and scale so important content stays on the front face.
-5. Set independent face/cut diameters, A4/Letter/custom paper, margins, orientation, gaps, mixed/separate designs, exact quantities and an optional sheet limit. Auto compares grid and staggered arrangements without shrinking circles.
-6. Export a physically sized PDF in RGB or ICC-converted CMYK, or one PNG/JPG per sheet with resolution metadata. Screen guides and printed guides have separate controls. Verify the operator's profile and print result before production use.
-7. Save/open a project folder containing `project.json` and original image bytes in `assets/`. Move the entire folder to another location; missing images retain edits and can be relinked. Named presets copy settings without changing existing projects.
+## What it does
 
-The initial layout will use one pin template per job and support multiple designs. Mixed pin sizes on one sheet can be considered after the basic workflow is proven.
+- **Edit artwork:** fit to the safe area or face, fill the face, drag, resize, rotate, and center. Resize handles appear when artwork is selected and hide when deselected.
+- **Pick a background color:** use a pipette cursor with a source-pixel magnifier, or enter a color manually. Keyboard and touch picking are supported.
+- **Lay out sheets:** choose A4, Letter, or custom paper; set margins, gaps, orientation, quantities, and an optional copies-per-sheet limit. Compare grid and staggered arrangements without shrinking the circles.
+- **Export locally:** produce RGB or ICC-converted CMYK PDFs, or one PNG/JPG per sheet with resolution metadata. Screen guides and printed guides have separate settings.
+- **Keep projects portable:** save settings, artwork edits, and original image bytes together. Move the whole project folder, reopen it, or relink missing sources without losing edits.
+- **Recover safely:** cancel exports without replacing existing output, and choose Save and close, Discard and close, or Keep editing when closing an unsaved project.
 
-The workspace is a flat, warm-neutral print workbench with an artwork rail, a central canvas and a sheet preview. Custom SVG cut/face geometry connects the app mark, empty state and dimension settings. On compact desktop windows the artwork rail becomes a tray below the canvas, preserving room for positioning. **Import artwork** is prominent; selected artwork has a clear border and checkmark, and thumbnails show the whole source. **Manage artwork** opens the full **Library**, where removal asks for confirmation. **Copies** stays beside the artwork name, so quantities can be changed without opening a panel. **Safe**, **Face** and **Fill** provide quick fit choices on roomy desktops; **Adjust artwork** opens fit, position, size, rotation and background controls. Cut and Face are the two default circle guides; Safe is optional and does not change physical geometry or export-guide settings.
+One project uses one face/cut diameter pair and can contain multiple designs. The default is a **44 mm face / 53 mm cut**, giving **4.5 mm of wrap per side**. Other diameters are editable. Direct printing, mixed pin sizes on one sheet, cloud storage, and Canva integration are outside the current scope.
 
-The document navigation switches between **Artwork**, **Sheet** setup and **Library**, replays the **Help** tutorial, or opens **Export**. The three-step tutorial appears on first use; completing or skipping it is remembered on this computer. Arrow keys, Home and End move toolbar focus; Enter or Space activates a tool. Native dialogs isolate background controls and restore focus. Numeric fields describe their units. A short GSAP underline follows pointer selection; keyboard and reduced-motion navigation update immediately. Dialogs and tutorial steps use short transitions; keyboard actions are immediate and reduced motion keeps only an opacity fade. Ordinary success notices dismiss after six seconds and pause while hovered or focused; export destinations and errors stay visible until dismissed. Geist is bundled locally for offline use.
+## Tech stack
 
-The sheet preview uses a clear page counter, large totals and readable **Total copies** / **Copies / sheet** labels. **Setup** opens the paper and arrangement settings directly. The sheet limit is reflected in that count. Layout and wrap use two short rows, while gesture instructions live in the optional tutorial rather than persistent footer text. Form controls use at least 14px text, rising to 16px on narrow layouts.
+[![Electron, React, TypeScript, Tailwind CSS, Vite, Node.js, and Vitest](https://skillicons.dev/icons?i=electron,react,ts,tailwind,vite,nodejs,vitest&theme=light)](https://github.com/tandpfun/skill-icons)
 
-Artwork alignment works directly in the editor. Click or tap the artwork to show its resize box; click outside it or press **Escape** to hide the box. With the canvas focused, **Enter** or **Space** selects the artwork. Drag near the middle to snap either axis into place; green guides appear for the aligned axes while moving or resizing. A centered confirmation with a checkmark sits above the artwork, and an off-center action makes correction available in one click. Pull a round corner handle to resize proportionally around the photo's center. **Center artwork** resets the position while preserving size and rotation, then hides the resize box. Hold **Alt** during a drag to place artwork freely inside the snap zone. These editing overlays are excluded from exported sheets.
+| Layer | Technologies | Purpose |
+| --- | --- | --- |
+| Desktop | Electron, Node.js | Window lifecycle, native file dialogs, project storage, and export coordination |
+| Interface | React, TypeScript, Tailwind CSS, GSAP, local Geist font | Workbench, controls, styling, and navigation feedback |
+| Artwork editor | Konva, react-konva | Interactive positioning, transforms, and editing guides |
+| Rendering | Canvas / OffscreenCanvas, Web Workers, pdf-lib | Artwork tiles, sheet rendering, and RGB PDF / raster output |
+| Image and color processing | sharp, Ghostscript | Oriented sRGB previews, image checks, and ICC-based CMYK PDF conversion |
+| Build and packaging | electron-vite, Vite, electron-builder, NSIS | Development server, production bundles, and Windows installer |
+| Verification | Vitest, Playwright | Geometry, validation, file safety, and real Electron workflow checks |
 
-**Eyedropper** changes the canvas cursor to a pipette and shows an 11 × 11 source-pixel magnifier at 10×, with the center pixel outlined and its color/hex value below. Hover previews; click applies the color. Arrow keys step through original pixels and Enter/Space confirms. Escape or Cancel eyedropper exits without changing the fill. On touch, hold/drag to inspect and release to choose. Transparent pixels and areas outside the visible cut are rejected. Sampling follows the original oriented image through rotation, scale and offsets, without picking guides or resize handles.
+## Open the app
 
-## Run and build
+### From an installer
 
-The application is now named dfCuts. Existing project folders still open normally. The original `app.pinit.desktop` installation identity and `PinIt` settings directory are retained so upgrades keep presets, tutorial preferences and local settings. Internal bridge channels and test environment variables retain their compatibility names. New project and export folders use `dfCuts-`.
+If you have a built installer, run `dfCuts-<version>-Setup.exe`, complete Setup, and open **dfCuts** from the Windows Start menu. The installed app works offline and does not require Node.js or npm.
 
-Development needs Windows 11 x64, Node.js 24 LTS and npm. The installed application runs offline without Node.js.
+Setup requests administrator access and installs the included Microsoft Visual C++ runtime for Ghostscript. To create an installer yourself, see [Build a Windows installer](#build-a-windows-installer).
+
+### From an existing checkout
+
+In PowerShell, open the repository folder. After completing the [first-time setup](#clone-and-run), use:
 
 ```powershell
-npm ci
-powershell -ExecutionPolicy Bypass -File scripts/prepare-resources.ps1
 npm run dev
 ```
 
-The resource script downloads a pinned, SHA-512-checked official Ghostscript 10.08.0 archive and extracts it locally. It does not run an installer or modify the system. The generic CMYK profile, engine and license notices are packaged with dfCuts. The Windows installer requests administrator access and installs the included Microsoft Visual C++ redistributable offline; no separate download is needed. Imported ICC profiles must be CMYK output profiles. Source artwork is normalized to oriented sRGB for editing; original bytes are preserved.
+This opens the Electron app with development reloads. To open the production build instead:
 
 ```powershell
-npm test              # numeric geometry, validation, orientation, files and output metadata
-npm run build         # TypeScript checks and production bundles
-npm run test:desktop  # real Electron import/edit/save/reopen/relink and all four export paths
-npm run test:dev      # development renderer and production security-policy check
-npm run test:alignment # actual drag, resize, center feedback and export-overlay checks
-npm run test:eyedropper # exact pixel sampling, magnifier, cursor, keyboard and touch checks
-npm run dist          # complete offline Windows NSIS installer under release/
-npm start             # run the production build
+npm run build
+npm start
 ```
 
-The desktop check creates clearly synthetic artwork and output in ignored `local-data/`. It uses native-dialog test responses and a separate test profile. It does not operate on customer files. Rebuild before running it after source changes.
+`npm start` requires a production build. Rebuild after source changes to see those changes in the production app.
 
-Export captures the current project revision, works in a separate renderer worker, shows progress and supports cancellation. Files are checked and staged in a temporary folder, then published by renaming the complete folder. Every export gets a new destination folder, preserving existing output. A failed CMYK conversion never falls back to RGB.
+## Clone and run
 
-Safety bounds: at most 500 designs/assets, 100,000 copies, 1,000 sheets, 10,000 circles per sheet, 40 megapixels per source, 50 MB per imported source, a 256 MB source/session and raster/tile budget, 16 custom profiles / 64 MB per session, and 1 GB per export. Raster DPI is a whole number from 1–2400 so JPEG density metadata remains accurate. Start a new project to clear the source session budget. Settings that exceed a bound show an error before allocation. These are deliberate small-shop limits, not production throughput claims.
+### Prerequisites
 
-PDF memory checks count artwork tiles. PNG/JPG memory checks count the full sheet plus artwork tiles. Layout reserves space for the stroke of every printed guide that extends beyond the artwork.
+- Windows 11 x64.
+- Git.
+- Node.js 24 with npm.
+- Internet access for the initial dependency and Ghostscript downloads. Normal app use is offline.
 
-## Implementation map
+Run these commands in PowerShell:
 
-- `src/core/`: physical units, fitting, validation, arrangement and pagination; no Electron or drawing imports.
-- `src/state/`: project reducer; computed sheets are not persisted.
-- `src/render/`: render specification, shared Canvas drawing, worker exports and DPI metadata.
-- `src/ui/`: artwork workspace/tray, first-run tutorial, Konva editor, sheet settings, preview and native dialogs.
-- `src/ui/WorkbenchNavigation.tsx` and `CutGeometry.tsx`: document navigation and bespoke SVG geometry.
-- `electron/`: isolated named bridge, native dialogs, authorized source registry, portable project storage, staged exports and separate Ghostscript process.
-- `scripts/`: runtime preparation, packaging preflight and real desktop acceptance checks.
+```powershell
+git clone https://github.com/GeoCeff/pinit-button-pin-formatter.git
+cd pinit-button-pin-formatter
+npm ci
+powershell -ExecutionPolicy Bypass -File .\scripts\prepare-resources.ps1
+npm run dev
+```
 
-See [plan.md](plan.md) for the full design and [AUDIT.md](AUDIT.md) for the implementation audit and remaining release checks.
+The repository keeps its original `pinit-button-pin-formatter` name; the application is named **dfCuts**.
 
-## Component and styling setup
+`npm ci` installs the versions recorded in `package-lock.json`. The resource script downloads the pinned Ghostscript 10.08.0 Windows archive, verifies its SHA-512 checksum, and extracts the engine, ICC profiles, and license notices into `resources/ghostscript/`. It does not run an installer or change system settings. Keep that folder for CMYK exports and packaging; it is intentionally ignored by Git.
 
-The project already uses TypeScript. Tailwind CSS is integrated into the Electron renderer through `@tailwindcss/vite`; `src/ui/styles.css` is the stylesheet entry. The `@/` alias maps to `src/` in both TypeScript and the renderer configuration. `components.json` records the shadcn component paths, including `@/components/ui`.
+If resource verification reports a missing `MSVCP140.dll` or `VCRUNTIME140.dll`, run `resources\ghostscript\vcredist_x64.exe`, complete its installation, and rerun the resource script. This Microsoft installer may require administrator access.
 
-The workbench uses `src/ui/WorkbenchNavigation.tsx` for labeled, keyboard-accessible navigation and `src/ui/CutGeometry.tsx` for cut/face SVGs. Shared controls retain existing validation and unit handling. The redesign adds no runtime dependencies.
+### First project
 
-`npm ci` installs this setup; `npm run dev` starts the desktop app. To add another shadcn component later, use the npm runner, for example `npx shadcn@latest add button`. The configuration follows the official [Tailwind Vite setup](https://tailwindcss.com/docs/installation/using-vite) and [shadcn Vite setup](https://ui.shadcn.com/docs/installation/vite).
+1. Follow or skip the first-run tutorial; **Help** reopens it.
+2. Choose **Import artwork** and select PNG/JPG files.
+3. Position each design, choose its fill color, and set **Copies**. Click the artwork to show resize handles; click outside or press **Escape** to hide them.
+4. Open **Sheet** or **Setup** to adjust dimensions and arrangement. Review the sheet preview.
+5. **Save** the portable project, or choose **Export sheets**, select the output options, and choose a destination folder.
 
-## Reported production settings
+Save and export are separate operations: saving preserves an editable project; exporting creates printable files. Exporting does not mark unsaved edits as saved.
 
-These settings were supplied from the operator's workflow. They have not been independently measured in a generated or printed dfCuts file.
+### Build a Windows installer
 
-| Pin / inner face diameter | Outer cut diameter | Reported circles per A4 sheet |
+After first-time setup:
+
+```powershell
+npm run dist
+```
+
+This typechecks and builds the app, verifies the offline resources, and creates an x64 NSIS installer in `release/`, named `dfCuts-<version>-Setup.exe`. Ghostscript, its generic CMYK profile, notices, and the Microsoft runtime installer are included.
+
+### Commands
+
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Open the development app |
+| `npm run build` | Typecheck and build production bundles in `out/` |
+| `npm start` | Open the existing production build |
+| `npm run typecheck` | Check TypeScript without building |
+| `npm test` | Run geometry, validation, image, and file tests |
+| `npm run test:desktop` | Check import, editing, saving, reopening, relinking, and RGB/CMYK PDF plus PNG/JPG exports |
+| `npm run test:dev` | Check development startup and the production security policy |
+| `npm run test:alignment` | Check dragging, resizing, selection, centering, and export overlays |
+| `npm run test:eyedropper` | Check exact pixel sampling, magnifier, keyboard, and touch behavior |
+| `npm run test:close` | Check close confirmation, save recovery, pending file operations, and export cleanup |
+| `npm run dist` | Build the offline Windows installer in `release/` |
+
+Run `npm run build` before the desktop, alignment, eyedropper, and close checks after changing source files. Prepare Ghostscript before checks that exercise CMYK output. Desktop checks use synthetic artwork, ignored `local-data/` folders, and isolated test profiles.
+
+## Architecture
+
+The renderer owns the interface and project edits. Electron owns filesystem access and native processes. A narrow preload bridge exposes named operations; the renderer has no direct Node.js or filesystem access. Physical geometry and validation live in shared TypeScript modules.
+
+```mermaid
+flowchart TD
+    Artwork["Original PNG / JPG files"] --> Main
+
+    subgraph Desktop["Electron main process - electron/"]
+        Main["Validated file and export handlers<br/>sharp image decoding"]
+        Storage["Portable project folder<br/>project.json + original assets"]
+        Stage["Temporary export folder"]
+        Color{"Output type?"}
+        GS["Ghostscript process<br/>ICC-based CMYK conversion"]
+        Verify["Verify output"]
+        Main <--> Storage
+        Main --> Stage
+        Stage --> Color
+        Color -->|CMYK PDF| GS
+        Color -->|RGB PDF / PNG / JPG| Verify
+        GS --> Verify
+    end
+
+    Bridge["Isolated preload bridge<br/>src/bridge.ts + electron/preload.ts"]
+    Main <-->|Named IPC messages| Bridge
+
+    subgraph Renderer["Sandboxed renderer - src/"]
+        UI["React workbench + Konva editor<br/>src/ui/"]
+        State["Project reducer<br/>src/state/"]
+        Core["Millimeter geometry, validation,<br/>arrangement and pagination<br/>src/core/"]
+        Spec["Frozen project revision + render spec"]
+        Worker["Export Web Worker<br/>Canvas + pdf-lib<br/>src/render/"]
+        UI -->|Edits| State
+        State --> Core
+        Core -->|Validated sheet plan| UI
+        State --> Spec
+        Core --> Spec
+        Spec --> Worker
+    end
+
+    Bridge <-->|Typed window.desktop API| UI
+    Worker -->|File bytes via UI and bridge| Main
+    Verify -->|Atomic folder rename| Output["New export folder"]
+```
+
+The diagram renders on GitHub. In Markdown viewers without Mermaid support, read the implementation map below.
+
+- **Import:** Electron reads and validates source files. sharp produces oriented sRGB previews; original bytes stay available for project saving.
+- **Edit and plan:** the reducer stores project settings and artwork transforms. The core computes sheet positions in millimeters; computed sheets are not persisted.
+- **Render:** export captures the current project revision and sends a fixed render specification to a worker. Editor-only guides, handles, and the eyedropper overlay are excluded from the output.
+- **Verify and publish:** Electron validates file bytes before staging, checks that all sheets are present, and converts and verifies CMYK PDFs in a separate Ghostscript process when requested. It publishes a completed export by renaming its folder. Failure or cancellation cleans up temporary output. Existing exports are never replaced, and failed CMYK conversion never silently falls back to RGB.
+- **Close:** Electron requests an in-app confirmation when changes or an export are pending. Saving must succeed before Save and close proceeds; pending file operations and export cleanup are protected. An unresponsive renderer retains a native recovery prompt.
+
+### Implementation map
+
+| Location | Responsibility |
+| --- | --- |
+| `src/core/` | Units, artwork fitting, validation, packing, and pagination; independent of Electron and drawing libraries |
+| `src/state/` | Project reducer and revision tracking |
+| `src/render/` | Render specifications, shared canvas drawing, worker exports, and resolution metadata |
+| `src/ui/` | Workbench, editor, library, settings, sheet preview, tutorial, and dialogs |
+| `src/bridge.ts` | Typed renderer-to-desktop contract |
+| `electron/` | Secure preload, native dialogs, source registry, project storage, staged exports, and color conversion |
+| `scripts/` | Resource preparation, packaging checks, and Electron acceptance tests |
+| `resources/` | App icons, installer integration, and locally prepared Ghostscript resources |
+
+A saved project is a folder containing `project.json` and `assets/`. Keep them together when moving or sharing a project. Missing artwork retains its edits and can be relinked. Reusable presets copy settings into the current project without changing other projects.
+
+For upgrade compatibility, the installation identity remains `app.pinit.desktop`, and existing settings stay in the `PinIt` application-data directory. Internal IPC channels and test environment variables retain their compatibility names. New project and export folders use `dfCuts-`.
+
+## Print setup and data
+
+Use measured face and cut diameters for your button machine. Print at **actual size / 100%**, check driver scaling and borderless expansion, and measure a calibration sheet before production use. Confirm the ICC profile and printed colors with the operator's workflow. Generating a PDF alone does not establish print accuracy.
+
+Keep customer artwork, job data, and generated output in `local-data/`, which Git ignores. Other locations are not automatically protected from commits. Public samples should be synthetic or explicitly licensed.
+
+<details>
+<summary>Operator reference measurements</summary>
+
+These values were supplied by the operator. Reported capacities still need checking against the actual template and printed output.
+
+| Face diameter | Cut diameter | Reported circles per A4 sheet |
 | --- | --- | --- |
 | 58 mm | Not supplied | 12 |
 | 44 mm | 53 mm | 18 |
 | 32 mm | Not supplied | 28 |
 | 25 mm | Not supplied | 48 |
 
-For the 44 mm pin, the inner circle is the 44 mm front face/fold boundary. The 53 mm outer circle is the cut boundary including the wrap area; the operator confirmed it matches the machine opening. This gives `(53 - 44) / 2 = 4.5 mm` of allowance per side. Other sizes need their own measured outer diameters.
+The operator confirmed that the 53 mm cut matches the 44 mm button machine's opening. Other cut diameters must be measured rather than extrapolated from this pair. A rectangular grid of 53 mm circles on A4 holds 15; the reported 18 requires a different arrangement, such as staggering, checked against the real template.
 
-The current Canva intermediate is a 1254 x 1254 px PNG, high quality, transparency off, exporting the current page only. This is an observed workflow setting; dfCuts should retain source detail and use millimeters for print geometry rather than require this intermediate export.
+The existing Canva intermediate is a 1254 × 1254 px PNG, high quality, transparency off, current page only. dfCuts does not require that intermediate size; physical geometry uses millimeters. The operator currently uses borderless A4 and adjusts color before printing.
 
-The operator currently uses borderless A4 and manually corrects color before printing. dfCuts should save the PDF locally; direct printer control is outside the first version.
+Still needed for physical acceptance: the actual A4 template and margins/gaps, other cut diameters, printer model and driver settings, the downstream color-correction application, and the required ICC profile.
 
-## Inputs still needed
+</details>
 
-- Existing A4 template or PDF showing the actual circle arrangement, gaps, and margins. Reported counts are target capacities, not row/column specifications. At 53 mm cut diameter, a simple rectangular grid on 210 x 297 mm A4 holds only `floor(210 / 53) * floor(297 / 53) = 15` circles. The reported 18 needs a different arrangement, such as staggering, to be checked against the real template.
-- Outer cut diameters for the 58, 32, and 25 mm pins; do not extrapolate the 44 mm allowance or diameter ratio.
-- Whether cut and face/fold guide lines belong in the exported PDF or only in the editor.
-- The color-correction application and required CMYK/ICC profile. Validate actual exported color spaces; a PDF label alone does not establish CMYK output.
-- Current Windows version, printer model, borderless expansion/scaling settings, representative order quantities, and whether mixed pin sizes are required initially.
+<details>
+<summary>Current processing limits</summary>
 
-Print a calibration sheet at actual size (100%), verify any printer-driver scaling, and measure it before treating output as ready for production. PDF generation alone does not establish print accuracy.
+Up to 500 designs/assets, 100,000 copies, 1,000 sheets, and 10,000 circles per sheet. Sources are limited to 40 megapixels and 50 MB each, with a 256 MB source/session budget. Rendering checks enforce a 256 MB raster/tile budget; custom profiles are limited to 16 / 64 MB per session; exported files are limited to 1 GB per job. Raster DPI must be a whole number from 1 to 2400.
 
-## Scope
+PDF memory checks count artwork tiles. PNG/JPG checks count the full sheet plus artwork tiles. Printed-guide stroke widths are included in layout bounds. Start a new project to clear the source-session budget.
 
-The intended workflow is local and offline. dfCuts handles preparation and layout; creating or redesigning artwork can stay in Canva or the operator's chosen editor. Manual color correction stays in the existing downstream workflow. Direct Canva integration, direct printing, user accounts, order management, and cloud storage are outside the first version.
+</details>
 
-The implementation uses Electron, TypeScript, electron-vite, React, Konva, pdf-lib, sharp, Vitest and electron-builder, with a committed npm lockfile. The default is the confirmed 44 mm face / 53 mm cut example. Other inner/outer pairs are editable; no unmeasured outer diameters are invented.
+See [plan.md](plan.md) for workflow requirements, [AUDIT.md](AUDIT.md) for the implementation audit, and [ai-declaration.md](ai-declaration.md) for the AI assistance disclaimer. For a large contribution, open an issue describing the real layout problem before starting implementation.
 
-## Artwork and contributions
+## Licenses
 
-Keep customer artwork, job data, and generated exports in `local-data/`, which is ignored by Git. Only include synthetic or explicitly licensed sample artwork in the public repository. Other locations are not automatically protected from commits.
+| Component | License / notices |
+| --- | --- |
+| dfCuts source | [MIT License](LICENSE), copyright 2026 GeoCeff |
+| Bundled Ghostscript runtime | GNU AGPL v3; bundled `ghostscript/doc/COPYING` and corresponding-source notice. Details in [third-party notices](THIRD_PARTY_NOTICES.md#ghostscript-10080). |
+| Bundled Geist font | SIL Open Font License 1.1; full notice in [third-party notices](THIRD_PARTY_NOTICES.md#geist). |
+| Microsoft Visual C++ redistributable | Microsoft's own license and notices; see [third-party notices](THIRD_PARTY_NOTICES.md#microsoft-visual-c-redistributable). |
+| Other dependencies | Their respective licenses and installed-package notices; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). |
+| README technology icons | [Skill Icons](https://github.com/tandpfun/skill-icons), MIT licensed; served by skillicons.dev. |
 
-Contributions are welcome. While the workflow is being defined, open an issue before starting a large feature and describe the real layout problem it solves.
-
-## License
-
-dfCuts source is MIT licensed. See [LICENSE](LICENSE). Bundled dependencies retain their licenses, including the AGPL Ghostscript runtime; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Customer artwork retains its own ownership and licensing.
+The source license does not replace bundled third-party licenses; the complete installer is not MIT-only. Customer artwork retains its own ownership and licensing.
