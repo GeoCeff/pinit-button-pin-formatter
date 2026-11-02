@@ -59,6 +59,7 @@ export function App() {
   const updateDesign=useCallback((patch:Partial<Design>)=>{if(currentDesignId)dispatch({type:'design',id:currentDesignId,patch})},[currentDesignId])
   const updateSettings=useCallback((settings:Project['settings'])=>dispatch({type:'settings',settings}),[])
   const pickColor=useCallback((fill:string)=>{updateDesign({fill});setPicking(false)},[updateDesign])
+  const cancelPick=useCallback(()=>setPicking(false),[])
   const selectDesign=useCallback((id:string)=>{setSelectedId(id);setWorkspaceView('artwork')},[])
   useEffect(()=>window.desktop.setDirty(dirty),[dirty])
   useEffect(()=>{if(!notice||noticePaused||notice.startsWith('Export saved:'))return;const timer=setTimeout(()=>setNotice(''),6000);return()=>clearTimeout(timer)},[notice,noticePaused])
@@ -150,7 +151,7 @@ export function App() {
               {design&&asset?<ArtworkControls design={design} asset={asset} onChange={updateDesign} onFit={fit} onRelink={()=>void relink()} picking={picking} onTogglePick={()=>setPicking(previous=>!previous)} sourceReady={!!images[design.assetId]} ioBusy={ioBusy}/>:null}
             </aside>
             <div className="stage-surface">
-              {design&&asset&&safeDesign&&spec?<><Editor key={design.id+'-'+asset.id} design={valid.length||!result.ok?safeDesign:design} asset={asset} image={images[design.assetId]} circles={spec.project.settings.circles} onChange={updateDesign} guideVisibility={guides} picking={picking} onPick={pickColor}/>{!sources[design.assetId]?<div className="missing-message">Source missing. <button className="text-button" onClick={()=>void relink()}>Relink artwork</button></div>:!images[design.assetId]?<p className="artwork-loading" role="status">Loading artwork…</p>:null}</>:<div className="empty-editor">
+              {design&&asset&&safeDesign&&spec?<><Editor key={design.id+'-'+asset.id} design={valid.length||!result.ok?safeDesign:design} asset={asset} image={images[design.assetId]} circles={spec.project.settings.circles} onChange={updateDesign} guideVisibility={guides} picking={picking} onPick={pickColor} onCancelPick={cancelPick}/>{!sources[design.assetId]?<div className="missing-message">Source missing. <button className="text-button" onClick={()=>void relink()}>Relink artwork</button></div>:!images[design.assetId]?<p className="artwork-loading" role="status">Loading artwork…</p>:null}</>:<div className="empty-editor">
                 <div className="empty-copy"><CutGeometry/><h1 className="max-w-5xl">Add your artwork.</h1><p>Bring a PNG or JPG. Position it once,<br/>then let dfCuts prepare the sheet.</p><button className="primary" disabled={ioBusy} onClick={()=>void importArtwork()}><Icon name="upload" size={18}/>Import first design</button><button className="text-button empty-help" onClick={()=>setTutorialOpen(true)}>Show me how it works<Icon name="right" size={15}/></button></div>
               </div>}
             </div>

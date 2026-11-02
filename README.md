@@ -28,6 +28,8 @@ The sheet preview uses a clear page counter, large totals and readable **Total c
 
 Artwork alignment works directly in the editor. Click or tap the artwork to show its resize box; click outside it or press **Escape** to hide the box. With the canvas focused, **Enter** or **Space** selects the artwork. Drag near the middle to snap either axis into place; green guides appear for the aligned axes while moving or resizing. A centered confirmation with a checkmark sits above the artwork, and an off-center action makes correction available in one click. Pull a round corner handle to resize proportionally around the photo's center. **Center artwork** resets the position while preserving size and rotation, then hides the resize box. Hold **Alt** during a drag to place artwork freely inside the snap zone. These editing overlays are excluded from exported sheets.
 
+**Eyedropper** changes the canvas cursor to a pipette and shows an 11 × 11 source-pixel magnifier at 10×, with the center pixel outlined and its color/hex value below. Hover previews; click applies the color. Arrow keys step through original pixels and Enter/Space confirms. Escape or Cancel eyedropper exits without changing the fill. On touch, hold/drag to inspect and release to choose. Transparent pixels and areas outside the visible cut are rejected. Sampling follows the original oriented image through rotation, scale and offsets, without picking guides or resize handles.
+
 ## Run and build
 
 The application is now named dfCuts. Existing project folders still open normally. The original `app.pinit.desktop` installation identity and `PinIt` settings directory are retained so upgrades keep presets, tutorial preferences and local settings. Internal bridge channels and test environment variables retain their compatibility names. New project and export folders use `dfCuts-`.
@@ -48,6 +50,7 @@ npm run build         # TypeScript checks and production bundles
 npm run test:desktop  # real Electron import/edit/save/reopen/relink and all four export paths
 npm run test:dev      # development renderer and production security-policy check
 npm run test:alignment # actual drag, resize, center feedback and export-overlay checks
+npm run test:eyedropper # exact pixel sampling, magnifier, cursor, keyboard and touch checks
 npm run dist          # complete offline Windows NSIS installer under release/
 npm start             # run the production build
 ```
