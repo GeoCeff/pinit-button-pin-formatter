@@ -1,3 +1,5 @@
+import { useState } from 'react'
+import { Component as AppleColorPicker } from '@/components/ui/apple-color-picker'
 import { effectivePpi, type Asset, type Design } from '../core/model'
 import { NumberField, SelectField } from './controls'
 import { Icon } from './Icon'
@@ -44,6 +46,7 @@ export function ArtworkControls({ design, asset, onChange, onFit, onRelink, pick
   ioBusy: boolean
 }) {
   const ppi = effectivePpi(design.transform)
+  const [colorOpen,setColorOpen]=useState(false)
   return <div className="artwork-controls" aria-label="Artwork adjustments">
     <div className="inspector-heading"><h2>Artwork</h2><button className="text-button" disabled={ioBusy} onClick={onRelink} aria-label="Replace or relink source"><Icon name="link" size={15} />Replace</button></div>
     <section className="inspector-section"><h3>Position & size</h3>
@@ -53,9 +56,10 @@ export function ArtworkControls({ design, asset, onChange, onFit, onRelink, pick
       <button className="text-button reset-fit" onClick={() => onFit('safe')}>Reset fit</button>
     </section>
     <section className="inspector-section"><h3>Background</h3>
-      <label className="field"><span>Background fill</span><span className="color-input"><input type="color" name="background-color" aria-label="Background color" value={design.fill} onChange={event => onChange({ fill: event.target.value })} /><span>{design.fill.toUpperCase()}</span></span></label>
+      <div className="field"><span>Background fill</span><button className="color-input" aria-label="Background color" aria-haspopup="dialog" aria-expanded={colorOpen} onClick={()=>{if(picking)onTogglePick();setColorOpen(true)}}><i style={{backgroundColor:design.fill}}/><span>{design.fill.toUpperCase()}</span><Icon name="sliders" size={16}/></button></div>
       <button className={`eyedropper-button ${picking ? 'active-button' : ''}`} disabled={!sourceReady} aria-pressed={picking} onClick={onTogglePick}><Icon name="dropper" size={16} />{picking ? 'Cancel eyedropper' : 'Eyedropper'}</button>
     </section>
     <div className={`quality-note ${ppi < 200 ? 'low-quality' : ''}`}><strong>{Number.isFinite(ppi) ? Math.round(ppi).toLocaleString() : '—'} source PPI</strong><p>{ppi < 200 ? 'Below 200 PPI. Export is allowed; fine detail may look soft.' : 'Original detail at the current print size.'}</p></div>
+    <AppleColorPicker isOpen={colorOpen} onClose={()=>setColorOpen(false)} initialColor={design.fill} onChange={fill=>onChange({fill})} canPick={sourceReady} onPick={onTogglePick}/>
   </div>
 }

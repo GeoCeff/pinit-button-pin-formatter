@@ -13,7 +13,7 @@ It was built around a small button-pin business spending too much time preparing
 ## What it does
 
 - **Edit artwork:** fit to the safe area or face, fill the face, drag, resize, rotate, and center. Resize handles appear when artwork is selected and hide when deselected.
-- **Pick a background color:** use a pipette cursor with a source-pixel magnifier, or enter a color manually. Keyboard and touch picking are supported.
+- **Pick a background color:** use the Grid, Spectrum, or RGB sliders; enter a hex value; save reusable colors; or sample artwork with the pixel-magnifying pipette. Keyboard and touch picking are supported. Print backgrounds use solid colors.
 - **Lay out sheets:** choose A4, Letter, or custom paper; set margins, gaps, orientation, quantities, and an optional copies-per-sheet limit. Compare grid and staggered arrangements without shrinking the circles.
 - **Export locally:** produce RGB or ICC-converted CMYK PDFs, or one PNG/JPG per sheet with resolution metadata. Screen guides and printed guides have separate settings.
 - **Keep projects portable:** save settings, artwork edits, and original image bytes together. Move the whole project folder, reopen it, or relink missing sources without losing edits.
@@ -119,9 +119,10 @@ This typechecks and builds the app, verifies the offline resources, and creates 
 | `npm run test:alignment` | Check dragging, resizing, selection, centering, and export overlays |
 | `npm run test:eyedropper` | Check exact pixel sampling, magnifier, keyboard, and touch behavior |
 | `npm run test:close` | Check close confirmation, save recovery, pending file operations, and export cleanup |
+| `npm run test:color-picker` | Check grid/spectrum/RGB input, saved colors, pipette handoff, and keyboard/touch picking |
 | `npm run dist` | Build the offline Windows installer in `release/` |
 
-Run `npm run build` before the desktop, alignment, eyedropper, and close checks after changing source files. Prepare Ghostscript before checks that exercise CMYK output. Desktop checks use synthetic artwork, ignored `local-data/` folders, and isolated test profiles.
+Run `npm run build` before the desktop, alignment, eyedropper, close, and color-picker checks after changing source files. Prepare Ghostscript before checks that exercise CMYK output. Desktop checks use synthetic artwork, ignored `local-data/` folders, and isolated test profiles.
 
 ## Architecture
 
@@ -184,12 +185,15 @@ The diagram renders on GitHub. In Markdown viewers without Mermaid support, read
 | `src/state/` | Project reducer and revision tracking |
 | `src/render/` | Render specifications, shared canvas drawing, worker exports, and resolution metadata |
 | `src/ui/` | Workbench, editor, library, settings, sheet preview, tutorial, and dialogs |
+| `src/components/ui/` | Reusable components, including the artwork color picker; matches the configured shadcn UI path |
 | `src/bridge.ts` | Typed renderer-to-desktop contract |
 | `electron/` | Secure preload, native dialogs, source registry, project storage, staged exports, and color conversion |
 | `scripts/` | Resource preparation, packaging checks, and Electron acceptance tests |
 | `resources/` | App icons, installer integration, and locally prepared Ghostscript resources |
 
 A saved project is a folder containing `project.json` and `assets/`. Keep them together when moving or sharing a project. Missing artwork retains its edits and can be relinked. Reusable presets copy settings into the current project without changing other projects.
+
+The `@/` import alias resolves to `src/`. `components.json` maps reusable UI to `@/components/ui`; global Tailwind and component styles live in `src/ui/styles.css`. TypeScript and Tailwind are already configured.
 
 For upgrade compatibility, the installation identity remains `app.pinit.desktop`, and existing settings stay in the `PinIt` application-data directory. Internal IPC channels and test environment variables retain their compatibility names. New project and export folders use `dfCuts-`.
 
