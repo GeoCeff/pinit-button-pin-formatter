@@ -1,0 +1,52 @@
+{
+  "selection": {
+    "icon": "06 Rail",
+    "wordmark": "16 Shift"
+  },
+  "outputs": {
+    "logo": {
+      "width": 3200,
+      "height": 621,
+      "bounds": [
+        109,
+        76,
+        3077,
+        544
+      ],
+      "alphaHash": "6379eab7fd435579b31099efc0cef266e635742278d9d200e1940a7d952331cd"
+    },
+    "logo-reversed": {
+      "width": 3200,
+      "height": 621,
+      "bounds": [
+        109,
+        76,
+        3077,
+        544
+      ],
+      "alphaHash": "6379eab7fd435579b31099efc0cef266e635742278d9d200e1940a7d952331cd"
+    },
+    "stacked": {
+      "width": 1600,
+      "height": 1077,
+      "bounds": [
+        102,
+        76,
+        1497,
+        976
+      ],
+      "alphaHash": "c4335d79ce6d77328935f45a84c7b09379270f220cd25d3de9b571b33514f825"
+    },
+    "stacked-reversed": {
+      "width": 1600,
+      "height": 1077,
+      "bounds": [
+        102,
+        76,
+        1497,
+        976
+      ],
+      "alphaHash": "c4335d79ce6d77328935f45a84c7b09379270f220cd25d3de9b571b33514f825"
+    }
+  }
+}

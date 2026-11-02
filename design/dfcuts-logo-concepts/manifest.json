@@ -1,0 +1,546 @@
+[
+  {
+    "id": "01",
+    "name": "Kerf",
+    "family": "Cut-paper ligatures",
+    "d": "soft",
+    "f": "bridge",
+    "c": "kerf",
+    "icon": "kerf",
+    "angle": 0,
+    "note": "A small offcut makes the C feel freshly cut.",
+    "folder": "01-kerf",
+    "mark": {
+      "width": 1024,
+      "height": 1024,
+      "bounds": [
+        113,
+        142,
+        924,
+        881
+      ],
+      "alphaHash": "c4b2cf4870fe7b107f230df8af9a5c85085af2413111cf350aa5a86e264b9460"
+    },
+    "wordmark": {
+      "width": 2600,
+      "height": 576,
+      "bounds": [
+        48,
+        22,
+        2447,
+        521
+      ],
+      "alphaHash": "689977e35b4eb2e12a1dffc6c536c44cae671f59c082a9a010f9130f9aa30458"
+    }
+  },
+  {
+    "id": "02",
+    "name": "Foldline",
+    "family": "Cut-paper ligatures",
+    "d": "fold",
+    "f": "fold",
+    "c": "bevel",
+    "icon": "foldline",
+    "angle": 0,
+    "note": "A folded strip becomes a continuous letter junction.",
+    "folder": "02-foldline",
+    "mark": {
+      "width": 1024,
+      "height": 1024,
+      "bounds": [
+        142,
+        142,
+        881,
+        881
+      ],
+      "alphaHash": "9ac4d9a5042a9c2a0d342ea074c4e9a26ad7938b6881cbd3ff31f02ad5ac8c1b"
+    },
+    "wordmark": {
+      "width": 2600,
+      "height": 576,
+      "bounds": [
+        48,
+        30,
+        2447,
+        513
+      ],
+      "alphaHash": "b2a61e3845111affa5cbc157e9f5d52912b2d42f62462440c20c1541293dc8d6"
+    }
+  },
+  {
+    "id": "03",
+    "name": "Offcut",
+    "family": "Cut-paper ligatures",
+    "d": "step",
+    "f": "step",
+    "c": "slice",
+    "icon": "offcut",
+    "angle": 0,
+    "note": "An extracted corner is part of the identity.",
+    "folder": "03-offcut",
+    "mark": {
+      "width": 1024,
+      "height": 1024,
+      "bounds": [
+        99,
+        71,
+        811,
+        895
+      ],
+      "alphaHash": "aec526cc46478bd42fa2ab793e00cc3cb761eb43c8fb1555c7ee98a4d6e9a36f"
+    },
+    "wordmark": {
+      "width": 2600,
+      "height": 576,
+      "bounds": [
+        48,
+        17,
+        2447,
+        507
+      ],
+      "alphaHash": "eb0877db83260f528808670b562932f97691a57bee1dcfc312fd7f81479f3143"
+    }
+  },
+  {
+    "id": "04",
+    "name": "Press",
+    "family": "Cut-paper ligatures",
+    "d": "step",
+    "f": "rail",
+    "c": "step",
+    "icon": "press",
+    "angle": 0,
+    "note": "A compact die-cut block with a stepped counter.",
+    "folder": "04-press",
+    "mark": {
+      "width": 1024,
+      "height": 1024,
+      "bounds": [
+        85,
+        170,
+        881,
+        853
+      ],
+      "alphaHash": "fe1a91720a0fe1a449058da4fc89bd6c5ef38bebf8499105324885d3ab8324aa"
+    },
+    "wordmark": {
+      "width": 2600,
+      "height": 576,
+      "bounds": [
+        48,
+        30,
+        2479,
+        513
+      ],
+      "alphaHash": "155c0abcd54a9bbfb24782d753e87fd14bc46493c373779145263026dd4589f2"
+    }
+  },
+  {
+    "id": "05",
+    "name": "Splice",
+    "family": "Interlocking forms",
+    "d": "inset",
+    "f": "bridge",
+    "c": "seam",
+    "icon": "splice",
+    "angle": 0,
+    "note": "Two offset loops share one deliberate cutting gap.",
+    "folder": "05-splice",
+    "mark": {
+      "width": 1024,
+      "height": 1024,
+      "bounds": [
+        113,
+        142,
+        910,
+        881
+      ],
+      "alphaHash": "3e528117a727ce9a695a99bebecdc9bfe54f6ede458278a00b4d1a954b967975"
+    },
+    "wordmark": {
+      "width": 2600,
+      "height": 576,
+      "bounds": [
+        48,
+        22,
+        2447,
+        521
+      ],
+      "alphaHash": "82b391da19938ad4da7f37c93a4261534c2c5a9ce1a41f4d76380ebae1a3c9f8"
+    }
+  },
+  {
+    "id": "06",
+    "name": "Rail",
+    "family": "Interlocking forms",
+    "d": "soft",
+    "f": "rail",
+    "c": "step",
+    "icon": "rail",
+    "angle": 0,
+    "note": "An F spine and a C return lock into one shape.",
+    "folder": "06-rail",
+    "mark": {
+      "width": 1024,
+      "height": 1024,
+      "bounds": [
+        135,
+        135,
+        924,
+        888
+      ],
+      "alphaHash": "a01cd02971ec18e02f78fbbda2594db0c09583f1c07b59764c0cc37fea2d35c5"
+    },
+    "wordmark": {
+      "width": 2600,
+      "height": 576,
+      "bounds": [
+        48,
+        30,
+        2479,
+        513
+      ],
+      "alphaHash": "710e99f20edbcfc45308a65a5354131fbd1436dd793b0a4b57699b49dd4eca0b"
+    }
+  },
+  {
+    "id": "07",
+    "name": "Ribbon",
+    "family": "Interlocking forms",
+    "d": "fold",
+    "f": "bridge",
+    "c": "kerf",
+    "icon": "ribbon",
+    "angle": 7,
+    "note": "A rising paper ribbon folds into the initials.",
+    "folder": "07-ribbon",
+    "mark": {
+      "width": 1024,
+      "height": 1024,
+      "bounds": [
+        35,
+        128,
+        881,
+        902
+      ],
+      "alphaHash": "6b912346d59c4f3fad59ddb9db12bfcafc2a2cb6957c3fcdd876d9daad8ed7ed"
+    },
+    "wordmark": {
+      "width": 2600,
+      "height": 576,
+      "bounds": [
+        73,
+        22,
+        2501,
+        521
+      ],
+      "alphaHash": "480fd8a59afa37779e77cb7d4ff039aa6159c70a03108c03d3e595f09f3d3e17"
+    }
+  },
+  {
+    "id": "08",
+    "name": "Lift",
+    "family": "Interlocking forms",
+    "d": "inset",
+    "f": "fold",
+    "c": "bevel",
+    "icon": "lift",
+    "angle": 0,
+    "note": "The lifted edge becomes the opening of the C.",
+    "folder": "08-lift",
+    "mark": {
+      "width": 1024,
+      "height": 1024,
+      "bounds": [
+        113,
+        121,
+        881,
+        846
+      ],
+      "alphaHash": "282adbb66fd2a413cb8c064c1d8ed7888776829c8fd43c9110da9533ff157e9f"
+    },
+    "wordmark": {
+      "width": 2600,
+      "height": 576,
+      "bounds": [
+        48,
+        30,
+        2447,
+        513
+      ],
+      "alphaHash": "f33565290991178207cc3eef6244d4001fd31a3a46145c41afdcc6f12222164c"
+    }
+  },
+  {
+    "id": "09",
+    "name": "Index",
+    "family": "Compact signatures",
+    "d": "soft",
+    "f": "step",
+    "c": "slice",
+    "icon": "index",
+    "angle": 0,
+    "note": "An offset internal corner is the identifying cut.",
+    "folder": "09-index",
+    "mark": {
+      "width": 1024,
+      "height": 1024,
+      "bounds": [
+        106,
+        142,
+        910,
+        881
+      ],
+      "alphaHash": "0c06ceb5be052ecb1e8b17428abedb9563fc4e51bf2f495f0f5dd43829ebd00e"
+    },
+    "wordmark": {
+      "width": 2600,
+      "height": 576,
+      "bounds": [
+        48,
+        17,
+        2447,
+        507
+      ],
+      "alphaHash": "873734cad897dd2f1469286032998a5ddb2aa44693b7b7af495243efb403d97d"
+    }
+  },
+  {
+    "id": "10",
+    "name": "Cipher",
+    "family": "Compact signatures",
+    "d": "fold",
+    "f": "rail",
+    "c": "step",
+    "icon": "cipher",
+    "angle": 0,
+    "note": "A squared counter joins the D, F and C logic.",
+    "folder": "10-cipher",
+    "mark": {
+      "width": 1024,
+      "height": 1024,
+      "bounds": [
+        85,
+        128,
+        895,
+        910
+      ],
+      "alphaHash": "5dab8eb7fc10cc2f63450b3a6016e77d910b7cdaeab91737d5267d62e0833785"
+    },
+    "wordmark": {
+      "width": 2600,
+      "height": 576,
+      "bounds": [
+        48,
+        30,
+        2479,
+        513
+      ],
+      "alphaHash": "ba272396717c8f74ec2428ea4f36040f32c476af2f577e537dd71253ec9144ff"
+    }
+  },
+  {
+    "id": "11",
+    "name": "Relay",
+    "family": "Compact signatures",
+    "d": "step",
+    "f": "bridge",
+    "c": "bevel",
+    "icon": "relay",
+    "angle": 0,
+    "note": "Two curved returns meet around a short F bar.",
+    "folder": "11-relay",
+    "mark": {
+      "width": 1024,
+      "height": 1024,
+      "bounds": [
+        120,
+        142,
+        881,
+        895
+      ],
+      "alphaHash": "6901f7752241f29453d62625cc9ac987e09b0e46af10e51f5293bc1065e4a6f6"
+    },
+    "wordmark": {
+      "width": 2600,
+      "height": 576,
+      "bounds": [
+        48,
+        30,
+        2447,
+        513
+      ],
+      "alphaHash": "9b1f05f496aa2b5ad2b05fda8dee6d30ec69dd68b4743057795ae34a04824606"
+    }
+  },
+  {
+    "id": "12",
+    "name": "Hatch",
+    "family": "Compact signatures",
+    "d": "fold",
+    "f": "fold",
+    "c": "seam",
+    "icon": "hatch",
+    "angle": 0,
+    "note": "A hinged cut through a chamfered outline.",
+    "folder": "12-hatch",
+    "mark": {
+      "width": 1024,
+      "height": 1024,
+      "bounds": [
+        106,
+        113,
+        917,
+        938
+      ],
+      "alphaHash": "9f32ae937f8dc4a7a0d3f3ad6e4a65ad00c8b15ad85504f0e3b7a823c11ef39e"
+    },
+    "wordmark": {
+      "width": 2600,
+      "height": 576,
+      "bounds": [
+        48,
+        22,
+        2447,
+        521
+      ],
+      "alphaHash": "b1d1ca5940f3bb1af3d100e5dce39e335232a5132926bcfdc404845c883e671f"
+    }
+  },
+  {
+    "id": "13",
+    "name": "Gauge",
+    "family": "Circular experiments",
+    "d": "soft",
+    "f": "step",
+    "c": "kerf",
+    "icon": "gauge",
+    "angle": 0,
+    "note": "A button-sized disc with an offset gauge cut.",
+    "folder": "13-gauge",
+    "mark": {
+      "width": 1024,
+      "height": 1024,
+      "bounds": [
+        99,
+        128,
+        867,
+        895
+      ],
+      "alphaHash": "c483d243222303d752337a3692f3e60d043495a5ac75f1d3eb2daa89ebab119d"
+    },
+    "wordmark": {
+      "width": 2600,
+      "height": 576,
+      "bounds": [
+        48,
+        22,
+        2447,
+        521
+      ],
+      "alphaHash": "9314a00fc067afa9e6965c894839a2cea9638e49d43eaae1bb8ff931238cce1e"
+    }
+  },
+  {
+    "id": "14",
+    "name": "Roundel",
+    "family": "Circular experiments",
+    "d": "step",
+    "f": "rail",
+    "c": "slice",
+    "icon": "roundel",
+    "angle": 0,
+    "note": "A curved strip folds inward to suggest the F.",
+    "folder": "14-roundel",
+    "mark": {
+      "width": 1024,
+      "height": 1024,
+      "bounds": [
+        120,
+        120,
+        838,
+        903
+      ],
+      "alphaHash": "0aac87ea6b36cbe6071910b8b4ce2e842b0991db18cad9b48745f0677e34e756"
+    },
+    "wordmark": {
+      "width": 2600,
+      "height": 576,
+      "bounds": [
+        48,
+        17,
+        2447,
+        507
+      ],
+      "alphaHash": "2fa1619423ae6d8c9f062efb73c957340a1554b078e5d3be7dd4e75176703636"
+    }
+  },
+  {
+    "id": "15",
+    "name": "Pocket",
+    "family": "Circular experiments",
+    "d": "inset",
+    "f": "bridge",
+    "c": "step",
+    "icon": "pocket",
+    "angle": 0,
+    "note": "A pocket-shaped counter opens through the circle.",
+    "folder": "15-pocket",
+    "mark": {
+      "width": 1024,
+      "height": 1024,
+      "bounds": [
+        99,
+        128,
+        864,
+        895
+      ],
+      "alphaHash": "8b3e1ec6294ba2cd40e449a77b2d9fab238b7522f02a94130561f0c6558164d9"
+    },
+    "wordmark": {
+      "width": 2600,
+      "height": 576,
+      "bounds": [
+        48,
+        30,
+        2479,
+        513
+      ],
+      "alphaHash": "0e039b2ae72635d9eef1666d7c19c762e925bd30efab3f9dc4e84366b18b7413"
+    }
+  },
+  {
+    "id": "16",
+    "name": "Shift",
+    "family": "Circular experiments",
+    "d": "soft",
+    "f": "fold",
+    "c": "bevel",
+    "icon": "shift",
+    "angle": 5,
+    "note": "Two offset segments reveal a clean cutting channel.",
+    "folder": "16-shift",
+    "mark": {
+      "width": 1024,
+      "height": 1024,
+      "bounds": [
+        128,
+        128,
+        895,
+        895
+      ],
+      "alphaHash": "dcbba363636ee927d446b7838809628a6ce5afd5165f815f98d4c0ad33dc37cc"
+    },
+    "wordmark": {
+      "width": 2600,
+      "height": 576,
+      "bounds": [
+        88,
+        30,
+        2506,
+        513
+      ],
+      "alphaHash": "e7ea92b276fd0a2fab75d31ac38dec459b6c7787a7601172edb2faccfaf2abf5"
+    }
+  }
+]
