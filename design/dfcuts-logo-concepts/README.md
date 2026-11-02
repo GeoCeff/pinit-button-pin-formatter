@@ -2,6 +2,8 @@
 
 Sixteen original concept directions for **DFCuts**, each with a symbol and custom outlined wordmark. The references informed the bold monochrome weight, motion and contrast. The actual forms were redrawn around cutting, folding, offcuts and interlocking initials.
 
+**Selected combination:** [06 Rail icon + 16 Shift wordmark](../dfcuts-logo/README.md). The combined asset pack preserves the chosen shapes and includes horizontal, stacked and reversed lockups.
+
 ## View the set
 
 - Open [gallery.html](gallery.html) for individual concepts, dark-background previews, small-size samples and downloads.
