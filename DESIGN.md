@@ -43,6 +43,8 @@ Print-summary labels use 14px above 28-32px totals. Page navigation has an acces
 
 Artwork drag/resize remains direct. Hold Alt to bypass snapping; numeric controls provide alternatives. Keep alignment feedback height stable. Editing overlays never enter exported sheets.
 
+The resize box starts hidden. Click or tap the artwork to select it; click elsewhere, press Escape or move keyboard focus away to deselect. Enter/Space selects a focused canvas. Center artwork also clears selection after aligning. Selection is temporary editor state, separate from saved artwork transforms.
+
 Document navigation uses stable labeled buttons and a GSAP underline, 150ms power3.out for pointer selection, immediate for keyboard/reduced motion. Arrow keys, Home and End move focus; Enter/Space activate. No hover magnification. ResizeObserver updates underline geometry and effects clean up.
 
 Hover feedback is 120ms. Existing pointer press and native dialog transitions remain interruptible; keyboard actions disable animation, and reduced motion uses opacity only. Native dialogs preserve Escape, focus restoration and background isolation. Touch targets expand to at least 44px. Hover styles require fine pointers.
