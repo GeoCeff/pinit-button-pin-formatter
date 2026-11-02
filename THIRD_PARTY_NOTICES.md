@@ -1,10 +1,10 @@
 # Third-party software
 
-PinIt source is MIT licensed (see LICENSE). Dependencies retain their own licenses in their installed packages. The Windows bundle includes React, React DOM, Konva, react-konva, pdf-lib, sharp, Electron and their transitive runtime dependencies. Electron's Chromium/Node notices are included in its distribution; sharp and libvips notices are retained in the native dependency packages.
+dfCuts source is MIT licensed (see LICENSE). Dependencies retain their own licenses in their installed packages. The Windows bundle includes React, React DOM, Konva, react-konva, pdf-lib, sharp, Electron and their transitive runtime dependencies. Electron's Chromium/Node notices are included in its distribution; sharp and libvips notices are retained in the native dependency packages.
 
 ## Ghostscript 10.08.0
 
-The complete Windows build includes an unmodified Ghostscript runtime from Artifex Software. Ghostscript is licensed under GNU AGPL v3, with a commercial license available separately from Artifex. PinIt's MIT license does not replace Ghostscript's license. The bundled license is `ghostscript/doc/COPYING`; the corresponding-source link is in `ghostscript/doc/Source-availability.txt`.
+The complete Windows build includes an unmodified Ghostscript runtime from Artifex Software. Ghostscript is licensed under GNU AGPL v3, with a commercial license available separately from Artifex. dfCuts's MIT license does not replace Ghostscript's license. The bundled license is `ghostscript/doc/COPYING`; the corresponding-source link is in `ghostscript/doc/Source-availability.txt`.
 
 - Upstream binary and source: https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/tag/gs10080
 - Corresponding source archive: https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs10080/ghostpdl-10.08.0.tar.xz

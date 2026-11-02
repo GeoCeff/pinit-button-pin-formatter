@@ -13,7 +13,7 @@ const app=await electron.launch({executablePath:process.env.PINIT_EXECUTABLE,arg
 const errors=[]
 try {
   const page=await app.firstWindow();page.on('pageerror',error=>errors.push(error.message))
-  await page.getByRole('dialog',{name:'A quick tour of PinIt',exact:true}).getByRole('button',{name:'Skip tour',exact:true}).click()
+  await page.getByRole('dialog',{name:'A quick tour of dfCuts',exact:true}).getByRole('button',{name:'Skip tour',exact:true}).click()
   const xField=page.getByLabel('Horizontal offset',{exact:true})
   const yField=page.getByLabel('Vertical offset',{exact:true})
   const widthField=page.getByLabel('Artwork width',{exact:true})
@@ -28,6 +28,12 @@ try {
     return {x:box.x+box.width/2,y:box.y+box.height/2,scale:box.width/(53*1.14)}
   }
   async function offsets(){return {x:Number(await xField.inputValue()),y:Number(await yField.inputValue())}}
+  async function selectionPixels(){return page.locator('.editor-canvas canvas').first().evaluate(canvas=>{
+    const data=canvas.getContext('2d').getImageData(0,0,canvas.width,canvas.height).data
+    let count=0;for(let i=0;i<data.length;i+=4)if(data[i]===73&&data[i+1]===98&&data[i+2]===79&&data[i+3]===255)count++
+    return count
+  })}
+  async function selectArtwork(){const s=await scene();const position=await offsets();await page.mouse.click(s.x+position.x*s.scale,s.y+position.y*s.scale);await expect.poll(selectionPixels).toBeGreaterThan(0)}
   async function dragTo(xPixels,yPixels,{alt=false,capture,steps=12}={}){
     const s=await scene();const current=await offsets()
     if(alt)await page.keyboard.down('Alt')
@@ -37,6 +43,7 @@ try {
     await page.mouse.up();if(alt)await page.keyboard.up('Alt')
   }
   async function resizeCorner(factor,capture){
+    await selectArtwork()
     const s=await scene();const position=await offsets();const width=Number(await widthField.inputValue());const height=width*0.8
     const angle=Number(await rotationField.inputValue())*Math.PI/180
     const dx=(width/2*Math.cos(angle)-height/2*Math.sin(angle))*s.scale
@@ -49,9 +56,26 @@ try {
   }
   await choose([fixture]);await page.getByRole('button',{name:'Import artwork',exact:true}).click()
   await page.getByRole('button',{name:'Adjust artwork',exact:true}).click()
+  await expect(page.getByRole('button',{name:'Eyedropper',exact:true})).toBeEnabled()
   await expect(indicator).toHaveText('Centered');await expect(centerButton).toBeHidden()
+  await expect.poll(selectionPixels).toBe(0)
+  await page.screenshot({animations:'disabled',path:path.join(captures,'artwork-deselected.png')})
+  await selectArtwork();await page.screenshot({animations:'disabled',path:path.join(captures,'artwork-selected.png')})
+  const blank=await scene();await page.mouse.click(blank.x-26.5*1.14*blank.scale+4,blank.y-26.5*1.14*blank.scale+4);await expect.poll(selectionPixels).toBe(0)
+  await selectArtwork();await page.keyboard.press('Escape');await expect.poll(selectionPixels).toBe(0)
+  const canvas=page.getByRole('group',{name:'Artwork canvas',exact:true});await canvas.focus();await page.keyboard.press('Enter');await expect.poll(selectionPixels).toBeGreaterThan(0)
+  await page.keyboard.press('Escape');await expect.poll(selectionPixels).toBe(0);await page.keyboard.press('Space');await expect.poll(selectionPixels).toBeGreaterThan(0)
+  await page.keyboard.press('Tab');await expect.poll(selectionPixels).toBe(0)
+  await selectArtwork();await page.locator('.design-heading h1').click();await expect.poll(selectionPixels).toBe(0)
+  const touch=await page.context().newCDPSession(page)
+  await touch.send('Emulation.setTouchEmulationEnabled',{enabled:true,maxTouchPoints:1})
+  const tapped=await scene()
+  await touch.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:tapped.x,y:tapped.y}]});await touch.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await expect.poll(selectionPixels).toBeGreaterThan(0)
+  await touch.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:tapped.x-26.5*1.14*tapped.scale+4,y:tapped.y-26.5*1.14*tapped.scale+4}]});await touch.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await expect.poll(selectionPixels).toBe(0)
+  await touch.send('Emulation.setTouchEmulationEnabled',{enabled:false});await touch.detach()
+  assert.deepEqual(await offsets(),{x:0,y:0})
   await xField.fill('4');await yField.fill('5');await rotationField.fill('27');await widthField.fill('32')
-  await expect(indicator).toHaveText('Off center');await centerButton.click()
+  await expect(indicator).toHaveText('Off center');await selectArtwork();await centerButton.click();await expect.poll(selectionPixels).toBe(0)
   assert.deepEqual(await offsets(),{x:0,y:0});assert.equal(Number(await widthField.inputValue()),32);assert.equal(Number(await rotationField.inputValue()),27)
 
   await dragTo(44,30);await expect(indicator).toHaveText('Off center')
@@ -85,20 +109,20 @@ try {
   await app.evaluate(({BrowserWindow})=>BrowserWindow.getAllWindows()[0].setSize(1500,960))
 
   await choose([root]);await page.getByRole('button',{name:'Save',exact:true}).click();await page.getByRole('status').filter({hasText:'Project saved'}).waitFor()
-  const projectFolder=path.join(root,(await readdir(root)).find(name=>name.startsWith('PinIt-')))
+  const projectFolder=path.join(root,(await readdir(root)).find(name=>name.startsWith('dfCuts-')))
   const saved=JSON.parse(await readFile(path.join(projectFolder,'project.json'),'utf8'))
   assert.ok(Math.abs(saved.designs[0].transform.x)<1e-7);assert.ok(Math.abs(saved.designs[0].transform.y)<1e-7)
   assert.ok(Math.abs(saved.designs[0].transform.mmPerPixel*1000-36)<pointerTolerance)
   await page.getByRole('button',{name:'Export sheets',exact:true}).click();await page.getByLabel('File format',{exact:true}).selectOption('png');await page.getByLabel('Raster resolution',{exact:true}).fill('150')
   await choose([root]);await page.getByRole('button',{name:'Choose folder & export'}).click();await page.getByRole('status').filter({hasText:'Export saved:'}).waitFor({timeout:60000})
-  const output=path.join(root,(await readdir(root)).find(name=>name.startsWith('PinIt-export-')),'sheet-0001.png')
+  const output=path.join(root,(await readdir(root)).find(name=>name.startsWith('dfCuts-export-')),'sheet-0001.png')
   const {data,info}=await sharp(output).raw().toBuffer({resolveWithObject:true})
-  let selectionBlue=0
-  for(let i=0;i<data.length;i+=info.channels)if(data[i]<40&&data[i+1]>80&&data[i+2]>data[i+1]+15)selectionBlue++
-  assert.equal(selectionBlue,0,'alignment guides and selection handles must not be printed')
+  let selectionInk=0
+  for(let i=0;i<data.length;i+=info.channels)if(data[i]===73&&data[i+1]===98&&data[i+2]===79)selectionInk++
+  assert.equal(selectionInk,0,'alignment guides and selection handles must not be printed')
   assert.deepEqual(errors,[])
   await page.evaluate(()=>window.desktop.setDirty(false))
-  const report={passed:true,checks:['independent-axis snap','center feedback','Alt bypass','rotated proportional resizing','preserved offsets','center action preserves size/rotation','eyedropper','minimum window','saved geometry','no alignment guides in export'],root}
+  const report={passed:true,checks:['selection hidden initially','click artwork to select','blank canvas deselects','outside click deselects','Escape deselects','keyboard selection','Tab deselects','touch selection and deselection','centering hides handles','independent-axis snap','center feedback','Alt bypass','rotated proportional resizing','preserved offsets','center action preserves size/rotation','eyedropper','minimum window','saved geometry','no alignment guides in export'],root}
   await writeFile(path.join(root,'validation.json'),JSON.stringify(report,null,2))
   console.log(JSON.stringify(report,null,2))
 }catch(error){const page=await app.firstWindow().catch(()=>null);if(page)await page.screenshot({animations:'disabled',path:path.join(captures,'alignment-failure.png')}).catch(()=>{});throw error}

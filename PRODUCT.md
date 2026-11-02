@@ -1,4 +1,4 @@
-# PinIt product
+# dfCuts product
 
 <!-- impeccable:product-schema 1 -->
 

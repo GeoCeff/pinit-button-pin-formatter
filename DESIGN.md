@@ -1,125 +1,58 @@
----
-name: "PinIt"
-description: "A focused print studio for button-pin artwork and physically sized sheets."
-colors:
-  ink: "#172b3a"
-  muted: "#596979"
-  workspace: "#edf1f5"
-  surface: "#ffffff"
-  canvas: "#f4f6f9"
-  rail: "#f8fafc"
-  panel: "#e9f4f8"
-  paper-well: "#e8edf3"
-  line: "#dde4ec"
-  control-line: "#80909f"
-  accent: "#4ba6c2"
-  secondary: "#93d0e3"
-  action: "#075672"
-  focus: "#075672"
-  success: "#246653"
-  danger: "#a12a29"
-  danger-hover: "#852221"
-  danger-soft: "#fff0ec"
-typography:
-  body:
-    fontFamily: "'PinIt Sans', 'Segoe UI', sans-serif"
-    fontSize: "0.875rem"
-    fontWeight: 400
-    lineHeight: 1.5
-  heading:
-    fontSize: "1.5rem"
-    fontWeight: 650
-    lineHeight: 1.25
-    letterSpacing: "-0.02em"
-  artwork-title:
-    fontSize: "1.25rem"
-    fontWeight: 600
-    lineHeight: 1.3
-  section-title:
-    fontSize: "1.125rem"
-    fontWeight: 650
-    lineHeight: 1.3
-  field:
-    fontSize: "0.875rem"
-    fontWeight: 400
-    lineHeight: 1.4
-  summary-label:
-    fontSize: "0.875rem"
-    fontWeight: 450
-    lineHeight: 1.5
-  summary-value:
-    fontSize: "2rem"
-    fontWeight: 550
-    lineHeight: 1.15
-  caption:
-    fontSize: "0.75rem"
-    fontWeight: 400
-    lineHeight: 1.5
----
+# dfCuts print workbench
 
-# Design system: PinIt print studio
-
-Updated 30 October 2026. This document describes the current implementation. The UI source is the authority for exact component states. Older briefs and generated snapshots in `.impeccable/` record earlier iterations.
+Updated 2 November 2026. The UI source defines exact states. Older briefs and generated snapshots record previous iterations.
 
 ## Direction
 
-Give the operator three clear places: artwork, positioning and printed output. Use cool neutral surfaces, dark blue actions, locally bundled Geist, clear numeric hierarchy and restrained depth. Customer artwork supplies the expressive color.
+Achromatic ledger, direction seed 350303977: a continuous, warm-neutral workspace for preparing real print jobs. Artwork selection, positioning and printed output each have a clear place. Customer artwork provides expressive color. Keep decoration tied to the work: SVG cut boundaries, face circles, crop marks and measurement diagrams.
 
-The latest user refinement prioritizes readability: remove the persistent drag/resize/snap sentence, enlarge sheet navigation and print-summary labels, and replace compressed layout prose with short rows.
+Editable [Figma designs](https://www.figma.com/design/Fqz8RTVxXUga49GEgC92R1): Artwork desktop, Sheet setup, Library, Compact desktop and Export. These are editable design studies; the app renders actual artwork and computed layouts.
+
+## Color and surfaces
+
+| Role | Value |
+| --- | --- |
+| Ink / supporting ink | #262721 / #65665d |
+| Workspace / surface | #f7f6f2 / #ffffff |
+| Canvas / paper well | #f0efea / #eeede7 |
+| Selected surface / selection text | #e8e8df / #292b25 |
+| Divider / input boundary | #e1e0d8 / #898b80 |
+| Primary action | #292b25 |
+| Focus / alignment | #49624f |
+| Success / danger | #3c6047 / #a12a29 |
+
+Wide panes share straight edges and hairline separators. No resting panel or paper shadows. Operational overlays retain depth. Controls use 4-5px radii, artwork rows 8px; stacked narrow panes use 8px. Use currentColor SVG icons, with accessible names on icon-only controls. CutMark, CutGeometry and PinDimensions share the physical cut/face motif.
 
 ## Composition
 
-- Wide desktop: 218px artwork rail; flexible editor; 292px sheet preview; 16px gutters. The project bar is 64px high.
-- At 1281-1450px: 196px artwork rail and 272px preview, with 12px gutters.
-- At 851-1280px: the artwork rail becomes an 84px tray below the editor. The preview spans both rows. The project bar is 56px high and the preview is 284px wide.
-- At 850px and below: the project bar, artwork tray, editor and sheet preview stack. Content scrolls normally.
-- At 600px and below: adjustments sit above the canvas. Numeric values remain accessible at a 320px viewport.
-- The native minimum remains 1080 x 720. Keep the cut circle at least 300 CSS pixels across there with adjustments closed.
+- Wide desktop: 64px document bar, 48px document navigation, 232px artwork rail, flexible editor and 300px preview; no outer gutters. At 1281-1450px the rail/preview reduce to 216/280px.
+- At 851-1280px: 56px document bar, 38px navigation, artwork tray below the editor and 284px preview spanning both rows. Coarse pointers receive a 44px navigation row and 104px tray.
+- At 1080 x 720 the closed-adjustments cut circle measures 318 CSS pixels, exceeding the 300px requirement.
+- At 850px and below: header, navigation, artwork tray, editor and preview stack with normal page scrolling. Inputs use 16px. Below 600px use 16px outer margins and one complete, horizontally scrollable artwork card at a time.
+- Sheet setup uses three columns on wide screens: pin dimensions/presets, paper, arrangement. Compact and narrow forms reflow. The dimension SVG reflects the configured inner/outer ratio; invalid input stays in field validation.
 
-The toolbar belongs to the editor panel. Artwork selection remains separate from destructive removal. The Library owns removal and its confirmation dialog.
+The project title is an editable field with pencil cue and full-value tooltip. File actions and plain-text save feedback remain together. Copies is always beside the selected artwork title. Adjustment fields stay in an optional drawer; Library owns confirmed removal. Sheet Setup is directly reachable from the preview. Help explains gestures.
 
 ## Typography
 
-Use the bundled Geist variable face through PinIt Sans, with Segoe UI as fallback. Root size is 16px; the dense professional tool uses 14px body/input text. Captions rarely go below 12px. Narrow inputs use 16px at 850px and below.
+Locally bundled variable Geist through dfCuts Sans, with Segoe UI fallback. Root 16px; body and ordinary fields 14px, navigation 14px, support text 12-13px, artwork title 20px, section titles 18px. Narrow fields use 16px. Use weights 400 or higher, rem sizes, unitless leading and tabular numerals for quantities and dimensions.
 
-Use rem sizes, unitless line heights and CSS font-weight. Keep changing counts and measurements tabular. Text remains selectable outside the draggable canvas.
+Print-summary labels use 14px above 28-32px totals. Page navigation has an accessible current/total announcement. Names truncate with full-value tooltips; errors wrap. Preserve text selection outside gesture surfaces and retain stored measurement precision.
 
-The header is a document toolbar. A compact 28px mark and 18px wordmark use their natural width instead of a sidebar-sized column. The editable project title uses 16px/550 with a persistent pencil cue and a full-value tooltip. Plain 13px save feedback sits with the file actions, using a check for saved projects and text for every state. No descriptor, decorative period, tall divider or colored status badge is needed. At narrow widths, brand and Export share the first row, the title gets a full-width field, and file actions follow. Keep the full keyboard focus ring inside the 56px compact desktop header.
+## Interaction and motion
 
-Project names are editable and retain their full value. Artwork names truncate with a full title available. Errors and notices wrap. The field/unit layout preserves the existing five-decimal display without rounding stored geometry.
+Artwork drag/resize remains direct. Hold Alt to bypass snapping; numeric controls provide alternatives. Keep alignment feedback height stable. Editing overlays never enter exported sheets.
 
-Print-summary labels and layout rows use 14px. Counts use 32px, or 28px on compact desktops. Page navigation uses a readable current/total counter with an accessible sheet announcement.
+The resize box starts hidden. Click or tap the artwork to select it; click elsewhere, press Escape or move keyboard focus away to deselect. Enter/Space selects a focused canvas. Center artwork also clears selection after aligning. Selection is temporary editor state, separate from saved artwork transforms.
 
-## Surfaces and controls
+Document navigation uses stable labeled buttons and a GSAP underline, 150ms power3.out for pointer selection, immediate for keyboard/reduced motion. Arrow keys, Home and End move focus; Enter/Space activate. No hover magnification. ResizeObserver updates underline geometry and effects clean up.
 
-Panel radii are 14px. Controls use 7-9px radii. The fit control has concentric 9px and 5px corners around a 3px inset and 1px border.
+Hover feedback is 120ms. Existing pointer press and native dialog transitions remain interruptible; keyboard actions disable animation, and reduced motion uses opacity only. Native dialogs preserve Escape, focus restoration and background isolation. Touch targets expand to at least 44px. Hover styles require fine pointers.
 
-Borders define controls, dividers and selection. Soft layered shadows separate panels, paper and operational overlays. Shadow surfaces retain borders for forced-colors mode. Thumbnails use an inset pure-black outline at 10% opacity.
+## Acceptance
 
-Use one currentColor outline icon set. Keep functional icon controls named. The brand is the concentric cut/face mark on a blue square.
+Preserve original image bytes, independent physical dimensions, packing, quantities, portable project folders, presets, missing-source recovery, RGB/CMYK PDF, PNG/JPG density metadata, export cancellation and staged file safety.
 
-The artwork rail uses a simple Artwork heading, contained square thumbnails, names and quantities. Ordinary rows stay flat; the selected row has a quiet blue surface, one border and an inline check. Import is the primary action in the rail. Copies is always editable beside the artwork name, using the shared numeric field and inline validation. Adjust artwork contains the less frequent fit, geometry and background controls. Paired drawer fields use natural label heights with their inputs aligned. The centered badge uses a check, text and green; off-center artwork retains a Center artwork action.
+Verified: production build, 23 unit/file tests, Electron acceptance suite, real pointer alignment/resize checks, 1440/768/390 browser renders, 1080 x 720, 320px fallback and 200% zoom. Browser review uses a temporary bridge with synthetic artwork; Electron acceptance uses the actual native bridge. See .impeccable/workbench-redesign.md for the scoped review.
 
-The sheet preview shows physical paper size, one actual-size reminder, page navigation, Total copies and Copies / sheet. A short Setup action opens sheet settings directly. The paper well uses a flat surface and 12px horizontal padding to give the sheet more room. Copies / sheet follows the optional cap. Layout and Wrap are short rows. Gesture instructions belong in Help, with a contextual color-picker prompt shown only while sampling.
-
-## Motion
-
-Routine navigation, typing and artwork edits stay immediate. Hover feedback changes color within 120ms. Pointer button presses use scale(0.96) over 150ms ease-out; selection and toolbar buttons opt out.
-
-Pointer-opened dialogs use opacity/filter transitions up to 180ms and transform up to 220ms with cubic-bezier(.23,1,.32,1). Drawers use 160-180ms. Use transitions and @starting-style, allowing state to retarget.
-
-Keyboard actions disable transitions and animations. Reduced motion uses a 120ms opacity fade without movement, scale or blur. Mouse-only toolbar magnification retains its existing ref-based GSAP implementation and resets immediately on focus or reduced motion. No permanent will-change hint is needed.
-
-## Accessibility and correctness
-
-Use native dialogs for background isolation, Escape and focus restoration. Keep the skip link, visible focus rings, labeled numeric alternatives, units and field errors. Touch controls expand to at least 44px. Gate hover behavior to hover-capable fine pointers.
-
-Measured contrast: normal ink on white 14.55:1; supporting ink on white 5.64:1; supporting ink on canvas 5.21:1; white on action blue 8.13:1; centered text 6.35:1; input boundaries on white 3.28:1.
-
-Original artwork, independent millimeter dimensions, packing, portable projects, RGB/CMYK/raster output, cancellation and missing-source recovery remain part of the acceptance contract.
-
-## Review and verification
-
-The desktop checks cover the wide rail, compact tray, 300px minimum cut circle, print caps, readable labels, 200% zoom, 320px fallback, keyboard/reduced-motion behavior and complete export workflow. Pointer checks cover drag, resize, Alt bypass, centering and exclusion of editing overlays from output.
-
-Actual printer calibration, a fresh Windows installation and physical touch hardware remain external checks. No marketing patterns, remote fonts or new runtime packages are required by this redesign.
+Not verified: physical touch hardware, manual screen-reader pass, physical print calibration and fresh-machine installer acceptance.

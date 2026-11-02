@@ -10,16 +10,25 @@ export function useImages(sources:Record<string,string>) {
   useEffect(()=>{let current=true;Promise.all(Object.entries(sources).map(([id,source])=>new Promise<[string,HTMLImageElement]>((resolve,reject)=>{const img=new Image();img.onload=()=>resolve([id,img]);img.onerror=reject;img.src=source}))).then(entries=>{if(current)setImages(Object.fromEntries(entries))}).catch(()=>{if(current)setImages({})});return()=>{current=false}},[sources])
   return images
 }
-const alignmentColor = '#0d6f91'
+const alignmentColor = '#49624f'
 export const Editor=memo(function Editor({design,asset,image,circles,onChange,guideVisibility,picking,onPick}:{design:Design;asset:Asset;image?:HTMLImageElement;circles:CircleSettings;onChange:(patch:Partial<Design>)=>void;guideVisibility:{inner:boolean;outer:boolean;safe:boolean};picking:boolean;onPick:(color:string)=>void}) {
   const container=useRef<HTMLDivElement>(null)
+  const stage=useRef<Konva.Stage>(null)
   const artwork=useRef<Konva.Image>(null)
   const transformer=useRef<Konva.Transformer>(null)
   const [size,setSize]=useState(440)
   const [interacting,setInteracting]=useState(false)
+  const [selected,setSelected]=useState(false)
   const instructionsId=useId()
   useEffect(()=>{const observer=new ResizeObserver(entries=>{const {width,height}=entries[0].contentRect;setSize(Math.max(120,Math.min(760,width-8,height-8)))});observer.observe(container.current!);return()=>observer.disconnect()},[])
-  useEffect(()=>{transformer.current?.nodes(image&&!picking&&artwork.current?[artwork.current]:[])},[image,picking])
+  useEffect(()=>{transformer.current?.nodes(selected&&image&&!picking&&artwork.current?[artwork.current]:[])},[selected,image,picking])
+  useEffect(()=>{if(picking||!image)setSelected(false)},[picking,image])
+  useEffect(()=>{
+    const outside=(event:PointerEvent)=>{if(!stage.current?.getContent().contains(event.target as Node))setSelected(false)}
+    const escape=(event:KeyboardEvent)=>{if(event.key==='Escape')setSelected(false)}
+    document.addEventListener('pointerdown',outside,true);document.addEventListener('keydown',escape)
+    return()=>{document.removeEventListener('pointerdown',outside,true);document.removeEventListener('keydown',escape)}
+  },[])
   const scale=size/(circles.outer*1.14)
   const t=design.transform
   const aligned=centerAlignment(t)
@@ -46,18 +55,18 @@ export const Editor=memo(function Editor({design,asset,image,circles,onChange,gu
     onPick('#'+[data[0],data[1],data[2]].map(n=>n.toString(16).padStart(2,'0')).join(''))
   }
   return <div className="artwork-editor" role="group" aria-label="Artwork positioning" aria-describedby={instructionsId}>
-    <p id={instructionsId} className="sr-only">Drag to position the image. Drag a round corner handle to resize it proportionally. Hold Alt while dragging to skip center snapping. Use Adjust artwork above for exact width, rotation and horizontal or vertical offsets. Center artwork aligns both axes without changing size or rotation.</p>
+    <p id={instructionsId} className="sr-only">Click or tap the artwork to show its resize handles. Click outside it or press Escape to hide them. With the artwork canvas focused, press Enter or Space to select it. Drag to position the image. Drag a round corner handle to resize it proportionally. Hold Alt while dragging to skip center snapping. Use Adjust artwork above for exact width, rotation and horizontal or vertical offsets. Center artwork aligns both axes without changing size or rotation.</p>
     <div className="alignment-toolbar">
       <div className={`alignment-feedback ${status==='Centered'?'is-centered':''}`}>
         <span className="alignment-symbol" aria-hidden="true"><Icon name={status==='Centered'?'check':'center'} size={20}/></span>
         <div><span className="alignment-status" role="status" aria-live="polite" aria-atomic="true">{status}</span><span className="alignment-hint">{status==='Centered'?'Aligned on both axes':status==='Centered horizontally'?'Move up or down to finish aligning':status==='Centered vertically'?'Move left or right to finish aligning':'Drag to align, or center in one click'}</span></div>
-        <button className="center-button" disabled={!image||picking||(aligned.horizontal&&aligned.vertical)} onClick={()=>onChange({fit:'manual',transform:{...t,x:0,y:0}})}><Icon name="center" size={16}/>Center artwork</button>
+        <button className="center-button" disabled={!image||picking||(aligned.horizontal&&aligned.vertical)} onClick={()=>{setSelected(false);onChange({fit:'manual',transform:{...t,x:0,y:0}})}}><Icon name="center" size={16}/>Center artwork</button>
       </div>
     </div>
-    <div ref={container} className={`editor-canvas ${picking?'picking':''}`}>
-    <Stage width={size} height={size} scaleX={scale} scaleY={scale} x={size/2} y={size/2} onClick={pick}>
+    <div ref={container} className={`editor-canvas ${picking?'picking':''}`} role="group" aria-label="Artwork canvas" aria-describedby={instructionsId} tabIndex={image?0:-1} onBlur={event=>{if(!event.currentTarget.contains(event.relatedTarget))setSelected(false)}} onKeyDown={event=>{if((event.key==='Enter'||event.key===' ')&&image&&!picking){event.preventDefault();setSelected(true)}}}>
+    <Stage ref={stage} width={size} height={size} scaleX={scale} scaleY={scale} x={size/2} y={size/2} onClick={pick} onPointerDown={event=>{if(picking)return;setSelected(event.target===artwork.current||!!transformer.current?.isAncestorOf(event.target));container.current?.focus({preventScroll:true})}}>
       <Layer>
-        <Circle radius={circles.outer/2} fill="#ffffff" shadowColor="#000000" shadowOpacity={0.1} shadowBlur={18/scale} shadowOffsetY={4/scale} listening={false}/>
+        <Circle radius={circles.outer/2} fill="#ffffff" listening={false}/>
         <Group clipFunc={ctx=>{ctx.arc(0,0,circles.outer/2,0,Math.PI*2)}}>
           <Circle radius={circles.outer/2} fill={design.fill}/>
           {image?<KonvaImage ref={artwork} image={image} width={asset.width} height={asset.height} offsetX={asset.width/2} offsetY={asset.height/2} x={t.x} y={t.y} scaleX={t.mmPerPixel} scaleY={t.mmPerPixel} rotation={t.rotation} draggable={!picking}
@@ -67,13 +76,13 @@ export const Editor=memo(function Editor({design,asset,image,circles,onChange,gu
               // Snap before Konva moves the image and handles, within six screen pixels.
               return parent.point(event.altKey?local:snapToCenter({...t,...local},6/scale))
             }}
-            onDragStart={()=>setInteracting(true)} onDragMove={drag} onDragEnd={event=>{drag(event);setInteracting(false)}}
+            onDragStart={()=>{setSelected(true);setInteracting(true)}} onDragMove={drag} onDragEnd={event=>{drag(event);setInteracting(false)}}
             onTransformStart={()=>setInteracting(true)} onTransform={resize} onTransformEnd={()=>{resize();setInteracting(false)}}/>:null}
         </Group>
-        {guideVisibility.outer?<Circle radius={circles.outer/2} stroke="#28566d" strokeWidth={0.25} listening={false}/>:null}
-        {guideVisibility.inner?<Circle radius={circles.inner/2} stroke="#966117" strokeWidth={0.18} dash={[1,0.7]} listening={false}/>:null}
-        {guideVisibility.safe?<Circle radius={circles.inner/2-circles.safeInset} stroke="#28566d" strokeWidth={0.15} dash={[0.4,0.6]} listening={false}/>:null}
-        <Transformer ref={transformer} visible={!!image&&!picking} rotateEnabled={false} keepRatio centeredScaling flipEnabled={false} shiftBehavior="none" enabledAnchors={['top-left','top-right','bottom-left','bottom-right']}
+        {guideVisibility.outer?<Circle radius={circles.outer/2} stroke="#55554e" strokeWidth={0.25} listening={false}/>:null}
+        {guideVisibility.inner?<Circle radius={circles.inner/2} stroke="#78766d" strokeWidth={0.18} dash={[1,0.7]} listening={false}/>:null}
+        {guideVisibility.safe?<Circle radius={circles.inner/2-circles.safeInset} stroke="#55554e" strokeWidth={0.15} dash={[0.4,0.6]} listening={false}/>:null}
+        <Transformer ref={transformer} visible={selected&&!!image&&!picking} rotateEnabled={false} keepRatio centeredScaling flipEnabled={false} shiftBehavior="none" enabledAnchors={['top-left','top-right','bottom-left','bottom-right']}
           borderStroke={alignmentColor} borderStrokeWidth={1} borderDash={[4,3]} anchorStroke={alignmentColor} anchorFill="#ffffff" anchorStrokeWidth={2} anchorSize={12} anchorCornerRadius={6}
           anchorStyleFunc={anchor=>{anchor.hitFunc((context,shape)=>{context.beginPath();context.rect(-6,-6,anchor.width()+12,anchor.height()+12);context.closePath();context.fillStrokeShape(shape)})}}
           boundBoxFunc={(previous,next)=>{const proposedScale=(artwork.current?.scaleX()??t.mmPerPixel)*next.width/previous.width;return next.width<=0||next.height<=0||Math.max(next.width,next.height)<12||!Number.isFinite(proposedScale)||proposedScale<0.000001||proposedScale>2000?previous:next}}/>

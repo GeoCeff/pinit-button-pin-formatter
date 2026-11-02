@@ -71,7 +71,7 @@ function register(): void {
     const id=randomUUID();profiles.set(id,bytes);return id
   },true)
   handle('open',async()=>{
-    const result=await dialog.showOpenDialog(window,{title:'Open project.json',properties:['openFile'],filters:[{name:'PinIt project',extensions:['json']}]})
+    const result=await dialog.showOpenDialog(window,{title:'Open project.json',properties:['openFile'],filters:[{name:'dfCuts project',extensions:['json']}]})
     if(result.canceled)return null
     const file=result.filePaths[0];const root=path.dirname(file)
     const project=parseProject(JSON.parse((await boundedRead(file,LIMITS.projectBytes)).toString()))
@@ -97,9 +97,9 @@ function register(): void {
     let root=saveAs ? undefined : locations.get(project.id)
     const creating=!root
     if(!root) {
-      const result=await dialog.showOpenDialog(window,{title:'Choose a parent folder for the new PinIt project',properties:['openDirectory','createDirectory']})
+      const result=await dialog.showOpenDialog(window,{title:'Choose a parent folder for the new dfCuts project',properties:['openDirectory','createDirectory']})
       if(result.canceled)return null
-      root=path.join(result.filePaths[0],`PinIt-${project.id}-${randomUUID().slice(0,8)}`);await fs.mkdir(root)
+      root=path.join(result.filePaths[0],`dfCuts-${project.id}-${randomUUID().slice(0,8)}`);await fs.mkdir(root)
     }
     const realRoot=await fs.realpath(root)
     await fs.mkdir(path.join(realRoot,'assets'),{recursive:true})
@@ -131,7 +131,7 @@ function register(): void {
     const resultDir=await dialog.showOpenDialog(window,{title:'Choose export folder',properties:['openDirectory','createDirectory']})
     if(resultDir.canceled)return null
     const parent=await fs.realpath(resultDir.filePaths[0]);const stage=await fs.mkdtemp(path.join(parent,'.pinit-'))
-    const id=randomUUID();job={id,stage,destination:path.join(parent,`PinIt-export-${new Date().toISOString().replace(/[:.]/g,'-')}-${id.slice(0,6)}`),project,plan:result.plan,files:new Set(),canceled:false,finishing:false,writing:false,bytes:0};return id
+    const id=randomUUID();job={id,stage,destination:path.join(parent,`dfCuts-export-${new Date().toISOString().replace(/[:.]/g,'-')}-${id.slice(0,6)}`),project,plan:result.plan,files:new Set(),canceled:false,finishing:false,writing:false,bytes:0};return id
   },true)
   handle('export-write',async(id:unknown,name:unknown,bytes:unknown)=>{
     const active=job
@@ -184,13 +184,16 @@ function register(): void {
   ipcMain.on('pinit:dirty',(event,value)=>{sender(event);if(typeof value==='boolean')dirty=value})
 }
 
+app.setName('dfCuts')
+// Keep the original settings and Chromium storage when upgrading to dfCuts.
+app.setPath('userData',path.join(app.getPath('appData'),'PinIt'))
 if(!app.isPackaged&&process.env.PINIT_TEST_DATA)app.setPath('userData',path.resolve(process.env.PINIT_TEST_DATA))
 if(!app.requestSingleInstanceLock())app.quit()
 else {
 app.on('second-instance',()=>{if(window){if(window.isMinimized())window.restore();window.focus()}})
 app.whenReady().then(()=>{
   app.setAppUserModelId('app.pinit.desktop')
-  window=new BrowserWindow({width:1500,height:960,minWidth:1080,minHeight:720,title:'PinIt',icon:app.isPackaged?path.join(process.resourcesPath,'icon.png'):path.join(app.getAppPath(),'resources','icon.png'),backgroundColor:'#f1f7f9',webPreferences:{preload:path.join(__dirname,'../preload/index.cjs'),nodeIntegration:false,contextIsolation:true,sandbox:true,webSecurity:true}})
+  window=new BrowserWindow({width:1500,height:960,minWidth:1080,minHeight:720,title:'dfCuts',icon:app.isPackaged?path.join(process.resourcesPath,'icon.png'):path.join(app.getAppPath(),'resources','icon.png'),backgroundColor:'#f7f6f2',webPreferences:{preload:path.join(__dirname,'../preload/index.cjs'),nodeIntegration:false,contextIsolation:true,sandbox:true,webSecurity:true}})
   window.setMenuBarVisibility(false)
   session.defaultSession.setPermissionRequestHandler((_contents,_permission,callback)=>callback(false))
   window.webContents.setWindowOpenHandler(()=>({action:'deny'}))

@@ -1,8 +1,8 @@
-# PinIt - button pin formatter
+# dfCuts - button pin formatter
 
 A desktop app for automatically arranging button-pin designs on printable sheets.
 
-PinIt starts with a real workflow: a friend runs a button-pin business and spends too much time preparing customer artwork and laying out different designs in Canva. The goal is to automate bleed preparation, circular positioning, duplication, and sheet layout, then save a PDF for the operator's existing color-correction and printing workflow.
+dfCuts starts with a real workflow: a friend runs a button-pin business and spends too much time preparing customer artwork and laying out different designs in Canva. The goal is to automate bleed preparation, circular positioning, duplication, and sheet layout, then save a PDF for the operator's existing color-correction and printing workflow.
 
 **Status:** A working offline Electron/React desktop implementation is available. It supports the workflow below, portable project folders, RGB/ICC-converted CMYK PDF, and PNG/JPG sheets. Automated geometry, file-safety and desktop workflow checks are included. Physical printer calibration and clean-machine installer acceptance are still required before production use.
 
@@ -20,15 +20,17 @@ Windows 11 x64 is the desktop target. The operator can:
 
 The initial layout will use one pin template per job and support multiple designs. Mixed pin sizes on one sheet can be considered after the basic workflow is proven.
 
-The workspace is a focused print studio with a persistent artwork rail, a central canvas and a sheet preview. On compact desktop windows the artwork rail becomes a tray below the canvas, preserving room for positioning. **Import artwork** is prominent; selected artwork has a clear border and checkmark, and thumbnails show the whole source. **Manage artwork** opens the full **Library**, where removal asks for confirmation. **Copies** stays beside the artwork name, so quantities can be changed without opening a panel. **Safe**, **Face** and **Fill** provide quick fit choices on roomy desktops; **Adjust artwork** opens fit, position, size, rotation and background controls. Cut and Face are the two default circle guides; Safe is optional and does not change physical geometry or export-guide settings.
+The workspace is a flat, warm-neutral print workbench with an artwork rail, a central canvas and a sheet preview. Custom SVG cut/face geometry connects the app mark, empty state and dimension settings. On compact desktop windows the artwork rail becomes a tray below the canvas, preserving room for positioning. **Import artwork** is prominent; selected artwork has a clear border and checkmark, and thumbnails show the whole source. **Manage artwork** opens the full **Library**, where removal asks for confirmation. **Copies** stays beside the artwork name, so quantities can be changed without opening a panel. **Safe**, **Face** and **Fill** provide quick fit choices on roomy desktops; **Adjust artwork** opens fit, position, size, rotation and background controls. Cut and Face are the two default circle guides; Safe is optional and does not change physical geometry or export-guide settings.
 
-The workspace toolbar switches between **Artwork**, **Sheet** setup and **Library**, replays the **Help** tutorial, or opens **Export**. The three-step tutorial appears on first use; completing or skipping it is remembered on this computer. Arrow keys, Home and End move toolbar focus; Enter or Space activates a tool. Native dialogs isolate background controls and restore focus. Numeric fields describe their units. Pointer magnification stops for keyboard focus and reduced motion. Dialogs and tutorial steps use short transitions; keyboard actions are immediate and reduced motion keeps only an opacity fade. Ordinary success notices dismiss after six seconds and pause while hovered or focused; export destinations and errors stay visible until dismissed. Geist is bundled locally for offline use.
+The document navigation switches between **Artwork**, **Sheet** setup and **Library**, replays the **Help** tutorial, or opens **Export**. The three-step tutorial appears on first use; completing or skipping it is remembered on this computer. Arrow keys, Home and End move toolbar focus; Enter or Space activates a tool. Native dialogs isolate background controls and restore focus. Numeric fields describe their units. A short GSAP underline follows pointer selection; keyboard and reduced-motion navigation update immediately. Dialogs and tutorial steps use short transitions; keyboard actions are immediate and reduced motion keeps only an opacity fade. Ordinary success notices dismiss after six seconds and pause while hovered or focused; export destinations and errors stay visible until dismissed. Geist is bundled locally for offline use.
 
 The sheet preview uses a clear page counter, large totals and readable **Total copies** / **Copies / sheet** labels. **Setup** opens the paper and arrangement settings directly. The sheet limit is reflected in that count. Layout and wrap use two short rows, while gesture instructions live in the optional tutorial rather than persistent footer text. Form controls use at least 14px text, rising to 16px on narrow layouts.
 
-Artwork alignment works directly in the editor. Drag near the middle to snap either axis into place; blue guides appear for the aligned axes while moving or resizing. A centered confirmation with a checkmark sits above the artwork, and an off-center action makes correction available in one click. Pull a round corner handle to resize proportionally around the photo's center. **Center artwork** resets the position while preserving size and rotation. Hold **Alt** during a drag to place artwork freely inside the snap zone. These editing overlays are excluded from exported sheets.
+Artwork alignment works directly in the editor. Click or tap the artwork to show its resize box; click outside it or press **Escape** to hide the box. With the canvas focused, **Enter** or **Space** selects the artwork. Drag near the middle to snap either axis into place; green guides appear for the aligned axes while moving or resizing. A centered confirmation with a checkmark sits above the artwork, and an off-center action makes correction available in one click. Pull a round corner handle to resize proportionally around the photo's center. **Center artwork** resets the position while preserving size and rotation, then hides the resize box. Hold **Alt** during a drag to place artwork freely inside the snap zone. These editing overlays are excluded from exported sheets.
 
 ## Run and build
+
+The application is now named dfCuts. Existing project folders still open normally. The original `app.pinit.desktop` installation identity and `PinIt` settings directory are retained so upgrades keep presets, tutorial preferences and local settings. Internal bridge channels and test environment variables retain their compatibility names. New project and export folders use `dfCuts-`.
 
 Development needs Windows 11 x64, Node.js 24 LTS and npm. The installed application runs offline without Node.js.
 
@@ -38,7 +40,7 @@ powershell -ExecutionPolicy Bypass -File scripts/prepare-resources.ps1
 npm run dev
 ```
 
-The resource script downloads a pinned, SHA-512-checked official Ghostscript 10.08.0 archive and extracts it locally. It does not run an installer or modify the system. The generic CMYK profile, engine and license notices are packaged with PinIt. The Windows installer requests administrator access and installs the included Microsoft Visual C++ redistributable offline; no separate download is needed. Imported ICC profiles must be CMYK output profiles. Source artwork is normalized to oriented sRGB for editing; original bytes are preserved.
+The resource script downloads a pinned, SHA-512-checked official Ghostscript 10.08.0 archive and extracts it locally. It does not run an installer or modify the system. The generic CMYK profile, engine and license notices are packaged with dfCuts. The Windows installer requests administrator access and installs the included Microsoft Visual C++ redistributable offline; no separate download is needed. Imported ICC profiles must be CMYK output profiles. Source artwork is normalized to oriented sRGB for editing; original bytes are preserved.
 
 ```powershell
 npm test              # numeric geometry, validation, orientation, files and output metadata
@@ -64,7 +66,7 @@ PDF memory checks count artwork tiles. PNG/JPG memory checks count the full shee
 - `src/state/`: project reducer; computed sheets are not persisted.
 - `src/render/`: render specification, shared Canvas drawing, worker exports and DPI metadata.
 - `src/ui/`: artwork workspace/tray, first-run tutorial, Konva editor, sheet settings, preview and native dialogs.
-- `src/components/ui/`: the supplied floating dock, adapted to real project tools and accessible motion.
+- `src/ui/WorkbenchNavigation.tsx` and `CutGeometry.tsx`: document navigation and bespoke SVG geometry.
 - `electron/`: isolated named bridge, native dialogs, authorized source registry, portable project storage, staged exports and separate Ghostscript process.
 - `scripts/`: runtime preparation, packaging preflight and real desktop acceptance checks.
 
@@ -72,15 +74,15 @@ See [plan.md](plan.md) for the full design and [AUDIT.md](AUDIT.md) for the impl
 
 ## Component and styling setup
 
-The project already uses TypeScript. Tailwind CSS is integrated into the Electron renderer through `@tailwindcss/vite`; `src/ui/styles.css` is the stylesheet entry. The `@/` alias maps to `src/` in both TypeScript and the renderer configuration. `components.json` records the shadcn component paths, including `@/components/ui`. The dock uses a plain conditional class string.
+The project already uses TypeScript. Tailwind CSS is integrated into the Electron renderer through `@tailwindcss/vite`; `src/ui/styles.css` is the stylesheet entry. The `@/` alias maps to `src/` in both TypeScript and the renderer configuration. `components.json` records the shadcn component paths, including `@/components/ui`.
 
-The component from the pasted instructions lives at `src/components/ui/mac-style-floating-dock.tsx`, imported as `@/components/ui/mac-style-floating-dock`. Keeping reusable controls in that directory makes the supplied import and shadcn's component path agree. Its stable-slot magnification math is retained, with controlled view selection, real actions, GSAP transform setters, keyboard navigation, visible labels, reduced-motion support and effect cleanup. No sample Home, Mail or Profile destinations are added to the app.
+The workbench uses `src/ui/WorkbenchNavigation.tsx` for labeled, keyboard-accessible navigation and `src/ui/CutGeometry.tsx` for cut/face SVGs. Shared controls retain existing validation and unit handling. The redesign adds no runtime dependencies.
 
 `npm ci` installs this setup; `npm run dev` starts the desktop app. To add another shadcn component later, use the npm runner, for example `npx shadcn@latest add button`. The configuration follows the official [Tailwind Vite setup](https://tailwindcss.com/docs/installation/using-vite) and [shadcn Vite setup](https://ui.shadcn.com/docs/installation/vite).
 
 ## Reported production settings
 
-These settings were supplied from the operator's workflow. They have not been independently measured in a generated or printed PinIt file.
+These settings were supplied from the operator's workflow. They have not been independently measured in a generated or printed dfCuts file.
 
 | Pin / inner face diameter | Outer cut diameter | Reported circles per A4 sheet |
 | --- | --- | --- |
@@ -91,9 +93,9 @@ These settings were supplied from the operator's workflow. They have not been in
 
 For the 44 mm pin, the inner circle is the 44 mm front face/fold boundary. The 53 mm outer circle is the cut boundary including the wrap area; the operator confirmed it matches the machine opening. This gives `(53 - 44) / 2 = 4.5 mm` of allowance per side. Other sizes need their own measured outer diameters.
 
-The current Canva intermediate is a 1254 x 1254 px PNG, high quality, transparency off, exporting the current page only. This is an observed workflow setting; PinIt should retain source detail and use millimeters for print geometry rather than require this intermediate export.
+The current Canva intermediate is a 1254 x 1254 px PNG, high quality, transparency off, exporting the current page only. This is an observed workflow setting; dfCuts should retain source detail and use millimeters for print geometry rather than require this intermediate export.
 
-The operator currently uses borderless A4 and manually corrects color before printing. PinIt should save the PDF locally; direct printer control is outside the first version.
+The operator currently uses borderless A4 and manually corrects color before printing. dfCuts should save the PDF locally; direct printer control is outside the first version.
 
 ## Inputs still needed
 
@@ -107,7 +109,7 @@ Print a calibration sheet at actual size (100%), verify any printer-driver scali
 
 ## Scope
 
-The intended workflow is local and offline. PinIt handles preparation and layout; creating or redesigning artwork can stay in Canva or the operator's chosen editor. Manual color correction stays in the existing downstream workflow. Direct Canva integration, direct printing, user accounts, order management, and cloud storage are outside the first version.
+The intended workflow is local and offline. dfCuts handles preparation and layout; creating or redesigning artwork can stay in Canva or the operator's chosen editor. Manual color correction stays in the existing downstream workflow. Direct Canva integration, direct printing, user accounts, order management, and cloud storage are outside the first version.
 
 The implementation uses Electron, TypeScript, electron-vite, React, Konva, pdf-lib, sharp, Vitest and electron-builder, with a committed npm lockfile. The default is the confirmed 44 mm face / 53 mm cut example. Other inner/outer pairs are editable; no unmeasured outer diameters are invented.
 
@@ -119,4 +121,4 @@ Contributions are welcome. While the workflow is being defined, open an issue be
 
 ## License
 
-PinIt source is MIT licensed. See [LICENSE](LICENSE). Bundled dependencies retain their licenses, including the AGPL Ghostscript runtime; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Customer artwork retains its own ownership and licensing.
+dfCuts source is MIT licensed. See [LICENSE](LICENSE). Bundled dependencies retain their licenses, including the AGPL Ghostscript runtime; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Customer artwork retains its own ownership and licensing.

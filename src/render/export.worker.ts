@@ -20,7 +20,7 @@ async function run({ spec, sources }: Start): Promise<void> {
   const { circles, output } = project.settings
   const tiles = new Map<string, ImageBitmap>()
   const pdf = output.format === 'pdf' ? await PDFDocument.create() : undefined
-  pdf?.setTitle(project.name); pdf?.setCreator('PinIt')
+  pdf?.setTitle(project.name); pdf?.setCreator('dfCuts')
   const embedded = new Map<string, Awaited<ReturnType<PDFDocument['embedPng']>>>()
   const designs = project.designs.filter(d => d.quantity > 0)
   const tileSize = Math.max(1, mmToPixels(circles.outer, output.dpi))
