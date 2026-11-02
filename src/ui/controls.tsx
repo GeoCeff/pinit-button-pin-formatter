@@ -1,5 +1,5 @@
 import { useEffect, useId, useRef, type ReactNode } from 'react'
-function useModal() {
+export function useModal() {
   const ref=useRef<HTMLDialogElement>(null)
   useEffect(()=>{
     const previous=document.activeElement as HTMLElement|null
