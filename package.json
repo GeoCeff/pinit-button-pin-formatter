@@ -14,7 +14,8 @@
     "dist": "npm run build && node scripts/check-resources.mjs && electron-builder --win nsis --x64",
     "test:desktop": "node scripts/smoke.mjs",
     "test:dev": "node scripts/dev-check.mjs",
-    "test:alignment": "node scripts/alignment-check.mjs"
+    "test:alignment": "node scripts/alignment-check.mjs",
+    "test:eyedropper": "node scripts/eyedropper-check.mjs"
   },
   "build": {
     "appId": "app.pinit.desktop",
