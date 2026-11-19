@@ -1,0 +1,80 @@
+name: Build & Publish Portable dfCuts.exe
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-exe
+  cancel-in-progress: true
+
+jobs:
+  build-and-publish:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: source/package-lock.json
+
+      - name: Install dependencies
+        working-directory: source
+        run: npm ci
+
+      - name: Prepare offline Ghostscript runtime
+        working-directory: source
+        shell: pwsh
+        run: powershell -ExecutionPolicy Bypass -File .\scripts\prepare-resources.ps1
+
+      - name: Run unit and core geometry tests
+        working-directory: source
+        run: npm test
+
+      - name: Build portable dfCuts.exe
+        working-directory: source
+        env:
+          CSC_IDENTITY_AUTO_DISCOVERY: false
+        run: npm run dist
+
+      - name: Update rolling latest GitHub Release
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          $hash = (Get-FileHash -Path dfCuts.exe -Algorithm SHA256).Hash.ToLower()
+          $sizeMb = [math]::Round((Get-Item dfCuts.exe).Length / 1MB, 2)
+          "$hash  dfCuts.exe" | Out-File -FilePath dfCuts.exe.sha256 -Encoding ascii -NoNewline
+          $version = node -p "require('./source/package.json').version"
+          $date = (Get-Date).ToUniversalTime().ToString('yyyy-MM-dd HH:mm UTC')
+          $notes = @"
+          Automated portable Windows x64 build (no installer required).
+
+          - **Version:** v$version
+          - **Commit:** ``${{ github.sha }}``
+          - **Built:** $date
+          - **Size:** $sizeMb MB
+          - **SHA-256:** ``$hash``
+
+          Download ``dfCuts.exe`` and double-click to run offline.
+          "@
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git tag -f latest "${{ github.sha }}"
+          git push -f origin latest
+          gh release view latest *> $null
+          if ($LASTEXITCODE -eq 0) {
+            gh release edit latest --target main --title "dfCuts Portable (Latest)" --notes "$notes"
+            gh release upload latest dfCuts.exe dfCuts.exe.sha256 --clobber
+          } else {
+            gh release create latest dfCuts.exe dfCuts.exe.sha256 --target main --title "dfCuts Portable (Latest)" --notes "$notes"
+          }

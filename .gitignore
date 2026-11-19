@@ -1,5 +1,8 @@
-# Local business data and generated print jobs; never commit customer artwork.
-/local-data/
+# Local business data, test scratch, and generated print jobs; never commit customer artwork.
+local-data/
+
+# Locally built portable Windows executable (auto-rebuilt and published to GitHub Releases on every push)
+/dfCuts.exe
 
 # Credentials and machine-specific environment values.
 .env
@@ -11,11 +14,10 @@
 Thumbs.db
 Desktop.ini
 
+# Dependencies, build outputs, and locally prepared Ghostscript runtime
 node_modules/
 out/
 release/
 coverage/
-.impeccable/questions/
-.impeccable/review/
-.taste-skill/after/
-resources/ghostscript/
+source/resources/ghostscript/
+source/resources/notices/

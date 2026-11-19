@@ -1,0 +1,109 @@
+{
+  "name": "dfcuts",
+  "version": "1.0.0",
+  "description": "Offline portable Windows app for button-pin artwork batch formatting and print-sheet preparation",
+  "author": "dfCuts contributors",
+  "license": "MIT",
+  "main": "out/main/index.js",
+  "scripts": {
+    "dev": "electron-vite dev",
+    "start": "electron-vite preview",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "build": "npm run typecheck && electron-vite build",
+    "dist": "npm run build && node scripts/check-resources.mjs && electron-builder --win portable --x64 && node scripts/publish-local-exe.mjs",
+    "dist:installer": "npm run build && node scripts/check-resources.mjs && electron-builder --win nsis --x64",
+    "test:desktop": "node scripts/smoke.mjs",
+    "test:dev": "node scripts/dev-check.mjs",
+    "test:alignment": "node scripts/alignment-check.mjs",
+    "test:eyedropper": "node scripts/eyedropper-check.mjs",
+    "test:close": "node scripts/close-check.mjs",
+    "test:color-picker": "node scripts/color-picker-check.mjs",
+    "test:features": "node scripts/features-check.mjs",
+    "test:all": "npm test && npm run build && npm run test:dev && npm run test:desktop && npm run test:alignment && npm run test:eyedropper && npm run test:close && npm run test:color-picker && npm run test:features"
+  },
+  "build": {
+    "appId": "app.pinit.desktop",
+    "productName": "dfCuts",
+    "compression": "maximum",
+    "electronLanguages": [
+      "en-US"
+    ],
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "out/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "resources/ghostscript",
+        "to": "ghostscript",
+        "filter": [
+          "**/*",
+          "!vcredist_x64.exe"
+        ]
+      },
+      {
+        "from": "resources/notices/THIRD_PARTY_NOTICES.md",
+        "to": "THIRD_PARTY_NOTICES.md"
+      },
+      {
+        "from": "resources/notices/LICENSE",
+        "to": "LICENSE"
+      },
+      {
+        "from": "resources/icon.png",
+        "to": "icon.png"
+      }
+    ],
+    "win": {
+      "icon": "resources/icon.ico",
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "artifactName": "dfCuts.exe"
+    },
+    "portable": {
+      "artifactName": "dfCuts.exe"
+    },
+    "nsis": {
+      "include": "resources/installer.nsh",
+      "perMachine": true,
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "license": "resources/notices/LICENSE"
+    }
+  },
+  "dependencies": {
+    "@gsap/react": "^2.1.2",
+    "gsap": "^3.15.0",
+    "konva": "^10.9.0",
+    "pdf-lib": "^1.17.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-konva": "^19.3.2",
+    "sharp": "^0.35.5"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "electron": "^45.0.0",
+    "electron-builder": "^26.18.0",
+    "electron-vite": "^6.0.0",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5",
+    "vitest": "^5.0.5"
+  }
+}
