@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import type { ExportSettings } from '../core/model'
 import { CenterColorField, Check, NumberField, SelectField } from './controls'
 
@@ -14,6 +15,8 @@ export function ExportOptions({
   cmyk: boolean
   lowResCount?: number
 }) {
+  const [customDpi, setCustomDpi] = useState(s.dpi !== 300 && s.dpi !== 600)
+
   return (
     <>
       <SelectField label="File format" value={s.format} onChange={v => onChange({ ...s, format: v as typeof s.format })}>
@@ -51,7 +54,17 @@ export function ExportOptions({
       ) : (
         <p className="hint">Raster exports use RGB with a white sheet background.</p>
       )}
-      <NumberField label="Raster resolution" value={s.dpi} onChange={v => onChange({ ...s, dpi: v })} unit="DPI" min={1} max={2400} integer />
+      <SelectField label="Raster resolution" value={customDpi ? 'custom' : String(s.dpi)} onChange={v => {
+        setCustomDpi(v === 'custom')
+        if (v !== 'custom') onChange({ ...s, dpi: Number(v) })
+      }}>
+        <option value="300">300 DPI (recommended for everyday printing)</option>
+        <option value="600">600 DPI (for fine detail in high-resolution artwork)</option>
+        <option value="custom">Custom DPI</option>
+      </SelectField>
+      {customDpi ? (
+        <NumberField label="Custom DPI" value={s.dpi} onChange={v => onChange({ ...s, dpi: v })} unit="DPI" min={1} max={2400} integer />
+      ) : null}
       {s.format === 'jpg' ? <NumberField label="JPG quality" value={s.quality} onChange={v => onChange({ ...s, quality: v })} unit="%" min={1} max={100} /> : null}
       <h3>Include printed guides</h3>
       <div className="checks">

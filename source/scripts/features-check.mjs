@@ -145,7 +145,8 @@ try {
   // 6. Export individual pin PNGs ('pins' format).
   await page.getByRole('button', { name: 'Export sheets', exact: true }).click()
   await page.getByLabel('File format', { exact: true }).selectOption('pins')
-  await page.getByLabel('Raster resolution', { exact: true }).fill('150')
+  await page.getByLabel('Raster resolution', { exact: true }).selectOption('custom')
+  await page.getByLabel('Custom DPI', { exact: true }).fill('150')
   const exportCenter = page.getByRole('dialog', { name: 'Export sheets' }).getByRole('checkbox', { name: 'Center', exact: true })
   await expect(exportCenter).not.toBeChecked()
   await exportCenter.check()

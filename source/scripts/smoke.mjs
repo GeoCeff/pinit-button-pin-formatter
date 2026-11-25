@@ -139,10 +139,27 @@ try {
   assert.deepEqual(await readFile(path.join(projectFolder,project.assets[0].path)),await readFile(fixture))
   async function exportFormat(format,color='rgb') {
     await page.getByRole('button',{name:'Export sheets',exact:true}).click();await page.getByLabel('File format',{exact:true}).selectOption(format)
-    if(format==='pdf'&&color==='rgb'){await page.getByRole('button',{name:'Close dialog',exact:true}).focus();await page.keyboard.press('Shift+Tab');assert.equal(await page.locator(':focus').innerText(),'Choose folder & export');await page.keyboard.press('Tab');assert.equal(await page.locator(':focus').getAttribute('aria-label'),'Close dialog');await page.keyboard.press('Escape');assert.equal(await page.getByRole('dialog').count(),0);await expect(page.getByRole('button',{name:'Export sheets',exact:true})).toBeFocused();await page.getByRole('button',{name:'Export sheets',exact:true}).click()}
     if(format==='pdf')await page.getByLabel('PDF color',{exact:true}).selectOption(color)
-    if(format==='pdf'&&color==='rgb'){await page.getByLabel('Raster resolution',{exact:true}).fill('');assert.equal(await page.getByLabel('Raster resolution',{exact:true}).getAttribute('aria-invalid'),'true');await page.getByRole('dialog').getByRole('alert').waitFor();assert.ok(await page.getByRole('button',{name:'Choose folder & export'}).isDisabled());await page.screenshot({animations:'disabled',path:path.join(screenshotDir,'invalid-export.png')})}
-    await page.getByLabel('Raster resolution',{exact:true}).fill('150')
+    if(format==='pdf'&&color==='rgb'){await page.getByRole('button',{name:'Close dialog',exact:true}).focus();await page.keyboard.press('Shift+Tab');assert.equal(await page.locator(':focus').innerText(),'Choose folder & export');await page.keyboard.press('Tab');assert.equal(await page.locator(':focus').getAttribute('aria-label'),'Close dialog');await page.keyboard.press('Escape');assert.equal(await page.getByRole('dialog').count(),0);await expect(page.getByRole('button',{name:'Export sheets',exact:true})).toBeFocused();await page.getByRole('button',{name:'Export sheets',exact:true}).click()}
+    const rasterResolution = page.getByLabel('Raster resolution', { exact: true })
+    const customDpi = page.getByLabel('Custom DPI', { exact: true })
+    if (format === 'pdf' && color === 'rgb') {
+      await expect(rasterResolution).toHaveValue('300')
+      await expect(customDpi).toHaveCount(0)
+      await rasterResolution.selectOption('600')
+      await rasterResolution.selectOption('custom')
+      await expect(customDpi).toHaveValue('600')
+      await customDpi.fill('')
+      await expect(customDpi).toHaveAttribute('aria-invalid', 'true')
+      await page.getByRole('dialog').getByRole('alert').waitFor()
+      await expect(page.getByRole('button', { name: 'Choose folder & export' })).toBeDisabled()
+      await page.screenshot({ animations: 'disabled', path: path.join(screenshotDir, 'invalid-export.png') })
+      await rasterResolution.selectOption('300')
+      await expect(customDpi).toHaveCount(0)
+      await expect(page.getByRole('button', { name: 'Choose folder & export' })).toBeEnabled()
+    }
+    await rasterResolution.selectOption('custom')
+    await customDpi.fill('150')
     await page.screenshot({animations:'disabled',path:path.join(screenshotDir,`export-${format}-${color}.png`)})
     const before=new Set(await readdir(root));await choose([root]);await page.getByRole('button',{name:'Choose folder & export'}).click()
     await Promise.race([page.getByRole('status').filter({hasText:'Export saved:'}).waitFor({timeout:120000}),page.getByRole('alert').first().waitFor({timeout:120000}).then(async()=>{throw new Error(await page.getByRole('alert').first().innerText())})])
