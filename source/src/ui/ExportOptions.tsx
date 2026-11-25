@@ -1,5 +1,5 @@
 import type { ExportSettings } from '../core/model'
-import { Check, NumberField, SelectField } from './controls'
+import { CenterColorField, Check, NumberField, SelectField } from './controls'
 
 export function ExportOptions({
   value: s,
@@ -58,10 +58,14 @@ export function ExportOptions({
         <Check label="Cut boundary" checked={s.guides.outer} onChange={v => onChange({ ...s, guides: { ...s.guides, outer: v } })} />
         <Check label="Face / fold guide" checked={s.guides.inner} onChange={v => onChange({ ...s, guides: { ...s.guides, inner: v } })} />
         <Check label="Safe guide" checked={s.guides.safe} onChange={v => onChange({ ...s, guides: { ...s.guides, safe: v } })} />
+        <Check label="Center" checked={!!s.guides.center} onChange={v => onChange({ ...s, guides: { ...s.guides, center: v } })} />
         {s.format !== 'pins' ? (
           <Check label="Cut crosshairs" checked={!!s.guides.crosshairs} onChange={v => onChange({ ...s, guides: { ...s.guides, crosshairs: v } })} />
         ) : null}
       </div>
+      {s.guides.center ? (
+        <CenterColorField value={s.guides.centerColor} onChange={centerColor => onChange({ ...s, guides: { ...s.guides, centerColor } })} />
+      ) : null}
       {s.format !== 'pins' ? (
         <div className="checks">
           <Check label="Print job label in bottom margin" checked={!!s.sheetLabel} onChange={v => onChange({ ...s, sheetLabel: v })} />

@@ -49,7 +49,7 @@ try {
   page.on('pageerror', e => errors.push(e.message))
 
   const tour = page.getByRole('dialog', { name: 'A quick tour of dfCuts', exact: true })
-  if (!(await tour.isVisible())) {
+  if (!(await tour.waitFor({ state: 'visible', timeout: 2000 }).then(() => true, () => false))) {
     await page.getByRole('button', { name: 'Help', exact: true }).click()
   }
   await tour.getByRole('tab', { name: 'Shortcuts & About', exact: true }).click()
@@ -69,6 +69,13 @@ try {
   }, [webpFixture, pngFixture])
   await page.getByRole('button', { name: 'Import artwork', exact: true }).click()
   await page.getByRole('status').filter({ hasText: 'Imported 2 designs.' }).waitFor()
+  const editorCenter = page.getByRole('checkbox', { name: 'Center', exact: true })
+  await expect(editorCenter).toBeChecked()
+  const editorCenterColor = page.getByLabel('Center color', { exact: true })
+  await expect(editorCenterColor).toHaveValue('black')
+  await editorCenterColor.selectOption('blue')
+  await editorCenter.uncheck()
+  await expect(editorCenter).not.toBeChecked()
   console.log('step 1: webp + folder import ok')
 
   // 2. Bleed fit + Flip H + accurate eyedropper sampling on flipped artwork.
@@ -139,6 +146,12 @@ try {
   await page.getByRole('button', { name: 'Export sheets', exact: true }).click()
   await page.getByLabel('File format', { exact: true }).selectOption('pins')
   await page.getByLabel('Raster resolution', { exact: true }).fill('150')
+  const exportCenter = page.getByRole('dialog', { name: 'Export sheets' }).getByRole('checkbox', { name: 'Center', exact: true })
+  await expect(exportCenter).not.toBeChecked()
+  await exportCenter.check()
+  const exportCenterColor = page.getByRole('dialog', { name: 'Export sheets' }).getByLabel('Center color', { exact: true })
+  await expect(exportCenterColor).toHaveValue('blue')
+  await exportCenterColor.selectOption('red')
   await app.evaluate(({ dialog }, dir) => {
     dialog.showOpenDialog = async () => ({ canceled: false, filePaths: [dir] })
   }, exportParent)
@@ -155,6 +168,10 @@ try {
   assert.equal(pinMeta.width, Math.round(53 * 150 / 25.4))
   assert.equal(pinMeta.height, Math.round(53 * 150 / 25.4))
   assert.equal(pinMeta.density, 150)
+  const centerPixel = await sharp(path.join(exportParent, pinExportDir, pinFiles[0]))
+    .extract({ left: Math.floor(pinMeta.width / 2), top: 6, width: 1, height: 1 })
+    .raw().toBuffer()
+  assert.ok(centerPixel[0] > 150 && centerPixel[1] < 85 && centerPixel[2] < 85, 'pin PNG includes the red Center mark')
   console.log('step 6: individual pin PNG export ok')
 
   // 7. Export Calibration Sheet PDF from Sheet Setup.

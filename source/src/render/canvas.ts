@@ -1,4 +1,4 @@
-import type { CircleSettings, Design, ExportGuides } from '../core/model'
+import { centerGuide, centerGuideCssColor, type CircleSettings, type Design, type ExportGuides } from '../core/model'
 
 type Context = CanvasRenderingContext2D | OffscreenCanvasRenderingContext2D
 
@@ -32,7 +32,17 @@ export function drawGuides(ctx: Context, circles: CircleSettings, guides: Export
     ctx.arc(0, 0, radius, 0, Math.PI * 2)
     ctx.stroke()
   }
+  if (guides.center) {
+    const { top, bottom } = centerGuide(circles)
+    ctx.strokeStyle = centerGuideCssColor(guides.centerColor)
+    ctx.setLineDash([])
+    ctx.beginPath()
+    ctx.moveTo(0, top)
+    ctx.lineTo(0, bottom)
+    ctx.stroke()
+  }
   if (guides.crosshairs) {
+    ctx.strokeStyle = '#333333'
     const r = circles.outer / 2
     const start = r + 0.25
     const end = r + 1.5

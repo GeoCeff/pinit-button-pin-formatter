@@ -1,9 +1,24 @@
 export type FitMode = 'safe' | 'contain' | 'fill' | 'bleed' | 'manual'
 export type Arrangement = 'auto' | 'grid' | 'staggered'
 export interface CircleSettings { inner: number; outer: number; safeInset: number }
+export function centerGuide(circles: CircleSettings) {
+  const radius = circles.outer / 2
+  const foldWidth = (circles.outer - circles.inner) / 2
+  const length = Math.min(3, radius * 0.12, Math.max(1, foldWidth * 0.65))
+  return { top: -radius, bottom: -radius + length }
+}
 export interface PaperSettings { width: number; height: number; orientation: 'auto' | 'portrait' | 'landscape'; margins: { top: number; right: number; bottom: number; left: number }; description: string }
 export interface LayoutSettings { arrangement: Arrangement; gap: number; mixing: 'mixed' | 'separate'; perSheet: number | null }
-export interface ExportGuides { inner: boolean; outer: boolean; safe: boolean; crosshairs?: boolean }
+export const CENTER_GUIDE_COLORS = {
+  black: [0, 0, 0],
+  red: [235, 32, 48],
+  blue: [36, 104, 255],
+} as const
+export type CenterGuideColor = keyof typeof CENTER_GUIDE_COLORS
+export function centerGuideCssColor(color: CenterGuideColor = 'black'): string {
+  return `rgb(${CENTER_GUIDE_COLORS[color].join(', ')})`
+}
+export interface ExportGuides { inner: boolean; outer: boolean; safe: boolean; center?: boolean; centerColor?: CenterGuideColor; crosshairs?: boolean }
 export interface ExportSettings { format: 'pdf' | 'png' | 'jpg' | 'pins'; color: 'cmyk' | 'rgb'; dpi: number; quality: number; guides: ExportGuides; profile: string | null; intent: 0 | 1 | 2 | 3; sheetLabel?: boolean }
 export interface Settings { circles: CircleSettings; paper: PaperSettings; layout: LayoutSettings; output: ExportSettings }
 export interface Asset { id: string; path: string; kind: 'png' | 'jpg' | 'webp'; width: number; height: number }
@@ -16,7 +31,7 @@ export const defaultSettings = (): Settings => ({
   circles: { inner: 44, outer: 53, safeInset: 2 },
   paper: { width: 210, height: 297, orientation: 'auto', margins: { top: 0, right: 0, bottom: 0, left: 0 }, description: '' },
   layout: { arrangement: 'auto', gap: 2, mixing: 'mixed', perSheet: null },
-  output: { format: 'pdf', color: 'cmyk', dpi: 300, quality: 95, guides: { inner: false, outer: false, safe: false, crosshairs: false }, profile: null, intent: 0, sheetLabel: false }
+  output: { format: 'pdf', color: 'cmyk', dpi: 300, quality: 95, guides: { inner: false, outer: false, safe: false, center: false, crosshairs: false }, profile: null, intent: 0, sheetLabel: false }
 })
 export const STARTER_PRESETS: Preset[] = [
   { name: '44 mm face / 53 mm cut · A4', settings: defaultSettings() },

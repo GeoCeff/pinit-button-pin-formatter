@@ -1,4 +1,14 @@
 import { useEffect, useId, useRef, type ReactNode } from 'react'
+import type { CenterGuideColor } from '../core/model'
+export function CenterColorField({ value = 'black', onChange }: { value?: CenterGuideColor; onChange: (color: CenterGuideColor) => void }) {
+  return (
+    <SelectField label="Center color" value={value} onChange={color => onChange(color as CenterGuideColor)}>
+      <option value="black">Black</option>
+      <option value="red">Red</option>
+      <option value="blue">Blue</option>
+    </SelectField>
+  )
+}
 export function useModal() {
   const ref=useRef<HTMLDialogElement>(null)
   useEffect(()=>{

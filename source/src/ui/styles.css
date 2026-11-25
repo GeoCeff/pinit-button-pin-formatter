@@ -175,6 +175,8 @@ select { cursor:pointer; padding-right:24px }
 .editor-footer { display:flex; align-items:center; justify-content:space-between; flex:none; gap:12px; min-height:44px; padding:7px 16px; border-top:1px solid var(--line); background:var(--surface) }
 .guide-legend { display:flex; align-items:center; flex-wrap:wrap; gap:12px; color:var(--muted); font-size:.75rem; white-space:nowrap }
 .guide-legend>span { font-weight:550; color:var(--ink) }
+.guide-legend .field { flex-direction:row; align-items:center; font-size:inherit }
+.guide-legend select { width:auto; min-height:28px; padding-block:3px; font-size:inherit }
 .check { display:inline-flex; align-items:center; gap:6px; min-height:28px; font-size:.75rem; line-height:1.4; cursor:pointer }
 .editor-footer>p { color:var(--muted); font-size:.875rem; text-align:end }
 .empty-editor { display:grid; place-items:center; flex:1; min-width:0; padding:28px 12px }

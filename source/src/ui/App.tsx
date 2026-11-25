@@ -5,7 +5,7 @@ import { validateProject } from '../core/validation'
 import { buildRenderSpec, checkExportSize, type RenderSpec } from '../render/spec'
 import { createHistory, historyReducer } from '../state/project'
 import type { AppInfo, RecentProject } from '../bridge'
-import { Check, CloseConfirmation, Confirm, Dialog, NumberField } from './controls'
+import { CenterColorField, Check, CloseConfirmation, Confirm, Dialog, NumberField } from './controls'
 import { Icon } from './Icon'
 import { WorkbenchNavigation, type WorkbenchItem } from './WorkbenchNavigation'
 import { CutMark, CutGeometry } from './CutGeometry'
@@ -43,7 +43,7 @@ export function App() {
   const [picking, setPicking] = useState(false)
   const [workspaceView, setWorkspaceView] = useState('artwork')
   const [adjustmentsOpen, setAdjustmentsOpen] = useState(false)
-  const [guides, setGuides] = useState({ inner: true, outer: true, safe: false })
+  const [guides, setGuides] = useState({ inner: true, outer: true, safe: false, center: true })
   const [tutorialOpen, setTutorialOpen] = useState(() => {
     try { return localStorage.getItem('pinit.quick-start.v1') !== 'seen' } catch { return true }
   })
@@ -707,7 +707,7 @@ export function App() {
                       image={images[design.assetId]}
                       circles={spec.project.settings.circles}
                       onChange={updateDesign}
-                      guideVisibility={guides}
+                      guideVisibility={{ ...guides, centerColor: project.settings.output.guides.centerColor }}
                       picking={picking}
                       onPick={pickColor}
                       onCancelPick={cancelPick}
@@ -760,6 +760,13 @@ export function App() {
                 <Check label="Cut" checked={guides.outer} onChange={value => setGuides({ ...guides, outer: value })} />
                 <Check label="Face" checked={guides.inner} onChange={value => setGuides({ ...guides, inner: value })} />
                 <Check label="Safe" checked={guides.safe} onChange={value => setGuides({ ...guides, safe: value })} />
+                <Check label="Center" checked={guides.center} onChange={value => setGuides({ ...guides, center: value })} />
+                {guides.center ? (
+                  <CenterColorField value={project.settings.output.guides.centerColor} onChange={centerColor => {
+                    const output = project.settings.output
+                    setOutput({ ...output, guides: { ...output.guides, centerColor } })
+                  }} />
+                ) : null}
               </div>
               {picking ? <p role="status">Click artwork to pick a color.</p> : null}
             </footer>

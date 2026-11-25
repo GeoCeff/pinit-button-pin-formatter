@@ -1,4 +1,4 @@
-import { LIMITS, type Project } from './model'
+import { CENTER_GUIDE_COLORS, LIMITS, type Project } from './model'
 
 const id = /^[a-zA-Z0-9-]{1,80}$/
 const validId = (x: unknown): x is string => typeof x === 'string' && id.test(x)
@@ -20,7 +20,7 @@ export function validateProject(value: unknown): string[] {
   if (!object(c) || !number(c.inner, 0.1) || !number(c.outer, 0.1) || c.outer < c.inner || !number(c.safeInset, 0) || c.safeInset >= c.inner / 2) issues.push('Circles: enter positive diameters, cut ≥ face, and a safe inset smaller than the face radius.')
   if (!object(paper) || !number(paper.width, 1) || !number(paper.height, 1) || !oneOf(paper.orientation, ['auto', 'portrait', 'landscape']) || !text(paper.description) || !object(paper.margins) || !['top','right','bottom','left'].every(k => number(paper.margins[k], 0))) issues.push('Paper: enter finite dimensions from 1–2000 mm and nonnegative margins.')
   if (!object(l) || !oneOf(l.arrangement, ['auto','grid','staggered']) || !number(l.gap, 0) || !oneOf(l.mixing, ['mixed','separate']) || !(l.perSheet === null || integer(l.perSheet, 1, LIMITS.slots))) issues.push('Layout: use a nonnegative gap and a whole-number sheet limit from 1–10,000.')
-  if (!object(e) || !oneOf(e.format, ['pdf','png','jpg','pins']) || !oneOf(e.color, ['rgb','cmyk']) || !integer(e.dpi, 1, 2400) || !number(e.quality, 1, 100) || !object(e.guides) || !['inner','outer','safe'].every(k => typeof e.guides[k] === 'boolean') || !optionalBool(e.guides.crosshairs) || !optionalBool(e.sheetLabel) || !(e.profile === null || (typeof e.profile === 'string' && id.test(e.profile))) || !oneOf(e.intent, [0,1,2,3])) issues.push('Export: check format, color, profile, whole-number DPI (1–2400), quality (1–100) and guides.')
+  if (!object(e) || !oneOf(e.format, ['pdf','png','jpg','pins']) || !oneOf(e.color, ['rgb','cmyk']) || !integer(e.dpi, 1, 2400) || !number(e.quality, 1, 100) || !object(e.guides) || !['inner','outer','safe'].every(k => typeof e.guides[k] === 'boolean') || !optionalBool(e.guides.center) || (e.guides.centerColor !== undefined && !oneOf(e.guides.centerColor, Object.keys(CENTER_GUIDE_COLORS))) || !optionalBool(e.guides.crosshairs) || !optionalBool(e.sheetLabel) || !(e.profile === null || (typeof e.profile === 'string' && id.test(e.profile))) || !oneOf(e.intent, [0,1,2,3])) issues.push('Export: check format, color, profile, whole-number DPI (1–2400), quality (1–100) and guides.')
   if (!Array.isArray(p.assets) || p.assets.length > LIMITS.assets || !Array.isArray(p.designs) || p.designs.length > LIMITS.designs) return [...issues, 'A project supports at most 500 assets and 500 designs.']
   const assets = new Set<string>()
   for (const a of p.assets) {

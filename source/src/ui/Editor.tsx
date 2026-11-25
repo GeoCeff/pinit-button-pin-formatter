@@ -1,7 +1,7 @@
 import { memo, useEffect, useId, useMemo, useRef, useState } from 'react'
 import { Stage, Layer, Group, Circle, Line, Image as KonvaImage, Transformer } from 'react-konva'
 import type Konva from 'konva'
-import type { Asset, CircleSettings, Design } from '../core/model'
+import { centerGuide, centerGuideCssColor, type Asset, type CircleSettings, type Design, type ExportGuides } from '../core/model'
 import { centerAlignment, snapToCenter } from '../core/alignment'
 import { Icon } from './Icon'
 
@@ -51,7 +51,7 @@ export const Editor = memo(function Editor({
   image?: HTMLImageElement
   circles: CircleSettings
   onChange: (patch: Partial<Design>, coalesceKey?: string) => void
-  guideVisibility: { inner: boolean; outer: boolean; safe: boolean }
+  guideVisibility: ExportGuides
   picking: boolean
   onPick: (color: string) => void
   onCancelPick: () => void
@@ -118,6 +118,7 @@ export const Editor = memo(function Editor({
   const aligned = centerAlignment(t)
   const status = aligned.horizontal && aligned.vertical ? 'Centered' : aligned.horizontal ? 'Centered horizontally' : aligned.vertical ? 'Centered vertically' : 'Off center'
   const guideExtent = circles.outer / 2 + 8 / scale
+  const centerMark = centerGuide(circles)
 
   // Pre-flip on an offscreen canvas only when mirrored so Konva Transformer always keeps positive scaleX/Y.
   const renderedImage = useMemo<CanvasImageSource | undefined>(() => {
@@ -330,6 +331,9 @@ export const Editor = memo(function Editor({
             {guideVisibility.outer ? <Circle radius={circles.outer / 2} stroke="#55554e" strokeWidth={0.25} listening={false} /> : null}
             {guideVisibility.inner ? <Circle radius={circles.inner / 2} stroke="#78766d" strokeWidth={0.18} dash={[1, 0.7]} listening={false} /> : null}
             {guideVisibility.safe ? <Circle radius={circles.inner / 2 - circles.safeInset} stroke="#55554e" strokeWidth={0.15} dash={[0.4, 0.6]} listening={false} /> : null}
+            {guideVisibility.center ? (
+              <Line points={[0, centerMark.top, 0, centerMark.bottom]} stroke={centerGuideCssColor(guideVisibility.centerColor)} strokeWidth={0.25} listening={false} />
+            ) : null}
             <Transformer
               ref={transformer}
               visible={selected && !!image && !picking}

@@ -1,5 +1,5 @@
 import { PDFDocument, StandardFonts, rgb } from 'pdf-lib'
-import { mmToPixels, mmToPt, pinExportFilename } from '../core/model'
+import { CENTER_GUIDE_COLORS, centerGuide, mmToPixels, mmToPt, pinExportFilename } from '../core/model'
 import { checkExportSize, type RenderSpec } from './spec'
 import { drawArtwork, drawGuides, drawSheetLabel } from './canvas'
 import { setJpgDensity, setPngDensity } from './density'
@@ -105,6 +105,18 @@ async function run({ spec, sources }: Start): Promise<void> {
               borderDashArray: dashed ? [mmToPt(0.8), mmToPt(0.6)] : undefined,
             })
           }
+        }
+        if (output.guides.center) {
+          const { top, bottom } = centerGuide(circles)
+          const [red, green, blue] = CENTER_GUIDE_COLORS[output.guides.centerColor ?? 'black']
+          const x = mmToPt(slot.x)
+          const y = plan.height - slot.y
+          page.drawLine({
+            start: { x, y: mmToPt(y - top) },
+            end: { x, y: mmToPt(y - bottom) },
+            thickness: mmToPt(0.12),
+            color: rgb(red / 255, green / 255, blue / 255),
+          })
         }
         if (output.guides.crosshairs) {
           const r = circles.outer / 2
